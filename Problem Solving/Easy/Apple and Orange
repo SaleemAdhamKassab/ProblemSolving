@@ -1,0 +1,17 @@
+public static void countApplesAndOranges(int s, int t, int a, int b, List<int> apples, List<int> oranges)
+    {
+        int appleCount=0, orangeCount=0;
+        
+        foreach(int i in apples) 
+        {
+            if((i+a>=s) && (i+a<=t)) appleCount++;
+        }
+        
+        foreach(int i in oranges) 
+        {
+            if((i+b>=s) && (i+b<=t)) orangeCount++;
+        }
+        
+        Console.WriteLine(appleCount);
+        Console.WriteLine(orangeCount);
+    }
