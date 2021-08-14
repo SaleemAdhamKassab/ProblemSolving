@@ -1,0 +1,14 @@
+  public static string angryProfessor(int k, List<int> a)
+        {
+            int counter = 0;
+            foreach(int i in a)
+            {
+                if (i <=0 )
+                {
+                    counter++;
+                }
+            }
+
+            return counter >= k ? "NO" : "YES";
+
+        }
