@@ -1,0 +1,13 @@
+public static int viralAdvertising(int n)
+        {
+            int like = 2,
+                result = 0;
+
+            for(int i = 2; i <= n; i++)
+            {
+                like = (like * 3) / 2;
+                result += like;
+            }
+
+            return result+2;
+        }
