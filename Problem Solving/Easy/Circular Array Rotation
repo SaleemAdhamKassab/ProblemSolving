@@ -1,0 +1,17 @@
+ public static List<int> circularArrayRotation(List<int> a, int k, List<int> queries)
+        {
+            int[] temp = new int[a.Count];
+            List<int> final = new List<int>();
+
+            for (int i = 0; i < a.Count; i++)
+            {
+                temp[(i + k) % a.Count] = a[i];
+            }
+
+            for (int i = 0; i < queries.Count; i++)
+            {
+                final.Add(temp[queries[i]]);
+            }
+
+            return final;
+        }
