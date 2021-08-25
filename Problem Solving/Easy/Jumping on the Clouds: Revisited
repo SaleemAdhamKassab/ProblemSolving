@@ -1,0 +1,15 @@
+static int jumpingOnClouds(int[] c, int k)
+        {
+            int energy = 100;
+            int i = 0;
+
+            do
+            {
+                i = (i + k) % c.Length;
+                energy--;
+                if (c[i] == 1) energy -= 2;
+
+            } while (i != 0);
+
+            return energy;
+        }
