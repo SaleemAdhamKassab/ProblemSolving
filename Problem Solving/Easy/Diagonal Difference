@@ -1,0 +1,17 @@
+public static int diagonalDifference(List<List<int>> arr)
+    {
+        int j =arr.Count;
+            int l = 0,
+                r = 0;
+
+            for (int i = 0; i < arr.Count ; i++)
+            {
+                j--;
+                l += arr[i][i];
+                r += arr[i][j];
+
+            }
+            
+            return Math.Abs(r-l);
+
+    }
