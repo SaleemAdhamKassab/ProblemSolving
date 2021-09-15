@@ -1,0 +1,12 @@
+public static int marsExploration(string s)
+    {
+         int counter = 0;
+        for(int i=0;i<s.Length;i+=3)
+        {
+            if(s[i]!='S') counter++;
+            if(s[i+1]!='O') counter++;
+            if(s[i+2]!='S') counter++;
+        }
+        return counter;
+
+    }
