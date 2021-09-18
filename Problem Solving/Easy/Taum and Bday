@@ -1,0 +1,15 @@
+   public static long taumBday(int b, int w, int bc, int wc, int z)
+        {
+            long bc1 = bc;
+            long wc1 = wc;
+            if (bc > wc && wc + z < bc)
+            {
+                bc1 = wc + z;
+            }
+            else if (wc > bc && bc + z < wc)
+            {
+                wc1 = bc + z;
+            }
+
+            return b * bc1 + w * wc1;
+        }
