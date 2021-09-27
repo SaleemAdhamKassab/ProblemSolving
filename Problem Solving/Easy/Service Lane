@@ -1,0 +1,5 @@
+  // Solved by Python3
+  
+  for case in cases:
+        yield min(width[case[0]:case[1]+1])
+        
