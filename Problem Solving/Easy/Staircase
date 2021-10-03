@@ -1,0 +1,14 @@
+ public static void staircase(int n)
+    {
+         for(int i=n;i>0; i--) //lines
+            {
+                for(int j=1; j<=n; j++) //print
+                {
+                    if(j<i) Console.Write(' ');
+                    else Console.Write('#');
+
+                }
+                Console.WriteLine(' ');
+            }
+
+    }
