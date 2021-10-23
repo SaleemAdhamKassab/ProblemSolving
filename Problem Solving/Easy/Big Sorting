@@ -1,0 +1,5 @@
+Python3
+=======
+unsorted.sort()
+unsorted.sort(key=len)
+return unsorted
