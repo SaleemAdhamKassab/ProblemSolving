@@ -1,0 +1,45 @@
+function funnyString(s: string): string {
+
+    let arr1 = absoluteDifferences(s)
+    let arr2 = absoluteDifferences(reverseString(s))
+
+    if (isSimilarDifferances(arr1, arr2)) return 'Funny'
+
+    return 'Not Funny'
+}
+
+//1) get absolute differances for any string
+function absoluteDifferences(arr: string): number[] {
+    let result: number[] = [],
+        number1: number, number2;
+
+    for (let i = 0; i < arr.length - 1; i++) {
+        number1 = arr[i].charCodeAt(0);
+        number2 = arr[i + 1].charCodeAt(0);
+
+        result.push(Math.abs(number1 - number2))
+    }
+
+    return result
+}
+
+//2) reverse any string
+function reverseString(s: string): string {
+    let result: string = ''
+
+    for (let i = s.length - 1; i >= 0; i--) {
+        result += s[i]
+    }
+    return result
+}
+
+//3) check if the 2 number arrays is the similar
+function isSimilarDifferances(arr1: number[], arr2: number[]): boolean {
+
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] != arr2[i]) {
+            return false
+        }
+    }
+    return true
+}
