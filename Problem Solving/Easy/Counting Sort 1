@@ -1,0 +1,21 @@
+function countingSort(arr: number[]): number[] {
+    let result: number[] = [],
+        numberCount = 0
+
+    for (let i = 0; i < 100; i++) {
+        if (arr.indexOf(i) !== -1) {
+            numberCount = getNumberOccurrence(arr, i)
+            result.push(+numberCount)
+        }
+        else {
+            result.push(0)
+        }
+    }
+    return result
+}
+
+function getNumberOccurrence(array: number[], value: number) {
+    var count = 0;
+    array.forEach((v) => (v === value && count++));
+    return count;
+}
