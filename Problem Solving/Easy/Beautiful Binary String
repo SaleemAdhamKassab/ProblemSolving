@@ -1,0 +1,3 @@
+function beautifulBinaryString(b: string): number {
+    return (b.match(new RegExp("010", "g")) || []).length
+}
