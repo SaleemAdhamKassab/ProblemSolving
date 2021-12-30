@@ -1,0 +1,17 @@
+function closestNumbers(arr: number[]): number[] {
+    arr.sort((a, b) => a - b)
+    let ans = [],
+        m = 200000
+    for (let i = 0; i < arr.length - 1; i++) {
+        m = Math.abs(Math.min(arr[i + 1] - arr[i], m))
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+        if (Math.abs(arr[i + 1] - arr[i]) == m) {
+            ans.push(arr[i])
+            ans.push(arr[i + 1])
+        }
+    }
+
+    return ans
+}
