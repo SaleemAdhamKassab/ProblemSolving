@@ -1,0 +1,41 @@
+function palindromeIndex(s: string): number {
+    let temp = '',
+        j = s.length - 1
+
+    if (isPlaindrome(s)) return -1
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] != s[j]) {
+            temp = s.slice(0, i) + s.slice(i + 1);
+            if (isPlaindrome(temp))
+                return i
+        }
+        j--
+    }
+
+    return -1
+}
+
+function isPlaindrome(s: string): boolean {
+    let isPlaind = true,
+        r = Math.floor(s.length / 2),
+        l = Math.floor(s.length / 2);
+
+    for (let i = Math.floor(s.length / 2); i < s.length; i++) {
+        if (s.length % 2 != 0) {
+            r++
+            l--
+        }
+        else {
+            r = i
+            l--
+        }
+
+        if (s[r] != s[l]) {
+            isPlaind = false
+            break
+        }
+    }
+
+    return isPlaind
+}
