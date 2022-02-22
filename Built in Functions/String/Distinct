@@ -3,11 +3,11 @@ public static string distinct(string str)
             string sortedStr = String.Concat(str.OrderBy(c => c)),
                 distinct = sortedStr[0].ToString();
 
-                for (int i = 1; i < sortedStr.Length - 1; i++)
-                {
-                    if (sortedStr[i] != sortedStr[i + 1])
-                        distinct += sortedStr[i + 1];
-                }
-            
+            for (int i = 0; i < sortedStr.Length-1; i++)
+            {
+                if (sortedStr[i] != sortedStr[i + 1])
+                    distinct += sortedStr[i+1];
+            }
+
             return distinct;
         }
