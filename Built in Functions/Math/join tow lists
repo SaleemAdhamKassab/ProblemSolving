@@ -1,0 +1,16 @@
+ public static List<int> joinLists(List<int> ls1, List<int> lst2)
+        {
+            List<int> result = new List<int>();
+            
+            for(int i=0; i < ls1.Count; i++)
+            {
+                result.Add(ls1[i]);
+            }
+
+            for (int i = 0; i < lst2.Count; i++)
+            {
+                result.Add(lst2[i]);
+            }
+
+            return result;
+        }
