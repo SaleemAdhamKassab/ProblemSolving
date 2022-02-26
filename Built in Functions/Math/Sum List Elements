@@ -1,0 +1,9 @@
+
+        public static int sumListElements(List<int> lst)
+        {
+            int sum = 0;
+            for (int i = 0; i < lst.Count; i++)
+                sum += lst[i];
+
+            return sum;
+        }
