@@ -1,0 +1,15 @@
+static int stringLength(string str)
+        {
+            int i = 0;
+
+            try
+            {
+                while ((int)str[i] > 0)
+                    i++;
+            }
+            catch
+            {
+                return i;
+            }
+            return -1;
+        }
