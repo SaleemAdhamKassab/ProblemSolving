@@ -1,23 +1,15 @@
-
-        public static string balancedSums(List<int> arr)
+public static string balancedSums(List<int> arr)
         {
-            int sum = sumListElements(arr);
-            int left = 0;
+            int left = 0,
+            sum = sumListElements(arr);
 
-            foreach (int fu in arr)
+            for (int i = 0; i < arr.Count; i++)
             {
-                if (2 * left == sum - fu)
-                {
-                    return "YES";
-                }
-                else
-                {
-                    left += fu;
-                }
+                if (sum - arr[i] / 2 == left) return "YES";
+                else left += arr[i];
             }
             return "NO";
         }
-
         public static int sumListElements(List<int> lst)
         {
             int sum = 0;
