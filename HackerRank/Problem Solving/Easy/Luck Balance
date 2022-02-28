@@ -1,0 +1,30 @@
+public static int luckBalance(int k, List<List<int>> contests)
+        {
+            int totalLuckBalance = 0;
+            int impContestCount = 0;
+            List<int> tempList = new List<int>();
+
+            for (int i = 0; i < contests.Count; i++)
+            {
+                if (contests[i][1] == 0)
+                    totalLuckBalance += contests[i][0];
+                else
+                {
+                    impContestCount++;
+                    tempList.Add(contests[i][0]);
+                    totalLuckBalance += contests[i][0];
+                }
+            }
+
+            if (impContestCount > k)
+            {
+                tempList.Sort();
+                int n = impContestCount - k;
+                for (int j = 0; j < n; j++)
+                {
+                    totalLuckBalance -= 2 * tempList[j];
+                }
+            }
+
+            return totalLuckBalance;
+        }
