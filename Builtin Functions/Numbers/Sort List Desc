@@ -1,0 +1,17 @@
+static List<int> sortDesc(List<int> lst)
+        {
+            int temp = 0;
+            for (int i = 0; i < lst.Count - 1; i++)
+            {
+                for (int j = i + 1; j < lst.Count; j++)
+                {
+                    if (lst[i] < lst[j])
+                    {
+                        temp = lst[i];
+                        lst[i] = lst[j];
+                        lst[j] = temp;
+                    }
+                }
+            }
+            return lst;
+        }
