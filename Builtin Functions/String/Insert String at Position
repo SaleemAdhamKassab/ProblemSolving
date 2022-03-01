@@ -1,0 +1,21 @@
+static string insertStringAtPosition(string str, int position, string character)
+        {
+            string result = "";
+            bool flag = true;
+
+            if (position <= 1) return character + str;
+            if (position > str.Length) return str + character;
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (i == position - 1 && flag)
+                {
+                    result += character;
+                    flag = false;
+                    i--;
+                }
+                else
+                    result += str[i];
+            }
+            return result;
+        }
