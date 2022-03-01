@@ -1,0 +1,36 @@
+public static int beautifulPairs(List<int> A, List<int> B)
+        {
+            int counter = 0;
+
+            for (int i = 0; i < A.Count; i++)
+            {
+                for (int j = 0; j < B.Count; j++)
+                {
+                    if (A[i] == B[j])
+                    {
+                        B = removeFirstOccour(B, A[i]);
+                        counter++;
+                        break;
+                    }
+                }
+            }
+
+            return counter < A.Count ? counter + 1 : counter - 1;
+        }
+
+public static List<int> removeFirstOccour(List<int> lst, int number)
+        {
+            List<int> result = new List<int>();
+            bool flag = false;
+
+            for (int i = 0; i < lst.Count; i++)
+            {
+                if (lst[i] == number && !flag)
+                {
+                    flag = true;
+                    continue;
+                }
+                result.Add(lst[i]);
+            }
+            return result;
+        }
