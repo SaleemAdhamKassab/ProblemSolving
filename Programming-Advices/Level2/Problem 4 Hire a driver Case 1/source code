@@ -1,10 +1,9 @@
  static void Main(string[] args)
         {
-            Console.Write("enter your age: ");
-            byte age = byte.Parse(Console.ReadLine());
-            Console.Write("do you have license drive? press yes or no: ");
-            string licenseDrive = Console.ReadLine();
+            System.Console.WriteLine(isHired(15, false) ? "Hired" : "Rejected");
+        }
 
-            if (age > 21 && licenseDrive == "yes") Console.WriteLine("Hired");
-            else Console.WriteLine("Rejected");
+static bool isHired(int age, bool hasCertificate)
+        {
+            return age > 21 && hasCertificate ? true : false;
         }
