@@ -1,12 +1,9 @@
  static void Main(string[] args)
         {
-            Console.Write("enter your age: ");
-            byte age = byte.Parse(Console.ReadLine());
-            Console.Write("do you have license drive? press yes or no: ");
-            string licenseDrive = Console.ReadLine();
-            Console.Write("do you have a Recommendation? press yes or no: ");
-            string recommendation = Console.ReadLine();
-
-            if ((age > 21 && licenseDrive == "yes") || recommendation == "yes") Console.WriteLine("Hired");
-            else Console.WriteLine("Rejected");
+            System.Console.WriteLine(isHired(15, false, true) ? "Hired" : "Rejected");
+        }
+        
+static bool isHired(int age, bool hasCertificate, bool hasRecommendation)
+        {
+            return (age > 21 && hasCertificate) || hasRecommendation ? true : false;
         }
