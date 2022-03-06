@@ -1,0 +1,4 @@
+static string fullName(string firstName, string lastName)
+        {
+            return firstName + " " + lastName;
+        }
