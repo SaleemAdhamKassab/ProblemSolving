@@ -1,0 +1,25 @@
+ static void Main(string[] args)
+        {
+            Console.Write("Enter a: ");
+            int a = int.Parse(Console.ReadLine());
+            Console.Write("Enter b: ");
+            int b = int.Parse(Console.ReadLine());
+            Console.Write("Enter c: ");
+            int c = int.Parse(Console.ReadLine());
+
+            System.Console.WriteLine(maxNumber(a, b, c));
+        }
+
+static int maxNumber(int a, int b, int c)
+        {
+            if (a > b)
+            {
+                if (a > c) return a;
+                else return c;
+            }
+            else
+            {
+                if (b > c) return c;
+                else return c;
+            }
+        }
