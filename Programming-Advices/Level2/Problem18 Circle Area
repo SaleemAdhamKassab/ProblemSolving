@@ -1,0 +1,7 @@
+static void Main(string[] args)
+        {
+            Console.Write("Enter number1: ");
+            double number1 = double.Parse(Console.ReadLine());
+
+            Console.WriteLine(3.14 * number1 * number1);
+        }
