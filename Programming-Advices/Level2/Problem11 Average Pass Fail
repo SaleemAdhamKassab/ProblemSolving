@@ -1,0 +1,13 @@
+static void Main(string[] args)
+        {
+            Console.Write("Enter mark1: ");
+            decimal mark1 = decimal.Parse(Console.ReadLine());
+            Console.Write("Enter mark2: ");
+            decimal mark2 = decimal.Parse(Console.ReadLine());
+            Console.Write("Enter mark3: ");
+            decimal mark3 = decimal.Parse(Console.ReadLine());
+
+            decimal average = (mark1 + mark2 + mark3) / 3;
+            Console.WriteLine(average);
+            System.Console.WriteLine(average >= 50 ? "PASS" : "Fail");
+        }
