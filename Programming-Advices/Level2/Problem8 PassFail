@@ -1,0 +1,6 @@
+static void Main(string[] args)
+        {
+            Console.Write("Enter the Mark: ");
+            int mark = int.Parse(Console.ReadLine());
+            Console.WriteLine(mark >= 50 ? "PASS" : "Fail");
+        }
