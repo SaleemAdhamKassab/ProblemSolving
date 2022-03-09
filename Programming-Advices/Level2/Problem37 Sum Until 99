@@ -1,0 +1,16 @@
+static void Main(string[] args)
+        {
+            Console.WriteLine("Please Enter Number to sum, or Enter -99 to break the program and print the sum: ");
+            int number = 0, result = 0;
+
+            while (true)
+            {
+                number = int.Parse(Console.ReadLine());
+                if (number == -99)
+                    break;
+
+                result += number;
+            }
+
+            Console.WriteLine(result == -99 ? 0 : result);
+        }
