@@ -1,0 +1,51 @@
+static void Main(string[] args)
+        {
+            Console.Write("Enter operationType: ");
+            char operationType = char.Parse(Console.ReadLine());
+
+            while (!isValidOperator(operationType))
+            {
+                Console.Write("Invalid operator, Enter + - * / : ");
+                operationType = char.Parse(Console.ReadLine());
+            }
+
+            Console.Write("Enter Number1: ");
+            int number1 = int.Parse(Console.ReadLine());
+            Console.Write("Enter Number2: ");
+            int number2 = int.Parse(Console.ReadLine());
+
+            while (operationType == '/' && number2 <= 0)
+            {
+                Console.Write("cannot divide by 0, please enter number > 0: ");
+                number2 = int.Parse(Console.ReadLine());
+            }
+
+            switch (operationType)
+            {
+                case '+':
+                    Console.WriteLine(number1 + number2);
+                    break;
+
+                case '-':
+                    Console.WriteLine(number1 - number2);
+                    break;
+
+                case '*':
+                    Console.WriteLine(number1 * number2);
+                    break;
+
+                default:
+                    Console.WriteLine(number1 / number2);
+                    break;
+            }
+
+
+static bool isValidOperator(char operationType)
+            {
+                return operationType == '+' ||
+                operationType == '-' ||
+                operationType == '*' ||
+                operationType == '/' ? true : false;
+            }
+
+        }
