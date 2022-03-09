@@ -1,0 +1,18 @@
+static void Main(string[] args)
+        {
+            Console.Write("Enter number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(sumOddNumbers(number));
+        }
+
+static int sumOddNumbers(int number)
+        {
+            int result = 0;
+            for (int i = 1; i <= number; i++)
+            {
+                if (i % 2 == 0)
+                    result += i;
+            }
+            return result;
+        }
