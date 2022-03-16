@@ -1,0 +1,7 @@
+static int charIndex(string str, char charachter)
+        {
+            for (int i = 0; i < str.Length; i++)
+                if (str[i] == charachter)
+                    return i;
+            return -1;
+        }
