@@ -1,0 +1,19 @@
+static void Main(string[] args)
+        {
+            Console.Write("Enter the Number of Hours: ");
+            double numberOfHourse = double.Parse(Console.ReadLine());
+
+            Console.WriteLine(hoursToWeek(numberOfHourse).ToString("0.00") + " Weeks");
+            Console.WriteLine(hoursToDay(numberOfHourse).ToString("0.00") + " Days");
+        }
+
+static double hoursToDay(double hours)
+        {
+            return hours / 24;
+        }
+
+static double hoursToWeek(double hours)
+        {
+            // week: 24 * 7 = 168 hours
+            return hours / 168;
+        }
