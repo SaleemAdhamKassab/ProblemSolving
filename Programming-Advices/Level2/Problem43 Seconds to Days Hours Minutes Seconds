@@ -1,0 +1,31 @@
+static void Main(string[] args)
+        {
+            Console.Write("enter the seconds: ");
+            int seconds = int.Parse(Console.ReadLine());
+
+            int days = 0, houres = 0, minutes = 0;
+
+            while (seconds > 0)
+            {
+                if (seconds >= 86400)
+                {
+                    days++;
+                    seconds = seconds - 86400;
+                }
+                else if (seconds >= 3600)
+                {
+                    houres++;
+                    seconds = seconds - 3600;
+                }
+                else if (seconds >= 60)
+                {
+                    minutes++;
+                    seconds = seconds - 60;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            Console.WriteLine("{0}:{1}:{2}:{3}", days, houres, minutes, seconds);
+        }
