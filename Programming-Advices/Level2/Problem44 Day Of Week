@@ -1,0 +1,33 @@
+static void Main(string[] args)
+        {
+            Console.Write("enter the number: ");
+            int num = int.Parse(Console.ReadLine());
+
+            while (num < 1 || num > 7)
+            {
+                Console.Write("Wrong Day, enter a new number: ");
+                num = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("It's " + dayName(num));
+        }
+
+static string dayName(int number)
+        {
+            switch (number)
+            {
+                case 1:
+                    return "Sunday";
+                case 2:
+                    return "Monday";
+                case 3:
+                    return "Tuesday";
+                case 4:
+                    return "Wednesday";
+                case 5:
+                    return "Thursday";
+                case 6:
+                    return "Friday";
+            }
+            return "Saturday";
+        }
