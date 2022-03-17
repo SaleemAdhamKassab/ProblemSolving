@@ -1,0 +1,19 @@
+static void Main(string[] args)
+        {
+            Console.Write("days: ");
+            int days = int.Parse(Console.ReadLine());
+            Console.Write("hours: ");
+            int hours = int.Parse(Console.ReadLine());
+            Console.Write("minutes: ");
+            int minutes = int.Parse(Console.ReadLine());
+            Console.Write("seconds: ");
+            int seconds = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Total Seconds is: " + taskTimeInSeconds(days, hours, minutes, seconds));
+        }
+
+static int taskTimeInSeconds(int days, int hours, int minutes, int seconds)
+        {
+            int result = (days * 24 * 60 * 60) + (hours * 60 * 60) + (minutes * 60) + seconds;
+            return result;
+        }
