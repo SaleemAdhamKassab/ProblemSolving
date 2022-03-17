@@ -1,0 +1,9 @@
+static void Main(string[] args)
+        {
+            Console.Write("Loan Amout: ");
+            int loanAmoount = int.Parse(Console.ReadLine());
+            Console.Write("Months count: ");
+            int monthsCount = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("{0} Monthly Payment", loanAmoount / monthsCount);
+        }
