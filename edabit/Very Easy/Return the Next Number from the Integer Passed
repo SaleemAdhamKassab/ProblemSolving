@@ -1,4 +1,0 @@
-public static int Addition(int num)
-    {
-	return ++num;
-    }

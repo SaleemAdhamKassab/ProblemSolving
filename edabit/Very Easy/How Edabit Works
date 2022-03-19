@@ -1,4 +1,0 @@
-public static bool ReturnTrue() 
-    {
-      return true;
-    }

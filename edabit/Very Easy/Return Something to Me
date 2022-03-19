@@ -1,3 +1,0 @@
-public static string GiveMeSomething(string a) {
-		return "something "+a;
-	}
