@@ -1,0 +1,16 @@
+ static string RestoreString(string s, int[] indices)
+        {
+            string result = "";
+            for (int i = 0; i < s.Length; i++)
+            {
+                for (int j = 0; i < indices.Length; j++)
+                {
+                    if (i == indices[j])
+                    {
+                        result += s[j];
+                        break;
+                    }
+                }
+            }
+            return result;
+        }
