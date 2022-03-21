@@ -1,0 +1,17 @@
+public int MostWordsFound(string[] sentences)
+        {
+            int counter = 0; int max = 0;
+
+            for (int i = 0; i < sentences.Length; i++)
+            {
+                for (int j = 0; j < sentences[i].Length; j++)
+                {
+                    if (sentences[i][j] == ' ') counter++;
+                }
+
+                if (counter > max) max = counter;
+
+                counter = 0;
+            }
+            return max;
+        }
