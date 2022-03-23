@@ -1,0 +1,22 @@
+select j.job_title,j.max_salary-j.min_salary as "DIFFERENCE" 
+from jobs j
+where j.max_salary between 10000 and 20000;
+============
+var result = (
+             from j in _db.Jobs
+             where j.MaxSalary >= 10000 && j.MaxSalary <= 20000
+             select new
+             {
+                 JOB_TITLE = j.JobTitle,
+                 DIFFERENCE = j.MaxSalary - j.MinSalary
+             }
+
+
+            ).ToList();
+            
+==================
+ var result = _db.Jobs.Where(e => e.MaxSalary >= 10000 && e.MaxSalary <= 20000).Select(e => new
+            {
+                JOB_TITLE = e.JobTitle,
+                DIFFERENCE = e.MaxSalary - e.MinSalary
+            }).ToList();
