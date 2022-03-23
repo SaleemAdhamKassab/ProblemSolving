@@ -1,0 +1,17 @@
+select e.first_name,e.hire_date
+from employees e
+where e.job_id in ('IT_PROG','SA_MAN');
+
+===============
+
+var result = (
+                from e in _db.Employees
+                where e.JobId == "IT_PROG" || e.JobId == "SA_MAN"
+                select new
+                {
+                    FIRST_NAME = e.FirstName,
+                    HIRE_DATE = e.HireDate
+                }
+
+
+            ).ToList();
