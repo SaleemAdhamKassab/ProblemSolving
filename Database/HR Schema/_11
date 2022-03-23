@@ -1,0 +1,23 @@
+select *
+from employees e
+where to_char(e.hire_date,'MON') = 'MAY'
+==================
+ var result = (
+                from e in _db.Employees
+                where e.HireDate.Contains("/05/")
+                select new
+                {
+                    FIRST_NAME = e.FirstName,
+                    LAST_NAME = e.LastName,
+                    HIRE_DATE = e.HireDate
+                }
+            ).ToList();
+
+            return result;
+==================
+ var result = _db.Employees.Where(e => e.HireDate.Contains("/05/")).Select(e => new
+            {
+                FIRST_NAME = e.FirstName,
+                LAST_NAME = e.LastName,
+                HIRE_DATE = e.HireDate
+            }).ToList();
