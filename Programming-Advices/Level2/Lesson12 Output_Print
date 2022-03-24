@@ -1,0 +1,32 @@
+q1:
+Console.WriteLine("********************");
+            Console.WriteLine("Name :Saleem Kassab.");
+            Console.WriteLine("Age :28 Years.");
+            Console.WriteLine("City :Damascus.");
+            Console.WriteLine("Country :Syria.");
+            Console.WriteLine("********************");
+---------------------------------------------------------------
+Console.WriteLine("********************");
+Console.WriteLine("********************");
+Console.WriteLine("********************");
+Console.WriteLine("********************");
+---------------------------------------------------------------
+Console.WriteLine("I Love Programming!");
+            Console.WriteLine();
+            Console.WriteLine("I Promise to be the best developer ever!");
+            Console.WriteLine();
+            Console.WriteLine("I know it will take some time to practicr. but I");
+            Console.WriteLine("will achieve my goal!");
+            Console.WriteLine();
+            Console.WriteLine("Best Regards,");
+            Console.WriteLine("Saleem Kassab");
+--------------------------------------------------------
+q2:
+  static void Main(string[] args)
+        {
+            Console.WriteLine("*       *");
+            Console.WriteLine("*       *");
+            Console.WriteLine("* * * * *");
+            Console.WriteLine("*       *");
+            Console.WriteLine("*       *");
+        }
