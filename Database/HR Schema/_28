@@ -1,0 +1,23 @@
+select e.job_id,count(*),sum(e.salary), max(e.salary)-min(e.salary) as "Salary"
+from employees e
+group by e.job_id;
+========================
+ var result = (
+               from e in _db.Employees
+               group e by e.JobId into g
+               select new
+               {
+                   jobId = g.Key,
+                   count = g.Count(),
+                   sum = g.Sum(e => e.Salary),
+                   salary = g.Max(e => e.Salary) - g.Min(e => e.Salary)
+               }
+            ).ToList();
+ =======================
+  var result = _db.Employees.GroupBy(e => e.JobId).Select(e => new
+            {
+                jobId = e.Key,
+                count = e.Count(),
+                sum = e.Sum(e => e.Salary),
+                salary = e.Max(e => e.Salary) - e.Min(e => e.Salary)
+            }).ToList();
