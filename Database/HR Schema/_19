@@ -1,0 +1,20 @@
+select upper(e.first_name) as "First Name", lower(e.email) as "Email"
+from employees e
+where lower(e.first_name) = lower(e.email);
+======================
+var result = (
+            from e in _db.Employees
+            where e.FirstName.ToLower() == e.Email.ToLower()
+            select new
+            {
+                FirstName = e.FirstName.ToUpper(),
+                Email = e.Email.ToUpper()
+            }
+
+            ).ToList();
+ ==================
+ var result = _db.Employees.Where(e => e.FirstName.ToLower() == e.Email.ToLower()).Select(e => new
+            {
+                FirstName = e.FirstName.ToUpper(),
+                Email = e.Email.ToUpper()
+            }).ToList();
