@@ -1,0 +1,20 @@
+select e.first_name,e.hire_date
+from employees e
+where to_char(e.hire_date,'yyyy') = '2001';
+=================
+var result = (
+             from e in _db.Employees
+             where e.HireDate.Contains("2001")
+             select new
+             {
+                 FIRST_NAME = e.FirstName,
+                 HIRE_DATE = e.HireDate
+             }
+            ).ToList();
+=================
+
+ var result = _db.Employees.Where(e => e.HireDate.Contains("2001")).Select(e => new
+            {
+                FIRST_NAME = e.FirstName,
+                HIRE_DATE = e.HireDate
+            }).ToList();
