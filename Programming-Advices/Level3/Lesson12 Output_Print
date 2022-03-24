@@ -29,3 +29,5 @@ q2:
             Console.WriteLine("*   *");
             Console.WriteLine("*   *");
         }
+=============
+Console.WriteLine("*   *\n" + "*   *\n" + "*****\n" + "*   *\n" + "*   *");
