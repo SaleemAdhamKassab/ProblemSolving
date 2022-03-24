@@ -23,9 +23,9 @@ Console.WriteLine("I Love Programming!");
 q2:
   static void Main(string[] args)
         {
-            Console.WriteLine("*       *");
-            Console.WriteLine("*       *");
-            Console.WriteLine("* * * * *");
-            Console.WriteLine("*       *");
-            Console.WriteLine("*       *");
+            Console.WriteLine("*   *");
+            Console.WriteLine("*   *");
+            Console.WriteLine("*****");
+            Console.WriteLine("*   *");
+            Console.WriteLine("*   *");
         }
