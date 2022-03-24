@@ -6,10 +6,10 @@ Console.WriteLine("********************");
             Console.WriteLine("Country :Syria.");
             Console.WriteLine("********************");
 ---------------------------------------------------------------
-Console.WriteLine("********************");
-Console.WriteLine("********************");
-Console.WriteLine("********************");
-Console.WriteLine("********************");
+Console.WriteLine("********");
+Console.WriteLine("********");
+Console.WriteLine("********");
+Console.WriteLine("********");
 ---------------------------------------------------------------
 Console.WriteLine("I Love Programming!");
             Console.WriteLine();
