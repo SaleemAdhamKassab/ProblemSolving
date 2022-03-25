@@ -1,4 +1,6 @@
-q1:
+Console.Beep(5000, 1000);
+-----------------------------------------------------------------------
+q2:
     Console.WriteLine("Dear Sir\\Madam,");
             Console.WriteLine();
             Console.WriteLine("How are you?");
@@ -8,7 +10,7 @@ q1:
  Console.WriteLine("Ali\tAhmed\tLina");
 Console.WriteLine("Fadi\tZain\tMona");
 -----------------------------------------------------------------------------
-q2:
+q3:
 1- Litteral: a value that assigned to a variable
 2- decimal, int, string ....
 3- to help us in write
