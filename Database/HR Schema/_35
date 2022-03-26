@@ -1,0 +1,26 @@
+select distinct e.department_id
+from employees e
+group by e.department_id,e.manager_id
+having count(*) > 5;
+========================================
+var result = (
+                from e in _db.Employees
+                group e by new { e.DepartmentId, e.ManagerId } into g
+                where g.Count() > 5
+                select new
+                {
+                    deptId = g.Key.DepartmentId
+                }
+
+            )
+            .Distinct()
+            .ToList();
+===========================================
+var result = _db.Employees.GroupBy(e => new { e.DepartmentId, e.ManagerId }).Select(e => new
+            {
+                deptId = e.Key.DepartmentId,
+                deptCount = e.Count()
+            })
+            .Where(e => e.deptCount > 5)
+            .Distinct()
+            .ToList();
