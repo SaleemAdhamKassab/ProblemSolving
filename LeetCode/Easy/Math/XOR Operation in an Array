@@ -1,0 +1,9 @@
+public int XorOperation(int n, int start) {
+        int result = start;
+	start += 2;
+	while (--n > 0) {
+		result ^= start;
+		start += 2;
+	}
+	return result;
+    }
