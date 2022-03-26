@@ -1,0 +1,25 @@
+select e.department_id
+from employees e
+where e.commission_pct is not null
+group by e.department_id
+having count(*) > 5;
+========================
+var result = (
+               from e in _db.Employees
+               where e.CommisionPct != null
+               group e by e.DepartmentId into g
+               where g.Count() > 5
+               select new
+               {
+                   g.Key
+               }
+            ).ToList();
+===========================
+var result = _db.Employees.Where(e => e.CommisionPct != null).GroupBy(e => e.DepartmentId)
+            .Select(e => new
+            {
+                deptId = e.Key,
+                deptIdCount = e.Count()
+            })
+            .Where(g => g.deptIdCount > 5)
+            .ToList();
