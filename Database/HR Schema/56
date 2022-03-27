@@ -1,0 +1,27 @@
+select to_char(e.hire_date,'mm')
+from employees e join departments d
+     on e.department_id = d.department_id
+join locations l
+     on d.location_id = l.location_id
+where l.city = 'Sydney'
+group by to_char(e.hire_date,'mm') 
+having count(*) > 5;
+=========================================
+  var result = (
+             from e in _db.Employees
+             join d in _db.Departments
+             on e.DepartmentId equals d.Id
+             join l in _db.Locations
+             on d.LocationId equals l.Id
+
+             where l.City == "Sydney"
+             group e by e.HireDate into g
+
+             where g.Count() > 5
+             
+             select new
+             {
+                 g.Key
+             }
+
+            ).ToList();
