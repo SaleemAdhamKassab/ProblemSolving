@@ -1,0 +1,11 @@
+static int binToDec(int num)
+        {
+            int dec = 0, pow = 1;
+            while (num > 0)
+            {
+                dec += (num % 10) * pow;
+                pow *= 2;
+                num = num / 10;
+            }
+            return dec;
+        }
