@@ -1,0 +1,21 @@
+select *
+from job_history jh
+where jh.employee_id in (
+select e.employee_id
+from employees e
+where e.salary > 15000);
+==========================
+var result = (
+              from jh in _db.JobHistory
+              join e in _db.Employees
+              on jh.EmployeeId equals e.Id
+              where e.Salary > 15000
+              select new
+              {
+                  jh.EmployeeId,
+                  jh.StartDate,
+                  jh.EndDate,
+                  jh.JobId,
+                  jh.DepartmentId
+              }
+            ).ToList();
