@@ -1,0 +1,5 @@
+select j.employee_id,t.job_title,j.end_date-j.start_date as "days"
+from JOB_HISTORY j join jobs t
+     on j.job_id = t.job_id
+where j.department_id = 30;
+==========================================
