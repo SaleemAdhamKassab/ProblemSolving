@@ -1,0 +1,18 @@
+select e.last_name,j.job_title
+from employees e
+join jobs j
+     on e.job_id=j.job_id
+where e.commission_pct is not null and e.department_id = 30;
+===================================
+ var result = (
+               from e in _db.Employees
+               join j in _db.Jobs
+               on e.JobId equals j.Id
+               where e.CommisionPct != null && e.DepartmentId == 30
+               select new
+               {
+                   e.LastName,
+                   j.JobTitle
+               }
+
+            ).ToList();
