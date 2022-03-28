@@ -1,0 +1,37 @@
+select l.city
+from locations l
+where l.location_id =
+                    (select d.location_id
+                    from departments d
+                    where d.department_id =
+                                             (select e.department_id
+                                                from employees e
+                                               where e.employee_id = 105))
+==============================================================================
+ var sub1 = (
+                from e in _db.Employees
+                where e.Id == 105
+                select new
+                {
+                    e.DepartmentId
+                }
+            );
+
+var sub = (
+                from d in _db.Departments
+                where sub1.Select(e => e.DepartmentId).Contains(d.Id)
+                select new
+                {
+                    d.LocationId
+                }
+
+            );
+
+var result = (
+                from l in _db.Locations
+                where sub.Select(e => e.LocationId).Contains(l.Id)
+                select new
+                {
+                    l.City
+                }
+           ).ToList();
