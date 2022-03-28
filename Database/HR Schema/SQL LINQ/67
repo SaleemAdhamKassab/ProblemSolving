@@ -1,0 +1,30 @@
+select j.*
+  from employees e
+  join jobs j
+    on e.job_id = j.job_id
+ where e.employee_id in (select jh.employee_id
+                           from job_history jh
+                          where jh.job_id = 'IT_PROG');
+========================================================
+ var sub = (
+             from jh in _db.JobHistory
+             where jh.JobId == "IT_PROG"
+             select new
+             {
+                 jh.EmployeeId
+             }
+            );
+
+var result = (
+                from e in _db.Employees
+                join j in _db.Jobs
+                on e.JobId equals j.Id
+                where sub.Select(e => e.EmployeeId).Contains(e.Id)
+                select new
+                {
+                    j.Id,
+                    j.JobTitle,
+                    j.MinSalary,
+                    j.MaxSalary
+                }
+            ).ToList();
