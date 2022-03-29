@@ -1,0 +1,21 @@
+create or replace noneditionable function q4(firstName out varchar2,
+                                             deptName  out varchar2)
+  return boolean is
+
+begin
+  select e.first_name, d.department_name
+    into firstName, deptName
+    from employees e
+    join departments d
+      on e.department_id = d.department_id
+   where e.employee_id =
+         (select e.manager_id from employees e where e.employee_id = 10003);
+
+  return true;
+
+Exception
+  when others then
+    dbms_output.put_line(sqlerrm);
+    return false;
+  
+end q4;
