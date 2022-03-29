@@ -1,0 +1,22 @@
+create or replace noneditionable procedure q1 (empId1 in int,empId2 in int) is
+temp int;
+begin
+  select e.salary
+  into temp
+  from employeetest e
+  where e.employee_id = empId1;
+
+  update employeetest e
+  set e.salary = (select e.salary from employeetest e where e.employee_id = empId2)
+  where e.employee_id = empId1;
+
+  update employeetest e
+  set e.salary = temp
+  where e.employee_id = empId2;
+
+  commit;
+
+exception when others then
+  dbms_output.put_line(sqlerrm);
+
+end q1;
