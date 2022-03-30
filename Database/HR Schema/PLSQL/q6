@@ -1,0 +1,25 @@
+create or replace noneditionable procedure q6 is
+  v_yearOfMaaxEmps varchar2(5);
+begin
+  --get the max year of employment
+  select to_char(e.hire_date, 'yyyy')
+    into v_yearOfMaaxEmps
+    from employees e
+   group by to_char(e.hire_date, 'yyyy')
+  having count(*) = (select max(years.c)
+                       from (select count(*) c
+                               from employees e
+                              group by to_char(e.hire_date, 'yyyy')) years);
+
+  dbms_output.put_line('Year : '||v_yearOfMaaxEmps);
+  
+  --loop in the cursor
+  for i in (select to_char(e.hire_date, 'mm') m, count(*) c
+          from employees e
+          where to_char(e.hire_date, 'yyyy')= v_yearOfMaaxEmps
+          group by to_char(e.hire_date, 'mm')
+          order by 1) loop
+          
+  dbms_output.put_line('Month : ' || i.m ||' Employees : '||i.c);
+  end loop;
+end q6;
