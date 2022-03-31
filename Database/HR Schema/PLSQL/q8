@@ -1,0 +1,17 @@
+create or replace procedure q8 is
+cursor  jobscur is select  job_id, job_title from jobs;
+
+v_fName employees.first_name%type;
+begin
+  for i in jobscur loop 
+    select e.first_name into v_fName from employees e
+    where e.hire_date =(
+                        select min(e.hire_date)
+                        from employees e 
+                        where e.job_id = i.job_id)
+    and e.job_id = i.job_id;
+    
+    dbms_output.put_line( i.job_title || '-' || v_fName);
+   end loop;
+  
+end q8;
