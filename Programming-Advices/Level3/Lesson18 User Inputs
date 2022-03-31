@@ -3,7 +3,7 @@ q1:
 string name = "",
             city = "Damascus.",
             country = "Syria.";
-            int age = 44;
+            byte age = 44;
             double monthlySalary = 600;
             char gender = 'M';
             bool isMarred = false;
@@ -61,7 +61,7 @@ q2:
  ===============================================================
  q3:
  
- int age;
+ byte age;
             System.Console.WriteLine("Enter your Age: ");
             age = int.Parse(Console.ReadLine());
 
