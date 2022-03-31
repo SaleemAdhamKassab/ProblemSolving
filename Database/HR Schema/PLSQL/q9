@@ -1,0 +1,13 @@
+create or replace procedure q9 is
+cursor emps is select e.first_name
+            from employees e;
+begin
+  for i in emps loop
+   
+   if(emps%rowcount>4) then
+   dbms_output.put_line (i.first_name);
+   end if;
+   exit when emps%rowcount>10;
+   end loop;
+  
+end q9;
