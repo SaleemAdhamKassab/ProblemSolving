@@ -1,0 +1,32 @@
+create or replace procedure q13(deptId in int) is
+  newMgrId number;
+begin
+  select e.employee_id
+    into newMgrId
+    from employees e
+   where e.department_id = deptId
+     and e.salary = (select max(e.salary)
+                       from employees e
+                      where e.department_id = deptId
+                        and e.employee_id !=
+                            (select d.manager_id
+                               from departments d
+                              where d.department_id = deptId));
+  --update mangerId in departments Table(Parent)                             
+  update departments d
+     set d.manager_id = newMgrId
+   where d.department_id = deptId;
+
+  --update child table dependencies                      
+  update employeetest e
+     set e.manager_id = newMgrId
+   where e.department_id = deptId
+     and e.employee_id != newMgrId;
+
+  commit;
+
+exception
+  when others then
+    dbms_output.put_line(sqlerrm);
+  
+end q13;
