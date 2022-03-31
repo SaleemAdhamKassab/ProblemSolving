@@ -3,7 +3,7 @@
  string name = "Saleem Kassab.",
             city = "Damascus.",
             country = "Syria.";
-            int age = 44;
+            byte age = 44;
             double monthlySalary = 600;
             char gender = 'M';
             bool isMarred = false;
@@ -35,5 +35,5 @@ int num1 = 20, num2 = 30, num3 = 10;
  ===========================================================================
  q4:
  
- int age = 25;
+ byte age = 25;
 Console.WriteLine("After 5 years you will be " + (age + 5) + " years old.");
