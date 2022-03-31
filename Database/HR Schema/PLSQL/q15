@@ -1,0 +1,10 @@
+create or replace trigger emp_chk_time
+before
+update
+on Employees
+begin 
+  if to_char(sysdate,'hh24') < 6 or to_char(sysdate,'hh24') > 10 then
+    raise_application_error(-20010,'no changes can be made before 6am and after 10pm');
+  end if;
+end;
+     
