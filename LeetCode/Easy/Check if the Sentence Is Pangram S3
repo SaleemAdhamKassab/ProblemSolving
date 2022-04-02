@@ -1,0 +1,8 @@
+static bool CheckIfPangram(string sentence)
+        {
+            for (char i = 'a'; i <= 'z'; i++)
+                if (!sentence.Contains(i))
+                    return false;
+
+            return true;
+        }
