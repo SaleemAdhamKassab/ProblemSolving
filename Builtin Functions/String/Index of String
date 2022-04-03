@@ -1,4 +1,4 @@
-static int StrStr(string haystack, string needle)
+static int indexOf(string haystack, string needle)
         {
             if (needle.Length == 0) return 0;
             if (needle.Length > haystack.Length) return -1;
