@@ -1,6 +1,0 @@
-static void Main(string[] args)
-        {
-            double r = double.Parse(Console.ReadLine());
-            double res = (4.0 / 3 * 3.14159 * r * r * r);
-            Console.WriteLine("VOLUME = {0}", Convert.ToDecimal(res.ToString("0.###")));
-        }
