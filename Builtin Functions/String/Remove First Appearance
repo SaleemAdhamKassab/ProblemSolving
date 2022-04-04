@@ -1,4 +1,4 @@
- static string deleteFirstAppearance(string mainStr, string deletedStr)
+ static string removeFirstAppearance(string mainStr, string deletedStr)
         {
             if (mainStr == deletedStr) return "";
             int startCut = indexOf(mainStr, deletedStr);
