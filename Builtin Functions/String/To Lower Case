@@ -1,4 +1,4 @@
-static string ToLowerCase(string s)
+static string toLowerCase(string s)
         {
             string result = "";
             for (int i = 0; i < s.Length; i++)
