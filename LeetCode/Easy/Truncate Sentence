@@ -1,0 +1,12 @@
+static string TruncateSentence(string s, int k)
+        {
+            string result = "";
+            int spacesCount = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == ' ') spacesCount++;
+                if (spacesCount == k) break;
+                result += s[i];
+            }
+            return result;
+        }
