@@ -1,0 +1,11 @@
+static string ReplaceDigits(string s)
+        {
+            string result = "";
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (i % 2 == 0) result += s[i];
+                else
+                    result += (char)((int)s[i - 1] + int.Parse(s[i].ToString()));
+            }
+            return result;
+        }
