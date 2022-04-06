@@ -1,0 +1,17 @@
+static int Maximum69Number(int num)
+        {
+            string strNum = num.ToString(),
+            result = "";
+            bool flag = true;
+            for (int i = 0; i < strNum.Length; i++)
+            {
+                if (strNum[i] == '6' && flag)
+                {
+                    result += '9';
+                    flag = false;
+                    continue;
+                }
+                result += strNum[i];
+            }
+            return int.Parse(result);
+        }
