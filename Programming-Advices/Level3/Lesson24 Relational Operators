@@ -1,0 +1,11 @@
+            Console.Write("Please Enter the first Number: ");
+            int firstNum = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter the secound Number: ");
+            int secondNum = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("{0} =  {1} is {2}", firstNum, secondNum, firstNum == secondNum ? 1 : 0);
+            Console.WriteLine("{0} !=  {1} is {2}", firstNum, secondNum, firstNum != secondNum ? 1 : 0);
+            Console.WriteLine("{0} >  {1} is {2}", firstNum, secondNum, firstNum > secondNum ? 1 : 0);
+            Console.WriteLine("{0} <  {1} is {2}", firstNum, secondNum, firstNum < secondNum ? 1 : 0);
+            Console.WriteLine("{0} >=  {1} is {2}", firstNum, secondNum, firstNum >= secondNum ? 1 : 0);
+            Console.WriteLine("{0} <=  {1} is {2}", firstNum, secondNum, firstNum <= secondNum ? 1 : 0);
