@@ -1,4 +1,4 @@
-static void Main(string[] args)
+ static void Main(string[] args)
         {
             UserInfo userInfo;
 
@@ -7,16 +7,21 @@ static void Main(string[] args)
             Console.Write("Enter your Age: ");
             userInfo.age = Byte.Parse(Console.ReadLine());
             // Address Info
-            Console.Write("Enter your City: ");
-            userInfo.address.City = Console.ReadLine();
             Console.Write("Enter your Country: ");
             userInfo.address.Country = Console.ReadLine();
+            Console.Write("Enter your City: ");
+            userInfo.address.City = Console.ReadLine();
             Console.Write("Enter your Street: ");
             userInfo.address.Street = Console.ReadLine();
+            // ContactInfo
+            Console.Write("Enter your Email: ");
+            userInfo.contactInfo.Email = Console.ReadLine();
             Console.Write("Enter your Phone: ");
-            userInfo.address.Phone = Console.ReadLine();
+            userInfo.contactInfo.Phone = Console.ReadLine();
+            Console.Write("Enter your FaceBook: ");
+            userInfo.contactInfo.FaceBook = Console.ReadLine();
             Console.Write("Enter your PoBox: ");
-            userInfo.address.PoBox = Console.ReadLine();
+            userInfo.contactInfo.PoBox = Console.ReadLine();
 
             Console.Write("Enter your Monthly Salary: ");
             userInfo.monthlySalary = double.Parse(Console.ReadLine());
@@ -31,11 +36,13 @@ static void Main(string[] args)
             Console.Write("*************************" + "\n" +
             "Name: " + userInfo.name + "\n" +
             "Age: " + userInfo.age + " Years." + "\n" +
-            "City: " + userInfo.address.City + "\n" +
             "Country: " + userInfo.address.Country + "\n" +
-            "Country: " + userInfo.address.Street + "\n" +
-            "Country: " + userInfo.address.Phone + "\n" +
-            "Country: " + userInfo.address.PoBox + "\n" +
+            "City: " + userInfo.address.City + "\n" +
+            "Street: " + userInfo.address.Street + "\n" +
+            "Email: " + userInfo.contactInfo.Email + "\n" +
+            "Phone: " + userInfo.contactInfo.Phone + "\n" +
+            "FaceBook: " + userInfo.contactInfo.FaceBook + "\n" +
+            "PoBox: " + userInfo.contactInfo.PoBox + "\n" +
             "monthlySalary: " + userInfo.monthlySalary + "\n" +
             "yearlySalary: " + (userInfo.monthlySalary * 12) + "\n" +
             "Gender: " + userInfo.gender + "\n" +
@@ -51,11 +58,16 @@ public struct UserInfo
             public double monthlySalary;
             public char gender;
             public bool isMarred;
-
             public Address address;
+            public ContactInfo contactInfo;
         }
 
 public struct Address
         {
-            public string Country, City, Street, Phone, PoBox;
+            public string Country, City, Street;
+        }
+
+public struct ContactInfo
+        {
+            public string Email, Phone, FaceBook, PoBox;
         }
