@@ -1,7 +1,8 @@
-  static int UniqueMorseRepresentations(string[] words)
+static int UniqueMorseRepresentations(string[] words)
         {
             string[] standardEncoding = new string[] { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.." };
             string temp = "";
+            int counter = 0;
 
             List<string> lst = new List<string>();
 
@@ -12,10 +13,14 @@
                     temp += standardEncoding[((int)words[i][j]) - 97];
                 }
 
-                if (!contains(lst, temp)) lst.Add(temp);
+                if (!contains(lst, temp))
+                {
+                    lst.Add(temp);
+                    counter++;
+                }
                 temp = "";
             }
-            return count(lst);
+            return counter;
         }
 
 static bool contains(List<string> lst, string str)
@@ -25,14 +30,4 @@ static bool contains(List<string> lst, string str)
                     return true;
 
             return false;
-        }
-
-static int count(List<string> lst)
-        {
-            int counter = 0;
-
-            for (int i = 0; i < lst.Count; i++)
-                counter++;
-
-            return counter;
         }
