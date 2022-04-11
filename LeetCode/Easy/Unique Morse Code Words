@@ -10,7 +10,7 @@ static int UniqueMorseRepresentations(string[] words)
             {
                 for (int j = 0; j < words[i].Length; j++)
                 {
-                    temp += standardEncoding[((int)words[i][j]) - 97];
+                    temp += standardEncoding[(words[i][j]) - 'a'];
                 }
 
                 if (!contains(lst, temp))
