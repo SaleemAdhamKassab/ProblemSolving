@@ -1,0 +1,284 @@
+#14:
+public static void Main(string[] args)
+    {
+        swapNumbers();
+    }
+
+static void swapNumbers()
+    {
+        Console.Write("Enter number1: ");
+        int number1 = int.Parse(Console.ReadLine());
+        Console.Write("Enter number2: ");
+        int number2 = int.Parse(Console.ReadLine());
+
+        int temp = number1;
+        Console.WriteLine(number1);
+        Console.WriteLine(number2);
+        number1 = number2;
+        number2 = temp;
+        Console.WriteLine(number1);
+        Console.WriteLine(number2);
+    }
+==========================================================================================
+#15:
+ public static void Main(string[] args)
+    {
+        Console.Write("Enter number1: ");
+        int number1 = int.Parse(Console.ReadLine());
+        Console.Write("Enter number2: ");
+        int number2 = int.Parse(Console.ReadLine());
+
+        System.Console.WriteLine(rectangleArea(number1, number2));
+    }
+static int rectangleArea(int number1, int number2) => number1 * number2;
+==========================================================================================
+#16:
+ public static void Main(string[] args)
+    {
+        Console.Write("Enter number1: ");
+        int number1 = int.Parse(Console.ReadLine());
+        Console.Write("Enter number2: ");
+        int number2 = int.Parse(Console.ReadLine());
+
+        System.Console.WriteLine(rectangleAreaThroughDiagonalAndsideArea(number1, number2));
+    }
+static string rectangleAreaThroughDiagonalAndsideArea(int number1, int number2) =>
+    (number1 * Math.Sqrt((number2 * number2) - (number1 * number1))).ToString(".000");
+==========================================================================================
+#18:
+public static void Main(string[] args)
+    {
+        Console.Write("Enter number1: ");
+        double number1 = double.Parse(Console.ReadLine());
+
+        Console.WriteLine(circleArea(number1));
+    }
+
+static double circleArea(double number1) => 3.14 * number1 * number1;
+==========================================================================================
+#19:
+public static void Main(string[] args)
+    {
+        Console.Write("Enter number1: ");
+        double number1 = double.Parse(Console.ReadLine());
+
+        Console.WriteLine(circleAreaThroughDiameter(number1));
+    }
+
+static double circleAreaThroughDiameter(double number1) => 3.14 * (number1 * number1) / 4;
+
+==========================================================================================
+#20:
+public static void Main(string[] args)
+    {
+        Console.Write("Enter number1: ");
+        double number1 = double.Parse(Console.ReadLine());
+
+        Console.WriteLine(circleAreaInscribedInSquare(number1));
+    }
+
+static double circleAreaInscribedInSquare(double number1) => 3.14 * number1 * number1 / 4;
+
+==========================================================================================
+#21:
+public static void Main(string[] args)
+    {
+        Console.Write("Enter number1: ");
+        double number1 = double.Parse(Console.ReadLine());
+
+        Console.WriteLine(circleAreaInscribedInSquare(number1));
+    }
+
+static double circleAreaInscribedInSquare(double l) => (l * l) / (4 * 3.14);
+
+==========================================================================================
+#22:
+    public static void Main(string[] args)
+    {
+        Console.Write("Enter a: ");
+        double a = double.Parse(Console.ReadLine());
+        Console.Write("Enter b: ");
+        double b = double.Parse(Console.ReadLine());
+
+        Console.WriteLine(circleAreaInscribedInAnIsoscelesTriangle(a, b));
+    }
+
+static double circleAreaInscribedInAnIsoscelesTriangle(double a, double b) => 3.14 * ((b * b) / 4) * (2 * a - b) / (2 * a + b);
+
+
+==========================================================================================
+#23:
+public static void Main(string[] args)
+    {
+        Console.Write("Enter a: ");
+        double a = double.Parse(Console.ReadLine());
+        Console.Write("Enter b: ");
+        double b = double.Parse(Console.ReadLine());
+        Console.Write("Enter c: ");
+        double c = double.Parse(Console.ReadLine());
+
+        double p = (a + b + c) / 2,
+        t = (a * b * c) / (4 * Math.Sqrt(p * (p - a) * (p - b) * (p - c)));
+    }
+
+static double circleAreacircleDescribedAroundAnArbitraryTriangle(double t) => 3.14 * t * t;
+
+==========================================================================================
+#31:
+ public static void Main(string[] args)
+    {
+        Console.Write("Enter number: ");
+        int number = int.Parse(Console.ReadLine());
+
+        System.Console.WriteLine(PowerOf_2(number));
+        System.Console.WriteLine(PowerOf_3(number));
+        System.Console.WriteLine(PowerOf_4(number));
+    }
+    
+static double PowerOf_2(double number) => number * number;
+static double PowerOf_3(double number) => number * number * number;
+static double PowerOf_4(double number) => number * number * number * number;
+
+==========================================================================================
+#32:
+static void Main(string[] args)
+        {
+            Console.Write("Enter number: ");
+            int number = int.Parse(Console.ReadLine());
+            Console.Write("Enter M: ");
+            int m = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(nPowM(number, m));
+        }
+
+static int nPowM(int number, int m)
+        {
+            if (m == 0) return 1;
+
+            int result = 1;
+            for (int i = 1; i <= m; i++)
+            {
+                result *= number;
+            }
+            return result;
+        }
+==========================================================================================
+#42:
+static void Main(string[] args)
+        {
+            Console.Write("days: ");
+            int days = int.Parse(Console.ReadLine());
+            Console.Write("hours: ");
+            int hours = int.Parse(Console.ReadLine());
+            Console.Write("minutes: ");
+            int minutes = int.Parse(Console.ReadLine());
+            Console.Write("seconds: ");
+            int seconds = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Total Seconds is: " + taskTimeInSeconds(days, hours, minutes, seconds));
+        }
+
+static int taskTimeInSeconds(int days, int hours, int minutes, int seconds)
+        {
+            int result = (days * 24 * 60 * 60) + (hours * 60 * 60) + (minutes * 60) + seconds;
+            return result;
+        }
+==========================================================================================
+#43:
+public static void Main(string[] args)
+    {
+        secondsToDaysHoursMinutesSeconds();
+    }
+
+static void secondsToDaysHoursMinutesSeconds()
+    {
+        Console.Write("enter the seconds: ");
+        int seconds = int.Parse(Console.ReadLine());
+
+        int days = 0, houres = 0, minutes = 0;
+
+        while (seconds > 0)
+        {
+            if (seconds >= 86400)
+            {
+                days++;
+                seconds = seconds - 86400;
+            }
+            else if (seconds >= 3600)
+            {
+                houres++;
+                seconds = seconds - 3600;
+            }
+            else if (seconds >= 60)
+            {
+                minutes++;
+                seconds = seconds - 60;
+            }
+            else
+            {
+                break;
+            }
+        }
+        Console.WriteLine("{0}:{1}:{2}:{3}", days, houres, minutes, seconds);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
