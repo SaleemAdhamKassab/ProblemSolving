@@ -1,6 +1,6 @@
 static int min(int[] arr)
     {
-        int min = 0;
+       int min = int.MaxValue;
         for (int i = 0; i < arr.Length; i++)
             if (arr[i] < min) min = arr[i];
 
