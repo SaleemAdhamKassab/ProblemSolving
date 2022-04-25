@@ -1,6 +1,7 @@
 public class Solution {
     public bool HalvesAreAlike(string s) {
-         int n = (s.Length / 2) - 1,
+         s = toLowerCase(s);
+        int n = (s.Length / 2) - 1,
         leftIndex = 0,
         rightIndex = s.Length - 1,
         leftVowelCounter = 0,
@@ -11,11 +12,13 @@ public class Solution {
 
         for (int i = 0; i <= n; i++)
         {
-            tempLeftChar = charToLowerCase(s[leftIndex]);
-            if (tempLeftChar == 'a' || tempLeftChar == 'e' || tempLeftChar == 'i' || tempLeftChar == 'o' || tempLeftChar == 'u') leftVowelCounter++;
+            tempLeftChar = s[leftIndex];
+            if (tempLeftChar == 'a' || tempLeftChar == 'e' || tempLeftChar == 'i' || tempLeftChar == 'o' || tempLeftChar == 'u')
+                leftVowelCounter++;
 
-            temprightChar = charToLowerCase(s[rightIndex]);
-            if (temprightChar == 'a' || temprightChar == 'e' || temprightChar == 'i' || temprightChar == 'o' || temprightChar == 'u') rightVowelCounter++;
+            temprightChar = s[rightIndex];
+            if (temprightChar == 'a' || temprightChar == 'e' || temprightChar == 'i' || temprightChar == 'o' || temprightChar == 'u')
+                rightVowelCounter++;
 
             leftIndex++;
             rightIndex--;
@@ -23,9 +26,16 @@ public class Solution {
 
         return leftVowelCounter == rightVowelCounter ? true : false;
     }
-
-static char charToLowerCase(char c)
+    static string toLowerCase(string s)
     {
-        return (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+        string result = "";
+        for (int i = 0; i < s.Length; i++)
+        {
+            if ((s[i] >= 65 && s[i] <= 90))
+                result += (char)(((int)s[i]) + 32);
+            else
+                result += s[i];
+        }
+        return result;
     }
 }
