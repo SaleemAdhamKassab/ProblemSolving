@@ -1,0 +1,31 @@
+public class Solution {
+    public bool HalvesAreAlike(string s) {
+         int n = (s.Length / 2) - 1,
+        leftIndex = 0,
+        rightIndex = s.Length - 1,
+        leftVowelCounter = 0,
+        rightVowelCounter = 0;
+
+        char tempLeftChar = ' ',
+             temprightChar = ' ';
+
+        for (int i = 0; i <= n; i++)
+        {
+            tempLeftChar = charToLowerCase(s[leftIndex]);
+            if (tempLeftChar == 'a' || tempLeftChar == 'e' || tempLeftChar == 'i' || tempLeftChar == 'o' || tempLeftChar == 'u') leftVowelCounter++;
+
+            temprightChar = charToLowerCase(s[rightIndex]);
+            if (temprightChar == 'a' || temprightChar == 'e' || temprightChar == 'i' || temprightChar == 'o' || temprightChar == 'u') rightVowelCounter++;
+
+            leftIndex++;
+            rightIndex--;
+        }
+
+        return leftVowelCounter == rightVowelCounter ? true : false;
+    }
+
+static char charToLowerCase(char c)
+    {
+        return (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+    }
+}
