@@ -1,0 +1,8 @@
+static void divideNumberDigits(int number)
+    {
+        while (number > 0)
+        {
+            Console.WriteLine(number % 10);
+            number = number / 10;
+        }
+    }
