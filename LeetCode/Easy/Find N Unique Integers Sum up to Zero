@@ -1,0 +1,24 @@
+public class Solution {
+    public int[] SumZero(int n) {
+       int[] result = new int[n];
+        bool flag = true;
+        int counter = 1;
+
+        for (int i = 0; i < n; i = i + 2)
+        {
+            if (n % 2 != 0 && flag)
+            {
+                result[0] = 0;
+                flag = false;
+                i--;
+                continue;
+            }
+
+            result[i] = counter;
+            result[i + 1] = counter * -1;
+            counter++;
+        }
+
+        return result; 
+    }
+}
