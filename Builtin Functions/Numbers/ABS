@@ -1,4 +1,4 @@
-public static int getAbs(int number)
+public static int absoluteValue(int number)
         {
             return number > 0 ? number : number * -1;
         }
