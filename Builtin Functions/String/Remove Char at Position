@@ -1,4 +1,4 @@
-public static string removeCharAt(string str, int number)
+public static string removeCharAtPostion(string str, int number)
         {
             string result = "";
             for (int i = 0; i < str.Length; i++)
