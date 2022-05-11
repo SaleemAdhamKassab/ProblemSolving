@@ -11,13 +11,17 @@ public class Solution {
                 {
                     for (int k = j + 1; k < arr.Length; k++)
                     {
-                        if (Math.Abs(arr[i] - arr[j]) <= a
-                          && Math.Abs(arr[j] - arr[k]) <= b
-                          && Math.Abs(arr[i] - arr[k]) <= c)
+                        if (absoluteValue(arr[i] - arr[j]) <= a
+                          && absoluteValue(arr[j] - arr[k]) <= b
+                          && absoluteValue(arr[i] - arr[k]) <= c)
                             cnt++;
                     }
                 }
             }
             return cnt;
     }
+     static int absoluteValue(int number)
+        {
+            return number > 0 ? number : number * -1;
+        }
 }
