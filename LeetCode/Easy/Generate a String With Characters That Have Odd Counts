@@ -1,0 +1,5 @@
+public class Solution {
+    public string GenerateTheString(int n) {
+        return n % 2 != 0 ? new String('a', n) : new String('a', n-1) + 'b';
+    }
+}
