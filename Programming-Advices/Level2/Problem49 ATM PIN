@@ -3,7 +3,7 @@
             Console.Write("enter pin: ");
             int pin = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(checkPin(pin) ? "Your Balance is: 7500" : "Wrong Pin");
+            Console.WriteLine(checkPin(pin) ? "ًSuccess" : "Wrong Pin");
         }
 
 static bool checkPin(int pin)
