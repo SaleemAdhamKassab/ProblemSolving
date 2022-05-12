@@ -1,0 +1,64 @@
+public class Solution {
+    public bool AreOccurrencesEqual(string s) {
+        string distinctS = distinct(s);
+            int firstCharacterCount = 0, counter = 0;
+            bool flag = true;
+
+            for (int i = 0; i < distinctS.Length; i++)
+            {
+                for (int j = 0; j < s.Length; j++)
+                {
+                    if (distinctS[i] == s[j])
+                    {
+                        counter++;
+                    }
+                }
+
+                if (flag)
+                {
+                    firstCharacterCount = counter;
+                    counter = 0;
+                    flag = false;
+                    continue;
+                }
+
+                if (counter != firstCharacterCount) return false;
+
+                counter = 0;
+            }
+            return true;
+    }
+
+public static string distinct(string str)
+        {
+            string sortedStr = sortStringAsc(str),
+                distinct = sortedStr[0].ToString();
+
+            for (int i = 0; i < sortedStr.Length - 1; i++)
+            {
+                if (sortedStr[i] != sortedStr[i + 1])
+                    distinct += sortedStr[i + 1];
+            }
+
+            return distinct;
+        }
+
+public static string sortStringAsc(string str)
+        {
+            char temp;
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                for (int j = i + 1; j < str.Length; j++)
+                {
+                    if (str[j] < str[i])
+                    {
+                        temp = str[i];
+                        str = str.Remove(i, 1).Insert(i, str[j].ToString());
+                        str = str.Remove(j, 1).Insert(j, temp.ToString());
+                    }
+                }
+            }
+            return str;
+        }
+}
