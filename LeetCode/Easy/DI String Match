@@ -1,0 +1,21 @@
+public class Solution {
+    public int[] DiStringMatch(string s) {
+        int[] result = new int[s.Length + 1];
+        int leftIndex = 0, rightIndex = s.Length;
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (s[i] == 'I')
+            {
+                result[i] = leftIndex;
+                leftIndex++;
+            }
+            else
+            {
+                result[i] = rightIndex;
+                rightIndex--;
+            }
+        }
+        result[s.Length] = rightIndex;
+        return result;
+    }
+}
