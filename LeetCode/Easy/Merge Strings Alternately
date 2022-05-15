@@ -1,0 +1,39 @@
+public class Solution {
+    public string MergeAlternately(string word1, string word2) {
+        string result = "", maxWordsLength = "", minWordsLength = "";
+
+            if (word1.Length > word2.Length)
+            {
+                maxWordsLength = word1;
+                minWordsLength = word2;
+            }
+            else if (word1.Length < word2.Length)
+            {
+                maxWordsLength = word2;
+                minWordsLength = word1;
+            }
+            else
+            {
+                maxWordsLength = word1;
+                minWordsLength = word1;
+            }
+
+            for(int i = 0; i < maxWordsLength.Length; i++)
+            {
+                if (i < minWordsLength.Length)
+                {
+                    result += word1[i].ToString() + word2[i].ToString();
+                }
+                else
+                {
+                   for(int j = i; j < maxWordsLength.Length; j++)
+                    {
+                        result += maxWordsLength[j];
+                    }
+                    return result;
+                }
+              
+            }
+            return result;
+    }
+}
