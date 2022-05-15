@@ -1,1 +1,1 @@
-static int minStringLength(string s1, string s2)=> s1.Length >= s2.Length ? s1.Length : s2.Length;
+static int maxStringLength(string s1, string s2)=> s1.Length >= s2.Length ? s1.Length : s2.Length;
