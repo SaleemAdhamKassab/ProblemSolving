@@ -1,0 +1,29 @@
+public class Solution {
+    public string KthDistinct(string[] arr, int k) {
+       string[] distinctArr = distinct(arr);
+        if (distinctArr.Length < k)
+            return "";
+        else
+            return distinctArr[k - 1];  
+    }
+    
+
+public static string[] distinct(string[] s)
+    {
+        List<string> distinctS = new List<string>();
+        int counter = 0;
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            for (int j = 0; j < s.Length; j++)
+            {
+                if (s[i] == s[j]) counter++;
+                if (counter > 1) break;
+            }
+            if (counter == 1) distinctS.Add(s[i]);
+            counter = 0;
+        }
+
+        return distinctS.ToArray();
+    }
+}
