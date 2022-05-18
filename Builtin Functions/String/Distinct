@@ -1,6 +1,6 @@
 public static string distinct(string str)
         {
-            string sortedStr = sortStringAsc(s),
+            string sortedStr = sortStringAsc(str),
                 distinct = sortedStr[0].ToString();
 
             for (int i = 0; i < sortedStr.Length - 1; i++)
