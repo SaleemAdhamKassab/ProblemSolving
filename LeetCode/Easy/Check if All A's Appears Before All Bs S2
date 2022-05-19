@@ -1,9 +1,8 @@
 public class Solution {
     public bool CheckString(string s) {
-           int aLastIndex = s.LastIndexOf('a');
+         int aLastIndex = s.LastIndexOf('a');
             int bFirstIndex = s.IndexOf('b');
 
-            if (aLastIndex == -1 || bFirstIndex == -1) return true;
-            return aLastIndex < bFirstIndex ? true : false;
+            return (aLastIndex == -1 || bFirstIndex == -1) || aLastIndex < bFirstIndex ? true : false;
     }
 }
