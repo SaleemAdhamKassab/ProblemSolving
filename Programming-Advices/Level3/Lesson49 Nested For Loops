@@ -8,8 +8,7 @@ namespace lab
     {
         static void Main(string[] args)
         {
-            draw1();
-            draw2(); draw3(); draw4(); draw5();
+            draw6();
         }
         static void draw1()
         {
@@ -53,6 +52,17 @@ namespace lab
             for (char i = 'A'; i <= 'F'; i++)
             {
                 for (char j= 'A'; j <= i; j++)
+                {
+                    Console.Write(j);
+                }
+                Console.WriteLine();
+            }
+        }
+        static void draw6()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                for (int j = i; j <=10; j++)
                 {
                     Console.Write(j);
                 }
