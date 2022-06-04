@@ -8,15 +8,18 @@ namespace lab
     {
         static void Main(string[] args)
         {
-            draw6();
+            draw1();
         }
         static void draw1()
         {
-            for (char i = 'A'; i <= 'Z'; i++)
+            for (int i = 65; i <= 90; i++)
             {
-                Console.Write(i);
-                Console.Write(i);
-                Console.WriteLine();
+                Console.WriteLine("Letter " + (char)i);
+                for(int j=65; j<=90; j++)
+                {
+                    Console.WriteLine( ((char)i).ToString() + ((char)j).ToString());
+                }
+                Console.WriteLine("------------");
             }
 
         }
