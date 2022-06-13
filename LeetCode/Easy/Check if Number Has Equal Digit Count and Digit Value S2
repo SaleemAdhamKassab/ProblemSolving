@@ -1,0 +1,9 @@
+public class Solution {
+    public bool DigitCount(string num) {
+          for (int i = 0; i < num.Length; i++)
+                if (num.Count(a=>a.ToString()==i.ToString()) != int.Parse(num[i].ToString()))
+                        return false;
+            
+            return true;
+    }
+}
