@@ -1,0 +1,9 @@
+public class Solution {
+    public int RemovePalindromeSub(string s) {
+       if (s.Length == 0) return 0;
+            if (isPlaindrome(s)) return 1;
+
+            return 2;  
+    }
+    static bool isPlaindrome(string word) => word == new string(word.ToCharArray().Reverse().ToArray()) ? true : false;
+}
