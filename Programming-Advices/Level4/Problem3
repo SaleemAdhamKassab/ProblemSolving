@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printNumberType(checkNumberType(readNumber()));
+        }
+        enum enNumberType { Even, Odd};
+        static int readNumber()
+        {
+            Console.Write("Please Enter The Number: ");
+            int number = int.Parse(Console.ReadLine());
+            return number;
+        }
+        static enNumberType checkNumberType(int number)
+        {
+            if (number % 2 == 0) return enNumberType.Even;
+            else return enNumberType.Odd;
+        }
+        static void printNumberType(enNumberType numberType)
+        {
+            if (numberType == enNumberType.Even)
+                Console.WriteLine("The Number is {0}", enNumberType.Even);
+            else
+                Console.WriteLine("The Number is {0}", enNumberType.Odd);
+        }
+    }
+}
