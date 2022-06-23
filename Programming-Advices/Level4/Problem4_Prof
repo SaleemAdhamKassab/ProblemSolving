@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult(readUserInfo());
+        }
+        enum jobApplicationOptions { Hired, Rejected};
+        struct UserInfo
+        {
+            public byte age;
+            public bool hasDriverLicense;
+        }
+        static UserInfo readUserInfo()
+        {
+            UserInfo userInfo = new UserInfo();
+            Console.Write("Please Enter Your Age: ");
+            userInfo.age = byte.Parse(Console.ReadLine());
+            Console.Write("Are You have a Driver License? Y/N :");
+            userInfo.hasDriverLicense = Console.ReadLine().ToLower() == "y" ? true : false;
+
+            return userInfo;
+        }
+        static bool isAccepted(UserInfo userInfo)
+        {
+            return (userInfo.age > 21 && userInfo.hasDriverLicense);
+        }
+        static void printResult(UserInfo userInfo)
+        {
+            if (isAccepted(userInfo))
+                Console.WriteLine(jobApplicationOptions.Hired);
+            else
+                Console.WriteLine(jobApplicationOptions.Rejected);
+        }
+    }
+}
