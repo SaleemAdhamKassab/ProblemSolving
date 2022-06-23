@@ -1,0 +1,180 @@
+#6:
+1)Me:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            UserInfo user1 = new UserInfo();
+            Console.Write("Please Enter First Name: ");
+            user1.firstName = Console.ReadLine();
+            Console.Write("Please Enter Last Name: ");
+            user1.lastName = Console.ReadLine();
+
+            printUserInfo(user1);
+        }
+        struct UserInfo
+        {
+            public string firstName;
+            public string lastName;
+        }
+        static void printUserInfo(UserInfo userInfo) => Console.WriteLine(userInfo.firstName + " " + userInfo.lastName);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------
+2) Prof:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printUserInfo(getFullName(readUserInfo()));
+        }
+        struct UserInfo
+        {
+            public string firstName;
+            public string lastName;
+        }
+        static UserInfo readUserInfo()
+        {
+            UserInfo userInfo = new UserInfo();
+
+            Console.Write("Please Enter First Name: ");
+            userInfo.firstName = Console.ReadLine();
+            Console.Write("Please Enter Last Name: ");
+            userInfo.lastName = Console.ReadLine();
+
+            return userInfo;
+        }
+        static string getFullName(UserInfo userInfo) => userInfo.firstName + " " + userInfo.lastName;
+        static void printUserInfo(string userFullName) => Console.WriteLine("Your Full Name is: {0}", userFullName);
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#7:
+1) Me:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printHulfNumber(getHulfNumber(readNumber()));
+        }
+        static int readNumber()
+        {
+            Console.Write("Please Enter The Number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            return number;
+        }
+        static double getHulfNumber(double number) => number / 2;
+        static void printHulfNumber(double hulfNumber) => Console.WriteLine("The Hulf Number is: {0}", hulfNumber);
+      
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------
+2) prof : 
+  The Same 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#8:
+1) Me:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult(isPass(readMark()));
+        }
+        public enum FinalResult { Pass, Fail};
+        static bool isValidMark(int mark) => mark < 0 || mark > 100 ? false : true;
+
+        static int readMark()
+        {
+            Console.Write("Please Enter The Mark: ");
+            int mark = int.Parse(Console.ReadLine());
+
+            while (!isValidMark(mark))
+            {
+                Console.WriteLine("Wrong Mark, Please Enter Valid Mark: ");
+                mark = int.Parse(Console.ReadLine());
+            }
+
+
+            return mark;
+        }
+        static FinalResult isPass(int mark) => mark>=50?FinalResult.Pass:FinalResult.Fail;
+        static void printResult(FinalResult finalResult)=>
+                Console.WriteLine("The Final Result is: {0}",finalResult);
+      
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------
+2) Prof:
+  The Same Concepts
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#9:
+1) Me:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult(sumUserNumbers(readNumbers()));
+        }
+        struct UserNumbers
+        {
+            public int number1;
+            public int number2;
+            public int number3;
+        }
+        static UserNumbers readNumbers()
+        {
+            UserNumbers userNumbers = new UserNumbers();
+
+            Console.Write("Please Enter The First Number: ");
+            userNumbers.number1 = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter The Secound Number: ");
+            userNumbers.number2 = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter The Third Number: ");
+            userNumbers.number3 = int.Parse(Console.ReadLine());
+
+            return userNumbers;
+        }
+        static int sumUserNumbers(UserNumbers userNumbers) => userNumbers.number1+userNumbers.number2+userNumbers.number3;
+        static void printResult(int sumUserNumbers) =>
+                Console.WriteLine("The Final Result is: {0}",sumUserNumbers);
+      
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------
