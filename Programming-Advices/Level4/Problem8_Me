@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult(isPass(readMark()));
+        }
+        public enum FinalResult { Pass, Fail};
+        static bool isValidMark(int mark) => mark < 0 || mark > 100 ? false : true;
+
+        static int readMark()
+        {
+            Console.Write("Please Enter The Mark: ");
+            int mark = int.Parse(Console.ReadLine());
+
+            while (!isValidMark(mark))
+            {
+                Console.WriteLine("Wrong Mark, Please Enter Valid Mark: ");
+                mark = int.Parse(Console.ReadLine());
+            }
+
+
+            return mark;
+        }
+        static FinalResult isPass(int mark) => mark>=50?FinalResult.Pass:FinalResult.Fail;
+        static void printResult(FinalResult finalResult)=>
+                Console.WriteLine("The Final Result is: {0}",finalResult);
+      
+    }
+}
