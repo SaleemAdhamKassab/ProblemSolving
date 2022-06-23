@@ -1,0 +1,27 @@
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            UserInfo user1 = new UserInfo();
+            Console.Write("Please Enter First Name: ");
+            user1.firstName = Console.ReadLine();
+            Console.Write("Please Enter Last Name: ");
+            user1.lastName = Console.ReadLine();
+
+            printUserInfo(user1);
+        }
+        struct UserInfo
+        {
+            public string firstName;
+            public string lastName;
+        }
+        static void printUserInfo(UserInfo userInfo) => Console.WriteLine(userInfo.firstName + " " + userInfo.lastName);
+    }
+}
