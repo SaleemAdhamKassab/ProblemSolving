@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult(isPass(avgMarks(sumMarks(readMarks()))));
+        }
+        enum finalResult { Pass, Fail};
+        static int[] readMarks()
+        {
+            int[] marks = new int[3];
+
+            Console.Write("Please Enter The First Mark: ");
+            marks[0] = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter The Secound Mark: ");
+            marks[1] = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter The Third Mark: ");
+            marks[2] = int.Parse(Console.ReadLine());
+
+            return marks;
+        }
+        static double sumMarks(int[] marks) => marks[0]+marks[1]+marks[2];
+        static double avgMarks(double marks) =>marks/3;
+        static bool isPass(double avgMarks) => avgMarks >= 50 ? true : false;
+        static void printResult(bool isPass)
+        { 
+            if(isPass)
+                Console.WriteLine(finalResult.Pass);
+            else
+                Console.WriteLine(finalResult.Fail);
+        }
+    }
+}
