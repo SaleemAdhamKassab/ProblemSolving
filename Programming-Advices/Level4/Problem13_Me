@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int number1 = 0, number2 = 0, number3 = 0;
+            readNumbers(ref number1, ref number2, ref number3);
+            printResult(maxOf3Number(number1, number2,number3));
+        }
+        static void readNumbers(ref int num1, ref int num2, ref int num3)
+        {
+            Console.Write("Please Enter Number1: ");
+            num1 = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter Number2: ");
+            num2 = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter Number3: ");
+            num3 = int.Parse(Console.ReadLine());
+        }
+        static int maxOf3Number(int number1, int number2, int number3)
+        {
+            if (number1 > number2)
+            {
+                if (number1 > number3) return number1;
+                else return number3;
+            }
+            else
+            {
+                if (number2 > number3) return number3;
+                else return number3;
+            }
+        }
+        static void printResult(int maxNumber) => Console.WriteLine("The Max Number is: {0}", maxNumber);
+
+    }
+}
