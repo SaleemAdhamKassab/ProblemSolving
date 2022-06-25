@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float  a= 0, h = 0;
+            readRectangle(ref a, ref h);
+            printArea(triangleArea(a,h));
+        }
+
+        static void readRectangle(ref float a, ref float h)
+        {
+            Console.Write("Please Enter A: ");
+            a = float.Parse(Console.ReadLine());
+            Console.Write("Please Enter the h: ");
+            h = float.Parse(Console.ReadLine());
+        }
+        static float triangleArea(float a, float h) => (a / 2) * h;
+        static void printArea(double triangleArea) => Console.WriteLine("The Area is: {0}", triangleArea.ToString(".000"));
+    }
+}
