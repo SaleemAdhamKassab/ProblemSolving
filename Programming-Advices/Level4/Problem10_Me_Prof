@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult(avgUserNumbers(sumUserNumbers(readNumbers())));
+        }
+        struct UserNumbers
+        {
+            public int number1;
+            public int number2;
+            public int number3;
+        }
+        static UserNumbers readNumbers()
+        {
+            UserNumbers userNumbers = new UserNumbers();
+
+            Console.Write("Please Enter The First Number: ");
+            userNumbers.number1 = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter The Secound Number: ");
+            userNumbers.number2 = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter The Third Number: ");
+            userNumbers.number3 = int.Parse(Console.ReadLine());
+
+            return userNumbers;
+        }
+        static double sumUserNumbers(UserNumbers userNumbers) => userNumbers.number1 + userNumbers.number2 + userNumbers.number3;
+        static double avgUserNumbers(double userNumbers) =>userNumbers/3;
+        static void printResult(double avgUserNumbers) =>
+                Console.WriteLine("The Average is: {0}", avgUserNumbers);
+
+    }
+}
