@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult(sumUserNumbers(readNumbers()));
+        }
+        static int[] readNumbers()
+        {
+            int[] userNumbers = new int[3];
+
+            Console.Write("Please Enter The First Number: ");
+            userNumbers[0] = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter The Secound Number: ");
+            userNumbers[1] = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter The Third Number: ");
+            userNumbers[2] = int.Parse(Console.ReadLine());
+
+            return userNumbers;
+        }
+        static int sumUserNumbers(int[] userNumbers) => userNumbers[0]+userNumbers[1]+userNumbers[2];
+        static void printResult(int sumUserNumbers) =>
+                Console.WriteLine("The Final Result is: {0}",sumUserNumbers);
+      
+    }
+}
