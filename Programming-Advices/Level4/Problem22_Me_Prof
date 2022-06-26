@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double a = 0, b = 0;
+            readInputs(ref a, ref b);
+            printArea(circleAreaInscribedInIsoscelesTriangle(a,b));
+        }
+        static void readInputs(ref double a, ref double b)
+        {
+            Console.Write("Please Enter A : ");
+            a = double.Parse(Console.ReadLine());
+            Console.Write("Please Enter B : ");
+            b = double.Parse(Console.ReadLine());
+        }
+
+        static double circleAreaInscribedInIsoscelesTriangle (double a, double b) => 3.14 * ((b * b) / 4) * (2 * a - b) / (2 * a + b);
+        static void printArea(double circleArea) => Console.WriteLine("The Area is: {0}", circleArea);
+    }
+}
