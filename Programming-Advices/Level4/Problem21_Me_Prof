@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printArea(circleAreaAlongCircumference(readL()));
+        }
+
+        static double readL()
+        {
+            Console.Write("Please Enter L : ");
+            double l = double.Parse(Console.ReadLine());
+            return l;
+
+        }
+        static double circleAreaAlongCircumference (double l) => (l * l) / (4 * 3.14);
+        static void printArea(double circleArea) => Console.WriteLine("The Area is: {0}", circleArea);
+    }
+}
