@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult(readUntilAgeBetween());
+        }
+        static byte readAge()
+        {
+            Console.Write("Please Enter Age Between 18 and 45: ");
+            byte age = byte.Parse(Console.ReadLine());
+
+            return age;
+        }
+        static bool validateNumberInRange(int number, int from, int to) => number >= from && number <= to ? true : false;
+        static byte readUntilAgeBetween()
+        {
+            byte age = 0;
+            do
+            {
+                age = readAge();
+            } while (!validateNumberInRange(age, 18, 45));
+
+            return age;
+        }
+       
+        static void printResult(byte age)=> Console.WriteLine("Your Age is : {0}",age);
+
+    }
+}
