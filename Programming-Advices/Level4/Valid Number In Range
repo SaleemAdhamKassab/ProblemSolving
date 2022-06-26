@@ -1,0 +1,1 @@
+static bool isValidNumberInRange(int number, int from, int to) => number >= from && number <= to ? true : false;
