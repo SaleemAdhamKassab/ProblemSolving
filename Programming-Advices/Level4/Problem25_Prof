@@ -8,7 +8,7 @@ namespace lab
     {
         static void Main(string[] args)
         {
-            printResult(readUntilAgeBetween());
+            printResult(readUntilAgeBetween(18,45));
         }
         static byte readAge()
         {
@@ -18,18 +18,18 @@ namespace lab
             return age;
         }
         static bool validateNumberInRange(int number, int from, int to) => number >= from && number <= to ? true : false;
-        static byte readUntilAgeBetween()
+        static byte readUntilAgeBetween(int from, int to)
         {
             byte age = 0;
             do
             {
                 age = readAge();
-            } while (!validateNumberInRange(age, 18, 45));
+            } while (!validateNumberInRange(age, from, to));
 
             return age;
         }
        
         static void printResult(byte age)=> Console.WriteLine("Your Age is : {0}",age);
-
+        
     }
 }
