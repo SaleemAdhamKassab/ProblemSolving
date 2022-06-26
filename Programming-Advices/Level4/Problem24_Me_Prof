@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult(isValidNumberInRange(readAge(), 18, 45));
+        }
+        static byte readAge()
+        {
+            Console.Write("Please Enter Age: ");
+            byte age = byte.Parse(Console.ReadLine());
+
+            return age;
+        }
+        static bool isValidNumberInRange(int number, int from, int to) => number >= from && number <= to ? true : false;
+        static void printResult(bool isValidAge) 
+        {
+            if (isValidAge) Console.WriteLine("Valid Age");
+            else Console.WriteLine("Invalid Age");
+        }
+        
+        
+    }
+}
