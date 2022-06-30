@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printFactrial(Factorial(readPositiveNumber("Enter The Number: ")));
+        }
+        static int readPositiveNumber(string message)
+        {
+            int number = 1;
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number < 0);
+            return number;
+        }
+        static int Factorial(int number)
+        {
+            int factorial = 1;
+            for (int i = 1; i <= number; i++)
+                factorial *= i;
+
+            return factorial;
+        }
+        static void printFactrial(int factorial)=>Console.WriteLine("The Factorial is: {0}",factorial);
+        
+    }
+}
