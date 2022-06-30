@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printSumOfNumbers(sumNumbersInRange(readNumber(),ensumType.All));
+        }
+        enum ensumType { Odd, even, All };
+        static int readNumber()
+        {
+            Console.Write("Please Enter The Number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            return number;
+        }
+        static ensumType checkOddOrEven(int number) => number % 2 != 0 ? ensumType.Odd : ensumType.even;
+        static int sumNumbersInRange(int number, ensumType sumType)
+        {
+            int sumOfNumbers = 0;
+            for (int i = 0; i <= number; i++)
+            {
+
+                if (sumType == ensumType.All)
+                    sumOfNumbers += i;
+                if(checkOddOrEven(i) == sumType)
+                    sumOfNumbers += i;
+            }
+                
+            return sumOfNumbers;
+        }
+        static void printSumOfNumbers(int sumOfNumber)
+        {
+            Console.WriteLine(sumOfNumber);
+        }
+    }
+}
