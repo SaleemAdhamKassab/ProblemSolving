@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult(readNumber(50, 0, 100));
+        }
+        static int readNumber(int number, int from, int to)
+        {
+            do
+            {
+                Console.Write("Pleae Enter a Valid Number Between {0} and {1}: ", from, to);
+                number = int.Parse(Console.ReadLine());
+            } while (!isValidNumberInRange(number, from, to));
+
+            return number;
+        }
+        static bool isValidNumberInRange(int number, int from, int to) => number >= from && number <= to ? true : false;
+        static char grade(int mark)
+        {
+            if (mark >= 90) return 'A';
+            else if (mark >= 80) return 'B';
+            else if (mark >= 70) return 'C';
+            else if (mark >= 60) return 'D';
+            else if (mark >= 50) return 'E';
+            else return 'F';
+        }
+        static void printResult(int mark) => Console.WriteLine("The grade is: {0}", grade(mark));
+
+
+
+    }
+}
