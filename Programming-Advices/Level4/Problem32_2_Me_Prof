@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Result= {0}", powerOfM(readNumber(), readPower()));
+           
+        }
+        static int readNumber()
+        {
+            Console.Write("Please Enter a Number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            return number;
+        }
+        static int readPower()
+        {
+            Console.Write("Please Enter a Power: ");
+            int power = int.Parse(Console.ReadLine());
+
+            return power;
+        }
+        static int powerOfM(int number, int power)
+        {
+            if (power == 0) return 1;
+
+            int result = 1;
+
+            for (int i = 1; i <= power; i++)
+                result *= number;
+
+            return result; 
+        }
+    }
+}
