@@ -12,6 +12,5 @@ static double commission(int number)
             else if (number >= 500000) return number * 0.02;
             else if (number >= 100000) return number * 0.03;
             else if (number >= 50000) return number * 0.05;
-            else if (number >= 50) return 0;
-            else return 'F';
+            else return 0;
         }
