@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Result = {0}", sumNumbers());
+        }
+        static int sumNumbers()
+        {
+            int number = 0, result = 0, counter = 1;
+            do
+            {
+                number = readNumber("Please Enter Number" + counter + " :");
+
+                if (number == -99) break;
+
+                result += number;
+                counter++;
+
+            } while (number != -99);
+
+            return result;
+        }
+        static int readNumber(string message)
+        {
+            Console.Write(message);
+            int number = int.Parse(Console.ReadLine());
+
+            return number;
+        }
+    }
+}
