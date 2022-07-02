@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("The Commission is: {0}", commissionBasedOnTotalSales(readTotalSales()));
+        }
+        static int readTotalSales()
+        {
+            Console.Write("Please Enter The Total Sales: ");
+            int totalSales = int.Parse(Console.ReadLine());
+
+            return totalSales;
+        }
+        static double commissionBasedOnTotalSales(int totalsales)
+        {
+            if (totalsales >= 1000000) return totalsales * 0.01;
+            else if (totalsales >= 500000) return totalsales * 0.02;
+            else if (totalsales >= 100000) return totalsales * 0.03;
+            else if (totalsales >= 50000) return totalsales * 0.05;
+            else  return 0;
+        }
+    }
+}
