@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printPowersResult(readNumber());
+        }
+        static int readNumber()
+        {
+            Console.Write("Please Enter a Number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            return number;
+        }
+        static int powerOf2(int number) => number * number;
+        static int powerOf3(int number) => number * number * number;
+        static int powerof4(int number) => number * number * number * number;
+        static void printPowersResult(int number)
+        {
+            Console.WriteLine("Power of 2 is: {0}", powerOf2(number));
+            Console.WriteLine("Power of 3 is: {0}", powerOf3(number));
+            Console.WriteLine("Power of 4 is: {0}", powerof4(number));
+        }
+    }
+}
