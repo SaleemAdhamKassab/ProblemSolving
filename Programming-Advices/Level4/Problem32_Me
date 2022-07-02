@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int baseNumber = 0, powerNumber = 0;
+            readNumbers(ref baseNumber, ref powerNumber);
+            printResult(powerOfBase(baseNumber,powerNumber));
+           
+        }
+        static void readNumbers(ref int baseNumber,ref int powerNumber)
+        {
+            Console.Write("Please Enter a base number: ");
+            baseNumber = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter a power number: ");
+            powerNumber = int.Parse(Console.ReadLine());
+        }
+        static int powerOfBase(int baseNumber, int powerNumber)
+        {
+            int result = 1;
+
+            if (powerNumber == 0) return 1;
+
+            for (int i = 1; i <= powerNumber; i++)
+                result *= baseNumber;
+
+            return result; 
+        }
+        static void printResult(int powerOfBaseNumber) => Console.WriteLine("The Power is: {0}", powerOfBaseNumber);
+
+    }
+}
