@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ShiftDuration shiftDuration = secoundsToShiftDuration(readPositiveNumber("Please Enter the Shift Secounds: "));
+            Console.WriteLine("{0}:{1}:{2}:{3}", shiftDuration.days, shiftDuration.houres, shiftDuration.minutes, shiftDuration.secounds);
+
+        }
+        struct ShiftDuration
+        {
+            public int days, houres, minutes, secounds;
+        }
+        static int readPositiveNumber(string message)
+        {
+            int number = 0;
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number <= 0);
+
+            return number;
+        }
+        static ShiftDuration secoundsToShiftDuration(int secounds)
+        {
+            ShiftDuration shiftDuration = new ShiftDuration();
+
+            while (secounds > 0)
+            {
+                if (secounds >= 86400)
+                {
+                    shiftDuration.days++;
+                    secounds = secounds - 86400;
+                }
+                else if (secounds >= 3600)
+                {
+                    shiftDuration.houres++;
+                    secounds = secounds - 3600;
+                }
+                else if (secounds >= 60)
+                {
+                    shiftDuration.minutes++;
+                    secounds = secounds - 60;
+                }
+                else
+                {
+                    shiftDuration.secounds = secounds;
+                    break;
+                }
+            }
+            return shiftDuration;
+        }
+        
+    }
+}
