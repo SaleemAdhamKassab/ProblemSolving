@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            login();
+        }
+        static void login()
+        {
+            int number = 0, counter = 0;
+            do
+            {
+                Console.Write("Pleae Enter Pin Code: ");
+                number = int.Parse(Console.ReadLine());
+
+                if (!validPin(number))
+                {
+                    consoleEffects(false,2-counter);
+                    counter++;
+                }
+                else
+                {
+                    consoleEffects(true);
+                    break;
+                }
+            } while (counter < 3);
+        }
+        static bool validPin(int pin) => pin == 1234 ? true : false;
+        static void consoleEffects(bool isValidPin, int counter=0)
+        {
+            if (isValidPin)
+            {
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.WriteLine("Your Balance is: 7500");
+            }
+            else
+            {
+                if (counter > 0)
+                    Console.WriteLine("Wrong Pin, you have {0} trirs!!", counter);
+                else Console.WriteLine("Your Card blocked, call the bank for help.");
+                Console.BackgroundColor = ConsoleColor.Red;
+            }
+        }
+    }
+}
