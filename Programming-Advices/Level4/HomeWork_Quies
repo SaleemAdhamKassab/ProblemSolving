@@ -1,0 +1,154 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult(startQueis());
+        }
+        enum enOperationType { Add = '+', Subtract = '-', Multiply = '*', Divide = '/', Mix = 'm' }
+        static int readPositiveNumber(string message)
+        {
+            int number = 0;
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number <= 0);
+
+            return number;
+        }
+        static enOperationType readOperationType()
+        {
+            char operationType;
+
+            do
+            {
+                Console.Write("Please Enter a Valid Operator (+) (-) (*) (/) or (m) for Mix :");
+
+                operationType = char.Parse(Console.ReadLine());
+            } while (!isValidOperationType(operationType));
+
+            return (enOperationType)operationType;
+        }
+        static bool isValidOperationType(char operationType) =>
+            (enOperationType)operationType == enOperationType.Add ||
+            (enOperationType)operationType == enOperationType.Subtract ||
+            (enOperationType)operationType == enOperationType.Multiply ||
+            (enOperationType)operationType == enOperationType.Divide ||
+            (enOperationType)operationType == enOperationType.Mix ? true : false;
+        static void printQuestion(enOperationType operationType, double number1, double number2)
+        {
+            char operatorSymbol = operationSymbol(operationType);
+
+            Console.Write("{0}{1}{2}=", number1, operatorSymbol, number2);
+        }
+        static int readQuestionAnswer()
+        {
+            int result = int.Parse(Console.ReadLine());
+            return result;
+        }
+        static char operationSymbol(enOperationType operationType)
+        {
+            switch (operationType)
+            {
+                case enOperationType.Add:
+                    return '+';
+                case enOperationType.Subtract:
+                    return '-';
+                case enOperationType.Multiply:
+                    return '*';
+                default:
+                    return '/';
+            }
+        }
+        static bool checkQuestionResult(enOperationType operationType, double number1, double number2, double questionResult)
+        {
+            return questionResult == calculater(number1, number2, operationType);
+        }
+        static double calculater(double number1, double number2, enOperationType operatorType)
+        {
+            switch (operatorType)
+            {
+                case enOperationType.Add:
+                    return number1 + number2;
+                case enOperationType.Subtract:
+                    return number1 - number2;
+                case enOperationType.Multiply:
+                    return number1 * number2;
+                default:
+                    return number1 / number2;
+            }
+        }
+        static int generateRandomNumber()
+        {
+            Random random = new Random();
+            return random.Next(0,9);
+        }
+        static int generateQuestion(enOperationType operationType)
+        {
+            int number1 = generateRandomNumber(),
+                number2 = generateRandomNumber(),
+                errorAnswerCounter = -1,
+                questionResult = 0;
+            do
+            {
+                printQuestion(operationType, number1, number2);
+                questionResult = readQuestionAnswer();
+
+                if(!checkQuestionResult(operationType, number1, number2, questionResult))
+                    Console.WriteLine("Wrong Answer, Please Again: ");
+
+                errorAnswerCounter++;
+
+            } while (!checkQuestionResult(operationType, number1, number2, questionResult));
+
+            int result = errorAnswerCounter;
+
+            errorAnswerCounter = -1;
+
+            return result;
+        }
+        static int[] startQueis()
+        {
+            int numberOfQuestions = readPositiveNumber("Please Enter The Number Of Questions: ");
+            enOperationType operationType = readOperationType();
+
+            int[] report = new int[numberOfQuestions];
+            int numberOfWrongAnswerForeachQuestion = 0;
+
+            for (int i = 0; i < numberOfQuestions; i++)
+            {
+                if (operationType == enOperationType.Mix)
+                {
+                    Array values = Enum.GetValues(typeof(enOperationType));
+                    Random random = new Random();
+                    enOperationType randomOperationType = (enOperationType)values.GetValue(random.Next(values.Length - 1));
+
+                    numberOfWrongAnswerForeachQuestion = generateQuestion(randomOperationType);
+                }
+                else
+                {
+                    numberOfWrongAnswerForeachQuestion = generateQuestion(operationType);
+                }
+                    
+                report[i] = numberOfWrongAnswerForeachQuestion;
+            }
+            return report;
+        }
+        static void printResult(int[] report)
+        {
+            Console.WriteLine("*********** Error's Report ****************");
+            for (int i = 0; i < report.Length; i++)
+            {
+                Console.Write("Failed Answers for question Number {0} is: {1}", i + 1, report[i]);
+                Console.WriteLine();
+            }
+            Console.WriteLine("********************************************");
+        }
+    }
+}
