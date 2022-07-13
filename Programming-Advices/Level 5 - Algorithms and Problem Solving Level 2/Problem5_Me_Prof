@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printReversedNumber(readPositiveNumber("Please Enter a Positive Number: "));
+        }
+        static int readPositiveNumber(string message)
+        {
+            int number = 0;
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number <= 0);
+
+            return number;
+        }
+        static void printReversedNumber(int number)
+        {
+            while (number > 0)
+            {
+                Console.WriteLine(number % 10);
+                number = number / 10;
+            }
+        }
+    }
+}
