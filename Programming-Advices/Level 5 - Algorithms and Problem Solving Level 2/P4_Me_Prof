@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printPerfectNumbersFrom_1_To_N(readPositiveNumber("Please Enter a Positive Number: "));
+        }
+        static int readPositiveNumber(string message)
+        {
+            int number = 0;
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number <= 0);
+
+            return number;
+        }
+        static bool isPerfectNumber(int number)
+        {
+            int numberDivisorsSum = 0;
+
+            for (int i = 1; i < number; i++)
+                if (number % i == 0)
+                    numberDivisorsSum += i;
+
+            return numberDivisorsSum == number;
+        }
+        static void printPerfectNumbersFrom_1_To_N(int number)
+        {
+            for (int i = 1; i <= number; i++)
+                if (isPerfectNumber(i))
+                    Console.WriteLine(i);
+        }
+
+    }
+}
