@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printPrimNumbersFrom_1_To_N(readPositiveNumber("Please Enter a Positive Number: "));
+        }
+        enum enPrimeNotPrime { Prime, NotPrim };
+        static int readPositiveNumber(string message)
+        {
+            int number = 0;
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number <= 0);
+
+            return number;
+        }
+        static enPrimeNotPrime checkPrime(int number)
+        {
+            double m = Math.Round((double)number / 2);
+
+            for (int i = 2; i <= m; i++)
+                if (number % i == 0)
+                    return enPrimeNotPrime.NotPrim;
+
+            return enPrimeNotPrime.Prime;
+        }
+        static void printPrimNumbersFrom_1_To_N(int number)
+        {
+            for(int i = 1; i <= number; i++)
+                if (checkPrime(i) == enPrimeNotPrime.Prime)
+                    Console.WriteLine(i);
+        }
+
+    }
+}
