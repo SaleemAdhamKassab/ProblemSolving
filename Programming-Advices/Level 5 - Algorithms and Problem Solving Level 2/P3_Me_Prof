@@ -26,7 +26,6 @@ namespace lab
             int numberDivisorsSum = 0;
 
             for (int i = 1; i < number; i++)
-
                 if (number % i == 0)
                     numberDivisorsSum += i;
 
@@ -39,6 +38,5 @@ namespace lab
             else
                 Console.WriteLine("{0} is not a Perfect Number.", number);
         }
-
     }
 }
