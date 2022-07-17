@@ -1,0 +1,8 @@
+static bool isArrayContainsNumber(int[] arr, int number)
+        {
+            for (int i = 0; i < arr.Length; i++)
+                if (arr[i] == number)
+                    return true;
+            
+            return false;
+        }
