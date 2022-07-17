@@ -1,0 +1,39 @@
+static int []  disitinctDigitsInPositiveNumber(int mainNumber)
+        {
+            int[] distinctDigits = new int[20];
+            int reminder = 0, distinctDigitsIndex=0;
+
+            fillArrayWithDefaultValue(distinctDigits, -1);
+
+            while (mainNumber > 0)
+            {
+                reminder = mainNumber % 10;
+
+                if (!isArrayContainsNumber(distinctDigits, reminder))
+                {
+                    distinctDigits[distinctDigitsIndex] = reminder;
+                    distinctDigitsIndex++;
+                }
+
+                mainNumber = mainNumber / 10;
+            }
+
+            return distinctDigits;
+        }
+        
+   static int[] fillArrayWithDefaultValue(int[] arr, int defaultValue)
+        {
+            for (int i = 0; i < arr.Length; i++)
+                arr[i] = defaultValue;
+
+            return arr;
+        }
+
+ static bool isArrayContainsNumber(int[] arr, int number)
+        {
+            for (int i = 0; i < arr.Length; i++)
+                if (arr[i] == number)
+                    return true;
+            
+            return false;
+        }
