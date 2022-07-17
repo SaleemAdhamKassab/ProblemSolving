@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int digit = readPositiveNumber("Please Enter a Positive Digit: ");
+            printResult(digit, digitFrequency(digit, readPositiveNumber("Please Enter a Positive Digit Frequency: ")));
+        }
+        static int readPositiveNumber(string message)
+        {
+            int number = 0;
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number <= 0);
+
+            return number;
+        }
+        static int digitFrequency(int digit, int digitFrequency)
+        {
+            int digitFrequencyCounter = 0;
+
+            while (digit > 0)
+            {
+                if (digit % 10 == digitFrequency)
+                    digitFrequencyCounter++;
+
+                digit = digit / 10;
+            }
+            return digitFrequencyCounter;
+        }
+        static void printResult(int digit ,int digitFrequencyCounter) => Console.WriteLine("Digit {0} Frequency is {1} Time(s).",digit, digitFrequencyCounter);
+    }
+}
