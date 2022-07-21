@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult();
+        }
+        static int readPositiveNumber(string message)
+        {
+            int positieNumber = 0;
+
+            do
+            {
+                Console.Write(message);
+                positieNumber = int.Parse(Console.ReadLine());
+            } while (positieNumber < 1);
+
+            return positieNumber;
+        }
+        static int[] fillArray(int arrayLength)
+        {
+            int[] arrResult = new int[arrayLength];
+
+            for(int i = 0; i < arrayLength; i++)
+            {
+                arrResult[i] = readPositiveNumber("Element["+ (i+1).ToString()+"]: ");    
+            }
+
+            return arrResult;
+        }
+        static void printOrginalArray(int[] arr)
+        {
+            Console.Write("Orginal Array: ");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i]+" ");
+            }
+            Console.WriteLine();
+        }
+        static int getRepeatedNumberInarray(int [] arr, int number)
+        {
+            int counter = 0;
+
+            for (int i = 0; i < arr.Length; i++)
+                if (arr[i] == number)
+                    counter++;
+
+            return counter;
+        }
+        static void printRepeatedNumberInArray(int[] arr, int number)
+        {
+            int repeatedNumber = getRepeatedNumberInarray(arr, number);
+            Console.WriteLine("{0} is Repeated {1} times.",number,repeatedNumber);
+        }
+        static void printResult()
+        {
+            int[] arr = fillArray(readPositiveNumber("Please Enter Array Length: "));
+
+            printOrginalArray(arr);
+            printRepeatedNumberInArray(arr, readPositiveNumber("Enter The Number you want to Check: "));
+        }
+    }
+}
