@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = generteRandomArray(readPositiveNumber("Please Enter Array Size: "));
+            printResult(arr);
+        }
+        static int readPositiveNumber(string message)
+        {
+            int number = 0;
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number < 1);
+
+            return number;
+        }
+        static int generateRandomNumber()
+        {
+            Random random = new Random();
+            return random.Next(1, 100);
+        }
+        static int[] generteRandomArray(int arrLength)
+        {
+            int[] arr = new int[arrLength];
+            for (int i = 0; i < arrLength; i++)
+                arr[i] = generateRandomNumber();
+
+            return arr;
+        }  
+        static void printArray(int[] arr)
+        {
+            Console.Write("Array Elements: ");
+            for (int i = 0; i < arr.Length; i++)
+                Console.Write(arr[i]+ " ");
+
+            Console.WriteLine();
+        }
+        static int[] copyArray(int [] arr)
+        {
+            int[] copiedArray = new int[arr.Length];
+
+            for(int i = 0; i < arr.Length; i++)
+            {
+                copiedArray[i] = arr[i];
+            }
+
+            return copiedArray;
+        }
+        static void printResult(int[] arr)
+        {
+            Console.Write("Array 1 Elements:");
+            printArray(arr);
+            Console.Write("Array 2 Elements after Copy:");
+            printArray(copyArray(arr));
+        }
+    }
+}
