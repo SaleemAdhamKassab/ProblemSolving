@@ -1,0 +1,88 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult(generateRandomArray(readPositiveNumber("Please Enter a Positive Number: ")));
+        }
+        static int arr2Length = 0;
+        static int readPositiveNumber(string message)
+        {
+            int number = 0;
+
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number < 1);
+
+            return number;
+        }
+        static bool isPrimeNumber(int number)
+        {
+            if (number == 1 || number == 2)
+                return true;
+
+            for (int i = 2; i< number; i++)
+                if (number % i == 0)
+                    return false;
+
+            return true;
+        }
+        static int generateRandomeNumber()
+        {
+            Random random = new Random();
+            return random.Next(1, 100);
+        }
+        static int[] generateRandomArray(int arrayLength)
+        {
+            int[] arr = new int[arrayLength];
+
+            for (int i = 0; i < arrayLength; i++)
+                arr[i] = generateRandomeNumber();
+
+            return arr;
+        }
+        static void printArray(int[] arr, int arrLength)
+        {
+            if (arrLength == 0)
+                arrLength = arr.Length;
+
+            for(int i = 0; i < arrLength; i++)
+                Console.Write(arr[i] + " ");
+
+            Console.WriteLine();
+        }
+        static int[] getPrimNumbersInArray(int[] arr)
+        {
+            int[] arrResult = new int[100];
+            int arrResultIndex = 0;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (isPrimeNumber(arr[i]))
+                {
+                    arrResult[arrResultIndex] = arr[i];
+                    arrResultIndex++;
+                }
+            }
+            
+            arr2Length = arrResultIndex - 1;
+
+            return arrResult;
+        }
+        static void printResult(int [] arr)
+        {
+            Console.WriteLine("Array 1 Elements:");
+            printArray(arr, arr2Length);
+
+            Console.WriteLine("Prime Numbers in Array2: ");
+            printArray(getPrimNumbersInArray(arr), arr2Length);
+        }
+    }
+}
