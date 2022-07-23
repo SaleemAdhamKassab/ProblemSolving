@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult(generateArrayKeys(readPositiveNumber("Please Enter a Positive Number: ")));
+        }
+        static int readPositiveNumber(string message)
+        {
+            int positieNumber = 0;
+
+            do
+            {
+                Console.Write(message);
+                positieNumber = int.Parse(Console.ReadLine());
+            } while (positieNumber < 1);
+
+            return positieNumber;
+        }
+        static int generateRandomNumberInRange(int from, int to)
+        {
+            Random random = new Random();
+            return random.Next(from, to);
+        }
+        static string generateKey()
+        {
+            string key = "";
+            for (int i = 0; i < 20; i++)
+            {
+                if (i == 4 || i == 9 || i == 14)
+                {
+                    key += '-';
+                    continue;
+                }
+                key += (char)generateRandomNumberInRange(65, 90);
+            }
+
+            return key;
+        }
+        static string[] generateArrayKeys(int number)
+        {
+            string[] arr = new string[number];            
+
+            for (int i = 0; i < number; i++)
+                arr[i] =  generateKey();
+
+            return arr;
+        }
+        static void printResult(string[] arr)
+        {
+            Console.WriteLine("Array Elements: ");
+            for(int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine("Array[{0}]: {1}",i,arr[i]);
+            }
+        }
+    }
+}
