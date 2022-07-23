@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult();
+        }
+        static int readPositiveNumber(string message)
+        {
+            int number = 0;
+
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number < 1);
+
+            return number;
+        }
+        static int generateRandomeNumber()
+        {
+            Random random = new Random();
+            return random.Next(1, 100);
+        }
+        static int[] generateRandomArray(int arrayLength)
+        {
+            int[] arr = new int[arrayLength];
+
+            for (int i = 0; i < arrayLength; i++)
+                arr[i] = generateRandomeNumber();
+
+            return arr;
+        }
+        static void printArray(int[] arr)
+        {
+            for(int i = 0; i < arr.Length; i++)
+                Console.Write(arr[i] + " ");
+
+            Console.WriteLine();
+        }
+        static int[] sum2Arrays(int[] arr1, int[] arr2)
+        {
+            int[] arr = new int[arr1.Length];
+
+            for (int i = 0; i < arr1.Length; i++)
+                arr[i] = arr1[i] + arr2[i];
+
+            return arr;
+        }
+        static void printResult()
+        {
+            int arraysLength = readPositiveNumber("Please Enter a Positive Number: ");
+            int[] arr1 = generateRandomArray(arraysLength),
+                   arr2 = generateRandomArray(arraysLength);
+            
+            Console.WriteLine("Array1 Elements:");
+            printArray(arr1);
+
+            Console.WriteLine("Array2 Elements:");
+            printArray(arr2);
+
+            Console.WriteLine("Sum Of Array1 and Array2 Elements:");
+            printArray(sum2Arrays(arr1, arr2));
+        }
+
+    }
+}
