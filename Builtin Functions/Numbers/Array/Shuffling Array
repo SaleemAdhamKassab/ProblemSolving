@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+        static int[] shuffleArray(int[] arr)
+        {
+            int[] shffledArray = new int[arr.Length];
+
+            for (int i = 0; i < shffledArray.Length; i++)
+            {
+                swap(ref arr[generateRandomeNumber()], ref arr[generateRandomeNumber()]);
+            }
+
+            return shffledArray;
+        }
+        static int[] generateArrayFrom1ToN(int arrayLength)
+        {
+            int[] arr = new int[arrayLength];
+
+            for (int i = 0; i < arrayLength; i++)
+                arr[i] = i;
+
+            return arr;
+        }
+        static void swap(ref int a, ref int b)
+        {
+            int temp = 0;
+            temp = a;
+            a = b;
+            b = temp;
+        }
+        static int generateRandomeNumber()
+        {
+            Random random = new Random();
+            return random.Next(0, 9);
+        }
+
+
+    }
+}
