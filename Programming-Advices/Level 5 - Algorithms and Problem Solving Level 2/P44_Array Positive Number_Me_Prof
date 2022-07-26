@@ -43,7 +43,7 @@ namespace lab
             Console.WriteLine();
         }
         static bool isPositiveNumber(int number) => number >= 0 ? true : false;
-        static int evenNumberCount(int[] arr)
+        static int positiveNumberCount(int[] arr)
         {
             int counter = 0;
             for (int i = 0; i < arr.Length; i++)
@@ -56,7 +56,7 @@ namespace lab
         {
             Console.Write("Array Elements :");
             PrintArray(arr);
-            Console.WriteLine("Positive Numbers Count is: {0}", evenNumberCount(arr));
+            Console.WriteLine("Positive Numbers Count is: {0}", positiveNumberCount(arr));
 
         }
     }
