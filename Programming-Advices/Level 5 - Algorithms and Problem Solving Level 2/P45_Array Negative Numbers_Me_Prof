@@ -42,7 +42,7 @@ namespace lab
 
             Console.WriteLine();
         }
-        static bool isNegativeNumber(int number) => number >= 0 ? true : false;
+        static bool isNegativeNumber(int number) => number < 0 ? true : false;
         static int negativeNumberCount(int[] arr)
         {
             int counter = 0;
