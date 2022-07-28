@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double number = readNumber("Please Enter a Number: ");
+            Console.WriteLine("My Sqrt Result: {0}",mySqrt(number));
+            Console.WriteLine("C# Ceil Result: {0}", Math.Sqrt(number));
+        }
+        static float readNumber(string message)
+        {
+            Console.Write(message);
+            return float.Parse(Console.ReadLine());
+        }
+        static double mySqrt(double number) => Math.Pow(number, 0.5);
+    }
+}
