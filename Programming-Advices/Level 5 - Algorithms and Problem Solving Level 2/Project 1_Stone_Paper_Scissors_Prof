@@ -1,0 +1,195 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            StartGame();
+        }
+        public enum enGameChoice { Stone, Paper, Scissors};
+        public enum enWinner { Player1, Computer, Draw};
+        public struct stRoundInfo
+        {
+            public short RoundNumber;
+            public enGameChoice Player1Choice;
+            public enGameChoice ComputerChoice;
+            public enWinner Winner;
+            public string WinnerName;
+        }
+        public struct stGameResults
+        {
+            public short GameRounds, Player1WinTimes, Computer2WinTimes, DrawTimes;
+            public enWinner GameWinner;
+            public string WinnerName;
+        }
+        static int RandomNumber(int From, int To)
+        {
+            Random random = new Random();
+            return random.Next(From, To);
+        }
+        static string WinnerName(enWinner Winner)
+        {
+            if (Winner == enWinner.Computer)
+                return "Computer";
+            else if (Winner == enWinner.Player1)
+                return "Player1";
+            else
+                return "No Winner";
+        }
+        static enWinner WhoWonTheRound(stRoundInfo RoundInfo)
+        {
+            if (RoundInfo.Player1Choice == RoundInfo.ComputerChoice)
+            {
+                return enWinner.Draw;
+            }
+
+            switch (RoundInfo.Player1Choice)
+            {
+                case enGameChoice.Stone: 
+                    if (RoundInfo.ComputerChoice == enGameChoice.Paper) { 
+                        return enWinner.Computer; 
+                    } 
+                    break;
+               case enGameChoice.Paper: 
+                    if (RoundInfo.ComputerChoice == enGameChoice.Scissors){
+                        return enWinner.Computer; 
+                    }
+                    break;
+               case enGameChoice.Scissors: 
+                    if (RoundInfo.ComputerChoice == enGameChoice.Stone) {
+                        return enWinner.Computer;
+                    } break;
+            } //if you reach here then player1 is the winner.
+              return enWinner.Player1;
+        }
+        static string ChoiceName(enGameChoice Choice) {
+            if (Choice == enGameChoice.Paper)
+                return "Paper";
+            else if (Choice == enGameChoice.Scissors)
+                return "Scissors";
+            else
+                return"Stone";
+        }
+        static void SetWinnerScreenColor(enWinner Winner)
+        {
+             switch (Winner) { 
+                case enWinner.Player1:
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    break;
+               case enWinner.Computer:
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.Write("\a"); 
+                    break;
+                default:
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    break;
+            }
+        }
+        static void PrintRoundResults(stRoundInfo RoundInfo) {
+            Console.Write("\n____________Round [" + RoundInfo.RoundNumber+ "] ____________\n\n");
+            Console.WriteLine("Player1  Choice: "+ ChoiceName(RoundInfo.Player1Choice));
+            Console.WriteLine("Computer Choice: " + ChoiceName(RoundInfo.ComputerChoice));
+            Console.Write("Round Winner   : [" + RoundInfo.WinnerName + "] \n");
+            Console.WriteLine("__________________________________\n"); 
+            //SetWinnerScreenColor(RoundInfo.Winner); 
+        }
+        static enWinner WhoWonTheGame(short Player1WinTimes, short ComputerWinTimes) {
+            if (Player1WinTimes > ComputerWinTimes) 
+                return enWinner.Player1;
+            else if(ComputerWinTimes > Player1WinTimes) 
+                return enWinner.Computer;
+            else 
+                return enWinner.Draw;
+        }
+        static stGameResults FillGameResults(short GameRounds, short Player1WinTimes, short ComputerWinTimes, short DrawTimes) { 
+            stGameResults GameResults;
+            GameResults.GameRounds = GameRounds;
+            GameResults.Player1WinTimes = Player1WinTimes;
+            GameResults.Computer2WinTimes = ComputerWinTimes;
+            GameResults.DrawTimes = DrawTimes;
+            GameResults.GameWinner = WhoWonTheGame(Player1WinTimes, ComputerWinTimes);
+            GameResults.WinnerName = WinnerName(GameResults.GameWinner);
+            return GameResults; 
+        }
+        static enGameChoice ReadPlayer1Choice() { 
+            short Choice = 1;
+            do {
+                Console.WriteLine("\nYour Choice: [1]:Stone, [2]:Paper, [3]:Scissors ? ");
+                Choice = short.Parse(Console.ReadLine());
+            } while (Choice < 1 || Choice > 3);
+            return (enGameChoice)Choice;
+        }
+        static enGameChoice GetComputerChoice() {
+            return (enGameChoice)RandomNumber(1, 3);
+        }
+        static stGameResults PlayGame(short HowManyRounds)
+        {
+            stRoundInfo RoundInfo = new stRoundInfo(); 
+            short Player1WinTimes = 0, ComputerWinTimes = 0, DrawTimes = 0; 
+            for (short GameRound = 1; GameRound <= HowManyRounds; GameRound++)
+            {
+                Console.WriteLine("\nRound [" + GameRound + "] begins:\n");
+                RoundInfo.RoundNumber = GameRound;
+                RoundInfo.Player1Choice = ReadPlayer1Choice();
+                RoundInfo.ComputerChoice = GetComputerChoice();
+                RoundInfo.Winner = WhoWonTheRound(RoundInfo);
+                RoundInfo.WinnerName = WinnerName(RoundInfo.Winner);
+                //Increase win/Draw counters
+                if (RoundInfo.Winner == enWinner.Player1)
+                    Player1WinTimes++;
+                else if (RoundInfo.Winner == enWinner.Computer)
+                    ComputerWinTimes++; 
+                else
+                    DrawTimes++;
+                PrintRoundResults(RoundInfo);
+            } 
+            return FillGameResults(HowManyRounds, Player1WinTimes, ComputerWinTimes, DrawTimes);
+        }
+        static string Tabs(short NumberOfTabs) {
+            string t = "";
+            for (int i = 1; i < NumberOfTabs; i++) {
+                t = t + "\t";
+                Console.Write(t);
+            }
+            return t;
+        }
+        static void ShowGameOverScreen() {
+            Console.Write(Tabs(2) + "__________________________________________________________\n\n");
+            Console.Write(Tabs(2) + "                 +++ G a m e  O v e r +++\n");
+            Console.Write(Tabs(2) + "__________________________________________________________\n\n");
+        }
+        static void ShowFinalGameResults(stGameResults GameResults) {
+            Console.Write(Tabs(2) + "_____________________ [Game Results ]_____________________\n\n");
+            Console.WriteLine(Tabs(2) + "Game Rounds        : " + GameResults.GameRounds);
+            Console.WriteLine(Tabs(2) + "Player1 won times  : " + GameResults.Player1WinTimes);
+            Console.WriteLine(Tabs(2) + "Computer won times : " + GameResults.Computer2WinTimes);
+            Console.WriteLine(Tabs(2) + "Draw times         : " + GameResults.DrawTimes);
+            Console.WriteLine(Tabs(2) + "Final Winner       : " + GameResults.WinnerName);
+            Console.Write(Tabs(2) + "___________________________________________________________\n");
+            SetWinnerScreenColor(GameResults.GameWinner);
+        }
+        static short ReadHowManyRounds() { 
+            short GameRounds = 1;
+            do {
+                Console.Write("How Many Rounds 1 to 10 ? \n");
+                GameRounds = short.Parse(Console.ReadLine());
+            } while (GameRounds < 1 || GameRounds > 10); 
+            return GameRounds;
+        }
+        static void ResetScreen()=>Console.Clear();
+        static void StartGame() { 
+            char PlayAgain = 'Y';
+            do { ResetScreen();
+                stGameResults GameResults = PlayGame(ReadHowManyRounds());
+                ShowGameOverScreen();
+                ShowFinalGameResults(GameResults);
+                Console.WriteLine(Tabs(3) + "Do you want to play again? Y/N? ");
+                PlayAgain= char.Parse(Console.ReadLine());
+            } while (PlayAgain == 'Y' || PlayAgain == 'y'); 
+        }
+    }
+}
