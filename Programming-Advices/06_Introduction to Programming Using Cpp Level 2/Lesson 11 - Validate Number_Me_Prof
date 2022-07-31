@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Your Number is {0}",readValidNumber());
+        }
+        static int readValidNumber()
+        {
+            string number = "";
+
+            do
+            {
+                number = readUserInput();
+            }
+            while (!isValidNumber(number));
+
+            return int.Parse(number);
+        }
+        static string readUserInput()
+        {
+            Console.Write("Please Enter a Valid Number: ");
+            return Console.ReadLine();
+        }
+
+        static bool isValidNumber(string userInput)
+        {
+            int value;
+            if (int.TryParse(userInput, out value))
+                return true;
+
+            return false;
+        }
+    }
+}
