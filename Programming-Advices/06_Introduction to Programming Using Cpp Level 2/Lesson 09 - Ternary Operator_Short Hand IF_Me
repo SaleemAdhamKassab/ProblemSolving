@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int number = readNumber("Please Enter a Number: ");
+
+            Console.WriteLine(number > 0 ? "Positive" : "Negative");
+
+            string result = number > 0 ? "Positive" : number < 0 ? "Negative" : "Zero";
+
+            Console.WriteLine(result);
+        }
+        static int readNumber(string message)
+        {
+            Console.Write(message);
+            return int.Parse(Console.ReadLine());
+        }
+    }
+}
