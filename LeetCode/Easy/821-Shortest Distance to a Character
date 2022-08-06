@@ -1,0 +1,37 @@
+public class Solution {
+    public int[] ShortestToChar(string S, char C) {
+        int[] result = new int[S.Length];
+        int head = S.Length + 1;
+        int tail = S.Length + 1;
+        
+        for (int i = 0, j = S.Length - 1; i < S.Length; i++, j--)
+        {
+            if (S[i] == C)
+            {
+                head = 0;
+            }
+            
+            if (S[j] == C)
+            {
+                tail = 0;
+            }
+            
+            if(i < j)
+            {
+                result[i] = head++;
+                result[j] = tail++;
+            }
+            else if(i == j)
+            {
+                result[i] = Math.Min(head++, tail++);
+            }
+            else 
+            {
+                result[i] = Math.Min(head++, result[i]);
+                result[j] = Math.Min(tail++, result[j]);
+            }
+        }
+        
+        return result;
+    }
+}
