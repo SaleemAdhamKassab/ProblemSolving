@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<stEmployees> employeesList = new List<stEmployees>();
+
+            fillEmployeesList(ref employeesList);
+            printEmployeesList(ref employeesList);
+        }
+        struct stEmployees
+        {
+            public string firstName, lastName;
+            public double salary;
+        }
+        static void fillEmployeesList(ref List<stEmployees> lst)
+        {
+            stEmployees tempEmployee = new stEmployees();
+            tempEmployee.firstName = "Saleem";
+            tempEmployee.lastName = "Kassab";
+            tempEmployee.salary = 3000;
+            lst.Add(tempEmployee);
+
+            tempEmployee.firstName = "Kareem";
+            tempEmployee.lastName = "Kassab";
+            tempEmployee.salary = 300;
+            lst.Add(tempEmployee);
+
+            tempEmployee.firstName = "Nassem";
+            tempEmployee.lastName = "Kassab";
+            tempEmployee.salary = 200;
+            lst.Add(tempEmployee);
+        }
+        static void printEmployeesList(ref List<stEmployees> lst)
+        {
+            Console.WriteLine("Employees List:");
+            Console.WriteLine();
+
+            foreach (stEmployees emp in lst)
+            {
+                Console.WriteLine("First Name: {0}", emp.firstName);
+                Console.WriteLine("Last Name: {0}", emp.lastName);
+                Console.WriteLine("Salary: {0}", emp.salary);
+                Console.WriteLine();
+            }
+        }
+    }
+}
