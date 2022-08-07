@@ -1,0 +1,18 @@
+public class Solution {
+    public string RemoveDuplicates(string s) {
+         Stack<char> stack = new();
+        
+        foreach(var c in s)
+        {
+            if(stack.Any() && stack.Peek() == c)
+                stack.Pop();
+            else
+                stack.Push(c);            
+        }
+        
+        var arr = stack.ToArray();
+        Array.Reverse(arr);
+        
+        return string.Join("", arr);
+    }
+}
