@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(CountGoodSubstrings("aababcabc"));
+        }
+        static  int CountGoodSubstrings(string s)
+        {
+            int counter = 0;
+            string temp = "";
+
+            for (int i = 0; i < s.Length - 2; i++)
+            {
+                temp = s.Substring(i, 3);
+
+                if (isDistinct(temp))
+                    counter++;
+            }
+
+            return counter;
+        }
+        static bool isDistinct(string s) => new String(s.Distinct().ToArray()) == s ? true : false;
+
+    }
+}
