@@ -1,0 +1,29 @@
+public class Solution {
+    
+    
+    public bool StartsWithVowel(String s){
+        if(String.IsNullOrEmpty(s))
+            return false;
+        
+        return (s[0] == 'A' || s[0] == 'a' || s[0] == 'E' || s[0] == 'e'|| s[0] == 'I' || s[0] == 'i'|| s[0] == 'O' || s[0] == 'o'|| s[0] == 'U' || s[0] == 'u');
+        
+    }
+    
+    public string ToGoatLatin(string S) {
+        
+        string[] arr = S.Split();
+        StringBuilder sb = new StringBuilder();
+        StringBuilder sb_temp = new StringBuilder();
+        for(int i=0; i<arr.Length ; i++){
+            string temp = arr[i];
+            sb_temp.Append("a");
+            if(!StartsWithVowel(arr[i])){
+                 temp = temp.Substring(1) + temp[0];
+            }
+            sb.Append(temp + "ma" + sb_temp + " ");
+            
+        }
+        return sb.ToString().Trim();
+        
+    }
+}
