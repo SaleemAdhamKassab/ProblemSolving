@@ -1,0 +1,89 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            CommonChars(new string[] { "bella", "label", "roller" });
+        }
+        static  IList<string> CommonChars(string[] words)
+        {
+            string firstWord = words[0];
+            bool isContainsFlag = true;
+            List<string> result = new List<string>();
+
+            Dictionary<char, int> firstWordcharsCounter = new Dictionary<char, int>();
+
+            for (int i = 0; i < firstWord.Length; i++)
+            {
+                if (firstWordcharsCounter.Keys.Contains(firstWord[i]))
+                    firstWordcharsCounter[firstWord[i]] += 1;
+                else
+                    firstWordcharsCounter[firstWord[i]] =1;
+
+                for (int j = 1; j < words.Length; j++)
+                {
+                        if (!contains(words[j],(firstWord[i]).ToString()) ||
+                            firstWordcharsCounter[firstWord[i]]> countOfOccurrence (words[j], firstWord[i]))
+                        {
+                        isContainsFlag = false;
+                            break;
+                        }
+                }
+
+                if (isContainsFlag)
+                    result.Add(firstWord[i].ToString());
+
+                isContainsFlag = true;
+            }
+            return result;
+        }
+        static int countOfOccurrence(string s, char c)
+        {
+            int counter = 0;
+            for (int i = 0; i < s.Length; i++)
+                if (s[i] == c)
+                    counter++;
+            return counter;
+        }
+        static bool contains(string haystack, string needle)=> indexOf(haystack, needle) != -1 ? true : false;
+        static int indexOf(string haystack, string needle)
+        {
+            if (needle.Length == 0) return 0;
+            if (needle.Length > haystack.Length) return -1;
+            if (haystack == needle) return 0;
+
+            int counter = 0, oldIndex = 0;
+
+            for (int i = 0; i < haystack.Length; i++)
+            {
+                oldIndex = i;
+                if (haystack[i] == needle[0] && i <= haystack.Length - needle.Length)
+                {
+                    if ((i == haystack.Length - 1) && (counter == needle.Length)) return i;
+                    for (int j = 0; j < needle.Length; j++)
+                    {
+                        if (haystack[i] == needle[j])
+                        {
+                            counter++;
+                            i++;
+                        }
+                        else
+                        {
+                            i = oldIndex;
+                            break;
+                        }
+                    }
+                    if (counter == needle.Length) return oldIndex;
+                    i = oldIndex;
+                    counter = 0;
+                }
+            }
+            return -1;
+        }
+    }
+}
