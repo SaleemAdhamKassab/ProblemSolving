@@ -1,0 +1,13 @@
+static string swapFirstAndLastChar(string s)
+        {
+            char firstchar = s[s.Length - 1],
+                 lastChar = s[0];
+            
+            string result = "";
+
+            for (int i = 1; i < s.Length - 1; i++)
+                result += s[i];
+
+            return firstchar + result + lastChar;
+        }
+        
