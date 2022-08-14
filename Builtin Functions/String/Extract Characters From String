@@ -1,0 +1,10 @@
+ static string getCompletingWord(string word)
+        {
+            string completingWord = "";
+
+            for (int i = 0; i < word.Length; i++)
+                if (isCharacter(word[i]))
+                    completingWord += word[i];
+
+            return completingWord;
+        }
