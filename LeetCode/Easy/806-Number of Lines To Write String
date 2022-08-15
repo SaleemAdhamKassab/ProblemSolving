@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Labs
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            NumberOfLines(
+                new int[] { 4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 },
+               "bbbcccdddaaa");
+
+            static int[] NumberOfLines(int[] widths, string s)
+            {
+                int[] result = new int[2];
+                int tempLineWidht = 0, linesCount = 0;
+
+
+                for (int i = 0; i < s.Length; i++)
+                {
+                    tempLineWidht += getCharWidht(widths, s[i]);
+
+                    if (tempLineWidht > 100)
+                    {
+                        tempLineWidht = getCharWidht(widths, s[i]);
+                        linesCount++;
+                    }
+                }
+
+                if (linesCount < 100)
+                    linesCount++;
+
+
+                result[0] = linesCount;
+                result[1] = tempLineWidht;
+                return result;
+            }
+            static int getCharWidht(int[] widths, char c) => widths[(int)c - 97];
+        }
+    }
+}
