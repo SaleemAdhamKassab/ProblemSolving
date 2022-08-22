@@ -1,0 +1,61 @@
+public class Solution {
+   public string[] UncommonFromSentences(string s1, string s2)=>  uncommonWords(splitString(s1), splitString(s2));
+        static string[] splitString(string s)
+        {
+
+            List<string> splitedString = new List<string>();
+            string tempString = "";
+
+            s += " ";
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == ' ')
+                {
+                    splitedString.Add(tempString);
+                    tempString = "";
+                    continue;
+                }
+
+                else
+                    tempString += s[i];
+            }
+
+            return splitedString.ToArray();
+        }
+        static bool isArrayContainsWord(string [] arr, string word)
+        {
+            for (int i = 0; i < arr.Length; i++)
+                if (arr[i] == word)
+                    return true;
+            
+            return false;
+        }
+        static int occurrenceCount(string[] arr, string s)
+        {
+            int counter = 0;
+            for (int i = 0; i < arr.Length; i++)
+                if (arr[i] == s)
+                    counter++;
+
+            return counter;
+        }
+        static string[] uncommonWords(string[] splitedS1, string[] splitedS2)
+        {
+            List<string> result = new List<string>();
+
+
+            for (int i = 0; i < splitedS1.Length; i++)
+            {
+                if (!isArrayContainsWord(splitedS2, splitedS1[i]) && occurrenceCount(splitedS1, splitedS1[i]) == 1)
+                    result.Add(splitedS1[i]);
+            }
+
+            for (int i = 0; i < splitedS2.Length; i++)
+            {
+                if (!isArrayContainsWord(splitedS1, splitedS2[i]) && splitedS2.Count(e => e == splitedS2[i]) == 1)
+                    result.Add(splitedS2[i]);
+            }
+
+            return result.ToArray();
+        }
+}
