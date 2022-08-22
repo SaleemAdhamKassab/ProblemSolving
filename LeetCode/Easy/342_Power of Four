@@ -1,0 +1,7 @@
+public class Solution {
+    public bool IsPowerOfFour(int n) {
+        double ans = Math.Log(n) / Math.Log(4);
+        
+        return ans % 1 == 0;
+    }
+}
