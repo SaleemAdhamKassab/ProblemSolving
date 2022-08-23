@@ -1,0 +1,10 @@
+ static string fillWordFromRight(string word, int numberOfFiilingCells, char fillChar)
+        {
+            if (word.Length >= numberOfFiilingCells)
+                return word;
+
+            for (int i = word.Length; i < numberOfFiilingCells; i++)
+                word += fillChar;
+
+            return word;
+        }
