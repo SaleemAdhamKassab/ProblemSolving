@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Labs
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DivideString("ctoyjrwtngqwt", 8, 'n');
+        }
+        static string[] DivideString(string s, int k, char fill)
+        {
+            int arrLength = groupedCharactersArrLength(s, k);
+            string[] groupedCharacters = new string[arrLength];
+
+            int wordCounter = 0, groupedCharactersIndex = 0;
+            string tempWord = "";
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                tempWord += s[i];
+                wordCounter++;
+                if (wordCounter == k || i == s.Length - 1)
+                {
+                    groupedCharacters[groupedCharactersIndex] = tempWord;
+                    if (i != s.Length - 1)
+                    {
+                        groupedCharactersIndex++;
+                        wordCounter = 0;
+                        tempWord = "";
+                    }
+                }
+            }
+
+            if (groupedCharacters[groupedCharacters.Length - 1].Length < k)
+            {
+                groupedCharacters[groupedCharacters.Length - 1] = groupedCharacters[groupedCharacters.Length - 1].PadRight(k, fill);
+            }
+
+            return groupedCharacters;
+        }
+        static int groupedCharactersArrLength(string s, int k) => s.Length % k == 0 ? s.Length / k : (s.Length / k) + 1;
+       
+    }
+}
