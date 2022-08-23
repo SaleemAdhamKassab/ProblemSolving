@@ -1,4 +1,4 @@
- static string fillWordFromRight(string word, int numberOfFiilingCells, char fillChar)
+ static string padRight(string word, int numberOfFiilingCells, char fillChar)
         {
             if (word.Length >= numberOfFiilingCells)
                 return word;
