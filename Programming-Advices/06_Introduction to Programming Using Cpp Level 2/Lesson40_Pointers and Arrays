@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = new int[] { 10, 20, 30, 40, 50 };
+
+            unsafe
+            {
+                Console.WriteLine("Array Adresss and Values are: ");
+                for (int i = 0; i < arr.Length; i++)
+                    fixed (int* p = &arr[i])
+                        Console.WriteLine("arr[{0}] Adrees: {1} Value: {2}", i, (int)p, *p);
+            }
+        }
+    }
+}
+
