@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> nums = new List<int>() { 1, 2, 3, 4, 5 };
+
+            Console.WriteLine("Update Elements: ");
+            for(int i=0;i<nums.Count;i++)
+                nums[i] =10;
+                
+
+            
+            Console.WriteLine();
+            Console.WriteLine("*********************");
+
+            Console.WriteLine("Using i: ");
+            for (int i = 0; i < nums.Count; i++)
+                Console.Write(nums[i]+" ");
+
+            Console.WriteLine();
+        }
+    }
+}
+
