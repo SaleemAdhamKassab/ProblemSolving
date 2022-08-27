@@ -1,0 +1,17 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            foreach (string line in File.ReadLines("myFile.txt"))
+            Console.WriteLine(line);
+        }
+    }
+}
+
