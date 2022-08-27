@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            updateFileContent("myFile.txt",0,"Nassem");
+        }
+        static void updateFileContent(string filePath, int lineIndex, string newLine)
+        {
+            List<string> fileContentList = fillListFromFile(filePath);
+
+            fileContentList = updateFileList(fileContentList, lineIndex, newLine);
+
+            StreamWriter file = new StreamWriter(filePath);
+
+            foreach (string line in fileContentList)
+                file.WriteLine(line);
+
+            file.Close();
+        }
+        static List<string> fillListFromFile(string filePath)
+        {
+            List<string> fileContent = new List<string>();
+            foreach (string line in File.ReadLines(filePath))
+                fileContent.Add(line);
+
+            return fileContent;
+        }
+        static List<string> updateFileList(List<string> fileContentList, int lineindex, string newLineContent)
+        {
+            fileContentList[lineindex] = newLineContent;
+            return fileContentList;
+        }
+    }
+}
+
