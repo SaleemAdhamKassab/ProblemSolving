@@ -1,0 +1,13 @@
+ static void updateFileContent(string filePath, int lineIndex, string newLine)
+        {
+            List<string> fileContentList = fillListFromFile(filePath);
+
+            fileContentList = updateFileList(fileContentList, lineIndex, newLine);
+
+            StreamWriter file = new StreamWriter(filePath);
+
+            foreach (string line in fileContentList)
+                file.WriteLine(line);
+
+            file.Close();
+        }
