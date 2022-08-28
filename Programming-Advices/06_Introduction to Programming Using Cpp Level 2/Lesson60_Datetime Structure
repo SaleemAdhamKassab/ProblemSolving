@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(DateTime.Now.Year);
+            Console.WriteLine(DateTime.Now.Month);
+            Console.WriteLine(DateTime.Now.Day);
+            Console.WriteLine(DateTime.Now.Hour);
+            Console.WriteLine(DateTime.Now.Minute);
+            Console.WriteLine(DateTime.Now.Second);
+            Console.WriteLine((int)DateTime.Now.DayOfWeek);
+            Console.WriteLine((int)DateTime.Now.DayOfYear);
+        }
+    }
+}
+
