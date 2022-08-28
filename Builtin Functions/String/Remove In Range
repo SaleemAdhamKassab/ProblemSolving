@@ -1,0 +1,25 @@
+public static string removeInRange(string str, int startIndex, int LastIndex)
+        {
+            string result = "";
+
+            if (startIndex < LastIndex)
+            {
+                for (int i = 0; i < str.Length; i++)
+                {
+                    if (i < startIndex || i > LastIndex - 1)
+                        result += str[i];
+                }
+
+            }
+            else
+            {
+                for (int i = 0; i < str.Length; i++)
+                {
+                    if (i < startIndex || i > startIndex+LastIndex - 1)
+                        result += str[i];
+                }
+
+            }
+
+            return result;
+        }
