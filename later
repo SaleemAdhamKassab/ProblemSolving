@@ -1,1 +1,57 @@
-.......
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(ReformatNumber("1-23-45 678910"));
+        }
+        static string ReformatNumber(string number)
+        {https://leetcode.com/problems/reformat-phone-number/
+            int counter = 0;
+            string result = "";
+
+            number = removeSpacesAnddashes(number);
+
+            
+
+            for(int i = 0; i < number.Length; i++)
+            {
+                if (counter < 3)
+                {
+                    result += number[i];
+                }
+                else
+                {
+                    result += '-';
+                    counter = -1;
+                    i--;
+                }
+
+                counter++;
+            }
+
+            return result;
+
+        }
+        static string removeSpacesAnddashes(string number)
+        {
+            string result = "";
+
+            for (int i = 0; i < number.Length; i++)
+                if (number[i] == ' ' || number[i] == '-')
+                    continue;
+                else result += number[i];
+
+            return result;
+        }
+
+    }
+}
+
