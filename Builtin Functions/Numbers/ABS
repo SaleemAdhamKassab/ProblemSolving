@@ -1,4 +1,1 @@
-public static int absoluteValue(int number)
-        {
-            return number > 0 ? number : number * -1;
-        }
+public static int absoluteValue(int number)=> number > 0 ? number : number * -1;
