@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(CheckAlmostEquivalent("abcdeef","abaaacc"));
+        }
+        static bool CheckAlmostEquivalent(string word1, string word2)
+        {
+            string word1Distinct = distinctCharInString(word1),
+                   word2Distinct = distinctCharInString(word2);
+
+            return (!isAlmostEquivalent(word1Distinct, word1, word2) ||
+                    !isAlmostEquivalent(word2Distinct, word1, word2)) ? false : true;
+        }
+        static string distinctCharInString(string word)=> new String(word.Distinct().ToArray());
+        static bool isAlmostEquivalent(string wordDistinct, string word1, string word2)
+        {
+            for (int i = 0; i < wordDistinct.Length; i++)
+            {
+                if (abs( charCountOccurrence(word1,wordDistinct[i]) - charCountOccurrence(word2,wordDistinct[i])) > 3)
+                    return false;
+            }
+
+            return true;
+        }
+        static int charCountOccurrence(string s, char c)
+        {
+            int counter = 0;
+            for (int i = 0; i < s.Length; i++)
+                if (s[i] == c)
+                    counter++;
+            return counter;
+        }
+        static int abs(int number)=> number > 0 ? number : number * -1;
+
+    }
+}
+
