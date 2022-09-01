@@ -1,0 +1,27 @@
+using System;
+using System.Text.RegularExpressions;
+class MainClass {
+
+  public static string CodelandUsernameValidation(string str) {
+
+    string isValidUser="false";
+
+    //Checking all criteria for the username validation
+    if(str.Length>4 && str.Length<25 
+    && str.Substring(str.Length-1,1)!="_" 
+    && Regex.IsMatch(str, @"^[a-zA-Z0-9_]+$")
+    && Regex.IsMatch(str.Substring(0,1), @"^[a-zA-Z]+$")){
+      isValidUser="true";      
+    } 
+
+    return isValidUser;
+
+  }
+
+  static void Main() {  
+
+    // keep this function call here
+    Console.WriteLine(CodelandUsernameValidation(Console.ReadLine()));
+  } 
+
+}
