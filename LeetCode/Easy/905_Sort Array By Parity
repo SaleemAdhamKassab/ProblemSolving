@@ -1,0 +1,20 @@
+public class Solution {
+    public int[] SortArrayByParity(int[] nums) {
+        
+            List<int> evenNumbers = new List<int>();
+            List<int> oddNumbers = new List<int>();
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (isEven(nums[i]))
+                    evenNumbers.Add(nums[i]);
+                else
+                    oddNumbers.Add(nums[i]);
+            }
+
+            evenNumbers.AddRange(oddNumbers);
+
+            return evenNumbers.ToArray();
+    }
+    static bool isEven(int number) => number % 2 == 0 ? true : false;
+}
