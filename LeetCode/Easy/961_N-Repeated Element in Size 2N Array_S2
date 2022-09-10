@@ -1,0 +1,10 @@
+public class Solution {
+    public int RepeatedNTimes(int[] nums) {
+        for (int i = 0; i < nums.Length; i++)
+                if (occurrenceNumberCount(nums, nums[i]) > 1)
+                    return nums[i];
+
+            return 0;
+    }
+   static int occurrenceNumberCount(int[] arr, int number) => arr.Count(e => e == number);
+}
