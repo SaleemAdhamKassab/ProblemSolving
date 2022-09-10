@@ -1,0 +1,38 @@
+public class Solution {
+    public int SumOfUnique(int[] nums) {
+          int sumOfUniqueElements = 0;
+
+            int[] distinctNums = distinctArrayElements(nums);
+
+            for (int i = 0; i < distinctNums.Length; i++)
+            {
+                if (occurrenceNumberCount(nums, distinctNums[i]) < 2)
+                    sumOfUniqueElements+=distinctNums[i];
+            }
+
+            return sumOfUniqueElements;
+    }
+    static int occurrenceNumberCount(int[] arr, int number)
+        {
+            int counter = 0;
+
+            for (int i = 0; i < arr.Length; i++)
+                if (arr[i] == number)
+                    counter++;
+
+            return counter;
+        }
+    
+    static int[] distinctArrayElements(int[] arr)
+        {
+            List<int> distinctElements = new List<int>();
+
+            foreach(int number in arr)
+            {
+                if (!distinctElements.Contains(number))
+                    distinctElements.Add(number);
+            }
+
+            return distinctElements.ToArray();
+        }
+}
