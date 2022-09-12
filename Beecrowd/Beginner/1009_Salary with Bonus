@@ -1,0 +1,17 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+
+   string sellersName = Console.ReadLine();
+            double fixedSalary = double.Parse(Console.ReadLine());
+            double totalMade = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("TOTAL = R$ {0}", finalSalary(fixedSalary,totalMade).ToString(".00"));
+
+    }
+         static double finalSalary(double fixedSalary, double totalMade) =>
+            fixedSalary + ((totalMade * 15) / 100);     
+
+}
