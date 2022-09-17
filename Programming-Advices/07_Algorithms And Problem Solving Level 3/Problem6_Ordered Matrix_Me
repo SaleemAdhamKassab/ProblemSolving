@@ -9,13 +9,13 @@ namespace lab
     {
         static void Main()
         {
-            printMatrix(generateMatrixWithRandomNumbers());
+            printMatrix(generateMatrixWithOrderNumbers());
         }
         static int incrementNumberByOne(ref int number)
         {
             return ++number;
         }
-        static int[,] generateMatrixWithRandomNumbers()
+        static int[,] generateMatrixWithOrderNumbers()
         {
             int[,] matrix = new int[3, 3];
             int number = 0;
