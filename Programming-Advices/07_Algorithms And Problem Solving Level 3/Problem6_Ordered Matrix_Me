@@ -1,0 +1,47 @@
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printMatrix(generateMatrixWithRandomNumbers());
+        }
+        static int incrementNumberByOne(ref int number)
+        {
+            return ++number;
+        }
+        static int[,] generateMatrixWithRandomNumbers()
+        {
+            int[,] matrix = new int[3, 3];
+            int number = 0;
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    matrix[i, j] = incrementNumberByOne(ref number);
+                }
+            }
+
+            return matrix;
+        }
+        static void printMatrix(int[,] arr)
+        {
+            Console.WriteLine("The Following is a 3x3 Random Matrix: ");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(arr[i, j].ToString("000") + "  ");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}
+
