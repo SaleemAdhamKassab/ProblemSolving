@@ -1,0 +1,73 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printResult();
+        }
+        static int generateRandomNumberInRange(int from, int to)
+        {
+            Random random = new Random();
+            return random.Next(from, to);
+        }
+        static int[,] generateMatrixWithRandomNumbers()
+        {
+            int[,] matrix = new int[3, 3];
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    matrix[i, j] = generateRandomNumberInRange(1, 10);
+                }
+            }
+
+            return matrix;
+        }
+        static void printMatrix(int[,] arr)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(arr[i, j].ToString("000") + "  ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
+        static int sumofMatrix(int[,] arr)
+        {
+            int matrixSum = 0;
+
+            for (int i = 0; i < 3; i++)
+            {
+                for(int j = 0; j < 3; j++)
+                {
+                    matrixSum += arr[i, j];
+                }
+                
+            }
+            return matrixSum;
+        }
+        static void printResult()
+        {
+            int[,] matrix1 = generateMatrixWithRandomNumbers(),
+                   matrix2 = generateMatrixWithRandomNumbers();
+
+            Console.WriteLine("Matrix1: ");
+            printMatrix(matrix1);
+            Console.WriteLine("Matrix2: ");
+            printMatrix(matrix2);
+
+            Console.WriteLine(sumofMatrix(matrix1)== sumofMatrix(matrix1)?
+                "Yes: Matrices are equal": "No: Matrices are Not equal");
+        }
+    }
+
+}
