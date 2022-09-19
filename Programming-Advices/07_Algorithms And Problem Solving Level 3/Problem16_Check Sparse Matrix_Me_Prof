@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printResult();
+        }
+        static int generateRandomNumberInRange(int from, int to)
+        {
+            Random random = new Random();
+            return random.Next(from, to);
+        }
+        static int countNumberInMatrix(int[,] arr, int number)
+        {
+            int counter = 0;
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (arr[i, j] == number)
+                        counter++;
+                }
+            }
+
+            return counter;
+        }
+        static void printMatrix(int[,] arr)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(arr[i, j].ToString("000") + "  ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
+        static void printResult()
+        {
+            //int[,] matrix1 = generateMatrixWithRandomNumbers();
+            //int[,] matrix1 = { { 10, 0, 12 }, { 20, 15, 1 }, { 0, 0, 9 } };
+            int[,] matrix1 = { { 0, 0, 12 }, { 0, 0, 1 }, { 0, 0, 9 } };
+
+            Console.WriteLine("Matrix1: ");
+            printMatrix(matrix1);
+
+            if (countNumberInMatrix(matrix1, 0) > matrix1.Length / 2)
+            {
+                Console.WriteLine("Yes, It's Sparse");
+            }
+            else
+            {
+                Console.WriteLine("No, It's Not Sparse");
+            }
+        }
+
+    }
+
+}
