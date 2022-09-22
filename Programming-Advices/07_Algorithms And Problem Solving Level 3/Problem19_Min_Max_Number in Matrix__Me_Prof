@@ -1,0 +1,80 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalResult();
+        }
+        static int generateRandomNumber()
+        {
+            Random random = new Random();
+            return random.Next(1, 10);
+        }
+        static int[,] generateRandomMatrix()
+        {
+            int[,] randomMatrix = new int[3,3];
+
+            for(int i = 0; i < 3; i++)
+            {
+                for(int j = 0; j < 3; j++)
+                {
+                    randomMatrix[i, j] = generateRandomNumber();
+                }
+            }
+
+            return randomMatrix;
+        }
+        static void printMatrix(int[,] matrix)
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                for(int j = 0; j < 3; j++)
+                {
+                    Console.Write(matrix[i,j].ToString("00") + " ");
+                }
+                Console.WriteLine();
+            }
+            
+        }
+        static int[] minMaxNumbersInMatrix(int[,] matrix)
+        {
+            int min=10, max = 0;
+            int[] result = new int[2];
+
+            for(int i = 0; i < 3; i++)
+            {
+                for(int j = 0; j < 3; j++)
+                {
+                    if (matrix[i, j] < min)
+                        min = matrix[i, j];
+
+                    if (matrix[i, j] > max)
+                        max = matrix[i, j];
+                }
+            }
+
+            result[0] = min;
+            result[1] = max;
+
+            return result;
+
+        }
+        static void printFinalResult()
+        {
+            //int[,] randomMatrix = generateRandomMatrix();
+            int[,] randomMatrix = new int[,] { {1,1,1 }, { 2, 2, 2 }, { 3, 3, 3 } };
+            int[] result = minMaxNumbersInMatrix(randomMatrix);
+
+            Console.WriteLine("Matrix:");
+            printMatrix(randomMatrix);
+
+            Console.WriteLine("Min Number is: {0}",result[0]);
+            Console.WriteLine("Max Number is: {0}", result[1]);
+        }
+    }
+}
