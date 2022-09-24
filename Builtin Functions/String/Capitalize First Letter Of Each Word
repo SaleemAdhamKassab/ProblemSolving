@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine(capitalizeFirstLetterOfEachWord("saleem adham kassab"));
+        }
+        static string capitalizeFirstLetterOfEachWord (string word)
+        {
+            string result = "";
+            bool isFirstLetter = true;
+            
+
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (word[i] != ' ' && isFirstLetter)
+                    result += charToUpperCase(word[i]);
+                else                
+                    result += word[i];
+                
+
+                isFirstLetter = word[i] == ' ' ? true : false;
+            }
+
+            return result;
+        }
+        static char charToUpperCase(char c)=> (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
+        
+    }
+}
