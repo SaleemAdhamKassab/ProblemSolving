@@ -1,16 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace lab
-{
-    class Program
-    {
-        static void Main()
-        {
-            Console.WriteLine(capitalizeFirstLetterOfEachWord("saleem adham kassab"));
-        }
-        static string capitalizeFirstLetterOfEachWord (string word)
+static string capitalizeFirstLetterOfEachWord (string word)
         {
             string result = "";
             bool isFirstLetter = true;
@@ -29,7 +17,5 @@ namespace lab
 
             return result;
         }
-        static char charToUpperCase(char c)=> (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
-        
-    }
-}
+
+static char charToUpperCase(char c)=> (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
