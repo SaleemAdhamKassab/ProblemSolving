@@ -1,0 +1,21 @@
+static string capitalizeFirstLetterOfEachWord (string word)
+        {
+            string result = "";
+            bool isFirstLetter = true;
+            
+
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (word[i] != ' ' && isFirstLetter)
+                    result += charToLowerCase(word[i]);
+                else                
+                    result += word[i];
+                
+
+                isFirstLetter = word[i] == ' ' ? true : false;
+            }
+
+            return result;
+        }
+
+static char charToLowerCase(char c)=> (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
