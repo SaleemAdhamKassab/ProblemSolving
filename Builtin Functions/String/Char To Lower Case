@@ -1,4 +1,1 @@
-static char charToLowerCase(char c)
-    {
-        return (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
-    }
+static char charToLowerCase(char c)=> (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
