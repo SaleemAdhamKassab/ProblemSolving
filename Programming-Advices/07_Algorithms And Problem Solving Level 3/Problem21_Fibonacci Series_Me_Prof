@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFibonacciSeries(10);
+        }
+        static void printFibonacciSeries(int seriesCount)
+        {
+            Console.Write("1  1  ");
+            int prev1 = 1, prev2 = 1, current=0;
+
+            while (seriesCount > 2)
+            {
+                current = prev1 + prev2;
+                Console.Write(current.ToString() + "  ");
+                prev2 = prev1;
+                prev1 = current;
+                
+
+                seriesCount--;
+            }
+            Console.WriteLine();
+        }
+    }
+}
