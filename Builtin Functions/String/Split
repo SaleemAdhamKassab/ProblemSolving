@@ -1,13 +1,13 @@
-      static string[] splitString(string s)
+      static string[] splitString(string s, char splitAt)
         {
-            
+
             List<string> splitedString = new List<string>();
             string tempString = "";
 
             s += " ";
             for (int i = 0; i < s.Length; i++)
             {
-                if (s[i] == ' ')
+                if (s[i] == splitAt)
                 {
                     splitedString.Add(tempString);
                     tempString = "";
@@ -19,4 +19,4 @@
             }
 
             return splitedString.ToArray();
-        } 
+        }
