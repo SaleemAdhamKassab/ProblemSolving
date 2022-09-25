@@ -1,4 +1,4 @@
-      static string[] splitString(string s, char splitAt)
+     static string[] splitString(string s, char splitAt)
         {
 
             List<string> splitedString = new List<string>();
@@ -9,7 +9,8 @@
             {
                 if (s[i] == splitAt)
                 {
-                    splitedString.Add(tempString);
+                    if (tempString != "")
+                        splitedString.Add(tempString);
                     tempString = "";
                     continue;
                 }
