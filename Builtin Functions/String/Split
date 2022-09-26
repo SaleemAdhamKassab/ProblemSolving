@@ -1,23 +1,23 @@
-     static string[] splitString(string s, char splitAt)
+static string[] splitString(string s, char splitAt)
+{
+    List<string> splitedString = new List<string>();
+    string tempString = "";
+
+    s += " ";
+
+    for (int i = 0; i < s.Length; i++)
+    {
+        if (s[i] != ' ')
         {
-
-            List<string> splitedString = new List<string>();
-            string tempString = "";
-
-            s += " ";
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (s[i] == splitAt)
-                {
-                    if (tempString != "")
-                        splitedString.Add(tempString);
-                    tempString = "";
-                    continue;
-                }
-
-                else
-                    tempString += s[i];
-            }
-
-            return splitedString.ToArray();
+            tempString += s[i];
         }
+        else
+        {
+            if (tempString != "")
+                splitedString.Add(tempString);
+            tempString = "";
+        }
+    }
+
+    return splitedString.ToArray();
+}
