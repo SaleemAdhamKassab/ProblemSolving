@@ -1,4 +1,4 @@
- static string[] splitString(string s, string delimeter)
+static string[] splitString(string s, string delimeter)
         {
             List<string> result = new List<string>();
 
@@ -7,5 +7,6 @@
                 result.Add(s.Substring(0, s.IndexOf(delimeter)).Trim());
                 s = s.Remove(0, s.IndexOf(delimeter) + delimeter.Length);
             }
+            result.Add(s.Trim());
             return result.ToArray();
         }
