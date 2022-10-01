@@ -1,5 +1,5 @@
- static void printFileContent(string filePath)
+  static void printFileContent(string filePath)
         {
-            foreach (string line in File.ReadLines("myFile.txt"))
+            foreach (string line in File.ReadLines(filePath))
                 Console.WriteLine(line);
         }
