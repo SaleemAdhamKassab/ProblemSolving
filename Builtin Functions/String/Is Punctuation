@@ -1,0 +1,22 @@
+     static bool isPunctuation(char character)
+            {
+                switch (character)
+                {
+                    case '.':
+                    case '?':
+                    case ' ':
+                    case '\'':
+                    case ',':
+                    case '_':
+                    case '-':
+                    case '!':
+                    case ':':
+                    case '(':
+                    case ')':
+                    case '[':
+                    case ']':
+                        return true;
+                    default:
+                        return false;
+                }
+            }
