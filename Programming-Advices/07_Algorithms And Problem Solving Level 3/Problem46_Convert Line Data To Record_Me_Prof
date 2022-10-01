@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalResult();
+        }
+        struct strClientInfo
+        {
+            public int PinCode;
+            public double AccountBalance;
+            public string AccountNumber, Name, Phone;
+        }
+        static strClientInfo convertLineDataToRecord(string lineData, string seperator)
+        {
+            string[] splitedLineData =splitString(lineData,seperator);
+
+            strClientInfo clientInfo = new strClientInfo();
+
+            clientInfo.AccountNumber = splitedLineData[0];
+            clientInfo.PinCode = int.Parse(splitedLineData[1]);
+            clientInfo.Name = splitedLineData[2];
+            clientInfo.Phone = splitedLineData[3];
+            clientInfo.AccountBalance = double.Parse(splitedLineData[4]);
+
+            return clientInfo;
+
+        }
+        static string[] splitString(string s, string delimeter)
+        {
+            List<string> result = new List<string>();
+
+            while(s.IndexOf(delimeter)>-1)
+            {
+                result.Add(s.Substring(0, s.IndexOf(delimeter)).Trim());
+                s = s.Remove(0, s.IndexOf(delimeter) + delimeter.Length);
+            }
+            result.Add(s.Trim());
+            return result.ToArray();
+        }
+        static void printClientInfo (strClientInfo strClientInfo)
+        {
+            Console.WriteLine("The Following is the extracted client record: ");
+            Console.WriteLine();
+
+            Console.WriteLine("Account Number: {0}", strClientInfo.AccountNumber);
+            Console.WriteLine("Pin Code: {0}", strClientInfo.PinCode);
+            Console.WriteLine("Name: {0}", strClientInfo.Name);
+            Console.WriteLine("Phone: {0}", strClientInfo.Phone);
+            Console.WriteLine("Account Balance: {0}", strClientInfo.AccountBalance);
+        }
+        static void printFinalResult()
+        {
+            string lineRecord = "A11#//#123#//#saleem kassab#//#0959270763#//#500.88";
+            Console.WriteLine("Line Record is: \n{0}", lineRecord);
+            Console.WriteLine();
+            printClientInfo(convertLineDataToRecord(lineRecord, "#//#"));
+        }
+    }
+}
