@@ -1,0 +1,108 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printAllClientsData(readClientsInfoFromFileToList(filePath, "#//#"));
+        }
+        static string filePath = "myFile.txt";
+        struct strClientInfo
+        {
+            public int PinCode;
+            public double AccountBalance;
+            public string AccountNumber, Name, Phone;
+        }
+        static strClientInfo convertLineDataToRecord(string lineData, string seperator)
+        {
+            string[] splitedLineData = splitString(lineData, seperator);
+
+            strClientInfo clientInfo = new strClientInfo();
+
+            clientInfo.AccountNumber = splitedLineData[0];
+            clientInfo.PinCode = int.Parse(splitedLineData[1]);
+            clientInfo.Name = splitedLineData[2];
+            clientInfo.Phone = splitedLineData[3];
+            clientInfo.AccountBalance = double.Parse(splitedLineData[4]);
+
+            return clientInfo;
+
+        }
+        static string[] splitString(string s, string delimeter)
+        {
+            List<string> result = new List<string>();
+
+            while (s.IndexOf(delimeter) > -1)
+            {
+                result.Add(s.Substring(0, s.IndexOf(delimeter)).Trim());
+                s = s.Remove(0, s.IndexOf(delimeter) + delimeter.Length);
+            }
+            result.Add(s.Trim());
+            return result.ToArray();
+        }
+        static List<strClientInfo> readClientsInfoFromFileToList(string filePath, string seperator)
+        {
+            List<strClientInfo> clientsList = new List<strClientInfo>();
+
+            foreach (string lineData in File.ReadLines(filePath))
+            {
+                clientsList.Add(convertLineDataToRecord(lineData, seperator));
+            }
+
+            return clientsList;
+        }
+        static void printTableHeader(int fileRwosCount)
+        {
+            string header = "Client List (" + fileRwosCount + ") Client(s).";
+            Console.SetCursorPosition((Console.WindowWidth - header.Length) / 2, Console.CursorTop);
+            Console.WriteLine(header);
+
+            printBreakLine();
+            Console.WriteLine();
+            Console.WriteLine(
+                padRight("Account Number", 20, ' ') +
+                padRight("Pin Code", 20, ' ') +
+                padRight("Client Name", 20, ' ') +
+                padRight("Phone", 20, ' ') +
+                padRight("Balance", 20, ' '));
+
+            printBreakLine();
+            Console.WriteLine();
+        }
+        static string padRight(string word, int numberOfFiilingCells, char fillChar)
+        {
+            if (word.Length >= numberOfFiilingCells)
+                return word;
+
+            for (int i = word.Length; i < numberOfFiilingCells; i++)
+                word += fillChar;
+
+            return word;
+        }
+        static void printBreakLine() => Console.WriteLine(padRight("_", 99, '_'));
+        static void printClientData(strClientInfo client)
+        {
+            Console.Write(padRight(client.AccountNumber, 20, ' '));
+            Console.Write(padRight(client.PinCode.ToString(), 20, ' '));
+            Console.Write(padRight(client.Name, 20, ' '));
+            Console.Write(padRight(client.Phone, 20, ' '));
+            Console.Write(padRight(client.AccountBalance.ToString(), 20, ' '));
+            Console.WriteLine();
+        }
+        static void printAllClientsData(List<strClientInfo> clientsList)
+        {
+            printTableHeader(clientsList.Count);
+
+            foreach (strClientInfo client in clientsList)
+                printClientData(client);
+            
+            Console.WriteLine();
+            printBreakLine();
+        }
+    }
+}
