@@ -1,0 +1,164 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            string accountNumber = readClientAccountNumber();
+            strClientInfo client = new strClientInfo();
+
+            if (findClientByAccountNumber(accountNumber, ref client))
+            {
+                printClientData(client);
+                if (readDeleteClientoption(accountNumber).ToString().ToLower() == "y")
+                {
+                    if (saveListToFile(deleteClient(accountNumber)))
+                        Console.WriteLine("Client Deleted Successfully.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Client With Account number ({0}) Not Found!", accountNumber);
+            }
+        }
+        static string filePath = "myFile.txt";
+        struct strClientInfo
+        {
+            public int PinCode;
+            public double AccountBalance;
+            public string AccountNumber, Name, Phone;
+        }
+        static string readClientAccountNumber()
+        {
+            Console.Write("Please Enter Account Number :");
+            return Console.ReadLine();
+        }
+        static char readDeleteClientoption(string accountNumber)
+        {
+            Console.Write("Are You Sure You Want Delete This Client? Y/N :");
+            return char.Parse(Console.ReadLine());
+        }
+        static strClientInfo convertLineDataToRecord(string lineData, string seperator)
+        {
+            string[] splitedLineData = splitString(lineData, seperator);
+
+            strClientInfo clientInfo = new strClientInfo();
+
+            clientInfo.AccountNumber = splitedLineData[0];
+            clientInfo.PinCode = int.Parse(splitedLineData[1]);
+            clientInfo.Name = splitedLineData[2];
+            clientInfo.Phone = splitedLineData[3];
+            clientInfo.AccountBalance = double.Parse(splitedLineData[4]);
+
+            return clientInfo;
+
+        }
+        static string[] splitString(string s, string delimeter)
+        {
+            List<string> result = new List<string>();
+
+            while (s.IndexOf(delimeter) > -1)
+            {
+                result.Add(s.Substring(0, s.IndexOf(delimeter)).Trim());
+                s = s.Remove(0, s.IndexOf(delimeter) + delimeter.Length);
+            }
+            result.Add(s.Trim());
+            return result.ToArray();
+        }
+        static List<strClientInfo> readClientsInfoFromFileToList(string filePath, string seperator)
+        {
+            List<strClientInfo> clientsList = new List<strClientInfo>();
+
+            foreach (string lineData in File.ReadLines(filePath))
+            {
+                clientsList.Add(convertLineDataToRecord(lineData, seperator));
+            }
+
+            return clientsList;
+        }
+        static bool findClientByAccountNumber(string clientAccountNumber, ref strClientInfo client)
+        {
+            List<strClientInfo> clientsList = readClientsInfoFromFileToList(filePath, "#//#");
+
+            foreach (strClientInfo strClientInfo in clientsList)
+            {
+                if (strClientInfo.AccountNumber == clientAccountNumber)
+                {
+                    client = strClientInfo;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        static void printClientData(strClientInfo client)
+        {
+            Console.WriteLine();
+            Console.WriteLine("The Following are the client details: ");
+            Console.WriteLine();
+
+            Console.WriteLine("Account Number: {0}", client.AccountNumber);
+            Console.WriteLine("Pin Code: {0}", client.PinCode);
+            Console.WriteLine("Name: {0}", client.Name);
+            Console.WriteLine("Phone: {0}", client.Phone);
+            Console.WriteLine("Account Balance: {0}", client.AccountBalance);
+            Console.WriteLine();
+        }
+        static string clientRecordForSaving(strClientInfo clientInfo)
+        {
+            return
+                clientInfo.AccountNumber + "#//#" +
+                clientInfo.PinCode + "#//#" +
+                clientInfo.Name + "#//#" +
+                clientInfo.Phone + "#//#" +
+                clientInfo.AccountBalance;
+        }
+        static List<strClientInfo> deleteClient(string accountNumber)
+        {
+            List<strClientInfo> clientsList = readClientsInfoFromFileToList(filePath, "#//#");
+            List<strClientInfo> clientsListAfterDeleteClient = new List<strClientInfo>();
+
+            foreach (strClientInfo strClientInfo in clientsList)
+            {
+                if (strClientInfo.AccountNumber != accountNumber)
+                {
+                    clientsListAfterDeleteClient.Add(strClientInfo);
+                }
+            }
+
+            return clientsListAfterDeleteClient;
+
+        }
+        static bool saveListToFile(List<strClientInfo> clientsList)
+        {
+            try
+            {
+                StreamWriter file = new StreamWriter("myFile.txt");
+
+                if (clientsList.Count == 0)
+                {
+                    file.Write("");
+                    return true;
+                }
+
+                foreach (strClientInfo client in clientsList)
+                {
+                   
+                    file.WriteLine(clientRecordForSaving(client));
+                    file.Close();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+    }
+}
