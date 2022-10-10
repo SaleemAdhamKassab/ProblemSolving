@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            pattern2();
+        }
+        static int readRowsCount()
+        {
+            Console.Write("Enter a number to define the rows: ");
+            return int.Parse(Console.ReadLine());
+        }
+        static void pattern2()
+        {
+            int rowscount = readRowsCount();
+
+            while (rowscount>0)
+            {
+                for (int j = 1; j <= rowscount; j++)
+                {
+                    Console.Write('*');
+                }
+                Console.WriteLine();
+                rowscount--;
+            }
+        }
+
+    }
+}
+
