@@ -1,0 +1,25 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+
+ string line1 = readDataLine(),
+                line2 = readDataLine();
+
+            string[] splitedLine1 = line1.Split(' '),
+                splitedLine2 = line2.Split(' ');
+
+            double x1 = double.Parse(splitedLine1[0]),
+                y1 = double.Parse(splitedLine1[1]),
+                x2 = double.Parse(splitedLine2[0]),
+                y2 = double.Parse(splitedLine2[1]);
+
+            Console.WriteLine(distanceCalculate(x1, y1, x2, y2).ToString(".0000"));
+
+    }
+    static string readDataLine() => Console.ReadLine();
+        static double distanceCalculate(double x1, double y1, double x2, double y2) =>
+            Math.Sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
+
+}
