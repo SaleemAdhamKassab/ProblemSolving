@@ -1,0 +1,13 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+Console.WriteLine((neededFuelLeters(readNumber(), readNumber())).ToString(".000"));
+
+    }
+    static int readNumber() => int.Parse(Console.ReadLine());
+        static double neededFuelLeters(int tripSpentTime, int speedAvg) =>
+            1.0 * tripSpentTime * speedAvg / 12;
+
+}
