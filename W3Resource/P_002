@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            int number1 = readNumber("Please Enter Number1: "),
+                number2 = readNumber("Please Enter Number2: ");
+            
+            Console.WriteLine("{0} + {1} = {2}",number1,number2,sumTowNumbers(number1,number2));
+        }
+        static int readNumber(string message) {
+            Console.Write(message);
+            return int.Parse(Console.ReadLine()); 
+        }
+        static int sumTowNumbers(int number1, int number2) => number1 + number2;
+    }
+}
