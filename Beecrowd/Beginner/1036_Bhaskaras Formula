@@ -1,14 +1,17 @@
-  double a,b,c,t,R1,R2;
-    cin>>a>>b>>c;
+#include<stdio.h>
+#include <math.h>
 
-    if(((b*b)-4*a*c)<0 ||a==0){
-        cout<<"Impossivel calcular"<<endl;
-    }else{
-         t=sqrt((b*b)-4*a*c);
-         R1=((-b + t) / (2 * a));
-         R2=((-b - t) / (2 * a));
-         cout<<fixed;
-         cout<<setprecision(5)<<"R1 = "<<R1<<endl;
-         cout<<setprecision(5)<<"R2 = "<<R2<<endl;
+int main()
+{
+ double a, b, c, t;
+ scanf("%lf %lf %lf", &a, &b, &c);
+
+ if(((b * b) - 4 * a * c) < 0 || a == 0){
+     printf("Impossivel calcular\n");
+ }
+ else{
+  t = sqrt((b * b) - 4 * a * c);
+  printf("R1 = %.5lf\nR2 = %.5lf\n", ((-b + t) / (2 * a)), ((-b - t) / (2 * a)));
     }
-    return 0;
+ return 0;
+}
