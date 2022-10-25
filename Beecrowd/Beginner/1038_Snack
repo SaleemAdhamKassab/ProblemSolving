@@ -1,0 +1,59 @@
+using System; 
+using System.Collections.Generic;
+
+class URI {
+
+    static void Main(string[] args) { 
+        printFinalResult();
+    }
+    static string[] splitString(string s, string delimeter)
+        {
+            List<string> result = new List<string>();
+
+            while (s.IndexOf(delimeter) > -1)
+            {
+                result.Add(s.Substring(0, s.IndexOf(delimeter)).Trim());
+                s = s.Remove(0, s.IndexOf(delimeter) + delimeter.Length);
+            }
+            result.Add(s.Trim());
+            return result.ToArray();
+        }
+        static double valueToPay(int productCode, int quantity)
+        {
+            double price = 0;
+
+            switch (productCode)
+            {
+                case 1:
+                    price = 4.00;
+                    break;
+
+                case 2:
+                    price = 4.50;
+                    break;
+
+                case 3:
+                    price = 5.00;
+                    break;
+                case 4:
+                    price = 2.00;
+                    break;
+                default:
+                    price = 1.50;
+                    break;
+            }
+
+            return price * quantity;
+        }
+        static void printFinalResult()
+        {
+            string input = Console.ReadLine();
+            string[] splitedInput = splitString(input, " ");
+
+            int x = int.Parse(splitedInput[0]);
+            int y = int.Parse(splitedInput[1]);
+
+            Console.WriteLine("Total: R$ {0}", valueToPay(x, y).ToString(".00"));
+        }
+
+}
