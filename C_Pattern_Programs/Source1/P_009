@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            pattern9(readRowsCount());
+        }
+        static int readRowsCount()
+        {
+            Console.Write("Enter a number to define the rows: ");
+            return int.Parse(Console.ReadLine());
+        }
+        static int lowerTraingleFirstLineStarsCount = 0;
+        static void pattern9(int rowsCount)
+        {
+            upperTraingle(rowsCount);
+            lowerTraingle(lowerTraingleFirstLineStarsCount);
+        }
+        static void upperTraingle(int rowsCount)
+        {
+            int starsCount = 1,
+                spacesCount = rowsCount / 2;
+
+
+            for (int i = 0; i < rowsCount / 2 + 1; i++)
+            {
+                for (int j = 0; j < spacesCount; j++)
+                {
+                    Console.Write("  ");
+                }
+                spacesCount--;
+
+                for (int j = 0; j < starsCount; j++)
+                {
+                    Console.Write("* ");
+                }
+                starsCount += 2;
+
+                Console.WriteLine();
+            }
+            lowerTraingleFirstLineStarsCount = starsCount-2;
+        }
+        static void lowerTraingle(int rowsCount)
+        {
+            int starsCount = rowsCount-2,
+                spacesCount = 1;
+
+
+            for (int i = 0; i < rowsCount / 2 ; i++)
+            {
+                for (int j = 0; j < spacesCount; j++)
+                {
+                    Console.Write("  ");
+                }
+                spacesCount++;
+
+                for (int j = 0; j < starsCount; j++)
+                {
+                    Console.Write("* ");
+                }
+                starsCount -= 2;
+
+                Console.WriteLine();
+
+
+            }
+        }
+    }
+}
