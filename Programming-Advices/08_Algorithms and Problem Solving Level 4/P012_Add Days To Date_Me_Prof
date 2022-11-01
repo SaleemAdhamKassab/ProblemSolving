@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFunalResult();
+        }
+        struct Date
+        {
+            public int day, month, year;
+        }
+        static int readNumber(string msg)
+        {
+            Console.Write(msg);
+            return int.Parse(Console.ReadLine());
+        }
+        static bool isLeapYear(int year) =>
+            ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) ? true : false;
+        static int numberDaysInAMonth(int year, int monthNumber)
+        {
+            int[] NumberOfMonthDays = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+            return monthNumber == 2 ? (isLeapYear(year) ? 29 : 28) : NumberOfMonthDays[monthNumber - 1];
+        }
+        static Date addDaysToDate(int day, int month, int year, int addedDays)
+        {
+            Date date = new Date();
+
+            if (numberDaysInAMonth(year, month) >= day + addedDays)
+            {
+                date.day = day + addedDays;
+                date.month = month;
+                date.year = year;
+
+                return date;
+            }
+
+
+            addedDays = addedDays - (numberDaysInAMonth(year, month) - day);
+            month++;
+
+            while (addedDays > 0)
+            {
+                if (month == 13)
+                {
+                    month = 1;
+                    year++;
+                }
+
+                date.day = addedDays;
+                date.month = month;
+                date.year = year;
+
+                addedDays -= numberDaysInAMonth(year, month);
+                month++;
+
+            }
+
+            return date;
+        }
+        static void printFunalResult()
+        {
+            int day = readNumber("Please enter a day Number: "),
+                month = readNumber("Please enter a month Number: "),
+                year = readNumber("Please enter a year Number: "),
+                addedDays = readNumber("How Many days want to add?");
+
+            Date d = addDaysToDate(day, month, year, addedDays);
+            Console.WriteLine("Date after addiny [{0}] days is: {1}", addedDays, d.day + "/" + d.month + "/" + d.year);
+        }
+    }
+}
+   
