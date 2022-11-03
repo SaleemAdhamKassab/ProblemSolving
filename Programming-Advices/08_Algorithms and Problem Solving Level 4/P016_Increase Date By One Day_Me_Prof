@@ -1,65 +1,27 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-
-namespace lab
-{
-    class Program
-    {
-        static void Main()
+static Date increaseDateByOneDay(Date date)
         {
-            PrintFinalresult();
-        }
-        struct Date
-        {
-            public int day, month, year;
-        }
-        static int readNumber(string dateSection)
-        {
-            Console.Write("Please enter a {0}: ", dateSection);
-            return int.Parse(Console.ReadLine());
-        }
-        static Date readDate()
-        {
-            Date date = new Date();
-
-            date.day = readNumber("day");
-            date.month = readNumber("month");
-            date.year = readNumber("year");
-
-            return date;
-        }
-        static bool isLeapYear(int year) =>
-            ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) ? true : false;
-        static int numberDaysInAMonth(int year, int monthNumber)
-        {
-            int[] NumberOfMonthDays = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-
-            return monthNumber == 2 ? (isLeapYear(year) ? 29 : 28) : NumberOfMonthDays[monthNumber - 1];
-        }
-        static bool isLastDayInMonth(Date date) =>
-            date.day == numberDaysInAMonth(date.year, date.month) ? true : false;
-        static Date increaseDateByOneDay(Date date)
-        {
-            if (date.month == 12)
-            {
-                date.month = 1;
-                date.year = ++date.year;
+            if (isLastDayInMonth(date)) {
+                if (isLastMonthInYear(date.month)) {
+                    date.month = 1;
+                    date.day = 1;
+                    date.year++;
+                } 
+                else
+                {
+                    date.day = 1;
+                    date.month++;
+                }
             }
-
-            if (isLastDayInMonth(date))
-                date.day = 1;
             else
-                date.day = ++date.day;
-
+            {
+                date.day++;
+            }
             return date;
         }
-        static void PrintFinalresult()
-        {
-            Date date = increaseDateByOneDay(readDate());
-            Console.WriteLine("Date after adding one day is: {0}/{1}/{2}", date.day, date.month, date.year);
-        }
 
-    }
-}
+ static bool isLastDayInMonth(Date date) =>
+            date.day == numberDaysInAMonth(date.year, date.month) ? true : false;
+
+static bool isLastMonthInYear(int Month) {
+            return (Month == 12); 
+        }
