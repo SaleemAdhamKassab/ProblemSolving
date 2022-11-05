@@ -1,0 +1,87 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalResult();
+        }
+        struct Date
+        {
+            public int day, month, year;
+        }
+        static int readNumber(string dateSection)
+        {
+            Console.Write("Please enter a {0}: ", dateSection);
+            return int.Parse(Console.ReadLine());
+        }
+        static Date readDate()
+        {
+            Date date = new Date();
+
+            date.day = readNumber("day");
+            date.month = readNumber("month");
+            date.year = readNumber("year");
+
+            return date;
+        }
+        static bool isLeapYear(int year) =>
+            ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) ? true : false;
+        static int numberDaysInAMonth(int year, int monthNumber)
+        {
+            int[] NumberOfMonthDays = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+            return monthNumber == 2 ? (isLeapYear(year) ? 29 : 28) : NumberOfMonthDays[monthNumber - 1];
+        }
+        static bool isFirstDayInMonth(Date date) => date.day == 1 ? true : false;
+        static bool isFirstMonthInYear(int Month) => Month == 1 ? true : false;
+        static string printDate(Date date) =>
+             date.day + "/" + date.month + '/' + date.year;
+        static Date decreaseDateByOneDay(Date date)
+        {
+            if (isFirstDayInMonth(date))
+            {
+                if (isFirstMonthInYear(date.month))
+                {
+                    date.day = 31;
+                    date.month = 12;
+                    date.year--;
+                }
+                else
+                {
+                    date.month--;
+                    date.day = numberDaysInAMonth(date.year, date.month);
+                }
+            }
+            else
+            {
+                date.day--;
+            }
+            return date;
+        }
+        static Date decreaseDateByXDays(Date date, int decreasingDays)
+        {
+            for (int i = 0; i < decreasingDays; i++)
+                date = decreaseDateByOneDay(date);
+
+            return date;
+        }
+        static void printFinalResult()
+        {
+            Date date = readDate();
+
+            Console.WriteLine();
+            Console.WriteLine("Date After: ");
+            Console.WriteLine();
+
+            Console.WriteLine("01- Subtracting one day is: {0}", printDate(decreaseDateByOneDay(date)));
+            Console.WriteLine("02- Subtracting 10 days is: {0}", printDate(decreaseDateByXDays(decreaseDateByOneDay(date), 10)));
+
+        }
+    }
+}
