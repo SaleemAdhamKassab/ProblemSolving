@@ -1,0 +1,104 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalResult();
+        }
+        struct Date
+        {
+            public int day, month, year;
+        }
+        static int indexOfDay(int day, int month, int year)
+        {
+            int a = (14 - month) / 12,
+                y = year - a,
+                m = month + (12 * a) - 2;
+
+            return (day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
+        }
+        static int indexOfDay(Date date) => indexOfDay(date.day, date.month, date.year);
+        static string dayName(int dayIndex)
+        {
+            string[] daysName = new string[] { "Sundays", "Mondays", "Tuesdays", "Wednesdays", "Thursdays", "Fridays", "Saturdays" };
+            return daysName[dayIndex];
+        }
+        static Date getSysdate()
+        {
+            Date date = new Date();
+            date.day = DateTime.Today.Day;
+            date.month = DateTime.Today.Month;
+            date.year = DateTime.Today.Year;
+
+            return date;
+        }
+        static bool isEndOfWeek(Date date) => indexOfDay(date) == 6 ? true : false;
+        static bool isWeekEnd(Date date) => indexOfDay(date) == 5 ? true : false;
+        static bool isBusinessDay(Date date) => isWeekEnd(date) ? false : true;
+        static bool isLeapYear(int year) =>
+            ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) ? true : false;
+        static int numberDaysInAMonth(int year, int monthNumber)
+        {
+            int[] NumberOfMonthDays = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+            return monthNumber == 2 ? (isLeapYear(year) ? 29 : 28) : NumberOfMonthDays[monthNumber - 1];
+        }
+        static int totalDayFromTheBeggingOfYear(int day, int month, int year)
+        {
+            int totalDayFromTheBeggingOfYear = 0;
+
+            for (int i = 1; i < month; i++)
+            {
+                totalDayFromTheBeggingOfYear += numberDaysInAMonth(year, i);
+            }
+
+            totalDayFromTheBeggingOfYear += day;
+
+            return totalDayFromTheBeggingOfYear;
+
+        }
+        static int daysUntilTheEndOfYear(Date date) =>
+            isLeapYear(date.year) ?
+            366 - totalDayFromTheBeggingOfYear(date.day, date.month, date.year) :
+            365 - totalDayFromTheBeggingOfYear(date.day, date.month, date.year);
+        static void printFinalResult()
+        {
+            Date sysdate = getSysdate();
+
+            Console.WriteLine("Today is {0}, {1}/{2}/{3}", dayName(indexOfDay(sysdate)), sysdate.day, sysdate.month, sysdate.year);
+            Console.WriteLine();
+
+            Console.WriteLine("Is It end of week?");
+            if (isEndOfWeek(sysdate))
+                Console.WriteLine("Yes, End Of Week.");
+            else
+                Console.WriteLine("No, Not end Of Week.");
+            Console.WriteLine();
+
+            Console.WriteLine("Is It weekend?");
+            if (isWeekEnd(sysdate))
+                Console.WriteLine("Yes, It is a weekend.");
+            else
+                Console.WriteLine("No, It is Not a weekend.");
+            Console.WriteLine();
+
+
+            Console.WriteLine("Is It a Business Day?");
+            if (isBusinessDay(sysdate))
+                Console.WriteLine("Yes, It is a Business Day.");
+            else
+                Console.WriteLine("No, It is Not a Business Day.");
+            Console.WriteLine();
+
+            Console.WriteLine("Days Until the end of year: {0}", daysUntilTheEndOfYear(sysdate));
+
+        }
+
+    }
+}
