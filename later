@@ -1,12 +1,8 @@
 -- Create table
-create table TENOR_SUBJECTS
+create table TENOR_TENANTS
 (
-  id          NUMBER(10) generated always as identity,
-  name        NVARCHAR2(200),
-  description NVARCHAR2(400),
-  mindateunit NUMBER(10) not null,
-  tenantid    NVARCHAR2(200),
-  isdeleted   NUMBER(1) not null
+  id          NVARCHAR2(200) not null,
+  description NVARCHAR2(300)
 )
 tablespace TECH_DATA_TS
   pctfree 10
@@ -19,34 +15,9 @@ tablespace TECH_DATA_TS
     minextents 1
     maxextents unlimited
   );
--- Create/Recreate indexes 
-create index IX_TENOR_SUBJECTS_ISDELETED on TENOR_SUBJECTS (ISDELETED)
-  tablespace TECH_DATA_TS
-  pctfree 10
-  initrans 2
-  maxtrans 255
-  storage
-  (
-    initial 64K
-    next 1M
-    minextents 1
-    maxextents unlimited
-  );
-create index IX_TENOR_SUBJECTS_TENANTID on TENOR_SUBJECTS (TENANTID)
-  tablespace TECH_DATA_TS
-  pctfree 10
-  initrans 2
-  maxtrans 255
-  storage
-  (
-    initial 64K
-    next 1M
-    minextents 1
-    maxextents unlimited
-  );
 -- Create/Recreate primary, unique and foreign key constraints 
-alter table TENOR_SUBJECTS
-  add constraint PK_TENOR_SUBJECTS primary key (ID)
+alter table TENOR_TENANTS
+  add constraint PK_TENOR_TENANTS primary key (ID)
   using index 
   tablespace TECH_DATA_TS
   pctfree 10
@@ -59,6 +30,3 @@ alter table TENOR_SUBJECTS
     minextents 1
     maxextents unlimited
   );
-alter table TENOR_SUBJECTS
-  add constraint FK_TENOR_SUBJECTS_TENANTID foreign key (TENANTID)
-  references TENOR_TENANTS (ID);
