@@ -1,32 +1,104 @@
--- Create table
-create table TENOR_TENANTS
-(
-  id          NVARCHAR2(200) not null,
-  description NVARCHAR2(300)
-)
-tablespace TECH_DATA_TS
-  pctfree 10
-  initrans 1
-  maxtrans 255
-  storage
-  (
-    initial 64K
-    next 1M
-    minextents 1
-    maxextents unlimited
-  );
--- Create/Recreate primary, unique and foreign key constraints 
-alter table TENOR_TENANTS
-  add constraint PK_TENOR_TENANTS primary key (ID)
-  using index 
-  tablespace TECH_DATA_TS
-  pctfree 10
-  initrans 2
-  maxtrans 255
-  storage
-  (
-    initial 64K
-    next 1M
-    minextents 1
-    maxextents unlimited
-  );
+public MetaModel()
+            : base("name=MetaModel")
+        {
+            var tenantHeader = (HttpContext.Current != null && HttpContext.Current.Items != null &&
+                                HttpContext.Current.Items["tenant"] != null)
+                ? HttpContext.Current.Items["tenant"].ToString()
+                : "NA";
+            SetTenantId(tenantHeader);
+            Configuration.ProxyCreationEnabled = false;
+        }
+        public void SetTenantId(string tenantId)
+        {
+            if (tenantId == "NA")
+            {
+                FilterTenantId = "NA";
+                this.DisableFilter("TenantFilter");
+                return;
+            }
+            FilterTenantId = tenantId;
+            this.SetFilterScopedParameterValue("TenantFilter", "tenantId", FilterTenantId);
+            this.SetFilterGlobalParameterValue("TenantFilter", "tenantId", FilterTenantId);
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Filter("TenantFilter", (IFilterTenant tenantEntity, string tenantId) => tenantEntity.Tenant.Id == tenantId, () => null);
+            modelBuilder.Filter("IsDeleted", (ISoftDelete d) => d.IsDeleted, false);
+            bool isOracle = ConfigurationManager.ConnectionStrings["MetaModel"].ProviderName.ToLower()
+                           == "Oracle.ManagedDataAccess.Client".ToLower();
+            if (isOracle)
+            {
+                modelBuilder.HasDefaultSchema("TECH");
+                var letters = new List<char> {'X', 'S', 'Z'};
+                var twoLetters = new List<string> {"CH", "SH"};
+                modelBuilder.Types().Configure
+                    (c =>
+                {
+                    var newName = c.ClrType.Name.ToUpper().Last() == 'Y'
+                        ? "TENOR_" + c.ClrType.Name.ToUpper().Substring(0, c.ClrType.Name.Length - 1) + "IES"
+                          : letters.Contains(c.ClrType.Name.ToUpper().Last())
+                            ? "TENOR_" + c.ClrType.Name.ToUpper().Substring(0, c.ClrType.Name.Length) + "ES"
+                              : twoLetters.Contains(c.ClrType.Name.ToUpper().Substring(c.ClrType.Name.Length - 2))
+                                ? "TENOR_" + c.ClrType.Name.ToUpper().Substring(0, c.ClrType.Name.Length) + "ES"
+                                    : "TENOR_" + c.ClrType.Name.ToUpper() + "S";
+                    c.ToTable(newName, "TECH");
+                });
+                modelBuilder.Properties().Configure
+                    (c => c.HasColumnName(c.ClrPropertyInfo.Name.ToUpper()));
+            }
+            else
+            {
+                modelBuilder.Types().Configure
+                    (c =>
+                        {
+                            c.ToTable("TENOR_" + c.ClrType.Name, "TECH");
+                        });
+            }
+            modelBuilder.Entity<Kpi>().HasMany(e => e.Counters).WithMany(e => e.Kpis).Map(m =>
+            {
+                m.MapLeftKey("KPIID");
+                m.MapRightKey("COUNTERID");
+                m.ToTable("TENOR_KPISCOUNTERS");
+            });
+            modelBuilder.Entity<Kpi>().HasMany(e => e.Kpis).WithMany().Map(m =>
+            {
+                m.MapLeftKey("KPIID");
+                m.MapRightKey("CHILDKPIID");
+                m.ToTable("TENOR_KPISKPIS");
+            });
+            modelBuilder.Entity<Chart>().HasMany(e => e.Y1Measures).WithMany().Map(m =>
+            {
+                m.MapLeftKey("CHARTID");
+                m.MapRightKey("MEASUREID");
+                m.ToTable("TENOR_Y1CHARTMEASURES");
+            });
+            modelBuilder.Entity<Chart>().HasMany(e => e.Y2Measures).WithMany().Map(m =>
+            {
+                m.MapLeftKey("CHARTID");
+                m.MapRightKey("MEASUREID");
+                m.ToTable("TENOR_Y2CHARTMEASURES");
+            });
+            modelBuilder.Entity<Chart>().HasMany(e => e.Y3Measures).WithMany().Map(m =>
+            {
+                m.MapLeftKey("CHARTID");
+                m.MapRightKey("MEASUREID");
+                m.ToTable("TENOR_Y3CHARTMEASURES");
+            });
+            modelBuilder.Entity<Chart>().HasMany(e => e.Y4Measures).WithMany().Map(m =>
+            {
+                m.MapLeftKey("CHARTID");
+                m.MapRightKey("MEASUREID");
+                m.ToTable("TENOR_Y4CHARTMEASURES");
+            });
+            modelBuilder.Entity<Chart>().HasMany(e => e.Y5Measures).WithMany().Map(m =>
+            {
+                m.MapLeftKey("CHARTID");
+                m.MapRightKey("MEASUREID");
+                m.ToTable("TENOR_Y5CHARTMEASURES");
+            });
+
+
+
+        }
+
+
