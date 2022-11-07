@@ -85,13 +85,16 @@ namespace lab
         }
         static Date getVacationEnds(Date vacationStarts, int vacationDays)
         {
-            while (vacationDays > 0)
+            int WeekEndCounter = 0;
+            for (int i = 1; i <= vacationDays; i++)
             {
-                if (!isWeekEndDay(vacationStarts))
-                    vacationDays--;
-
+                if (isWeekEndDay(vacationStarts))
+                    WeekEndCounter++;
                 vacationStarts = increaseDateByOneDay(vacationStarts);
             }
+
+            for (int i = 1; i <= WeekEndCounter; i++)
+                vacationStarts = increaseDateByOneDay(vacationStarts);
             return vacationStarts;
         }
 
