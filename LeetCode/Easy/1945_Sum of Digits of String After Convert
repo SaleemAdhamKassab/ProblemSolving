@@ -1,0 +1,29 @@
+public class Solution {
+    public int GetLucky(string s, int k) {
+         int result = sumStringDigits(convertStrToNumbers(s));
+
+            while (k > 1)
+            {
+                result = sumStringDigits(result.ToString());
+                k--;
+            }
+            return result; 
+    }
+     static string convertStrToNumbers(string s)
+        {
+            string result = "";
+
+            for (int i = 0; i < s.Length; i++)
+                result += s[i] - 'a' + 1;
+
+            return result;
+        }
+        static int sumStringDigits(string s)
+        {
+            int result = 0;
+            for (int i = 0; i < s.Length; i ++)
+                result += int.Parse(s[i].ToString());
+
+            return result;
+        }
+}
