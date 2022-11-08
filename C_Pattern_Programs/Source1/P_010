@@ -1,0 +1,28 @@
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            pattern10();
+        }
+        static int readRowsCount()
+        {
+            Console.Write("Please Enter Rows Count: ");
+            return int.Parse(Console.ReadLine());
+        }
+        static void pattern10()
+        {
+            int rowsCount = readRowsCount();
+
+            for (int i = 1; i <= rowsCount; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                    Console.Write(j+" ");
+
+                Console.WriteLine();
+            }
+        }
+
+    }
+}
