@@ -1,0 +1,55 @@
+using System;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalResult();
+        }
+        struct Date
+        {
+            public int day, month, year;
+        }
+        static string readDate()
+        {
+            Console.Write("Please Enter Date dd/mm/yyyy :");
+            return Console.ReadLine();
+        }
+        static Date convertStringToDate(string stringDate)
+        {
+            string[] dateDigits = stringDate.Split('/');
+
+            Date date = new Date();
+
+            date.day = int.Parse(dateDigits[0]);
+            date.month = int.Parse(dateDigits[1]);
+            date.year = int.Parse(dateDigits[2]);
+
+            return date;
+        }
+        static string formateDate(Date date, string dateFormat="dd/mm/yyyy")
+        {
+            dateFormat = replaceWith(dateFormat ,"dd", date.day.ToString());
+            dateFormat = replaceWith(dateFormat, "mm", date.month.ToString());
+            dateFormat = replaceWith(dateFormat, "yyyy", date.year.ToString());
+
+            return dateFormat;
+
+        }
+        static string replaceWith(string mainString, string replacedWord, string replaceWith)
+        {
+            while (mainString.IndexOf(replacedWord) > -1)
+                mainString = mainString.Replace(replacedWord, replaceWith);
+
+            return mainString;
+        }
+        static void printFinalResult()
+        {
+            Console.WriteLine(formateDate(convertStringToDate(readDate()), "dd-mm-yyyy"));
+        }
+        
+
+    }
+}
