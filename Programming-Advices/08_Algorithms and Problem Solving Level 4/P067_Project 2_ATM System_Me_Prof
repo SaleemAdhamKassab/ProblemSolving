@@ -1,0 +1,445 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            login();
+        }
+        static string clientFilePath = "ClientsDB.txt";
+        static strClientInfo clientSessionInfo = new strClientInfo();
+        struct strClientInfo
+        {
+            public int PinCode;
+            public double AccountBalance;
+            public string AccountNumber, Name, Phone;
+        }
+        static strClientInfo readLoginInfo()
+        {
+            strClientInfo clientInfo = new strClientInfo();
+
+            Console.Write("Enter Account Number:");
+            clientInfo.AccountNumber = Console.ReadLine();
+
+            Console.Write("Enter Pin Code:");
+            clientInfo.PinCode = int.Parse(Console.ReadLine());
+
+            return clientInfo;
+        }
+        static double readDoubleNumber() => double.Parse(Console.ReadLine());
+        static int readQuickWithdrawOption(string[] quickWithdrawMenueOptions, int userOption) =>
+            int.Parse(quickWithdrawMenueOptions[userOption - 1]);
+
+        static int readIntegerNumber() => int.Parse(Console.ReadLine());
+
+        static int readUserChoose()
+        {
+            int userChoose = 0;
+
+            do
+            {
+                Console.Write("Choose what do you want to do [1 to 5] :");
+                userChoose = readIntegerNumber();
+
+                if (userChoose < 1 || userChoose > 5)
+                    Console.WriteLine("Invalid Choose!");
+
+            } while (userChoose < 1 || userChoose > 5);
+
+            return userChoose;
+        }
+        static int readUserQuickWithdrawOption()
+        {
+            int userChoose = 0;
+            do
+            {
+                Console.Write("Choose what do you want to do [1 to 9] :");
+                userChoose = readIntegerNumber();
+
+                if (userChoose < 1 || userChoose > 9)
+                    Console.WriteLine("Invalid Choose!");
+
+            } while (userChoose < 1 || userChoose > 9);
+
+            return userChoose;
+        }
+        static string[] mainMenueOptions()
+        {
+            return new string[]
+            {
+                "Quick Withdraw",
+                "Normal Withdraw",
+                "Deposite",
+                "Check Balance",
+                "Logout"
+            };
+        }
+        static void printBreakLine(string lineType) =>
+            Console.WriteLine(lineType.PadRight(50, '='));
+        static void printMainMenue(string[] mainMenueOptions)
+        {
+            Console.WriteLine("\t\tATM Main Menue Screen");
+            printBreakLine("=");
+            for (int i = 0; i < mainMenueOptions.Length; i++)
+                Console.WriteLine("[{0}] {1}.", i + 1, mainMenueOptions[i]);
+            printBreakLine("=");
+        }
+        static string[] splitString(string s, string delimeter)
+        {
+            List<string> result = new List<string>();
+
+            while (s.IndexOf(delimeter) > -1)
+            {
+                result.Add(s.Substring(0, s.IndexOf(delimeter)).Trim());
+                s = s.Remove(0, s.IndexOf(delimeter) + delimeter.Length);
+            }
+            result.Add(s.Trim());
+            return result.ToArray();
+        }
+        static strClientInfo convertLineDataToRecord(string lineData, string seperator)
+        {
+            string[] splitedLineData = splitString(lineData, seperator);
+
+            strClientInfo clientInfo = new strClientInfo();
+
+            clientInfo.AccountNumber = splitedLineData[0];
+            clientInfo.PinCode = int.Parse(splitedLineData[1]);
+            clientInfo.Name = splitedLineData[2];
+            clientInfo.Phone = splitedLineData[3];
+            clientInfo.AccountBalance = double.Parse(splitedLineData[4]);
+
+            return clientInfo;
+
+        }
+        static List<strClientInfo> loadClientsFromFileToList(string filePath, string seperator)
+        {
+            List<strClientInfo> clientsList = new List<strClientInfo>();
+
+            foreach (string lineData in File.ReadLines(filePath))
+            {
+                clientsList.Add(convertLineDataToRecord(lineData, seperator));
+            }
+
+            return clientsList;
+        }
+        static strClientInfo getClient(string accountNumber)
+        {
+            strClientInfo client = new strClientInfo();
+            List<strClientInfo> clientsList = loadClientsFromFileToList(clientFilePath, "#//#");
+
+            foreach (strClientInfo clientsLine in clientsList)
+                if (clientsLine.AccountNumber == accountNumber)
+                {
+                    client = clientsLine;
+                    break;
+                }
+            return client;
+        }
+        static void goBack()
+        {
+            Console.WriteLine("Press any key to go main menue...");
+            Console.ReadKey();
+            Console.Clear();
+            printMainMenue(mainMenueOptions());
+        }
+        static string clientRecordForSaving(strClientInfo clientInfo)
+        {
+            return
+                clientInfo.AccountNumber + "#//#" +
+                clientInfo.PinCode + "#//#" +
+                clientInfo.Name + "#//#" +
+                clientInfo.Phone + "#//#" +
+                clientInfo.AccountBalance;
+        }
+        //CRUD
+        static bool saveListToFile(List<strClientInfo> clientsList)
+        {
+            try
+            {
+                StreamWriter file = new StreamWriter(clientFilePath);
+
+                if (clientsList.Count == 0)
+                {
+                    file.Write("");
+                    return true;
+                }
+
+                foreach (strClientInfo client in clientsList)
+                {
+
+                    file.WriteLine(clientRecordForSaving(client));
+                    file.Close();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+        static bool deleteClient(string accountNumber)
+        {
+
+            List<strClientInfo> clientsList = loadClientsFromFileToList(clientFilePath, "#//#");
+
+            List<strClientInfo> clientsListAfterDeleteTheClient = new List<strClientInfo>();
+
+            foreach (strClientInfo client in clientsList)
+            {
+                if (client.AccountNumber != accountNumber)
+                {
+                    clientsListAfterDeleteTheClient.Add(client);
+                }
+            }
+
+            saveListToFile(clientsListAfterDeleteTheClient);
+            return true;
+        }
+        static bool saveClientToFile(string clientRecordForSaving)
+        {
+            try
+            {
+                StreamWriter file = new StreamWriter(clientFilePath, append: true);
+                file.WriteLine(clientRecordForSaving);
+                file.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
+        //1 + 2) Norml + Quick Withdraw
+        static string[] QuickWithdrawMenueOptions()
+        {
+            return new string[]
+            {
+                "20", "50","100","200","400","600","800","1000","Exit"
+            };
+        }
+        static void withDraw(string accountNumber, bool isQuick = false)
+        {
+            int userChoose = 0;
+            double WithDrawAmount = 0;
+
+            if (isQuick)
+            {
+                userChoose = readUserQuickWithdrawOption();
+                WithDrawAmount = readQuickWithdrawOption(QuickWithdrawMenueOptions(), userChoose);
+            }
+            else
+            {
+                do
+                {
+                    Console.Write("Enter an amount multiple of 5's :");
+                    WithDrawAmount = readDoubleNumber();
+                } while (WithDrawAmount % 5 != 0);
+            }
+
+
+            if (userChoose == 9)
+            {
+                Console.Clear();
+                printMainMenue(mainMenueOptions());
+            }
+            else
+            {
+                if (WithDrawAmount <= clientSessionInfo.AccountBalance)
+                {
+                    Console.Write("Are you sure to perfoem this transaction? Y/N :");
+                    if (Console.ReadLine().ToLower() == "y")
+                    {
+                        clientSessionInfo.AccountBalance -= WithDrawAmount;
+                        deleteClient(accountNumber);
+                        saveClientToFile(clientRecordForSaving(clientSessionInfo));
+                        Console.WriteLine("Done Successfully, The New Balance Amount is: {0}", clientSessionInfo.AccountBalance);
+                    }
+                    else
+                        Console.WriteLine("canceled");
+                }
+                else
+                {
+                    Console.WriteLine("Amount Exceeds the balance, you can withdraw up to {0}.", clientSessionInfo.AccountBalance);
+                    goBack();
+                }
+
+            }
+
+        }
+        static void printWithdrawScreen(bool isQuickDraw = false)
+        {
+            Console.Clear();
+
+            if (isQuickDraw)
+            {
+                string[] quickMenueOptions = QuickWithdrawMenueOptions();
+                Console.WriteLine("\t\tQuick Withdraw Screen");
+                printBreakLine("=");
+
+                int breakLine = 0;
+
+                for (int i = 0; i < quickMenueOptions.Length; i++)
+                {
+                    breakLine++;
+
+                    Console.Write("[{0}] {1}", i + 1, quickMenueOptions[i].PadRight(3, ' '));
+                    Console.Write("\t\t");
+
+                    if (breakLine == 2)
+                    {
+                        Console.WriteLine();
+                        breakLine = 0;
+                    }
+                }
+                Console.WriteLine();
+
+                printBreakLine("=");
+            }
+            else
+            {
+                Console.WriteLine("\t\tNormal Withdraw Screen");
+                printBreakLine("=");
+
+            }
+
+            Console.WriteLine("Your Balance is: {0}", getClientBalance(clientSessionInfo.AccountNumber));
+            Console.WriteLine();
+
+            if (isQuickDraw)
+                withDraw(clientSessionInfo.AccountNumber, true);
+            else
+                withDraw(clientSessionInfo.AccountNumber, false);
+        }
+
+        //3) Deposit
+        static void printDepositScreen()
+        {
+            Console.Clear();
+            Console.WriteLine("\t\tDeposit Screen");
+            printBreakLine("=");
+        }
+        static void Deposit(string accountNumber)
+        {
+            printDepositScreen();
+            Console.Write("Enter a Positive Deposit Amount:");
+            double WithDrawAmount = readDoubleNumber();
+
+            Console.Write("Are you sure to perfoem this transaction? Y/N :");
+            if (Console.ReadLine().ToLower() == "y")
+            {
+                clientSessionInfo.AccountBalance += WithDrawAmount;
+
+                deleteClient(accountNumber);
+                saveClientToFile(clientRecordForSaving(clientSessionInfo));
+                Console.WriteLine("Done Successfully, The New Balance Amount is: {0}", clientSessionInfo.AccountBalance);
+            }
+            else
+                Console.WriteLine("canceled");
+
+
+        }
+
+        //4)Check Balance
+        static double getClientBalance(string accountNumber) =>
+            getClient(accountNumber).AccountBalance;
+        static void printCheckBalanceScreen(string accountNumber)
+        {
+            Console.Clear();
+            Console.WriteLine("\t\tCheck Balance Screen");
+            printBreakLine("=");
+            Console.WriteLine("Your Balance is: {0}", getClientBalance(accountNumber));
+
+        }
+        static void startATM()
+        {
+            Console.Clear();
+
+            int userChoose = 0;
+
+            printMainMenue(mainMenueOptions());
+
+            do
+            {
+                userChoose = readUserChoose();
+
+                switch (userChoose)
+                {
+                    case 1:
+                        printWithdrawScreen(true);
+                        goBack();
+                        break;
+                    case 2:
+                        printWithdrawScreen(false);
+                        goBack();
+                        break;
+                    case 3:
+                        Deposit(clientSessionInfo.AccountNumber);
+                        goBack();
+                        break;
+                    case 4:
+                        printCheckBalanceScreen(clientSessionInfo.AccountNumber);
+                        goBack();
+                        break;
+                    case 5:
+                        logout();
+                        goBack();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Choose");
+                        break;
+                }
+            } while (userChoose < 5);
+
+        }
+        //Logout
+        static void logout()
+        {
+            clientSessionInfo = new strClientInfo();
+            Console.Clear();
+            login();
+        }
+        //Login
+        static bool isValidUser(strClientInfo client)
+        {
+            strClientInfo tempClient = getClient(client.AccountNumber);
+
+            return tempClient.AccountNumber == client.AccountNumber && tempClient.PinCode == client.PinCode;
+        }
+        static void login()
+        {
+            bool validUser = false;
+            strClientInfo client = new strClientInfo();
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("\t\t Login Screen");
+                printBreakLine("=");
+
+                client = readLoginInfo();
+                validUser = isValidUser(client);
+
+                if (!validUser)
+                {
+                    Console.WriteLine("Inavlid Account Number Or Pin Code!!");
+                    Console.WriteLine("Press any Key To try Again...");
+                    Console.ReadKey();
+                }
+
+            }
+            while (!validUser);
+
+            clientSessionInfo = getClient(client.AccountNumber);
+
+            startATM();
+        }
+    }
+}
