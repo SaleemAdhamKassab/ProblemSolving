@@ -1,0 +1,12 @@
+public static string removeWithCount(string s, int startIndex, int count)
+        {
+            string result = "";
+
+            for (int i = 0; i < startIndex; i++)
+                result += s[i];
+
+            for (int i = startIndex + count; i < s.Length; i++)
+                result += s[i];
+
+            return result;
+        }
