@@ -1,0 +1,40 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+
+  printFinalResult();
+
+    }
+    static int[] getMaxMin(int number1, int number2)
+        {
+            int[] result = new int[2];
+            if (number1 > number2)
+            {
+                result[0] = number1;
+                result[1] = number2;
+            }
+            else
+            {
+                result[0] = number2;
+                result[1] = number1;
+            }
+
+            return result;
+        }
+        static bool isMultiples(int[] numbers) =>
+        numbers[0] % numbers[1] == 0;
+        static void printFinalResult()
+        {
+            string input = Console.ReadLine();
+
+            string[] splitedInput = input.Split(' ');
+
+            if(isMultiples(getMaxMin(int.Parse(splitedInput[0]), int.Parse(splitedInput[1]))))
+                Console.WriteLine("Sao Multiplos");
+            else
+                Console.WriteLine("Nao sao Multiplos");
+        }
+
+}
