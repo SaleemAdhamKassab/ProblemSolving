@@ -1,15 +1,9 @@
-static int stringLength(string str)
+static int length(string s)
         {
-            int i = 0;
+            int stringLength = 0;
 
-            try
-            {
-                while ((int)str[i] > 0)
-                    i++;
-            }
-            catch
-            {
-                return i;
-            }
-            return -1;
+            foreach (char c in s)
+                stringLength++;
+
+            return stringLength;
         }
