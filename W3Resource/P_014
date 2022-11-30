@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalResult();
+        }
+        static int readCelsiusDegrees()
+        {
+            Console.Write("Enter the amount of celsius: ");
+            return int.Parse(Console.ReadLine());
+        }
+        static double convertFromCelsiusToKelvin(int celsius) => celsius + 273.15;
+        static double convertFromCelsiusToFahrenheit(int celsius) => (celsius * 9/5) + 32;
+        static void printFinalResult()
+        {
+            int celsiusDegrees = readCelsiusDegrees();
+
+            Console.WriteLine("Kelvin = {0}", convertFromCelsiusToKelvin(celsiusDegrees));
+            Console.WriteLine("Fahrenheit = {0}", convertFromCelsiusToFahrenheit(celsiusDegrees));
+        }
+    }
+}
