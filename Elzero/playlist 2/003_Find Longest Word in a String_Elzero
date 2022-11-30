@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine(longestWordInString("adham ka saleem"));
+        }
+        static string longestWordInString(string s)
+        {
+            string result = "";
+            string[] splitedS = s.Split(' ');
+
+            for (int i = 0; i < splitedS.Length; i++)
+                if (splitedS[i].Length > result.Length)
+                    result = splitedS[i];
+
+            return result;
+        }
+    }
+}
