@@ -1,0 +1,9 @@
+static List<string> convertArrayToList(string[] arr)
+        {
+            List<string> result = new List<string>();
+
+            for (int i = 0; i < arr.Length; i++)
+                result.Add(arr[i]);
+
+            return result;
+        }
