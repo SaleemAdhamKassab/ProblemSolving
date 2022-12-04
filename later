@@ -1,23 +1,12 @@
 -- Create table
-create table TENOR_LEVELS
+create table TENOR_MAINSETS
 (
-  id                NUMBER(10) generated always as identity,
-  levelorder        NUMBER(10) not null,
-  islist            NUMBER(1) not null,
-  isdate            NUMBER(1) not null,
-  canlevel          NUMBER(1) not null,
-  canfilter         NUMBER(1) not null,
-  islast            NUMBER(1) not null,
-  orderby           NVARCHAR2(200),
-  dimensionid       NUMBER(10) not null,
-  isdeleted         NUMBER(1) not null,
-  candynamic        NUMBER(1) not null,
-  name              NVARCHAR2(200),
-  columnname        NVARCHAR2(200),
-  dynamicstring     NVARCHAR2(200),
-  helpercolumn      NVARCHAR2(200),
-  helperconcatstart NVARCHAR2(200),
-  helperconcatend   NVARCHAR2(200)
+  id          NUMBER(10) generated always as identity,
+  supplierid  NUMBER(10),
+  name        NVARCHAR2(200),
+  description NVARCHAR2(400),
+  tenantid    NVARCHAR2(200),
+  isdeleted   NUMBER(1) not null
 )
 tablespace TECH_DATA_TS
   pctfree 10
@@ -31,7 +20,7 @@ tablespace TECH_DATA_TS
     maxextents unlimited
   );
 -- Create/Recreate indexes 
-create index IX_TENOR_LEVELS_DIMENSIONID on TENOR_LEVELS (DIMENSIONID)
+create index IX_TENOR_MAINSETS_ISDELETED on TENOR_MAINSETS (ISDELETED)
   tablespace TECH_DATA_TS
   pctfree 10
   initrans 2
@@ -43,7 +32,7 @@ create index IX_TENOR_LEVELS_DIMENSIONID on TENOR_LEVELS (DIMENSIONID)
     minextents 1
     maxextents unlimited
   );
-create index IX_TENOR_LEVELS_ISDELETED on TENOR_LEVELS (ISDELETED)
+create index IX_TENOR_MAINSETS_TENANTID on TENOR_MAINSETS (TENANTID)
   tablespace TECH_DATA_TS
   pctfree 10
   initrans 2
@@ -56,8 +45,8 @@ create index IX_TENOR_LEVELS_ISDELETED on TENOR_LEVELS (ISDELETED)
     maxextents unlimited
   );
 -- Create/Recreate primary, unique and foreign key constraints 
-alter table TENOR_LEVELS
-  add constraint PK_TENOR_LEVELS primary key (ID)
+alter table TENOR_MAINSETS
+  add constraint PK_TENOR_MAINSETS primary key (ID)
   using index 
   tablespace TECH_DATA_TS
   pctfree 10
@@ -70,6 +59,6 @@ alter table TENOR_LEVELS
     minextents 1
     maxextents unlimited
   );
-alter table TENOR_LEVELS
-  add constraint FK_TENOR_LEVELS_DIMENSIONID foreign key (DIMENSIONID)
-  references TENOR_DIMENSIONS (ID) on delete cascade;
+alter table TENOR_MAINSETS
+  add constraint FK_TENOR_MAINSETS_TENANTID foreign key (TENANTID)
+  references TENOR_TENANTS (ID);
