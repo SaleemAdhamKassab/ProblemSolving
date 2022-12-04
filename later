@@ -1,14 +1,8 @@
 -- Create table
-create table TENOR_DIMENSIONS
+create table TENOR_TENANTS
 (
-  id        NUMBER(10) generated always as identity,
-  name      NVARCHAR2(200),
-  tablename NVARCHAR2(200),
-  pks       NVARCHAR2(200),
-  fks       NVARCHAR2(200),
-  subjectid NUMBER(10) not null,
-  tenantid  NVARCHAR2(200),
-  isdeleted NUMBER(1) not null
+  id          NVARCHAR2(200) not null,
+  description NVARCHAR2(300)
 )
 tablespace TECH_DATA_TS
   pctfree 10
@@ -21,46 +15,9 @@ tablespace TECH_DATA_TS
     minextents 1
     maxextents unlimited
   );
--- Create/Recreate indexes 
-create index IX_TENOR_DIMENSIONS_ISDELETED on TENOR_DIMENSIONS (ISDELETED)
-  tablespace TECH_DATA_TS
-  pctfree 10
-  initrans 2
-  maxtrans 255
-  storage
-  (
-    initial 64K
-    next 1M
-    minextents 1
-    maxextents unlimited
-  );
-create index IX_TENOR_DIMENSIONS_SUBJECTID on TENOR_DIMENSIONS (SUBJECTID)
-  tablespace TECH_DATA_TS
-  pctfree 10
-  initrans 2
-  maxtrans 255
-  storage
-  (
-    initial 64K
-    next 1M
-    minextents 1
-    maxextents unlimited
-  );
-create index IX_TENOR_DIMENSIONS_TENANTID on TENOR_DIMENSIONS (TENANTID)
-  tablespace TECH_DATA_TS
-  pctfree 10
-  initrans 2
-  maxtrans 255
-  storage
-  (
-    initial 64K
-    next 1M
-    minextents 1
-    maxextents unlimited
-  );
 -- Create/Recreate primary, unique and foreign key constraints 
-alter table TENOR_DIMENSIONS
-  add constraint PK_TENOR_DIMENSIONS primary key (ID)
+alter table TENOR_TENANTS
+  add constraint PK_TENOR_TENANTS primary key (ID)
   using index 
   tablespace TECH_DATA_TS
   pctfree 10
@@ -73,9 +30,3 @@ alter table TENOR_DIMENSIONS
     minextents 1
     maxextents unlimited
   );
-alter table TENOR_DIMENSIONS
-  add constraint FK_TENOR_DIMENSIONS_SUBJECTID foreign key (SUBJECTID)
-  references TENOR_SUBJECTS (ID) on delete cascade;
-alter table TENOR_DIMENSIONS
-  add constraint FK_TENOR_DIMENSIONS_TENANTID foreign key (TENANTID)
-  references TENOR_TENANTS (ID);
