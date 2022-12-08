@@ -1,1 +1,64 @@
-Developing a mechanism and controlling the processes of evacuating people from the company’s buildings in cases of emergency in order to ensure the provision of comprehensive protection for all
+-- Create table
+create table TENOR_MAINSETS
+(
+  id          NUMBER(10) generated always as identity,
+  supplierid  NUMBER(10),
+  name        NVARCHAR2(200),
+  description NVARCHAR2(400),
+  tenantid    NVARCHAR2(200),
+  isdeleted   NUMBER(1) not null
+)
+tablespace TECH_DATA_TS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index IX_TENOR_MAINSETS_ISDELETED on TENOR_MAINSETS (ISDELETED)
+  tablespace TECH_DATA_TS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index IX_TENOR_MAINSETS_TENANTID on TENOR_MAINSETS (TENANTID)
+  tablespace TECH_DATA_TS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table TENOR_MAINSETS
+  add constraint PK_TENOR_MAINSETS primary key (ID)
+  using index 
+  tablespace TECH_DATA_TS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table TENOR_MAINSETS
+  add constraint FK_TENOR_MAINSETS_TENANTID foreign key (TENANTID)
+  references TENOR_TENANTS (ID);
