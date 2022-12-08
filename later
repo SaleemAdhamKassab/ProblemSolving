@@ -1,12 +1,24 @@
 -- Create table
-create table TENOR_MAINSETS
+create table TENOR_SUBSETS
 (
-  id          NUMBER(10) generated always as identity,
-  supplierid  NUMBER(10),
-  name        NVARCHAR2(200),
-  description NVARCHAR2(400),
-  tenantid    NVARCHAR2(200),
-  isdeleted   NUMBER(1) not null
+  id           NUMBER(10) generated always as identity,
+  supplierid   NUMBER(10),
+  name         NVARCHAR2(200),
+  description  NVARCHAR2(400),
+  tablename    NVARCHAR2(200),
+  reftablename NVARCHAR2(200),
+  refschema    NVARCHAR2(200),
+  maxdatadate  NUMBER(19) not null,
+  isload       NUMBER(1) not null,
+  archivepart  NVARCHAR2(200),
+  mainsetid    NUMBER(10) not null,
+  providerid   NUMBER(10) not null,
+  subjectid    NUMBER(10) not null,
+  datats       NVARCHAR2(200),
+  indexts      NVARCHAR2(200),
+  dblink       NVARCHAR2(200),
+  tenantid     NVARCHAR2(200),
+  isdeleted    NUMBER(1) not null
 )
 tablespace TECH_DATA_TS
   pctfree 10
@@ -20,7 +32,7 @@ tablespace TECH_DATA_TS
     maxextents unlimited
   );
 -- Create/Recreate indexes 
-create index IX_TENOR_MAINSETS_ISDELETED on TENOR_MAINSETS (ISDELETED)
+create index IX_TENOR_SUBSETS_ISDELETED on TENOR_SUBSETS (ISDELETED)
   tablespace TECH_DATA_TS
   pctfree 10
   initrans 2
@@ -32,7 +44,43 @@ create index IX_TENOR_MAINSETS_ISDELETED on TENOR_MAINSETS (ISDELETED)
     minextents 1
     maxextents unlimited
   );
-create index IX_TENOR_MAINSETS_TENANTID on TENOR_MAINSETS (TENANTID)
+create index IX_TENOR_SUBSETS_MAINSETID on TENOR_SUBSETS (MAINSETID)
+  tablespace TECH_DATA_TS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index IX_TENOR_SUBSETS_PROVIDERID on TENOR_SUBSETS (PROVIDERID)
+  tablespace TECH_DATA_TS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index IX_TENOR_SUBSETS_SUBJECTID on TENOR_SUBSETS (SUBJECTID)
+  tablespace TECH_DATA_TS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index IX_TENOR_SUBSETS_TENANTID on TENOR_SUBSETS (TENANTID)
   tablespace TECH_DATA_TS
   pctfree 10
   initrans 2
@@ -45,8 +93,8 @@ create index IX_TENOR_MAINSETS_TENANTID on TENOR_MAINSETS (TENANTID)
     maxextents unlimited
   );
 -- Create/Recreate primary, unique and foreign key constraints 
-alter table TENOR_MAINSETS
-  add constraint PK_TENOR_MAINSETS primary key (ID)
+alter table TENOR_SUBSETS
+  add constraint PK_TENOR_SUBSETS primary key (ID)
   using index 
   tablespace TECH_DATA_TS
   pctfree 10
@@ -59,6 +107,15 @@ alter table TENOR_MAINSETS
     minextents 1
     maxextents unlimited
   );
-alter table TENOR_MAINSETS
-  add constraint FK_TENOR_MAINSETS_TENANTID foreign key (TENANTID)
+alter table TENOR_SUBSETS
+  add constraint FK_TENOR_SUBSETS_MAINSETID foreign key (MAINSETID)
+  references TENOR_MAINSETS (ID) on delete cascade;
+alter table TENOR_SUBSETS
+  add constraint FK_TENOR_SUBSETS_PROVIDERID foreign key (PROVIDERID)
+  references TENOR_PROVIDERS (ID) on delete cascade;
+alter table TENOR_SUBSETS
+  add constraint FK_TENOR_SUBSETS_SUBJECTID foreign key (SUBJECTID)
+  references TENOR_SUBJECTS (ID) on delete cascade;
+alter table TENOR_SUBSETS
+  add constraint FK_TENOR_SUBSETS_TENANTID foreign key (TENANTID)
   references TENOR_TENANTS (ID);
