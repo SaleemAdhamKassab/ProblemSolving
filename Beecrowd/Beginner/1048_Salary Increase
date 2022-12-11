@@ -1,0 +1,50 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+printFinalResult();
+
+    }
+     static double readSalary() => double.Parse(Console.ReadLine());
+        static double[] newSalaryAndInPercentage = new double[2];
+        static void fillNewSalaryAndInPercentageArray(double salary)
+        {
+            if (salary >= 0 && salary <= 400)
+            {
+                newSalaryAndInPercentage[0] = salary * 1.15;
+                newSalaryAndInPercentage[1] =15;
+            }
+            else if (salary > 400 && salary <= 800)
+            {
+                newSalaryAndInPercentage[0] = salary * 1.12;
+                newSalaryAndInPercentage[1] = 12;
+            }
+            else if (salary > 800 && salary <= 1200)
+            {
+                newSalaryAndInPercentage[0] = salary * 1.10;
+                newSalaryAndInPercentage[1] = 10;
+            }
+            else if (salary > 1200 && salary <= 2000)
+            {
+                newSalaryAndInPercentage[0] = salary * 1.07;
+                newSalaryAndInPercentage[1] = 7;
+            }
+            else
+            {
+                newSalaryAndInPercentage[0] = salary * 1.04;
+                newSalaryAndInPercentage[1] = 4;
+            }
+        }
+        static double moneyEarned(double newSalary, double mainSalary) => newSalary - mainSalary;
+        static void printFinalResult()
+        {
+            double empSalary = readSalary();
+            fillNewSalaryAndInPercentageArray(empSalary);
+
+            Console.WriteLine("Novo salario: {0}", newSalaryAndInPercentage[0].ToString(".00"));
+            Console.WriteLine("Reajuste ganho: {0}", moneyEarned(newSalaryAndInPercentage[0], empSalary).ToString(".00"));
+            Console.WriteLine("Em percentual: {0} %", newSalaryAndInPercentage[1]);
+        }
+
+}
