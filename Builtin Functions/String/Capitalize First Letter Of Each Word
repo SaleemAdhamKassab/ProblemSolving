@@ -1,21 +1,39 @@
-static string capitalizeFirstLetterOfEachWord (string word)
+ static string capitalizeFirstLetterOfEachWord(string s)
         {
-            string result = "";
-            bool isFirstLetter = true;
-            
+            string result = "", word = "";
+            s += " ";
 
-            for (int i = 0; i < word.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
-                if (word[i] != ' ' && isFirstLetter)
-                    result += charToUpperCase(word[i]);
-                else                
-                    result += word[i];
-                
-
-                isFirstLetter = word[i] == ' ' ? true : false;
+                if (s[i] == ' ')
+                {
+                    result += capitalizeWord(word);
+                    if (i < s.Length - 2)
+                        result += ' ';
+                    word = "";
+                }
+                else
+                {
+                    word += s[i];
+                }
             }
 
             return result;
         }
+        static string capitalizeWord(string word)
+        {
+            string result = isUpper(word[0]) ? word[0].ToString() : charToUpperCase(word[0]).ToString();
 
-static char charToUpperCase(char c)=> (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
+            for (int i = 1; i < word.Length; i++)
+            {
+                if (isUpper(word[i]))
+                    result += charToLowerCase(word[i]);
+                else
+                    result += word[i];
+            }
+
+            return result;
+        }
+        static bool isUpper(char c) => c == charToUpperCase(c);
+        static char charToUpperCase(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
+        static char charToLowerCase(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
