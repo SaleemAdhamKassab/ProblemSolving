@@ -1,0 +1,17 @@
+        static string capitalizeWord(string word)
+        {
+            string result = isUpper(word[0]) ? word[0].ToString() : charToUpperCase(word[0]).ToString();
+
+            for (int i = 1; i < word.Length; i++)
+            {
+                if (isUpper(word[i]))
+                    result += charToLowerCase(word[i]);
+                else
+                    result += word[i];
+            }
+
+            return result;
+        }
+ static bool isUpper(char c) => c == charToUpperCase(c);
+        static char charToUpperCase(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
+        static char charToLowerCase(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
