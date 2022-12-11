@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine(removeCharUsingIndex("w3resource", 0));
+        }
+        static string removeCharUsingIndex(string s, int index) =>
+             s.Remove(index, 1);
+ 
+    }
+}
