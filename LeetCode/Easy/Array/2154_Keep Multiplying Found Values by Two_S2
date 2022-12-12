@@ -1,0 +1,11 @@
+public class Solution {
+    public int FindFinalValue(int[] nums, int original) {
+         while (isNumberInArray(nums, original))
+                original *= 2;
+
+            return original;
+    }
+    static bool isNumberInArray(int[] arr, int number) =>
+            arr.Contains(number);
+
+}
