@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine(replaceBetweenStartAndLastCharacters("saleem"));
+        }
+        static string replaceBetweenStartAndLastCharacters(string s) => s.Length > 1
+                ? s.Substring(s.Length - 1) + s.Substring(1, s.Length - 2) + s.Substring(0, 1) : s;
+
+    }
+}
