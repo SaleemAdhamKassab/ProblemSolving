@@ -1,0 +1,2 @@
+ static string replaceBetweenStartAndLastCharacters(string s) =>
+            s.Substring(0,1)+ s + s.Substring(0, 1);
