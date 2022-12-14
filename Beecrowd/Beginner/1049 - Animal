@@ -1,0 +1,62 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+ Console.WriteLine(getAnimalName(readInput()));
+
+    }
+    struct strInputWords
+        {
+            public string FirstWord, SecondWord, ThirdWord;
+        }
+        static strInputWords readInput()
+        {
+            strInputWords strInputWords = new strInputWords();
+
+            strInputWords.FirstWord = readLine();
+            strInputWords.SecondWord = readLine();
+            strInputWords.ThirdWord = readLine();
+
+            return strInputWords;
+        }
+        static string readLine() => Console.ReadLine();
+        static string getAnimalName(strInputWords readInput)
+        {
+            if (readInput.FirstWord == "vertebrado")
+            {
+                if (readInput.SecondWord == "ave")
+                {
+                    if (readInput.ThirdWord == "carnivoro")
+                        return "aguia";
+                    else
+                        return "pomba";
+                }
+                else
+                {
+                    if (readInput.ThirdWord == "onivoro")
+                        return "homem";
+                    else
+                        return "vaca";
+                }
+            }
+            else
+            {
+                if (readInput.SecondWord == "inseto")
+                {
+                    if (readInput.ThirdWord == "hematofago")
+                        return "pulga";
+                    else
+                        return "lagarta";
+                }
+                else
+                {
+                    if (readInput.ThirdWord == "hematofago")
+                        return "sanguessuga";
+                    else
+                        return "minhoca";
+                }
+            }
+        }
+
+}
