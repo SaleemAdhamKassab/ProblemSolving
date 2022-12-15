@@ -1,0 +1,64 @@
+static string[] splitString(string s, char delimeter)
+        {
+            string word = "";
+            s += delimeter;
+
+            List<string> splitedString = new List<string>();
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] != delimeter)
+                    word += s[i];
+                else
+                {
+                    splitedString.Add(word);
+                    word = "";
+                }
+            }
+
+            return convertListToArray(splitedString);
+        }
+        static string[] convertListToArray(List<string> lst)
+        {
+            string[] listToArray = new string[lst.Count];
+
+            for (int i = 0; i < lst.Count; i++)
+                listToArray[i] = lst[i];
+
+            return listToArray;
+        }
+        static string[] distinctArray(string[] arr)
+        {
+            List<string> distinctString = new List<string>();
+
+            bool isExsist = false;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < distinctString.Count; j++)
+                {
+                    if (distinctString[j] == arr[i])
+                    {
+                        isExsist = true;
+                        break;
+                    }
+                }
+                if (!isExsist)
+                    distinctString.Add(arr[i]);
+
+                isExsist = false;
+            }
+
+            return convertListToArray(distinctString);
+        }
+        static string convertArrayToString(string[] arr)
+        {
+            string result = "";
+
+            for (int i = 0; i < arr.Length; i++)
+                result += arr[i] + ' ';
+
+            return result;
+        }
+        static string removeDuplicateWords(string s) =>
+            convertArrayToString(distinctArray(splitString(s, ' ')));
