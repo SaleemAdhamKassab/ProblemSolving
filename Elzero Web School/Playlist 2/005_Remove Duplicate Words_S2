@@ -1,0 +1,2 @@
+static string removeDuplicateWords(string s) =>
+            String.Join(" ", s.Distinct().ToArray());
