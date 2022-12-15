@@ -1,0 +1,9 @@
+        static string[] convertListToArray(List<string> lst)
+        {
+            string[] listToArray = new string[lst.Count];
+
+            for (int i = 0; i < lst.Count; i++)
+                listToArray[i] = lst[i];
+
+            return listToArray;
+        }
