@@ -1,0 +1,24 @@
+static string[] distinctArray(string[] arr)
+        {
+            List<string> distinctString = new List<string>();
+
+            bool isExsist = false;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < distinctString.Count; j++)
+                {
+                    if (distinctString[j] == arr[i])
+                    {
+                        isExsist = true;
+                        break;
+                    }
+                }
+                if (!isExsist)
+                    distinctString.Add(arr[i]);
+
+                isExsist = false;
+            }
+
+            return convertListToArray(distinctString);
+        }
