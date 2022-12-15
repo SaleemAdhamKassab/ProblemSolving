@@ -1,13 +1,13 @@
 static string[] splitString(string s, string delimeter)
         {
            string word = "";
-            s += ' ';
+            s += delimeter;
 
             List<string> splitedString = new List<string>();
 
             for (int i = 0; i < s.Length; i++)
             {
-                if (s[i] != ' ')
+                if (s[i] != delimeter)
                     word += s[i];
                 else
                 {
