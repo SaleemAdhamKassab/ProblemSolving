@@ -1,0 +1,7 @@
+        static bool isNumber(string s)
+        {
+            for (int i = 0; i < s.Length; i++)
+                if (!isDigit(s[i]))
+                    return false;
+            return true;
+        }
