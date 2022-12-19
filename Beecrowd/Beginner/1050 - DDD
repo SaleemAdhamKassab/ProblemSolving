@@ -1,0 +1,35 @@
+using System; 
+using System.Collections.Generic;
+
+class URI {
+
+    static void Main(string[] args) { 
+
+   Console.WriteLine(destinationCountry(readInput()));
+
+    }
+   static int readInput() => int.Parse(Console.ReadLine());
+        static string destinationCountry(int code)
+        {
+            string destinationCountryCode = "";
+
+            Dictionary<int, string> dicCodeCountry = new Dictionary<int, string>()
+            {
+                 {61, "Brasilia"},
+                 {71, "Salvador"},
+                 {11, "Sao Paulo"},
+                 {21, "Rio de Janeiro"},
+                 {32, "Juiz de Fora"},
+                 {19, "Campinas"},
+                 {27, "Vitoria"},
+                 {31, "Bela Horizonte"}
+            };
+
+            destinationCountryCode = dicCodeCountry.GetValueOrDefault(code);
+
+            return String.IsNullOrEmpty(destinationCountryCode) ?
+                   "DDD nao cadastrado" : destinationCountryCode;
+        }
+        
+
+}
