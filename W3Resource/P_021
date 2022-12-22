@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine(P_21(25,20));
+        }
+        static bool P_21(int number1, int number2) =>
+           isAnyNumbersEqualTo20(number1, number2) || isSumEqaulTo20(number1, number2);
+        static bool isAnyNumbersEqualTo20(int number1, int number2) =>
+            number1 == 20 || number2 == 20;
+        static bool isSumEqaulTo20(int number1, int number2) =>
+            number1 + number2 == 20;
+    }
+}
