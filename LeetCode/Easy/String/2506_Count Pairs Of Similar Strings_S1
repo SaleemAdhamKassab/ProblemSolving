@@ -1,0 +1,97 @@
+public class Solution {
+    public int SimilarPairs(string[] words) {
+         int countPairsOfSimilarStrings = 0;
+            distinctArrayElements(words);
+
+            for (int i = 0; i < words.Length - 1; i++)
+                for (int j = i + 1; j < words.Length; j++)
+                    if (words[i] == words[j])
+                        countPairsOfSimilarStrings++;
+
+            return countPairsOfSimilarStrings;
+    }
+
+    static void distinctArrayElements(string[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+                arr[i] = sortStringAsc(distinctString(arr[i]));
+        }
+        static string distinctString(string s)
+        {
+            string distinct = "";
+            bool isContainsFlag = false;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                for (int j = 0; j < distinct.Length; j++)
+                    if (distinct[j] == s[i])
+                    {
+                        isContainsFlag = true;
+                        break;
+                    }
+
+                if (isContainsFlag == false)
+                    distinct += s[i];
+
+                isContainsFlag = false;
+            }
+
+            return distinct;
+        }
+        static string sortStringAsc(string s)=>
+            charArrayToString(sortCharArrayAsc(stringToCharArray(s)));
+        static int stringLength(string s)
+        {
+            int i = 0;
+            char c = ' ';
+
+            while (true)
+            {
+                try
+                {
+                    c = s[i];
+                    i++;
+                }
+                catch
+                {
+                    return i;
+                }
+            }
+        }
+        static char[] stringToCharArray(string s)
+        {
+            char[] stringToCharrArray = new char[stringLength(s)];
+
+            for (int i = 0; i < stringLength(s); i++)
+                stringToCharrArray[i] = s[i];
+
+            return stringToCharrArray;
+        }
+        static string charArrayToString(char[] arr)
+        {
+            string result = "";
+
+            for (int i = 0; i < arr.Length; i++)
+                result += arr[i];
+
+            return result;
+        }
+        static char[] sortCharArrayAsc(char[] arr)
+        {
+            char temp = ' ';
+
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] > arr[j])
+                    {
+                        temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+}
