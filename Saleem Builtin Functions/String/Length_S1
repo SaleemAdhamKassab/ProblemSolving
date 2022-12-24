@@ -1,0 +1,18 @@
+static int stringLength(string s)
+        {
+            int i = 0;
+            char c = ' ';
+
+            while (true)
+            {
+                try
+                {
+                    c = s[i];
+                    i++;
+                }
+                catch
+                {
+                    return i;
+                }
+            }
+        }
