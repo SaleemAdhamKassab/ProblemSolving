@@ -1,0 +1,30 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+printFinalResult();
+    }
+      static double readSalary() => double.Parse(Console.ReadLine());
+        static double calcTaxe(double salary)
+        {
+            if (salary <= 2000)
+                return -1;
+            else if (salary > 2000 && salary <= 3000)
+                return (salary - 2000) * 0.08;
+            else if (salary > 3000 && salary <= 4500)
+                return (salary - 3000.00) * 0.18 + 1000.00 * 0.08;
+            else
+                return (salary - 4500.00) * 0.28 + 1500.00 * 0.18 + 1000.00 * 0.08;
+        }
+        static void printFinalResult()
+        {
+            double taxe = calcTaxe(readSalary());
+
+            if (taxe == -1)
+                Console.WriteLine("Isento");
+            else
+                Console.WriteLine("R$ {0}",taxe.ToString(".00"));
+        }
+
+}
