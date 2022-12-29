@@ -1,0 +1,2 @@
+static bool isLowerChar(char c) =>
+            (int)c >= 97 && (int)c <= 122;
