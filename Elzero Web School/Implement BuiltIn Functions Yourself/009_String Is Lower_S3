@@ -1,0 +1,21 @@
+using System;
+using System.Collections.Generic;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine(isLowerCase("saLeem kassab"));
+        }
+        static bool isLowerCase(string s)
+        {
+            for (int i = 0; i < s.Length; i++)
+                if (Char.IsUpper(s[i]))
+                    return false;
+
+            return true;
+        }
+    }
+}
