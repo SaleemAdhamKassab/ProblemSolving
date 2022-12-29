@@ -1,0 +1,9 @@
+static char charToLowerCase(char c) =>
+            (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+static bool isLowerCase(string s)
+        {
+            for (int i = 0; i < s.Length; i++)
+                if (s[i] != charToLowerCase(s[i]))
+                    return false;
+            return true;
+        }
