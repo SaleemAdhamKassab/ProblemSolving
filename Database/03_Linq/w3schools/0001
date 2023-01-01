@@ -1,0 +1,6 @@
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customers = db.Customers.ToList();
+            return Ok(customers);
+        }
