@@ -1,0 +1,2 @@
+select name, city
+from customers ;
