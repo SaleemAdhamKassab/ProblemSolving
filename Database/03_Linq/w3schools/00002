@@ -1,0 +1,7 @@
+ [HttpGet]
+        public IActionResult test()
+        {
+            var result = db.Customers.Select(e => new { e.Name, e.City }).ToList();
+
+            return Ok(result);
+        }
