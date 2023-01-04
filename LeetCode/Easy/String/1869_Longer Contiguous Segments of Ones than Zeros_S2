@@ -1,0 +1,41 @@
+public class Solution {
+    public bool CheckZeroOnes(string s) {
+       
+            if (getLastChar(s) == '1')
+                s = append(s, "0");
+            else
+                s = append(s, "1");
+
+            int oneCount = 0, zeroCount = 0,
+                longestContinuousOne = 0, longestContinuousZero = 0,
+                sLength = s.Length;
+
+            bool result = true;
+
+            for (int i = 0; i < sLength; i++)
+            {
+                if (isCharEqualToOne(s[i])) oneCount++;
+                else zeroCount++;
+
+                if (i == sLength - 1) break;
+
+                if (!isCharactersAreEquals(s[i], s[i + 1]))
+                {
+                    if (oneCount > longestContinuousOne) longestContinuousOne = oneCount;
+                    if (zeroCount > longestContinuousZero) longestContinuousZero = zeroCount;
+
+                    if (longestContinuousZero >= longestContinuousOne) result = false;
+                    else result = true;
+
+                    oneCount = 0;
+                    zeroCount = 0;
+                }
+            }
+
+            return result; 
+    }
+      static char getLastChar(string s) => s[s.Length - 1];
+        static string append(string s, string stringToAdd) => s + stringToAdd;
+        static bool isCharEqualToOne(char c) => c == '1';
+        static bool isCharactersAreEquals(char c1, char c2) => c1 == c2;
+}
