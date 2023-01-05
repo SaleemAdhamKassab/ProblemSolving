@@ -1,0 +1,5 @@
+1- Encapculation:
+  Arrange all related (Variables-Methods) under the Class
+2- Abstraction:
+  I only expose only the necessary class member (Variables - Methods )to the other users (developers) 
+  Abstraction != Abstract Class
