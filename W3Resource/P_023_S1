@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine(stringToLowerCase("Write a C# Sharp Program to display the following pattern using the alphabet."));
+
+        }
+        static bool isCharacter(char c) =>
+            ((int)c >= 97 && (int)c <= 122) || ((int)c >= 65 && (int)c <= 90) ? true : false;
+        static char charToLowerCase(char c)
+            => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+        static string stringToLowerCase(string s)
+        {
+            string result = "";
+            for (int i = 0; i < s.Length; i++)
+                if (isCharacter(s[i]) && s[i] != charToLowerCase(s[i]))
+                    result += charToLowerCase(s[i]);
+                else
+                    result += s[i];
+
+            return result;
+        }
+    }
+}
