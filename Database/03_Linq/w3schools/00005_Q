@@ -1,0 +1,11 @@
+https://www.w3schools.com/sql/sql_where.asp
+
+ [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> mexicoCustomers = (from customers in db.Customers
+                                              where customers.Country == "Mexico"
+                                              select customers).ToList();
+
+            return Ok(mexicoCustomers);
+        }
