@@ -1,0 +1,9 @@
+https://www.w3schools.com/sql/sql_where.asp
+
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> mexicoCustomers = db.Customers.Where(e=>e.Country== "Mexico").ToList();
+
+            return Ok(mexicoCustomers);
+        }
