@@ -1,0 +1,10 @@
+https://www.w3schools.com/sql/sql_where.asp
+
+ [HttpGet]
+        public IActionResult test()
+        {
+            Customer customer = db.Customers.Where(e => e.Id == 1).SingleOrDefault()!;
+                                 
+
+            return Ok(customer);
+        }
