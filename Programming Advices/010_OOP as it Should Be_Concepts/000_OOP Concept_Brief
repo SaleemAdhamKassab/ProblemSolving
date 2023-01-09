@@ -1,5 +1,52 @@
+Note: Important to solve all lessons question
+
+-------------- OOP Concept Brief -------------
 1- Encapculation:
   Arrange all related (Variables-Methods) under the Class
 2- Abstraction:
   I only “expose” only the necessary class member (Variables - Methods )to the other users (developers), and “hides” the unnecessary details.
   Abstraction != Abstract Class
+
+
+-------------- Important to Understand ---------
+
+1- Access Modifiers:
+    - private: class
+    - protected: class and its child
+    - public: All
+
+2- Constructors:
+    - special type of member function that is called automatically when an object is created
+    - same name as that of the class and it does not have a return type
+    - Default Constructor: A constructor with no parameters is known as a default constructor.
+    - Parameterized Constructor: a constructor with parameters is known as a parameterized constructor. This is the preferred method to initialize member data.
+    - When you have a parameterized constructor it will override the default constructor.
+    - A constructor is primarily used to initialize objects. They are also used to run a default code when an object is created.
+
+    - Copy Constructors: 
+      - The copy constructor is used to initialize the members of a newly created object by copying the members of an already existing object as below:
+          - Automaticly:  Person person2 = person1;
+          - Manual : pass calass by reference in the constructor
+    
+    -What are the types of constructors:
+       1- Default Construcotr
+       2- Parameterized constructor
+       3- Copy constructor
+  
+3- Destructors:
+    last function called before the destroy the object from memory
+    
+
+    
+4- Static Member:
+  - Static Member is a variable that is shared for all objects, any object modifies it it get modified for all other objects. (static variable = shared variable = global variable)
+  - Static members are on the class level not for each object ex: count all objects from class
+  - Static members are on the class level not for each object.
+  
+
+
+  
+  
+  
+  
+  
