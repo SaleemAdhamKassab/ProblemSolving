@@ -3,6 +3,7 @@ Note: Important to solve all lessons question
 -------------- OOP Concept Brief -------------
 1- Encapculation:
   Arrange all related (Variables-Methods) under the Class
+  access the class only through the objects
 2- Abstraction:
   I only “expose” only the necessary class member (Variables - Methods )to the other users (developers), and “hides” the unnecessary details.
   Abstraction != Abstract Class
@@ -30,19 +31,21 @@ Note: Important to solve all lessons question
     
     -What are the types of constructors:
        1- Default Construcotr
-       2- Parameterized constructor
+       2- Parameterized constructor: ضمنلي انه مايكون عندي اوبجيكت فاضي (meaningful object: initialize all object data members)
        3- Copy constructor
   
 3- Destructors:
     last function called before the destroy the object from memory
-    
-
+   
     
 4- Static Member:
   - Static Member is a variable that is shared for all objects, any object modifies it it get modified for all other objects. (static variable = shared variable = global variable)
   - Static members are on the class level not for each object ex: count all objects from class
   - Static members are on the class level not for each object.
-  
+
+5- Read only property doesn't have set method
+
+
 
 
   
