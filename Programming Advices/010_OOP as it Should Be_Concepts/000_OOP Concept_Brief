@@ -11,9 +11,10 @@ Note: Important to solve all lessons question
   Abstraction != Abstract Class
   
 3- Inheritance:
-  code reusability
-  Super/Base Class <<<-----Inherits----- Sub/Derived Class  
-
+  code reusability/maintainability
+  Super/Base Class <<<-----Inherits----- Sub/Derived Class
+  
+   
 
 -------------- Important to Understand ---------
 
@@ -39,6 +40,24 @@ Note: Important to solve all lessons question
        1- Default Construcotr
        2- Parameterized constructor: ضمنلي انه مايكون عندي اوبجيكت فاضي (meaningful object: initialize all object data members)
        3- Copy constructor
+       
+    -in sub class ctor i fill partmers (Parameterized Constructor of the Base Class):
+      1- force: related to base class
+      2- optional: related to sub class ex:
+         class Employee : Person
+            {
+                private double _salary;
+                private string _department;
+                private string _title;
+
+                public Employee(int id, string firstName, string lastName,
+                                string email, string phone,
+                                double salary, string department, string title) : base(id, firstName, lastName, email, phone)
+                {
+                    _salary = salary;
+                    _department = department;
+                    _title = title;
+                }
   
 3- Destructors:
     last function called before the destroy the object from memory
@@ -51,7 +70,10 @@ Note: Important to solve all lessons question
 
 5- Read only property doesn't have set method
 
-
+6- Function Overriding:
+   - Replace main function code with new implementation as i want
+   - Just create function in sub class with the same siqniture --> automaticlly override
+   
 
 
   
