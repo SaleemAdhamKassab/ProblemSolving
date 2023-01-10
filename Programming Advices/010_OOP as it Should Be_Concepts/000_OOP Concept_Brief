@@ -1,12 +1,18 @@
 Note: Important to solve all lessons question
 
 -------------- OOP Concept Brief -------------
+
 1- Encapculation:
   Arrange all related (Variables-Methods) under the Class
   access the class only through the objects
+  
 2- Abstraction:
   I only “expose” only the necessary class member (Variables - Methods )to the other users (developers), and “hides” the unnecessary details.
   Abstraction != Abstract Class
+  
+3- Inheritance:
+  code reusability
+  Super/Base Class <<<-----Inherits----- Sub/Derived Class  
 
 
 -------------- Important to Understand ---------
