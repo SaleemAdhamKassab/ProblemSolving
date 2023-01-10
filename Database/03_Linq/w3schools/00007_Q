@@ -1,0 +1,10 @@
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Product> productsList = (from products in db.Products
+                                          where products.Price == 18
+                                          select products).ToList();
+                                 
+
+            return Ok(productsList);
+        }
