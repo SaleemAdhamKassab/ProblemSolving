@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            B b = new B();
+            b.fun
+            
+        }
+        class A
+        {
+            private int _var1;
+            private void _func1()
+            {
+                Console.WriteLine("func1");
+            }
+
+            protected int _var2;
+            protected void _func2()
+            {
+                Console.WriteLine("func2");
+            }
+
+            public int _var3;
+            public void _func3()
+            {
+                Console.WriteLine("func3");
+            }
+        }
+        class B : A
+        {
+            public void _func1()
+            {
+                
+            }
+        }
+    }
+}
