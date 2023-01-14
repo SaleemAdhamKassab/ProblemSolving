@@ -13,8 +13,8 @@ Note: Important to solve all lessons question
 3- Inheritance:
  Maximize reusability/maintainability
  Super/Base Class <<<-----Inherits----- Sub/Derived Class
+ Multi Level Inheritence: Person->Employee->Developer (Not like Multi Inheritence)
   
-   
 
 -------------- Important to Understand ---------
 
