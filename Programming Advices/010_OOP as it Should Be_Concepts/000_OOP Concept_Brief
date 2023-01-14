@@ -19,6 +19,7 @@ Note: Important to solve all lessons question
 -------------- Important to Understand ---------
 
 1- Access Modifiers:
+    - set the accessibility of classes, methods, and other members.
     - private: class
     - protected: private for out class and public for class and childs
     - public: All
