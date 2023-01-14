@@ -11,8 +11,8 @@ Note: Important to solve all lessons question
   Abstraction != Abstract Class
   
 3- Inheritance:
-  code reusability/maintainability
-  Super/Base Class <<<-----Inherits----- Sub/Derived Class
+ Maximize reusability/maintainability
+ Super/Base Class <<<-----Inherits----- Sub/Derived Class
   
    
 
@@ -20,7 +20,7 @@ Note: Important to solve all lessons question
 
 1- Access Modifiers:
     - private: class
-    - protected: class and its child
+    - protected: private for out class and public for class and childs
     - public: All
 
 2- Constructors:
