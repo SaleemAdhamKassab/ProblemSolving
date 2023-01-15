@@ -1,0 +1,11 @@
+https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_less_than
+
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Product> products = (from obj in db.Products
+                                      where obj.Price < 30
+                                      select obj).ToList();
+
+            return Ok(products);
+        }
