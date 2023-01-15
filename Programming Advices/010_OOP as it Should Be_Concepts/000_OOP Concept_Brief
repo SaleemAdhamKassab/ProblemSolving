@@ -3,18 +3,23 @@ Note: Important to solve all lessons question
 -------------- OOP Concept Brief -------------
 
 1- Encapculation:
-  Arrange all related (Variables-Methods) under the Class
-  access the class only through the objects
+  - Arrange all related (Variables-Methods) under the Class
+  - access the class only through the objects
   
 2- Abstraction:
-  I only “expose” only the necessary class member (Variables - Methods )to the other users (developers), and “hides” the unnecessary details.
-  Abstraction != Abstract Class
+  - I only “expose” only the necessary class member (Variables - Methods )to the other users (developers), and “hides” the unnecessary details.
+  - Abstraction != Abstract Class
   
 3- Inheritance:
- Maximize reusability/maintainability
- Super/Base Class <<<-----Inherits----- Sub/Derived Class
- Multi Level Inheritence: Person->Employee->Developer (Not like Multi Inheritence)
-  
+ - Maximize reusability/maintainability
+ - Super/Base Class <<<-----Inherits----- Sub/Derived Class
+ - Multi Level Inheritence: Person->Employee->Developer (Not like Multi Inheritence)
+ - Inheritince Types:
+    1- Single Inheritance Person:Employee
+    2- Multi Level Inheritance Person:Employee:Developer
+    3- Hierarchal Inhertance Employee:Doctor Employee:Developer Employee:Tester (All Inherites from base class Employee)
+    4- Multiple Inheritance (danger only with c++)
+    5- Hyperd Inheritance (more danger than 4)
 
 -------------- Important to Understand ---------
 
@@ -75,7 +80,10 @@ Note: Important to solve all lessons question
    - Replace main function code with new implementation as i want
    - Just create function in sub class with the same siqniture --> automaticlly override
    
-
+7- Up Casting vs Down Casting:
+   - always convert from big to small (child is the big because it has member more than base class)
+   - up casting: Employee emp = new Person()--> True        down casting: Person person = new Employee()--> false
+   - base -> derived  (true)   derived -> base (false)
 
   
   
