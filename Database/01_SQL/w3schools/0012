@@ -1,0 +1,5 @@
+https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_greater_than2
+
+select *
+from products
+where price>=30;
