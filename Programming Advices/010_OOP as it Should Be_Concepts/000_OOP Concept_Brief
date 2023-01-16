@@ -9,6 +9,7 @@ Note: Important to solve all lessons question
 2- Abstraction:
   - I only “expose” only the necessary class member (Variables - Methods )to the other users (developers), and “hides” the unnecessary details.
   - Abstraction != Abstract Class
+  - بخفي عنك كتير methods and props  مابهموك مشان ماوجعلك راسك فيهن 
   
 3- Inheritance:
  - Maximize reusability/maintainability
@@ -20,6 +21,23 @@ Note: Important to solve all lessons question
     3- Hierarchal Inhertance Employee:Doctor Employee:Developer Employee:Tester (All Inherites from base class Employee)
     4- Multiple Inheritance (danger only with c++)
     5- Hyperd Inheritance (more danger than 4)
+
+4- Polymorphism:
+   -  code /standaed
+   عندي print() فنكشن واحدة الها وظائف مختلفة وتنفذ حسب مايتم استدعائهامن أي object 
+   - تعدد الأوجه للكود : يعني بنفس الاسم للميثود فيني اعمل اشياء مختلفة
+     same method name i can do diffrent thing based on situation
+   - can be done through 4 concepts:
+      1- Function Overloading
+      2- Operator Oveloading:
+          5+3 = 8
+          "Saleem" + "Kassab" = "saleemKassab";
+          operator + اشتغل شغلتين :
+          مع الارقام جمعهن ومع ال string  عملهن concat
+      3- Function Overriding
+      4- Virtual Functions (run time polymorphism)
+
+
 
 -------------- Important to Understand ---------
 
@@ -96,6 +114,36 @@ Note: Important to solve all lessons question
        // Output 
        Hi, i am an Employee
        Hi, i am a Student
+       
+9- Static/Early Binding vs Dynamic/Late Binding:
+    - المصطلحات العلمية للفقرة السابقة 8
+    - Static/Early Binding 
+       1- call any class or methos as is with out using virtual
+       2-   يعني انت بتطلع عند رفيقك وبتعرف وين بيته مسبقا
+       3- little faster than late binding  
+       4- in compile time  
+       
+    - Dynamic/Late Binding:  
+      1- Overriding is a perfect example of dynamic binding. In overriding both parent and child classes have the same method.
+      2- بتطلع عند رفيقك وبتقله دلني ع البيت
+      3- in run time
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
