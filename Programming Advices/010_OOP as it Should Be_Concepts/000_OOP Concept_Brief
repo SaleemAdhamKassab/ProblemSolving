@@ -84,7 +84,18 @@ Note: Important to solve all lessons question
    - always convert from big to small (child is the big because it has member more than base class)
    - up casting: Employee emp = new Person()--> True        down casting: Person person = new Employee()--> false
    - base -> derived  (true)   derived -> base (false)
+   
+8-  Virtual Functions:
+    - A virtual function is a member function in the base class that we expect to redefine in derived classes.
+    - //up casting
+            Person p = new Employee();
+            p.print();
 
+            Person e = new Student();
+            e.print();
+       // Output 
+       Hi, i am an Employee
+       Hi, i am a Student
   
   
   
