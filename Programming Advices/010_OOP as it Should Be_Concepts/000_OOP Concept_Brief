@@ -23,7 +23,7 @@ Note: Important to solve all lessons question
     5- Hyperd Inheritance (more danger than 4)
 
 4- Polymorphism:
-   -  code /standaed
+   -  Consistent/Standard code.
    عندي print() فنكشن واحدة الها وظائف مختلفة وتنفذ حسب مايتم استدعائهامن أي object 
    - تعدد الأوجه للكود : يعني بنفس الاسم للميثود فيني اعمل اشياء مختلفة
      same method name i can do diffrent thing based on situation
@@ -36,6 +36,8 @@ Note: Important to solve all lessons question
           مع الارقام جمعهن ومع ال string  عملهن concat
       3- Function Overriding
       4- Virtual Functions (run time polymorphism)
+   
+   -  word Ploy means "Many" and word Morphism means "Form" so it means "Many Forms"
 
 
 
