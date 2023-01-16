@@ -1,0 +1,12 @@
+  static int arrayMinNumberGreaterThanNumber(int[] arr, int number)
+        {
+            int min = int.MaxValue;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] > number && arr[i] < min)
+                    min = arr[i];
+            }
+
+            return min;
+        }
