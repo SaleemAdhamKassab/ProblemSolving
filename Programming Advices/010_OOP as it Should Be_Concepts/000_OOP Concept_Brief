@@ -131,10 +131,12 @@ Note: Important to solve all lessons question
       3- in run time
       
   10-  Interfaces: 
-      - Interface = Abstract Class --> done by Pure Virtual Functions
       - ابرام الصفقات والعقود
       - اجبر الديفلوبر لما يعمل كلاس يكون عنده Certain Methods
-      - onces you create at least one pure virtual function in class --> class convert to (Contract = Interface) 
+      - Abstract Class is the same concept of Interface Class and they are both contracts --> done by Pure Virtual Functions 
+      - A pure virtual function:  function that has no definition.
+      - If you have one pure virtual function in a class then it will be converted to abstract class.
+      - Abstract Class/Interface Class is a class with pure virtual functions.
       - I CANOOT inherite from Interface
       - Must implements all functions, and class can has own methods
       - Interfaces named by this name because we only declare the methods interface يعني سطر التعريف بالميثود 
