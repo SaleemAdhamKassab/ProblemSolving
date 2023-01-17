@@ -140,7 +140,16 @@ Note: Important to solve all lessons question
       - I CANOOT inherite from Interface
       - Must implements all functions, and class can has own methods
       - Interfaces named by this name because we only declare the methods interface يعني سطر التعريف بالميثود 
-  
+      
+ 11- Friend Class:
+      - A friend class can access both private and protected members.
+      - Since ClassB is a friend class, we can access all members of ClassA from inside ClassB. However, we cannot access members of ClassB from inside ClassA. It is because friend relation in C++ is only granted, not taken.
+      - We can use a friend Class in C++ using the "friend" keyword.
+      - friend class B; رشوة كبيرة الوصول لكافة ال members
+ 
+ 12 - Friend Function:
+      - friend mySum(A a); رشوة صغيرة بسمج لهي الميثود فقط بالوصول الى A members
+       - declare only method signiture inside the class A --> mySum(A a);
   
   
   
