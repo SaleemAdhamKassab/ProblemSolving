@@ -130,7 +130,14 @@ Note: Important to solve all lessons question
       2- بتطلع عند رفيقك وبتقله دلني ع البيت
       3- in run time
       
-  
+  10-  Interfaces: 
+      - Interface = Abstract Class --> done by Pure Virtual Functions
+      - ابرام الصفقات والعقود
+      - اجبر الديفلوبر لما يعمل كلاس يكون عنده Certain Methods
+      - onces you create at least one pure virtual function in class --> class convert to (Contract = Interface) 
+      - I CANOOT inherite from Interface
+      - Must implements all functions, and class can has own methods
+      - Interfaces named by this name because we only declare the methods interface يعني سطر التعريف بالميثود 
   
   
   
