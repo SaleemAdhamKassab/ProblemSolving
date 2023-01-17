@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Iphone iphone1 = new Iphone();
+            iphone1.SendSMS("0959270760", "Hello");
+            iphone1.Dial("0959270763");
+            iphone1.TakePicture();
+
+        }
+        interface Mobile
+        {
+            public void Dial(string phoneNumber);
+            public void SendSMS(string phoneNumber, string text);
+            public void TakePicture();
+        }
+        class Iphone : Mobile
+        {
+            public void Dial(string phoneNumber)
+            {
+                Console.WriteLine("Dial {0}",phoneNumber);
+            }
+
+            public void SendSMS(string phoneNumber, string text)
+            {
+                Console.WriteLine("Hi, from Send SMS: {0} , to number {1}",text, phoneNumber);
+            }
+
+            public void TakePicture()
+            {
+                Console.WriteLine("Hi from Take Picture");
+            }
+        }
+    }
+}
