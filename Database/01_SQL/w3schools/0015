@@ -1,0 +1,5 @@
+https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_between
+
+select *
+from products t 
+where t.price between 50 and 60; 
