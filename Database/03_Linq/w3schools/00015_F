@@ -1,0 +1,9 @@
+https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_between
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> products = db.Products.Where(e => e.Price >= 50 && e.Price <= 60).ToList(); 
+            
+                return Ok(products);
+        }
