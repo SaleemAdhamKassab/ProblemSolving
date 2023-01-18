@@ -9,11 +9,12 @@ namespace lab
         static void Main()
         {
             Person person1 = new Person("Saleem","Syria","Damascus");
-            Console.WriteLine(person1.FullName); 
+            person1.printInfo();
+            person1.address.print();
         }
         class Person
         {
-            class Address
+            public class Address
             {
                 private string _Country, _City;
                 public Address(string country, string city)
@@ -30,13 +31,16 @@ namespace lab
             }
 
             public string FullName;
-            Address address;
+            public Address address;
 
             public Person(string fullName, string country, string city)
             {
                 FullName = fullName;
                 address = new Address(country, city);
             }
+
+            public void printInfo()=> Console.WriteLine("Full Name: {0}",FullName);
+            
         }
     }
 }
