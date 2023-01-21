@@ -1,0 +1,11 @@
+https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in
+
+ [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customers = db.Customers
+                                            .Where(e => e.City == "Paris" || e.City == "London")
+                                            .ToList();
+
+            return Ok(customers);
+        }
