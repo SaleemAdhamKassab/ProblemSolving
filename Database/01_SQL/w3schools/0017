@@ -1,0 +1,3 @@
+https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in
+
+select * from customers t where t.city in ('Paris','London');
