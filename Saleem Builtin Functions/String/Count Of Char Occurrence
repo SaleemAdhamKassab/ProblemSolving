@@ -1,4 +1,4 @@
-static int countOfCharOccurrence(string s, char c)
+static int countSpeseficLetter(string s, char c)
         {
             int counter = 0;
             for (int i = 0; i < s.Length; i++)
