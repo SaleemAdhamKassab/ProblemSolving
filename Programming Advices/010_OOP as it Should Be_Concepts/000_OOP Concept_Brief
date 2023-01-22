@@ -152,26 +152,21 @@ Note: Important to solve all lessons question
       - declare only method signiture inside the class A --> mySum(A a);
   
  13- Static:
-    1- shared function for all classes 
+    1- shared function for all classes
+    2- احسن مثال عملي هو لما انشأت مكتبة ال string
     2- ex:
-    
        SaleemString(){
-       
        static int countWords(string s){...};
        int countWords()=>countWords(_value);
        }
        
       - call it without object (need parameter) -> using patameterized ctor 
-          cw(saleemString.countWords("Saleem Kassab"));
+          saleemString.countWords("Saleem Kassab");
           
-      - call it with object:   (not need parameter) -> using default ctor -> public method dynamiclly call static method 
+      - call it with object:   (not need parameter) -> using default ctor -> public method call static method 
           SaleemString s = new SaleemString();
           s.countWords(); 
-       
         
-       1- call with object dont send string 
-  
-  
   
   
   
