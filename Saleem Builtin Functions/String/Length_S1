@@ -1,4 +1,4 @@
-static int stringLength(string s)
+static int length(string s)
         {
             int i = 0;
             char c = ' ';
