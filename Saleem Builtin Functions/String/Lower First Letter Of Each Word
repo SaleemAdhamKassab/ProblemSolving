@@ -1,4 +1,4 @@
-static string capitalizeFirstLetterOfEachWord (string word)
+static string lowerFirstLetterOfEachWord (string word)
         {
             string result = "";
             bool isFirstLetter = true;
