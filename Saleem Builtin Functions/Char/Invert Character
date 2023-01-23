@@ -1,4 +1,3 @@
-static char invertChar(char character)=> 
-            character == charToLowerCase(character)?charToUpperCase(character):charToLowerCase(character);
-static char charToLowerCase(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
-static char charToUpperCase(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
+static char ToUpper(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
+static char ToLower(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+static char InvertCase(char character) => character == ToLower(character) ? ToUpper(character) : ToLower(character);
