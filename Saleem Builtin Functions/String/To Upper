@@ -1,4 +1,4 @@
- static string toUpperCase(string s)
+ static string ToUpper(string s)
         {
             string result = "";
             for (int i = 0; i < s.Length; i++)
@@ -7,4 +7,4 @@
             return result;
         }
 
-static char charToUpperCase(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
+static char ToUpper(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
