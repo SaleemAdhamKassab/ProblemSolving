@@ -1,0 +1,14 @@
+static char ToLower(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+static bool IsCharacter(char c) => ((int)c >= 97 && (int)c <= 122) || ((int)c >= 65 && (int)c <= 90) ? true : false;
+public static string ToLower(string s)
+        {
+            string result = "";
+
+            for (int i = 0; i < s.Length; i++)
+                if (IsCharacter(s[i]))
+                    result += ToLower(s[i]);
+                else
+                    result += s[i];
+
+            return result;
+        }
