@@ -1,0 +1,1 @@
+static char ToLower(char c)=> (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
