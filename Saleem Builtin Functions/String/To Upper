@@ -1,10 +1,14 @@
- static string ToUpper(string s)
+static char ToUpper(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
+static bool IsCharacter(char c) => ((int)c >= 97 && (int)c <= 122) || ((int)c >= 65 && (int)c <= 90) ? true : false;
+public static string ToUpper(string s)
         {
             string result = "";
+
             for (int i = 0; i < s.Length; i++)
-                    result += charToUpperCase(s[i]);
+                if (IsCharacter(s[i]))
+                    result += ToUpper(s[i]);
+                else
+                    result += s[i];
 
             return result;
         }
-
-static char ToUpper(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
