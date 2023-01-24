@@ -1,16 +1,19 @@
-static bool isUpperChar(char c) =>
-            (int)c >= 65 && (int)c <= 90;
-static bool isLowerChar(char c) =>
-            (int)c >= 97 && (int)c <= 122;
-static bool isLetter(char c) =>
-            isUpperChar(c) || isLowerChar(c);
-static int countLetters(string s)
+static bool IsCharacter(char c) => ((int)c >= 97 && (int)c <= 122) || ((int)c >= 65 && (int)c <= 90) ? true : false;
+static char ToUpper(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
+static char ToLower(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+public enum enWhatToCount { Small, Capital, All }
+public static int CountLetters(string s, enWhatToCount enWhatToCount = enWhatToCount.All)
         {
             int counter = 0;
 
             for (int i = 0; i < s.Length; i++)
-                if (isLetter(s[i]))
+            {
+                if (enWhatToCount == enWhatToCount.Capital && ToUpper(s[i]) == s[i])
                     counter++;
-
+                else if (enWhatToCount == enWhatToCount.Small && ToLower(s[i]) == s[i])
+                    counter++;
+                else if (IsCharacter(s[i]))
+                    counter++;
+            }
             return counter;
         }
