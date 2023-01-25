@@ -1,6 +1,8 @@
-static bool isVowel(char character)
+static char ToLower(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+static bool IsVowel(char character)
         {
-            character = charToLowerCase(character);
+            character = ToLower(character);
+
             switch (character)
             {
                 case 'a':
@@ -14,5 +16,3 @@ static bool isVowel(char character)
                     return false;
             }
         }
-
-        static char charToLowerCase(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
