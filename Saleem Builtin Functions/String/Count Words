@@ -1,15 +1,15 @@
-static int countWords(string s)
-{
-    bool isStartedWord = true;
-    int counter = 0;
+public static int CountWords(string s)
+        {
+            bool isStartedWord = true;
+            int counter = 0;
 
-    for (int i = 0; i < s.Length; i++)
-    {
-        if (s[i] != ' ' && isStartedWord)
-            counter++;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] != ' ' && isStartedWord)
+                    counter++;
 
-        isStartedWord = s[i] == ' ' ? true : false;
-        
-    }
-    return counter;
-}
+                isStartedWord = s[i] == ' ' ? true : false;
+
+            }
+            return counter;
+        }
