@@ -1,2 +1,0 @@
-static bool isUpperChar(char c) =>
-            (int)c >= 65 && (int)c <= 90;
