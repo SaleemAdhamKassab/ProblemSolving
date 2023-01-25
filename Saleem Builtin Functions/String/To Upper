@@ -1,11 +1,11 @@
 static char ToUpper(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
-static bool IsCharacter(char c) => ((int)c >= 97 && (int)c <= 122) || ((int)c >= 65 && (int)c <= 90) ? true : false;
-public static string ToUpper(string s)
+static bool IsLetter(char c) => c >= 97 && (int)c <= 122 || (int)c >= 65 && (int)c <= 90;
+static string ToUpper(string s)
         {
             string result = "";
 
             for (int i = 0; i < s.Length; i++)
-                if (IsCharacter(s[i]))
+                if (IsLetter(s[i]))
                     result += ToUpper(s[i]);
                 else
                     result += s[i];
