@@ -1,29 +1,36 @@
-static string trim(string str)
-{
-    string result = "";
-    int indx1 = firstIndex(str);
-    int indx2 = lastIndex(str);
+static int lastCharIndex(string s)
+        {
+            for (int i = s.Length - 1; i >= 0; i--)
+                if (s[i] != ' ')
+                    return i;
+            return -1;
+        }
 
-    if (indx1 == -1) return result;
+static string TrimRight(string s)
+        {
+            string result = "";
+            int lastIndex = lastCharIndex(s);
 
-    for (int i = indx1; i <= indx2; i++)
-        result += str[i];
+            for (int i = 0; i <= lastIndex; i++)
+                result += s[i];
 
-    return result;
-}
+            return result;
+        }
+static string TrimLeft(string s)
+        {
+            string result = "";
+            bool stop = false;
 
-static int firstIndex(string str)
-{
-    for (int i = 0; i < str.Length; i++)
-        if ((int)str[i] != 32)
-            return i;
-    return -1;
-}
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == ' ' && stop == false)
+                    continue;
+                else
+                    stop = true;
 
-static int lastIndex(string str)
-{
-    for (int i = str.Length - 1; i >= 0; i--)
-        if ((int)str[i] != 32)
-            return i;
-    return -1;
-}
+                result += s[i];
+            }
+
+            return result;
+        }
+static string Trim(string s) => TrimRight(TrimLeft(s));
