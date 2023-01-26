@@ -1,4 +1,4 @@
-public static string removeWithCount(string s, int startIndex, int count)
+ static string RemoveWithCount(string s, int startIndex, int count)
         {
             string result = "";
 
