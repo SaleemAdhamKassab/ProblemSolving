@@ -1,16 +1,8 @@
- static int countVowels(string s)
+static char ToLower(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+static bool IsVowel(char character)
         {
-            int counter = 0;
+            character = ToLower(character);
 
-            for (int i = 0; i < s.Length; i++)
-                if (isVowel(s[i]))
-                    counter++;
-            return counter;
-        }
-
-static bool isVowel(char character)
-        {
-            character = charToLowerCase(character);
             switch (character)
             {
                 case 'a':
@@ -24,5 +16,13 @@ static bool isVowel(char character)
                     return false;
             }
         }
-  
-  static char charToLowerCase(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+static int CountVowels(string s)
+        {
+            int counter = 0;
+
+            for (int i = 0; i < s.Length; i++)
+                if (IsVowel(s[i]))
+                    counter++;
+
+            return counter;
+        }
