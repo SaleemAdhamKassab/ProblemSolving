@@ -1,4 +1,4 @@
-static string trimLeft(string s)
+static string TrimLeft(string s)
         {
             string result = "";
             bool stop = false;
