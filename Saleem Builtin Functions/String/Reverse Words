@@ -1,35 +1,28 @@
-static string reverseStringByEachWord(string s)
+static int lastCharIndex(string s)
         {
-            string reversedS = "";
-            string[] splitedS = splitString(s," ");
-
-            for (int i = splitedS.Length-1; i >= 0; i--)
-                reversedS += splitedS[i] + " ";
-
-            return reversedS;
-
+            for (int i = s.Length - 1; i >= 0; i--)
+                if (s[i] != ' ')
+                    return i;
+            return -1;
         }
-        
-static string[] splitString(string s, string splitAt)
+
+static string TrimRight(string s)
         {
-            List<string> splitedString = new List<string>();
-            string tempString = "";
+            string result = "";
+            int lastIndex = lastCharIndex(s);
 
-            s += splitAt;
+            for (int i = 0; i <= lastIndex; i++)
+                result += s[i];
 
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (s[i].ToString() != splitAt)
-                {
-                    tempString += s[i];
-                }
-                else
-                {
-                    if (tempString != "")
-                        splitedString.Add(tempString);
-                    tempString = "";
-                }
-            }
+            return result;
+        }
+static string ReverseWords(string s)
+        {
+            string result = "";
+            string[] splitedString = s.Split(' ');
 
-            return splitedString.ToArray();
+            for (int i = splitedString.Length - 1; i >= 0; i--)
+                result += splitedString[i] + ' ';
+
+            return TrimRight(result);
         }
