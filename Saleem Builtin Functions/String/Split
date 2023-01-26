@@ -1,4 +1,4 @@
-static string[] convertListToArray(List<string> lst)
+static string[] ConvertListToArray(List<string> lst)
         {
             string[] result = new string[lst.Count];
 
@@ -7,7 +7,7 @@ static string[] convertListToArray(List<string> lst)
 
             return result;
         }
-        static string[] splitString(string s, char delimeter)
+static string[] Split(string s, char delimeter)
         {
             string word = "";
             s += delimeter;
@@ -25,5 +25,5 @@ static string[] convertListToArray(List<string> lst)
                 }
             }
 
-            return convertListToArray(splitedString);
+            return ConvertListToArray(splitedString);
         }
