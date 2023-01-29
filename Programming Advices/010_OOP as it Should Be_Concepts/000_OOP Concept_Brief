@@ -167,18 +167,18 @@ Note: Important to solve all lessons question
           SaleemString s = new SaleemString();
           s.countWords(); 
         
+  14- Diffrences between Class and Structure:
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+                       Class                                                 Structure
+      ----------------------------------------------------------------------------------
+      Member Access    Private                                               Public   
+      ----------------------------------------------------------------------------------
+      Purpose          Data Abstraction, Inheritance..                       Grouping Data
+      --------------------------------------------------------------------------------------
+      Stored           Reference Type (Heap)                                 Value type(Stack)     
+                       يعني بيعطي مساحات اكبرفي الرن تايم مشان أعمل اللي بدي ياه :Reference Type (Heap) 
+                       الأشياء الصغيرة بستخدملها ستركتشر والأشياء الكبيرة بستخدملها كلاس 
+              
+     -  ملخص خبرة الأستاذ: استخدم الستركتشر فقط  لل
+        Data Grouping 
+        واذا عندي حتى لو ميثود واحد بحوله لكلاس  
