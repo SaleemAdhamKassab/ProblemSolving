@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            int year = readYear();
+            printFinalResult(year, getYearDetails(year));
+        }
+        struct yearDetails
+        {
+            public int days, hours, minutes, secounds;
+        }
+        static int readYear()
+        {
+            Console.Write("Please Enter a year to check: ");
+            return int.Parse(Console.ReadLine());
+        }
+        static bool isLeapYear(int year) => 
+            ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) ? true : false;
+        static yearDetails getYearDetails(int year)
+        {
+            yearDetails yearDetails = new yearDetails();
+
+            if (isLeapYear(year))
+            {
+                yearDetails.days = 366;
+                yearDetails.hours = 8784;
+                yearDetails.minutes = 527040;
+                yearDetails.secounds = 31622400;
+            }
+            else
+            {
+                yearDetails.days = 365;
+                yearDetails.hours = 8760;
+                yearDetails.minutes = 525600;
+                yearDetails.secounds = 31536000;
+            }
+            return yearDetails;
+        }
+        static void printFinalResult(int year, yearDetails yearDetails)
+        {
+            Console.WriteLine("Number of Days     in Year [{0}] is: {1}",year,yearDetails.days);
+            Console.WriteLine("Number of Hours    in Year [{0}] is: {1}", year, yearDetails.hours);
+            Console.WriteLine("Number of Minutes  in Year [{0}] is: {1}", year, yearDetails.minutes);
+            Console.WriteLine("Number of Secounds in Year [{0}] is: {1}", year, yearDetails.secounds);
+        }
+    }
+}

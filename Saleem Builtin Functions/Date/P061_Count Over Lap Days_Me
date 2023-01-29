@@ -1,0 +1,165 @@
+using System;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalResult();
+        }
+        enum enDateCompare { Before = -1, Equal = 0, After = 1 }
+        struct Date
+        {
+            public int day, month, year;
+        }
+        struct Period
+        {
+            public Date StartDate, EndDate;
+        }
+        static int readNumber(string dateSection)
+        {
+            Console.Write("Please enter a {0}: ", dateSection);
+            return int.Parse(Console.ReadLine());
+        }
+        static Date readDate()
+        {
+            Date date = new Date();
+
+            date.day = readNumber("day");
+            date.month = readNumber("month");
+            date.year = readNumber("year");
+
+            Console.WriteLine();
+
+            return date;
+        }
+        static Period readDatePeriod()
+        {
+            Period datePeriod = new Period();
+
+            Console.WriteLine("Enter Start Date: ");
+            datePeriod.StartDate = readDate();
+
+            Console.WriteLine("Enter End Date: ");
+            datePeriod.EndDate = readDate();
+
+            return datePeriod;
+        }
+        static bool isLeapYear(int year) =>
+          ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) ? true : false;
+        static int numberDaysInAMonth(int year, int monthNumber)
+        {
+            int[] NumberOfMonthDays = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+            return monthNumber == 2 ? (isLeapYear(year) ? 29 : 28) : NumberOfMonthDays[monthNumber - 1];
+        }
+        static bool isDate1LessThanDate2(Date date1, Date date2) =>
+            date1.year < date2.year ||
+            date1.year == date2.year && date1.month < date2.month ||
+            date1.year == date2.year && date1.month == date2.month && date1.day < date2.day ? true : false;
+        static bool isLastDayInMonth(Date date) =>
+          date.day == numberDaysInAMonth(date.year, date.month) ? true : false;
+        static bool isLastMonthInYear(int Month)
+        {
+            return (Month == 12);
+        }
+        static Date increaseDateByOneDay(Date date)
+        {
+            if (isLastDayInMonth(date))
+            {
+                if (isLastMonthInYear(date.month))
+                {
+                    date.month = 1;
+                    date.day = 1;
+                    date.year++;
+                }
+                else
+                {
+                    date.day = 1;
+                    date.month++;
+                }
+            }
+            else
+            {
+                date.day++;
+            }
+            return date;
+        }
+        static void swapDates(ref Date date1, ref Date date2)
+        {
+            Date tempDate = new Date();
+            tempDate.day = date1.day;
+            tempDate.month = date1.month;
+            tempDate.year = date1.year;
+
+            date1.day = date2.day;
+            date1.month = date2.month;
+            date1.year = date2.year;
+
+            date2 = tempDate;
+        }
+        static int diffDaysBetweenDate1AndDate2(Date date1, Date date2)
+        {
+            int diffDays = 0,
+             swapFlagValue = 1;
+
+            if (!isDate1LessThanDate2(date1, date2))
+            {
+                swapDates(ref date1, ref date2);
+                swapFlagValue = -1;
+            }
+
+            while (isDate1LessThanDate2(date1, date2))
+            {
+                diffDays++;
+                date1 = increaseDateByOneDay(date1);
+            }
+
+            return swapFlagValue * diffDays;
+        }
+        static bool isDate1BeforeDate2(Date date1, Date date2) =>
+         (date1.year < date2.year) ? true : ((date1.year == date2.year) ?
+        (date1.month < date2.month ? true :
+        (date1.month == date2.month ?
+        date1.day < date2.day : false)) : false);
+        static bool isDate1EqualDate2(Date date1, Date date2) =>
+            date1.year == date2.year &&
+            date1.month == date2.month &&
+            date1.day == date2.day ? true : false;
+        static enDateCompare compareDates(Date date1, Date date2)
+        {
+            if (isDate1BeforeDate2(date1, date2))
+                return enDateCompare.Before;
+            else if (isDate1EqualDate2(date1, date2))
+                return enDateCompare.Equal;
+            else
+                return
+                    enDateCompare.After;
+        }
+        static bool isOverLapsPeriods(Period period1, Period period2) =>
+              compareDates(period2.EndDate, period1.StartDate) == enDateCompare.Before ||
+              compareDates(period2.StartDate, period1.EndDate) == enDateCompare.After ? false : true;
+        static Date minDate(Date date1, Date date2) =>
+              isDate1LessThanDate2(date1, date2) ? date1 : date2;
+        static Date maxDate(Date date1, Date date2) =>
+             isDate1LessThanDate2(date1, date2) ? date2 : date1;
+        static int countOverlapDays(Period period1, Period period2)
+        {
+            if (!isOverLapsPeriods(period1, period2))
+                return 0;
+
+            Date minPeriodsEndDate = minDate(period1.EndDate, period2.EndDate),
+                 maxPeriodsStartDate = maxDate(period1.StartDate, period2.StartDate);
+
+            int diffDays = diffDaysBetweenDate1AndDate2(minPeriodsEndDate, maxPeriodsStartDate);
+
+
+            return diffDays < 0 ? diffDays * -1 : diffDays;
+        }
+        static void printFinalResult()
+        {
+            Console.WriteLine("Overlap Days Count is: ", countOverlapDays(readDatePeriod(), readDatePeriod()));
+        }
+    }
+}
