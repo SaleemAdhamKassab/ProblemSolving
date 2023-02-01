@@ -1,0 +1,15 @@
+using Lab.Classes;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine(fileSizeInBytes(@"C:\Users\Administrator\Desktop\Saleem Kassab_Software Developer_CV.docx"));
+        }
+        static long fileSizeInBytes(string filePath) =>
+            new System.IO.FileInfo(filePath).Length;
+
+    }
+}
