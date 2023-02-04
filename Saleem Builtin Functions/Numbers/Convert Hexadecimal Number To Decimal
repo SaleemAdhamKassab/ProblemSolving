@@ -1,0 +1,35 @@
+static bool isDigit(char c) => (int)c >= 48 && (int)c <= 57;
+        static int convertHexCharToNumber(char c)
+        {
+            for (char i = 'A'; i <= 'F'; i++)
+                if (c == i)
+                    return 10 + i - 65;
+
+            return -1;
+        }
+        static int power(int x, int y)
+        {
+            if (y == 0) return 1;
+            else if (x == 0) return 0;
+            else
+            {
+                int result = 1;
+                for (int i = 0; i < y; i++)
+                    result *= x;
+
+                return result;
+            }
+        }
+        static double convertHexadecimalNumberToDecimalWithoutPoint(string hexNumber)
+        {
+            double result = 0;
+
+            for (int i = 0; i < hexNumber.Length; i++)
+                if (isDigit(hexNumber[i]))
+                    result += int.Parse(hexNumber[i].ToString()) * power(16, hexNumber.Length - 1 - i);
+                else
+                    result += convertHexCharToNumber(hexNumber[i]) * power(16, hexNumber.Length - 1 - i);
+
+            return result;
+        }
+    }
