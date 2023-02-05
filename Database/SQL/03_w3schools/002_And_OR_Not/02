@@ -1,0 +1,3 @@
+select *
+from customers t
+where t.city in ('Berlin','Munchen');
