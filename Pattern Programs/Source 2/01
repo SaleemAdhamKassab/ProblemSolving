@@ -1,0 +1,22 @@
+using Lab;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            p1(8);
+        }
+        static void p1(int rowsCount)
+        {
+            for(int i = 1; i <=rowsCount; i++)
+            {
+                for(int j=rowsCount-i;j>=1;j--)
+                    Console.Write('*');
+
+                Console.WriteLine();
+            }    
+        }
+    }
+}
