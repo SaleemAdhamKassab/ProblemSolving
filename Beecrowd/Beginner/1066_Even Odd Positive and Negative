@@ -1,0 +1,45 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+ printFinalResult(EvenOddPositiveNegative());
+    }
+static bool isEven(int number) => number % 2 == 0;
+    static bool isPositive(int number) => number > 0;
+    static bool isNegative(int number) => number < 0;
+    static int readNumber() => int.Parse(Console.ReadLine());
+    static int[] EvenOddPositiveNegative()
+    {
+        int[] result = new int[4];
+        int number = 0;
+
+        for (int i = 0; i < 5; i++)
+        {
+            number = readNumber();
+
+            if (isEven(number))
+                result[0]++;
+
+            if (!isEven(number))
+                result[1]++;
+
+            if (isPositive(number))
+                result[2]++;
+
+            if (isNegative(number))
+                result[3]++;
+        }
+
+
+        return result;
+    }
+    static void printFinalResult(int[] arr)
+    {
+        Console.WriteLine("{0} valor(es) par(es)", arr[0]);
+        Console.WriteLine("{0} valor(es) impar(es)", arr[1]);
+        Console.WriteLine("{0} valor(es) positivo(s)", arr[2]);
+        Console.WriteLine("{0} valor(es) negativo(s)", arr[3]);
+    }
+
+}
