@@ -1,0 +1,21 @@
+using System;
+
+class URI
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(p32("Python"));
+    }
+    static string p32(string s)
+    {
+        if (s.Length < 4)
+            return s + s + s + s;
+
+        int sLength = s.Length;
+
+        string lastFourChars = s.Substring(sLength - 4);
+
+        return lastFourChars + lastFourChars + lastFourChars + lastFourChars;
+
+    }
+}
