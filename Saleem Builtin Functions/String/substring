@@ -1,4 +1,4 @@
-static string substring(string s, int startIndex, int length = 0)
+static string Substring(string s, int startIndex, int length = 0)
     {
         string result = "";
         int lastIndex = 0;
