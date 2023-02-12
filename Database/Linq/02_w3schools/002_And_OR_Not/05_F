@@ -1,0 +1,8 @@
+   [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = db.Customers.Where(e => e.Country == "Germany" &&
+                                                            (e.City == "Berlin" || e.City == "Munchen")).ToList();
+
+            return Ok(customersList);
+        }
