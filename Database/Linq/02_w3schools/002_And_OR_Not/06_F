@@ -1,0 +1,7 @@
+  [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = db.Customers.Where(e => e.Country != "Germany" && e.Country != "USA").ToList();
+
+            return Ok(customersList);
+        }
