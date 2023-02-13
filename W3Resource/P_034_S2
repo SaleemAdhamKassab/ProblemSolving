@@ -1,0 +1,10 @@
+using System;
+
+class URI
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(P34("Hello how are you?", "Hello"));
+    }
+    static bool P34 (string s, string startWith)=>s.Substring(0, startWith.Length) == startWith;
+}
