@@ -1,0 +1,25 @@
+public class Solution {
+    public string LargestGoodInteger(string num) {
+        if (num.Length == 3 && isGoodNumber(num[0], num[1], num[2]))
+            return num;
+
+        int max = -1;
+        string result = "";
+
+        for (int i = 0; i < num.Length - 2; i++)
+        {
+            if (isGoodNumber(num[i], num[i + 1], num[i + 2]))
+            {
+                if (int.Parse(num[i].ToString()) > max)
+                {
+                    max = int.Parse(num[i].ToString());
+                    result = num[i].ToString() + num[i + 1].ToString() + num[i + 2].ToString();
+                }
+            }
+        }
+
+        return result;
+    }
+        static bool isGoodNumber(int number1, int number2, int number3) => number1 == number2 && number2 == number3;
+
+}
