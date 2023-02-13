@@ -1,20 +1,8 @@
- static bool startWith(string s, string word)
+static bool StartWith (string s, string startWith)
     {
-        return substring(s, 0, word.Length) == word ? true : false;
-    }
+        for (int i = 0; i < startWith.Length; i++)
+            if (s[i] != startWith[i])
+                return false;
 
-static string substring(string s, int startIndex, int length = 0)
-    {
-        string result = "";
-        int lastIndex = 0;
-
-        if (length == 0)
-            lastIndex = s.Length;
-        else
-            lastIndex = length;
-
-        for (int i = startIndex; i < lastIndex; i++)
-            result += s[i];
-
-        return result;
+        return true;
     }
