@@ -1,0 +1,12 @@
+static char encryptTextMethod(char textChar, short encryptionKey) =>
+            (char)((int)(textChar) + encryptionKey);
+static string encryptText(string text)
+        {
+            string encryptText = "";
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                encryptText += encryptTextMethod(text[i], 2);
+            }
+            return encryptText;
+        }
