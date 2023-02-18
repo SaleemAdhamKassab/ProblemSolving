@@ -1,0 +1,8 @@
+ public static bool IsNumberBetween(int number, int from, int to)
+        {
+            for (int i = from; i <= to; i++)
+                if (i == number)
+                    return true;
+
+            return false;
+        }
