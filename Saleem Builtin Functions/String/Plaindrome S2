@@ -1,2 +1,0 @@
-static bool isPlaindrome(string word) =>
-            word == new string(word.ToCharArray().Reverse().ToArray()) ? true : false;
