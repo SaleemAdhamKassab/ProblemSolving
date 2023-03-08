@@ -1,7 +1,0 @@
-[HttpGet]
-        public IActionResult test()
-        {
-            List<Customer> customersList = db.Customers.OrderBy(e => e.Country).ToList();
-
-            return Ok(customersList);
-        }

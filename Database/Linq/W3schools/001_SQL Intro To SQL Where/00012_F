@@ -1,7 +1,0 @@
- [HttpGet]
-        public IActionResult test()
-        {
-            List<Product> products =db.Products.Where(e=>e.Price>=30).ToList();
-
-            return Ok(products);
-        }

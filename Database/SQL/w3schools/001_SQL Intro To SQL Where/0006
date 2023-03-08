@@ -1,5 +1,0 @@
-https://www.w3schools.com/sql/sql_where.asp
-
-select *
-from customers t
-where t.id=1;

@@ -1,9 +1,0 @@
-[HttpGet]
-        public IActionResult test()
-        {
-            List<Product> products =(from prods in db.Products
-                                     where prods.Price>=50 && prods.Price<=60
-                                     select prods).ToList(); 
-            
-                return Ok(products);
-        }

@@ -1,2 +1,0 @@
-select count(distinct country) "Distinct Country"
-from customers;

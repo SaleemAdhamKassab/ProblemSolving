@@ -1,9 +1,0 @@
-[HttpGet]
-        public IActionResult test()
-        {
-            List<Customer> customers = (from cust in db.Customers
-                                        where cust.Country == "Germany" && cust.City == "Berlin"
-                                        select cust).ToList();
-
-            return Ok(customers);
-        }

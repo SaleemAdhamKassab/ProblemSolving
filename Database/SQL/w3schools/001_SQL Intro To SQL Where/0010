@@ -1,4 +1,0 @@
-https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_greater_than2
-
-SELECT * FROM Products
-WHERE Price >= 30;

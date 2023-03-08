@@ -1,2 +1,0 @@
-select distinct t.country
-from customers t;

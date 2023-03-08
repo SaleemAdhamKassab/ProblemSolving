@@ -1,8 +1,0 @@
-  [HttpGet]
-        public IActionResult test()
-        {
-            int distinctCustomersCountry = (from customers in db.Customers
-                                           select customers.Country).Distinct().Count();
-
-            return Ok(distinctCustomersCountry);
-        }

@@ -1,9 +1,0 @@
-https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_not_equal_to
-
-[HttpGet]
-        public IActionResult test()
-        {
-            List<Product> productsList = db.Products.Where(e => e.Price != 18).ToList();
-
-            return Ok(productsList);
-        }
