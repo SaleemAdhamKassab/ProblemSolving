@@ -1,3 +1,15 @@
 select *
 from customers t
 order by t.country;
+====================================
+select *
+from customers
+order by Country desc;
+====================================
+select *
+from customers t
+order by country, customername;
+=====================================
+select *
+from customers
+order by country asc, customername desc;
