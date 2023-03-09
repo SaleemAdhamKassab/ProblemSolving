@@ -1,0 +1,42 @@
+public class Solution {
+    public IList<int> MinSubsequence(int[] nums) {
+        List<int> result = new List<int>();
+            int incrementSum1 = 0, incrementSum2 = 0;
+            int[] sortedArray = selectionSortDesc(nums);
+
+            for (int i = 0; i < sortedArray.Length; i++)
+            {
+                incrementSum1 += sortedArray[i];
+
+                for (int j = i + 1; j < sortedArray.Length; j++)
+                    incrementSum2 += sortedArray[j];
+
+                result.Add(sortedArray[i]);
+
+                if (incrementSum1 > incrementSum2)
+                    break;
+
+                incrementSum2 = 0;
+            }
+
+            return result;
+    }
+
+static int[] selectionSortDesc(int[] arr)
+        {
+            int temp = 0;
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] < arr[j])
+                    {
+                        temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+}
