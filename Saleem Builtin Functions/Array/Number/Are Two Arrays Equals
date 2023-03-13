@@ -1,0 +1,26 @@
+ static int[] SelectionSortAsc(int[] arr)
+        {
+            int temp = 0;
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] > arr[j])
+                    {
+                        temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+
+static bool areTwoArraysEquals(int[] arr1, int[] arr2)
+        {
+            for (int i = 0; i < arr1.Length; i++)
+                if (arr1[i] != arr2[i])
+                    return false;
+            return true;
+        }
+public static bool CanBeEqual(int[] target, int[] arr) => areTwoArraysEquals(SelectionSortAsc(target), SelectionSortAsc(arr)) ? true : false;
