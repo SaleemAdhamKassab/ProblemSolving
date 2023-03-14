@@ -1,0 +1,9 @@
+Delete from customers
+where customername="Alfreds Futterkiste";
+commit;
+==============================================
+Delete from customers;
+commit;
+==============================================
+delete from
+Customers where Country = 'Norway';
