@@ -130,7 +130,7 @@ Note: Important to solve all lessons question
       2- بتطلع عند رفيقك وبتقله دلني ع البيت
       3- in run time
       
-  10-  Interfaces: 
+  10-  Interfaces/ Abstract Class: 
       - ابرام الصفقات والعقود
       - اجبر الديفلوبر لما يعمل كلاس يكون عنده Certain Methods
       - Abstract Class is the same concept of Interface Class and they are both contracts --> done by Pure Virtual Functions 
@@ -140,6 +140,7 @@ Note: Important to solve all lessons question
       - I CANOOT inherite from Interface
       - Must implements all functions, and class can has own methods
       - Interfaces named by this name because we only declare the methods interface يعني سطر التعريف بالميثود 
+      - Reference OOP Course11 - Project 3: Bank System - Extension 10 :  Abstract Class/Interface Practical Example
       
  11- Friend Class:
       - A friend class can access both private and protected members.
