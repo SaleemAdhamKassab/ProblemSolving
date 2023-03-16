@@ -1,0 +1,26 @@
+using System;
+
+class URI
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(p37("PHP Tutorial"));
+    }
+    static bool isHPappearsAtSecondPosition(string s) => s[1] == 'H' && s[2] == 'P';
+    static string Substring(string s, int startIndex, int length = 0)
+    {
+        string result = "";
+        int lastIndex = 0;
+
+        if (length == 0)
+            lastIndex = s.Length;
+        else
+            lastIndex = length;
+
+        for (int i = startIndex; i < lastIndex; i++)
+            result += s[i];
+
+        return result;
+    }
+    static string p37(string s) => isHPappearsAtSecondPosition(s) ? s[0] + Substring(s, 3) : "";
+}
