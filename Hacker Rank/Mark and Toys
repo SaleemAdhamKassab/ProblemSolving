@@ -1,0 +1,20 @@
+public static int maximumToys(List<int> prices, int k)
+    {
+var lst = prices.Where(u => u <= k).OrderBy(u => u).ToList();
+    var maxToys = 0;
+    for (var i = 0; i < lst.Count(); i++)
+    {
+        var toys = 0;
+        var sum = 0;
+        for (var j = 0; j < lst.Count; j++)
+        {
+            sum = sum + lst[j];
+            if (sum >= k)
+                break;
+            toys = toys + 1;
+        }
+        if (toys >= maxToys)
+            maxToys = toys;
+    }
+    return maxToys;
+    }
