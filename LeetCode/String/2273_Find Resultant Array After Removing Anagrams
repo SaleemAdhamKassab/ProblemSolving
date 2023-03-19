@@ -1,0 +1,32 @@
+public class Solution {
+    public IList<string> RemoveAnagrams(string[] words) {
+     List<string> result = new List<string>();
+        bool anagramFlag = false;
+
+        result.Add(words[0]);
+
+        for (int i = 1; i < words.Length; i++)
+        {
+            for (int j = 0; j < result.Count; j++)
+                if (IsAnagram(result.ElementAt(j), words[i]))
+                {
+                    anagramFlag = true;
+                    break;
+                }
+
+            if (anagramFlag == false)
+                result.Add(words[i]);
+
+            anagramFlag = false;
+        }
+
+        return result;   
+    }
+    static bool IsAnagram(string s, string t)
+    {
+        s = String.Concat(s.OrderBy(c => c));
+        t = String.Concat(t.OrderBy(c => c));
+
+        return s == t ? true : false;
+    }
+}
