@@ -1,0 +1,32 @@
+using Lab.Bank.Views.ManageUsers;
+using Lab.Classes;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalResult();
+        }
+        static int max(int num1, int num2) => num1 > num2 ? num1 : num2;
+        static int min(int num1, int num2) => num1 < num2 ? num1 : num2;
+        static int max3Numbers(int number1, int number2, int number3) => max(max(number1, number2), number3);
+        static int min3Numbers(int number1, int number2, int number3) => min(min(number1, number2), number3);
+        static int readNumber(string msg)
+        {
+            Console.Write(msg);
+            return int.Parse(Console.ReadLine());
+        }
+        static void printFinalResult()
+        {
+            int number1 = readNumber("Input first integer:"),
+                number2 = readNumber("Input second integer:"),
+                number3 = readNumber("Input third integer:");
+
+            Console.WriteLine();
+            Console.WriteLine("Largest of three: {0}", max3Numbers(number1, number2, number3));
+            Console.WriteLine("Lowest of three: {0}", min3Numbers(number1, number2, number3));
+        }
+    }
+}
