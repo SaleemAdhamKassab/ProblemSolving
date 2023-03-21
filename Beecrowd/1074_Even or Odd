@@ -1,0 +1,50 @@
+using System; 
+using System.Collections.Generic;
+
+class URI {
+
+    static void Main(string[] args) { 
+
+       printFinalResult(correspondingMessages());
+
+    }
+           static int readNumber() => int.Parse(Console.ReadLine());
+        static bool isPositve(int number) => number > 0;
+        static bool isEven(int number) => number % 2 == 0;
+        static List<string> correspondingMessages()
+        {
+            int numberOfTestCases = readNumber(), numberTotest = 0;
+            List<string> result = new List<string>();
+
+            for (int i = 0; i < numberOfTestCases; i++)
+            {
+                numberTotest = readNumber();
+
+                if (numberTotest == 0)
+                    result.Add("NULL");
+
+                else if (isEven(numberTotest))
+                {
+                    if (isPositve(numberTotest))
+                        result.Add("EVEN POSITIVE");
+                    else
+                        result.Add("EVEN NEGATIVE");
+                }
+                else
+                {
+                    if (isPositve(numberTotest))
+                        result.Add("ODD POSITIVE");
+                    else
+                        result.Add("ODD NEGATIVE");
+                }
+            }
+
+            return result;
+        }
+        static void printFinalResult(List<string> messages)
+        {
+            for(int i=0;i<messages.Count;i++)
+                Console.WriteLine(messages[i]);
+        }
+
+}
