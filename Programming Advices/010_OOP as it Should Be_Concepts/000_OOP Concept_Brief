@@ -183,3 +183,12 @@ Note: Important to solve all lessons question
      -  ملخص خبرة الأستاذ: استخدم الستركتشر فقط  لل
         Data Grouping 
         واذا عندي حتى لو ميثود واحد بحوله لكلاس  
+        
+   15- Template Functions:
+      - موضوعها جدا بسيط ويوفر علينا كتابة كود  
+      - if i want to create function to find max 2 numbers (int,int) OR (double, double)....
+        مافي داعي اعمل اربعة فانكشننز والحل اني بخلي الداتاتايب  شو ماكان نوعه
+        int, double, float, char...
+
+        
+   
