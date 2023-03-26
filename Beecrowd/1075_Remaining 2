@@ -1,0 +1,16 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+printRemaining(readNumber());
+    }
+static int readNumber() => int.Parse(Console.ReadLine());
+static void printRemaining(int n)
+        {
+            for (int i = 1; i <= 10000; i++)
+                if (i % n == 2)
+                    Console.WriteLine(i);
+        }
+
+}
