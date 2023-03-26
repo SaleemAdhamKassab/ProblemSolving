@@ -10,7 +10,6 @@
        1- Time
        2- Space
     
-
 4 - What affects Algorithm?
     1- Time
     2- Space
@@ -22,3 +21,8 @@
     Time Complexity
     Space Complexity
     
+7-  Big O, also known as Big O notation, represents an algorithm's worst-case complexity.
+8-  Big O uses algebraic terms to describe the complexity of an algorithm.
+9-  Big O describes the relationship between Input Size and Time/Spcase
+10- Big O does not tell you the exact time your algorithm's runtime is.
+
