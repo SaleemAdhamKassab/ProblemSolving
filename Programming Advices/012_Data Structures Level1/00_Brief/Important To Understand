@@ -26,3 +26,6 @@
 9-  Big O describes the relationship between Input Size and Time/Spcase
 10- Big O does not tell you the exact time your algorithm's runtime is.
 
+11- O(1) Means Constant Time Function
+    O(1) is not affected by Input Size, so it always takes the same time.
+    O(1) is the fastest notation, which means that your algorithm is excellent.
