@@ -1,0 +1,5 @@
+select min(price) SmallestPrice
+from products;
+=======================================
+select max(price) LargestPrice
+from products;
