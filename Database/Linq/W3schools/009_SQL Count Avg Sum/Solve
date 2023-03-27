@@ -1,0 +1,23 @@
+  [HttpGet]
+  public IActionResult test()
+        {
+            int productsCount = db.Products.Count();
+
+            return Ok(productsCount);
+        }
+===========================================================
+[HttpGet]
+public IActionResult test()
+        {
+            double avgPrices = db.Products.Average(e=>e.Price);
+
+            return Ok(avgPrices);
+        }
+===========================================================
+[HttpGet]
+public IActionResult test()
+        {
+            double quantitySum = db.OrderDetails.Sum(e=>e.Quantity);
+
+            return Ok(quantitySum);
+        }
