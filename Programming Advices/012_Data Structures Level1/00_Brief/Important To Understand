@@ -45,3 +45,18 @@
        Log means that the number of iterations in the loop is always less than n
        Log2 always half itself.
  
+ 9- Data Structure Types (check attached photo please):
+      1- Variables: string, int, char...
+      2- Binary Data Structure : Like Permissions
+      3- Array Data Structure
+      4- Matrix Data Structure: 2 dimensional array (Like Table) --> can access for any element using arr[0][1]
+      5- Stack Data Structure:
+         1- LIFO means Last In First Out
+         2- امثلة عملية عن الستاك:
+            Vector
+            Call Stack :  الفنكشن الاول بنادي فانكشن تاني --> بيخلص التاني بعدين بيخلص الأول
+         3- الستاك بالأساس مبني على ال Array
+         4- To add an Item to a stack you use: Push
+	 5- To remove the top item from stack you use: Pop
+	
+
