@@ -22,11 +22,12 @@
     Space Complexity
     
 7-  Big O, also known as Big O notation, represents an algorithm's worst-case complexity.
-8-  Big O uses algebraic terms to describe the complexity of an algorithm.
-9-  Big O describes the relationship between Input Size and Time/Spcase
-10- Big O does not tell you the exact time your algorithm's runtime is.
+    بيعطيك علاقة مابين عدد الانبوتس والتايم اللي بدو ياخده --> انتبه هو مابيعطيك سبيسيفيك تايم
+    Big O uses algebraic terms to describe the complexity of an algorithm.
+    Big O describes the relationship between Input Size and Time/Spcase
+    Big O does not tell you the exact time your algorithm's runtime is.
 
-11- Big O Types:
+8- Big O Types:
 
     1- O(1) Constant Time Function:
          ثابت
