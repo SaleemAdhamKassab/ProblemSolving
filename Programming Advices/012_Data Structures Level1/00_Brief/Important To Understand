@@ -26,6 +26,21 @@
 9-  Big O describes the relationship between Input Size and Time/Spcase
 10- Big O does not tell you the exact time your algorithm's runtime is.
 
-11- O(1) Means Constant Time Function
-    O(1) is not affected by Input Size, so it always takes the same time.
-    O(1) is the fastest notation, which means that your algorithm is excellent.
+11- Big O Types:
+
+    1- O(1) Constant Time Function:
+         ثابت
+         O(1) is not affected by Input Size, so it always takes the same time.
+         O(1) is the fastest notation, which means that your algorithm is excellent.
+      
+    2- O(n) is a linear time function:
+         كل مابزيد خطوة بزيد خطوةفي الوقت
+         O(n) is affected by Input Size Linearly.
+    
+    3- O(n^2) is Quadratic Time Function:
+         كل مابزيد خطوة بزيد ضعفها في الوقت
+    
+    4- O(log n)
+       Log means that the number of iterations in the loop is always less than n
+       Log2 always half itself.
+ 
