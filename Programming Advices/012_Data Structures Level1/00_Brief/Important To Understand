@@ -56,7 +56,24 @@
             Vector
             Call Stack :  الفنكشن الاول بنادي فانكشن تاني --> بيخلص التاني بعدين بيخلص الأول
          3- الستاك بالأساس مبني على ال Array
-         4- To add an Item to a stack you use: Push
-	 5- To remove the top item from stack you use: Pop
+         4- Push: To add an Item to a stack you use
+	 5- Pop: To remove the top item from stack you use
 	
-
+      6- Vector:
+         new version of stack
+	 can access for any elemnt like array (v.ElementAt(0)), stack cannot
+	 
+      7- Queue:
+      	 FIFO: means First In First Out. 	
+      
+      8- Linked List:
+      	
+	 1- Singly Linked List: (Check Photos 003_What is Linked List)
+	 	linked list is a linear data structure that includes a series of connected nodes.
+		each node consists of two parts: Data and Pointer to the address of next node.
+		Linked list allows you to add data dynamically on run time.
+		Linked List is a data structure used to build other data structures like Stack, Queue , and others.
+		
+		
+	 
+      
