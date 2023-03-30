@@ -7,14 +7,38 @@ namespace lab
             SaleemLinkedList saleemLinkedList = new SaleemLinkedList();
             saleemLinkedList.Append(10);
             saleemLinkedList.Append(20);
+            saleemLinkedList.Append(30);
             saleemLinkedList.PrintAllNodes();
 
-            //Find Element
-            Console.WriteLine();
-            if(saleemLinkedList.Find(10)!=-1)
-                Console.WriteLine("Founded");
-            else
-                Console.WriteLine("Not Found");
+            //1) Insert At Begging
+            //saleemLinkedList.AddAtStart(0);
+            //saleemLinkedList.PrintAllNodes();
+
+
+            //2) Find 
+            //Console.WriteLine();
+            //Console.WriteLine(saleemLinkedList.Find(10).Value);
+
+            //3) Insert After
+            //saleemLinkedList.InsertAfter(saleemLinkedList.Find(10), 15);
+            //Console.WriteLine();
+            //saleemLinkedList.PrintAllNodes();
+
+            //4) Insert At End
+            //saleemLinkedList.Append(30);
+            //saleemLinkedList.PrintAllNodes();
+
+            //5) Delete Node
+            //saleemLinkedList.Delete(20);
+            //saleemLinkedList.PrintAllNodes();
+
+            //6) Delete First Node
+            //saleemLinkedList.DeleteFirst();
+            //saleemLinkedList.PrintAllNodes();
+
+            //7) Delete Last
+            saleemLinkedList.DeleteLast();
+            saleemLinkedList.PrintAllNodes();
 
         }
         public class SaleemLinkedList
@@ -50,17 +74,55 @@ namespace lab
                 current = newNode;
                 Count++;
             }
-            public int Find(int data)
+            public Node Find(int data)
             {
                 Node curr = head;
 
                 while (curr.Next != null)
                 {
                     if (curr.Value == data)
-                        return data;
+                        return curr;
                     curr = curr.Next;
                 }
-                return -1;
+                return null;
+            }
+            public void InsertAfter(Node prevNode, int data)
+            {
+                Node newNode = new Node() { Value = data };
+
+                newNode.Next = prevNode.Next;
+                prevNode.Next = newNode;
+            }
+            public void Delete(int data)
+            {
+                Node curr = head, prevNode = head;
+
+                while (curr.Next != null)
+                {
+                    if (curr.Value == data)
+                    {
+                        prevNode.Next = curr.Next;
+                        break;
+                    }
+                    else
+                    {
+                        prevNode = curr;
+                        curr = curr.Next;
+                    }
+                }
+            }
+            public void DeleteFirst() => head = head.Next;
+            public void DeleteLast()
+            {
+                Node curr = head, prevNode= head;
+
+                while (curr.Next != null)
+                {
+                    prevNode = curr;
+                    curr = curr.Next;
+                }
+                prevNode.Next = null;
+                
             }
             public void PrintAllNodes()
             {
@@ -74,6 +136,8 @@ namespace lab
                     Console.Write("->");
                 }
                 Console.Write("NULL");
+
+                Console.WriteLine();
             }
         }
     }
