@@ -69,10 +69,19 @@
       8- Linked List:
       	
 	 1- Singly Linked List: (Check Photos 003_What is Linked List)
-	 	linked list is a linear data structure that includes a series of connected nodes.
-		each node consists of two parts: Data and Pointer to the address of next node.
-		Linked list allows you to add data dynamically on run time.
-		Linked List is a data structure used to build other data structures like Stack, Queue , and others.
+	 	- عبارة عن سلسلة من الداتا المترابطة في الميموري عن طريق بوينترز ومؤشرات على النيكست نودز
+	 	- (لأنه فيها نيكست فقط)بتحسن تمشي فيها من اليسار لليمسن فقط
+		- Traversal can occur in one way.
+		- linked list is a linear data structure that includes a series of connected nodes.
+		- each node consists of two parts: Data and Pointer to the address of next node.
+		- Linked list allows you to add data dynamically on run time.
+		- Linked List is a data structure used to build other data structures like Stack, Queue , and others.
+	
+	2- Doubly Linked List: (Check Photos 004_What is Doubly Linked List)
+	   	- (لأنه فيها بريف و نيكست)تمتاز عن السينكل أنه تحسن تكشي فيها بالاتجاهين
+            	- Each node consists of a data value, a pointer to the next node, and a pointer to the previous node
+		- Traversal can occur in both ways.
+		- It requires more space because of an extra pointer.
 		
 		
 	 
