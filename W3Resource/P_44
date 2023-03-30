@@ -1,0 +1,19 @@
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(stringFromOddPosition("w3resource"));
+        }
+        static string stringFromOddPosition(string s)
+        {
+            string result = "";
+
+            for (int i = 0; i < s.Length; i += 2)
+                result += s[i];
+
+            return result;
+        }
+    }
+}
