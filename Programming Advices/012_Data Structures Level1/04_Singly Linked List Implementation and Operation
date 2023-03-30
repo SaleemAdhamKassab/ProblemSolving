@@ -9,6 +9,13 @@ namespace lab
             saleemLinkedList.Append(20);
             saleemLinkedList.PrintAllNodes();
 
+            //Find Element
+            Console.WriteLine();
+            if(saleemLinkedList.Find(10)!=-1)
+                Console.WriteLine("Founded");
+            else
+                Console.WriteLine("Not Found");
+
         }
         public class SaleemLinkedList
         {
@@ -21,27 +28,39 @@ namespace lab
             public class Node
             {
                 public Node Next;
-                public object Value;
+                public int Value;
             }
 
             private Node head;
             private Node current;//This will have latest node
             public int Count;
 
-            //public void AddAtStart(object data)
-            //{
-            //    Node newNode = new Node() { Value = data };
-            //    newNode.Next = head.Next;//new node will have reference of head's next reference
-            //    head.Next = newNode;//and now head will refer to new node
-            //    Count++;
-            //}
-            public void Append(object data)
+            public void AddAtStart(int data)
+            {
+                Node newNode = new Node() { Value = data };
+                newNode.Next = head.Next;//new node will have reference of head's next reference
+                head.Next = newNode;//and now head will refer to new node
+                Count++;
+            }
+            public void Append(int data)
             {
                 Node newNode = new Node();
                 newNode.Value = data;
                 current.Next = newNode;
                 current = newNode;
                 Count++;
+            }
+            public int Find(int data)
+            {
+                Node curr = head;
+
+                while (curr.Next != null)
+                {
+                    if (curr.Value == data)
+                        return data;
+                    curr = curr.Next;
+                }
+                return -1;
             }
             public void PrintAllNodes()
             {
