@@ -1,0 +1,26 @@
+static int[] addAtPosition(int[] arr, int numberToAdd, int position)
+        {
+            int[] result = new int[arr.Length + 1];
+
+            bool added = false;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (!added && i == position)
+                {
+                    result[i] = numberToAdd;
+                    i--;
+                    added = true;
+                }
+
+                else if (added)
+                    result[i + 1] = arr[i];
+                else
+                    result[i] = arr[i];
+            }
+
+            if (position == arr.Length)
+                result[result.Length - 1] = numberToAdd;
+
+            return result;
+        }
