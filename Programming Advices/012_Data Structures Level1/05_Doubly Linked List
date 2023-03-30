@@ -1,0 +1,123 @@
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Refernce: https://www.dotnetlovers.com/Article/145/implementation-and-analysis-of-doubly-linked-list-data-structure
+
+            SaleemDoublyLinkedList saleemDoublyLinkedList = new SaleemDoublyLinkedList();
+
+            //1) Insert At Begging
+            saleemDoublyLinkedList.InsertAtHead(2);
+            saleemDoublyLinkedList.InsertAtHead(0);
+            saleemDoublyLinkedList.printAllNodes(saleemDoublyLinkedList);
+
+            //2) Find 
+            //Console.WriteLine(saleemDoublyLinkedList.Find(0).Value);
+
+            //3)  Insert After
+            saleemDoublyLinkedList.InsertAtPosition(1,2);
+            saleemDoublyLinkedList.printAllNodes(saleemDoublyLinkedList);
+
+
+        }
+        public class Node
+        {
+            public int Value { get; set; }
+            public Node Next { get; set; }
+            public Node Previous { get; set; }
+        }
+        public class SaleemDoublyLinkedList
+        {
+            public Node Head;
+            public Node Tail;
+
+            public SaleemDoublyLinkedList()
+            {
+                Head = Tail = null;
+            }
+
+            public void InsertAtHead(int element)
+            {
+                if (Head == null)
+                {
+                    Head = new Node();
+                    Head.Value = element;
+                    Tail = Head;
+                }
+                else
+                {
+                    Node newNode = new Node();
+                    newNode.Value = element;
+                    newNode.Next = Head;
+                    Head.Previous = newNode;
+                    Head = newNode;
+                }
+            }
+
+            public void InsertAtTail(int element)
+            {
+            }
+
+            public void InsertAtPosition(int element, int position)
+            {
+                if (Head == null)
+                {
+                    Head = new Node();
+                    Head.Value = element;
+                    Tail = Head;
+                }
+                else
+                {
+                    Node newNode = new Node();
+                    newNode.Value = element;
+
+                    Node temp = Head;
+                    while (temp != null && position > 1)
+                    {
+                        temp = temp.Next;
+                        position--;
+                    }
+                    Node tempPre = temp.Previous;
+
+                    tempPre.Next = newNode;
+                    newNode.Previous = tempPre;
+                    newNode.Next = temp;
+                    temp.Previous = newNode;
+                }
+            }
+
+            //public bool Delete(int value)
+            //{
+            //}
+
+            public Node Find(int value)
+            {
+                Node node = Head;
+                while (node != null)
+                {
+                    if (node.Value == value)
+                        return node;
+                    else
+                        node = node.Next;
+                }
+                return null;
+            }
+            public void printAllNodes(SaleemDoublyLinkedList list)
+            {
+                Node node = list.Head;
+
+                Console.Write("Head -> ");
+                while (node != null)
+                {
+                    Console.Write(node.Value);
+                    Console.Write(" -> ");
+                    node = node.Next;
+                }
+                Console.Write("NULL");
+                Console.WriteLine();
+            }
+        }
+    }
+}
