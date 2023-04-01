@@ -83,6 +83,7 @@
 		- Traversal can occur in both ways.
 		- It requires more space because of an extra pointer.
 		
-		
-	 
+	3- Circular Linked List:
+	   المؤشر الأخير يؤشر على أول نود بغض النظر عن نوع الليست
+	   مثال عنها البفر: مثلا عندي بفر بيسع مئة عنصر بس فلل بصير احذف العنصر الاول وعبي محله عنصر جديد
       
