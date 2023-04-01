@@ -1,0 +1,56 @@
+using Lab;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+            singlyLinkedList.Append(0);
+            singlyLinkedList.Append(1);
+            singlyLinkedList.Append(2);
+            singlyLinkedList.printAllNodes();
+        }
+        class Node
+        {
+            public int Data { get; set; }
+            public Node Next { get; set; }
+        }
+        class SinglyLinkedList
+        {
+            public SinglyLinkedList()
+            {
+                Head = new Node();
+                Current = Head;
+            }
+
+            private Node Head;
+            private Node Current;
+
+            public void Append(int data)
+            {
+                Node newNode = new Node();
+                newNode.Data = data;
+
+                Current.Next = newNode;
+                Current = newNode;
+            }
+            public void printAllNodes()
+            {
+                Node current = Head;
+
+                Console.Write("Head-> ");
+
+                while (current.Next != null)
+                {
+                    current = current.Next;
+                    Console.Write(current.Data);
+                    Console.Write(" -> ");
+                }
+
+                Console.WriteLine("Null");
+            }
+        }
+    }
+}
