@@ -10,16 +10,32 @@ namespace lab
 
             //1) Insert At Begging
             saleemDoublyLinkedList.InsertAtHead(2);
+            saleemDoublyLinkedList.InsertAtHead(1);
             saleemDoublyLinkedList.InsertAtHead(0);
             saleemDoublyLinkedList.printAllNodes(saleemDoublyLinkedList);
 
-            //2) Find 
-            //Console.WriteLine(saleemDoublyLinkedList.Find(0).Value);
+            ////2) Find 
+            ////Console.WriteLine(saleemDoublyLinkedList.Find(0).Value);
 
-            //3)  Insert After
-            saleemDoublyLinkedList.InsertAtPosition(1,2);
+            ////3)  Insert After
+            //saleemDoublyLinkedList.InsertAtPosition(1, 2);
+            //saleemDoublyLinkedList.printAllNodes(saleemDoublyLinkedList);
+
+            ////4) Insert At End
+            //saleemDoublyLinkedList.InsertAtEnd(3);
+            //saleemDoublyLinkedList.printAllNodes(saleemDoublyLinkedList);
+
+            //5)Delete Node
+            //saleemDoublyLinkedList.Delete(1);
+            //saleemDoublyLinkedList.printAllNodes(saleemDoublyLinkedList);
+
+            //6)Delete First Node
+            //saleemDoublyLinkedList.DeleteFirstNode();
+            //saleemDoublyLinkedList.printAllNodes(saleemDoublyLinkedList);
+
+            //7) Delete Last Node
+            saleemDoublyLinkedList.DeleteLastNode();
             saleemDoublyLinkedList.printAllNodes(saleemDoublyLinkedList);
-
 
         }
         public class Node
@@ -87,10 +103,108 @@ namespace lab
                     temp.Previous = newNode;
                 }
             }
+            public void InsertAtEnd(int newElement)
+            {
+                //1. allocate node
+                Node newNode = new Node();
 
-            //public bool Delete(int value)
-            //{
-            //}
+                //2. assign data element
+                newNode.Value = newElement;
+
+                //3. assign null to the Next and prev
+                //   of the new node
+                newNode.Next = null;
+                newNode.Previous = null;
+
+                //4. Check the list is empty or not,
+                //   if empty make the new node as Head
+                if (Head == null)
+                {
+                    Head = newNode;
+                }
+                else
+                {
+
+                    //5. Else, traverse to the last node
+                    Node temp = new Node();
+                    temp = Head;
+                    while (temp.Next != null)
+                        temp = temp.Next;
+
+                    //6. Adjust the links
+                    temp.Next = newNode;
+                    newNode.Previous = temp;
+                }
+
+            }
+
+            public bool Delete(int value)
+            {
+                Node node = Head;
+                while (node != null)
+                {
+                    if (node.Value == value)
+                    {
+                        node.Previous.Next = node.Next;
+                        node.Next.Previous = node.Previous;
+                        return true;
+                    }
+                    else
+                        node = node.Next;
+                }
+                return false;
+            }
+            public void DeleteFirstNode()
+            {
+                if (this.Head != null)
+                {
+
+                    //1. if Head is not null, create a
+                    //   temp node pointing to Head
+                    Node temp = this.Head;
+
+                    //2. move Head to Next of Head
+                    this.Head = this.Head.Next;
+
+                    //3. delete temp node
+                    temp = null;
+
+                    //4. If the new Head is not null, then
+                    //   make prev of the new Head as null
+                    if (this.Head != null)
+                        this.Head.Previous = null;
+                }
+            }
+            public void DeleteLastNode()
+            {
+                if (this.Head != null)
+                {
+
+                    //1. if Head in not null and Next of Head
+                    //   is null, release the Head
+                    if (this.Head.Next == null)
+                    {
+                        this.Head = null;
+                    }
+                    else
+                    {
+
+                        //2. Else, traverse to the second last 
+                        //   element of the list
+                        Node temp = new Node();
+                        temp = this.Head;
+                        while (temp.Next.Next != null)
+                            temp = temp.Next;
+
+                        //3. Change the Next of the second 
+                        //   last node to null and delete the
+                        //   last node
+                        Node lastNode = temp.Next;
+                        temp.Next = null;
+                        lastNode = null;
+                    }
+                }
+            }
 
             public Node Find(int value)
             {
