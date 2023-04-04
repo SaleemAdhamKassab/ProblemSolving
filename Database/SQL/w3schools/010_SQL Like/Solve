@@ -1,0 +1,31 @@
+select *
+from customers t 
+where t.customername like 'a%' or t.customername like 'A%';
+==============================================================================================
+select *
+from customers t 
+where lower(t.customername) like '%a';  
+==============================================================================================
+select *
+from customers t 
+where lower(t.customername) like '%or%'; 
+==============================================================================================
+select *
+from customers t 
+where lower(t.customername) like '_r%';  
+==============================================================================================
+select *
+from customers t 
+where lower(t.customername) like 'a__%';
+==============================================================================================
+select *
+from customers t 
+where lower(t.contactname) like 'a%o';
+==============================================================================================
+select *
+from customers t 
+where lower(t.customername) not like 'a%';
+==============================================================================================
+select *
+from customers t
+where lower(t.city) like 'a%'
