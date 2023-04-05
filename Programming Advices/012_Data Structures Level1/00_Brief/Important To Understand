@@ -87,3 +87,10 @@
 	   المؤشر الأخير يؤشر على أول نود بغض النظر عن نوع الليست
 	   مثال عنها البفر: مثلا عندي بفر بيسع مئة عنصر بس فلل بصير احذف العنصر الاول وعبي محله عنصر جديد
       
+      9- ملاحظة مهمة من الكورس 
+     	 13 - Algorithms & Problem Solving Level 5 --> Project 3
+      	 dubly Linked List -> Queue -> Stack
+	 الكيو مبني على الدبل لينكدليست والستاك مبني على الكيو بس بعمل اوفر رايد لهدول جدا سهلين: 
+	  public void push(T data) => MyList().insertAtBeging(data);
+      	  public T top() => front();
+      	  public T bottom() => back();
