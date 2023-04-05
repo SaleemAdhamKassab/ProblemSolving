@@ -91,6 +91,7 @@
      	 13 - Algorithms & Problem Solving Level 5 --> Project 3
       	 dubly Linked List -> Queue -> Stack
 	 الكيو مبني على الدبل لينكدليست والستاك مبني على الكيو بس بعمل اوفر رايد لهدول جدا سهلين: 
-	  public void push(T data) => MyList().insertAtBeging(data);
+	 يعني من الاخير يعتمدون اعتماد كلي على الدبل لينكدليست
+          public void push(T data) => MyList().insertAtBeging(data);
       	  public T top() => front();
       	  public T bottom() => back();
