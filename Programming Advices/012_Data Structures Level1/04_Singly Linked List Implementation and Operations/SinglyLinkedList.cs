@@ -1,36 +1,24 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Lab.DS
 {
-    public class SinglyLinkedList
+    public class MySinglyLinkedList<T>
     {
         private int _size = 0;
 
-        public SinglyLinkedList() => Head = Tail = Current = null;
+        public MySinglyLinkedList() => Head = Tail = null;
         public class Node
         {
-            public int Data { get; set; }
+            public T Data { get; set; }
             public Node Next { get; set; }
         }
-
         public Node Head { get; set; }
-        public Node Current { get; set; }
         public Node Tail { get; set; }
-
-        public void insertAtBeging(int data)
+        public void insertAtBeging(T data)
         {
             Node newNode = new Node();
             newNode.Data = data;
 
             if (Head == null)
-            {
                 Head = Tail = newNode;
-                newNode.Next = null;
-            }
             else
             {
                 newNode.Next = Head;
@@ -39,16 +27,31 @@ namespace Lab.DS
 
             _size++;
         }
-        public void insertAtEnd(int data)
+        public void insertAfter(Node prevNode, T data)
+        {
+            if (prevNode == null)
+            {
+                Console.WriteLine("The given previous node cannot be NULL!!");
+                return;
+            }
+            else
+            {
+                Node newNode = new Node();
+                newNode.Data = data;
+                newNode.Next = prevNode.Next;
+                prevNode.Next = newNode;
+
+                _size++;
+            }
+        }
+        public void insertAfter(int nodeIndex, T data) => insertAfter(getNodeByIndex(nodeIndex), data);
+        public void insertAtEnd(T data)
         {
             Node newNode = new Node();
             newNode.Data = data;
-            newNode.Next = null;
 
             if (Head == null)
-            {
                 Head = Tail = newNode;
-            }
             else
             {
                 Tail.Next = newNode;
@@ -57,47 +60,59 @@ namespace Lab.DS
 
             _size++;
         }
-        public void insertAfterNode(Node prevNode, int data)
+        public void deleteNode(T data)
         {
-            if (Head == null)
-                Console.WriteLine("Cannot Insert " + data + " In Empty List!!");
-            else
+            if (find(data) != null)
             {
-                Node newNode = new Node(),
-                     current = Head;
-
-                newNode.Data = data;
+                Node current = Head,
+                     prevNode = Head;
 
                 for (int i = 0; i < _size; i++)
                 {
-                    if (current.Data == prevNode.Data)
+                    if (current.Data.Equals(data))
                     {
-                        newNode.Next = prevNode.Next;
-                        current.Next = newNode;
+                        prevNode.Next = current.Next;
+                        current = null;
+                        _size--;
                         break;
                     }
-                    else
-                        current = current.Next;
+
+                    prevNode = current;
+                    current = current.Next;
                 }
-
-                _size++;
             }
+            else
+                Console.WriteLine("Not Found The Node with Data: (" + data + ')');
         }
-        public Node find(int data)
+        public Node getNodeByIndex(int nodeIndex)
         {
-            Node nodeToReturn = new Node(),
-                 current = Head;
-
-            while (current.Next != null)
+            if (!isNodeIndexInListRange(nodeIndex))
             {
-                current = current.Next;
+                Node current = Head;
 
-                if (current.Data == data)
-                    return current;
+                for (int i = 0; i < _size; i++)
+                {
+                    if (i == nodeIndex)
+                        return current;
+
+                    current = current.Next;
+                }
             }
+            return null;
+        }
+        public bool isNodeIndexInListRange(int nodeIndex) => nodeIndex < 0 || nodeIndex > _size - 1;
+        public Node find(T data)
+        {
+            Node node = Head;
 
-            nodeToReturn.Data = -999;
-            return nodeToReturn;
+            while (node != null)
+            {
+                if (node.Data.Equals(data))
+                    return node;
+                else
+                    node = node.Next;
+            }
+            return null;
         }
         public void printList()
         {
