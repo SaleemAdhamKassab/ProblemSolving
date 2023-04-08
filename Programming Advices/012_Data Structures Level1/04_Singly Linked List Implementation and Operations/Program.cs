@@ -37,7 +37,7 @@ namespace lab
 
 
             Console.WriteLine("Check if (5) in the List: ");
-            if (singlyLinkedList.find(5) == null)
+            if (singlyLinkedList.getNodeByData(5) == null)
                 Console.WriteLine("Not Found Node With Data: 5");
             else
                 Console.WriteLine("Founded Node With Data: 5");
@@ -53,9 +53,13 @@ namespace lab
             Console.WriteLine();
 
             Console.WriteLine("After Deleting Node(500): ");
-            singlyLinkedList.deleteNode(500);
+            singlyLinkedList.deleteNodeByData(500);
             singlyLinkedList.printList();
             Console.WriteLine();
+
+            Console.WriteLine("List After Clear:");
+            singlyLinkedList.clear();
+            singlyLinkedList.printList();
 
         }
     }
