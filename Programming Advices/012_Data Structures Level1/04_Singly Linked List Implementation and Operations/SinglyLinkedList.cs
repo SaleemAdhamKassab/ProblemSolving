@@ -60,9 +60,9 @@ namespace Lab.DS
 
             _size++;
         }
-        public void deleteNode(T data)
+        public void deleteNodeByData(T data)
         {
-            if (find(data) != null)
+            if (getNodeByData(data) != null)
             {
                 Node current = Head,
                      prevNode = Head;
@@ -84,24 +84,40 @@ namespace Lab.DS
             else
                 Console.WriteLine("Not Found The Node with Data: (" + data + ')');
         }
-        public Node getNodeByIndex(int nodeIndex)
+        public void deleteFirstNode()
         {
-            if (!isNodeIndexInListRange(nodeIndex))
+            if (Head != null)
             {
-                Node current = Head;
+                Head = Head.Next;
+                _size--;
+            }
+        }
+        public void deleteLastNode()
+        {
+            if (Head != null)
+            {
+                Node current = Head,
+                     prevNode = Head;
 
                 for (int i = 0; i < _size; i++)
                 {
-                    if (i == nodeIndex)
-                        return current;
-
-                    current = current.Next;
+                    if (current.Next == null)
+                    {
+                        prevNode.Next = null;
+                        current = null;
+                    }
+                    else
+                    {
+                        prevNode = current;
+                        current = current.Next;
+                    }
                 }
+
+                _size--;
             }
-            return null;
         }
         public bool isNodeIndexInListRange(int nodeIndex) => nodeIndex < 0 || nodeIndex > _size - 1;
-        public Node find(T data)
+        public Node getNodeByData(T data)
         {
             Node node = Head;
 
@@ -114,6 +130,17 @@ namespace Lab.DS
             }
             return null;
         }
+        public Node getNodeByIndex(int index)
+        {
+            Node current = Head;
+
+            for (int i = 0; i < _size; i++)
+                if (i == index)
+                    return current;
+
+            return null;
+        }
+        public void updateNodeByIndex(int index, T newData) => getNodeByIndex(index).Data = newData;
         public void printList()
         {
             Node current = Head;
@@ -127,6 +154,13 @@ namespace Lab.DS
             }
             Console.Write("NULL");
             Console.WriteLine();
+        }
+        public int size() => _size;
+        public bool isEmpty() => _size == 0;
+        public void clear()
+        {
+            while (_size > 0)
+                deleteFirstNode();
         }
     }
 }
