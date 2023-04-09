@@ -53,9 +53,10 @@
       5- Stack Data Structure:
          1- LIFO means Last In First Out
          2- امثلة عملية عن الستاك:
-            Vector
-            Call Stack :  الفنكشن الاول بنادي فانكشن تاني --> بيخلص التاني بعدين بيخلص الأول
-         3- الستاك بالأساس مبني على ال Array
+            - Vector
+            - Call Stack :  الفنكشن الاول بنادي فانكشن تاني --> بيخلص التاني بعدين بيخلص الأول
+            - Ctrl+Z (Undo)
+	 3- الستاك بالأساس مبني على ال Array
          4- Push: To add an Item to a stack you use
 	 5- Pop: To remove the top item from stack you use
 	
