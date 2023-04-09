@@ -1,0 +1,43 @@
+public class Solution {
+    public int RearrangeCharacters(string s, string target) {
+       int res = 0;
+        Dictionary<char, int> dict = new Dictionary<char, int>();
+        
+        foreach (var c in s)
+        {
+            if (!dict.ContainsKey(c))
+            {
+                dict.Add(c, 0);
+            }
+            
+            dict[c] += 1;
+        }
+        
+        while (true)
+        {
+            bool stop = false;
+            
+            foreach (var c in target)
+            {
+                if (!dict.ContainsKey(c) || dict[c] == 0)
+                {
+                    stop = true;
+                    break;
+                }
+                
+                dict[c] -= 1;
+            }
+            
+            if (stop)
+            {
+                break;
+            }
+            else
+            {
+                res++;
+            }
+        }
+        
+        return res; 
+    }
+}
