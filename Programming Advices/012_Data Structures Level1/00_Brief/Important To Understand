@@ -61,11 +61,14 @@
 	 5- Pop: To remove the top item from stack you use
 	
       6- Vector:
-         new version of stack
-	 can access for any elemnt like array (v.ElementAt(0)), stack cannot
+         - new version of stack
+	 - can access for any elemnt like array (v.ElementAt(0)), stack cannot
 	 
       7- Queue:
-      	 FIFO: means First In First Out. 	
+      	 - FIFO: means First In First Out. 
+	 - تطبيق عكلي عليه لما بدك تروح تنطر دورك بشركة اتصالات مثلا وتقطع دور على الكيوسك, اما بدك تطالع موبايل جديد أو تدفع فاتورة -- كل وحدة من هدول منسميهن 
+	 	Queue Line
+	 - Refernce: 13 - Algorithms & Problem Solving Level 5 - Project 8	
       
       8- Linked List:
       	
