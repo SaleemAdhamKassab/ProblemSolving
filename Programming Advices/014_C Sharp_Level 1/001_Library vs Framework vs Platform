@@ -18,7 +18,8 @@
        بيئة عمل بتخلي الكل يشتغل على نسق واحد
        
     3-  Platform:
-      - Platform = Programming Languges + Libraries   
+      - Platform = Programming Languges + Libraries
+      - Run Apps That writtin by .Net Languges (like c#, F#..)
       - هو أوسع من الفريمورك
       - هو الاينفيرومينت اللي منعمل عليها (رن:تشغيل) للسوفت وير  
       - Library --> Framework --> Platform اللي بيعمل رن لهاد الحكي كله
