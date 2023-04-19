@@ -1,0 +1,27 @@
+[HttpGet]
+public IActionResult test()
+        {
+            var customersList =(
+                from customers in db.Customers
+                join orders in db.Orders
+                on customers.CustomerID equals orders.CustomerID
+                select new { orders.OrderId, customers.CustomerName, orders.OrderDate })
+                .ToList();
+
+            return Ok(customersList);
+        }
+=================================================================================================================        
+[HttpGet]
+public IActionResult test()
+        {
+            var customersList = (
+                from orders in db.Orders
+                join customers in db.Customers
+                on orders.CustomerID equals customers.CustomerID into customers_group
+                from customers in customers_group.DefaultIfEmpty()
+                select new { customers, orders })
+                .ToList();
+
+
+            return Ok(customersList);
+        }
