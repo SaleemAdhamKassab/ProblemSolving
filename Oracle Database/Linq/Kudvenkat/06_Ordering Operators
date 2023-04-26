@@ -42,3 +42,47 @@
 
             return Ok(studentsName);
         }
+===============================================================================================
+ [HttpGet]
+        public IActionResult test()
+        {
+            List<Student> orderedStudentsbyMarks = db.Students
+                 .OrderBy(e => e.totalMarks)
+                 .ThenBy(e=>e.FirstName)
+                 .ThenBy(e=>e.Id)
+                 .ToList();
+
+            return Ok(orderedStudentsbyMarks);
+        }
+
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Student> orderedStudentsbyMarks =
+                (from student in db.Students
+                orderby student.totalMarks , student.FirstName, student.Id
+                select student).ToList();
+
+            return Ok(orderedStudentsbyMarks);
+        }
+===============================================================================================
+ [HttpGet]
+        public IActionResult test()
+        {
+            List<Student> reversedStudentsbyIds = db.Students
+                .OrderByDescending(e=>e.Id)
+                .ToList();
+
+            return Ok(reversedStudentsbyIds);
+        }
+
+ [HttpGet]
+        public IActionResult test()
+        {
+            List<Student> reversedStudentsbyIds = db.Students
+                .OrderBy(e=>e.Id)
+                .Reverse()
+                .ToList();
+
+            return Ok(reversedStudentsbyIds);
+        }
