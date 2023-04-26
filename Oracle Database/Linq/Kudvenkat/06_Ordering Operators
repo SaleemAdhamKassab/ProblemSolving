@@ -1,0 +1,44 @@
+   [HttpGet]
+        public IActionResult test()
+        {
+            var studentsName = db.Students
+                .OrderBy(e => e.FirstName)
+                .Select(e => e.FirstName)
+                .ToList();
+
+            return Ok(studentsName);
+        }
+
+
+ [HttpGet]
+        public IActionResult test()
+        {
+            var studentsName =
+                from students in db.Students
+                orderby students.FirstName
+                select students.FirstName;
+
+            return Ok(studentsName);
+        }
+===============================================================================================
+[HttpGet]
+        public IActionResult test()
+        {
+            var studentsName = db.Students
+                 .OrderByDescending(e => e.FirstName)
+                 .Select(e => e.FirstName)
+                 .ToList();
+
+            return Ok(studentsName);
+        }
+
+ [HttpGet]
+        public IActionResult test()
+        {
+            var studentsName =
+               from students in db.Students
+               orderby students.FirstName descending
+               select students.FirstName;
+
+            return Ok(studentsName);
+        }
