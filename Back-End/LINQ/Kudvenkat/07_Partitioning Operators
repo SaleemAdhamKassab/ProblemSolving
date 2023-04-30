@@ -1,0 +1,31 @@
+[HttpGet]
+        public IActionResult test()
+        {
+            string[] countries = { "Canada", "Syria", "Jordan", "Lebanon" };
+
+            return Ok(countries.Take(3));
+        }
+====================================================================================================
+  [HttpGet]
+        public IActionResult test()
+        {
+            string[] countries = { "Canada", "Syria", "Jordan", "Lebanon" };
+
+            return Ok(countries.Skip(3));
+        }
+====================================================================================================
+ [HttpGet]
+        public IActionResult test()
+        {
+            string[] countries = { "Canada", "Syria", "Jordan", "Lebanon","US" };
+
+            return Ok(countries.TakeWhile(e => e.Length > 2));
+        }
+====================================================================================================
+  [HttpGet]
+        public IActionResult test()
+        {
+            string[] countries = { "Canada", "Syria", "Jordan", "Lebanon","US" };
+
+            return Ok(countries.SkipWhile(e => e.Length > 2));
+        }
