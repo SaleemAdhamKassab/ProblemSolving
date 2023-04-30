@@ -1,0 +1,10 @@
+[HttpGet]
+        public IActionResult test()
+        {
+            int pageNumber = 1, pageSize = 2;
+
+            return Ok(db.Students
+                .OrderBy(e => e.Id)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize));
+        }
