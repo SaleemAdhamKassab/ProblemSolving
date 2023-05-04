@@ -1,0 +1,21 @@
+using Lab.Bank.Views.ManageUsers;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            p52(makeNewArray(new int[] { 1, 2, 5 },
+                new int[] { 0, 3, 8 },
+                new int[] { -1, 0, 2 }));
+
+
+        }
+        static int[] makeNewArray(int[] arr1, int[] arr2, int[] arr3) =>
+            new int[] { arr1[1], arr2[1], arr3[1] };
+
+        static void p52(int[] arr) => Console.WriteLine("New array: [{0}, {1}, {2}]", arr[0], arr[1], arr[2]);
+
+    }
+}
