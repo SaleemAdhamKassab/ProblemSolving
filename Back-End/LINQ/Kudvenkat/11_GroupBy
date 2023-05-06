@@ -1,0 +1,32 @@
+  بدي أعرف عدد الموظفين في كل قسم
+  
+  [HttpGet]
+        public IActionResult test()
+        {
+            var employeeGroups = db.Employees.GroupBy(e => e.DepartmentId);
+            Dictionary<int, int> dicDeptIdWithEmployeeCount = new Dictionary<int, int>();
+
+            foreach (var item in employeeGroups)
+                dicDeptIdWithEmployeeCount.Add(item.Key, item.Count());
+
+            return Ok(dicDeptIdWithEmployeeCount);
+        }
+=========================================================================
+[HttpGet]
+        public IActionResult test()
+        {
+            var employeesGrop = db.Employees.GroupBy(e => e.DepartmentId);
+
+            foreach (var item in employeesGrop)
+            {
+                Console.WriteLine(item.Key.ToString(), item.Count());
+                Console.WriteLine("=============");
+                foreach (var employee in item)
+                {
+                    Console.WriteLine(employee.FirstName);
+                }
+                Console.WriteLine();
+            }
+
+            return Ok();
+        }
