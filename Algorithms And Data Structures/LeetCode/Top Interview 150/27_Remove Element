@@ -1,0 +1,36 @@
+public class Solution {
+    public int RemoveElement(int[] nums, int val) {
+       int lastIndex = nums.Length - 1, k = 0;
+
+            for (int i = 0; i <= lastIndex; i++)
+            {
+                if (nums[lastIndex] == val)
+                {
+                    nums[lastIndex] = 0;
+                    lastIndex--;
+                    k++;
+                    i--;
+                    continue;
+                }
+
+                if (nums[i] == val)
+                {
+                    if (nums[lastIndex] == val)
+                    {
+                        nums[lastIndex] = 0;
+                        i--;
+                    }
+                    else
+                    {
+                        nums[i] = nums[lastIndex];
+                        nums[lastIndex] = 0;
+                    }
+
+                    k++;
+                    lastIndex--;
+                }
+            }
+
+            return nums.Length - k; 
+    }
+}
