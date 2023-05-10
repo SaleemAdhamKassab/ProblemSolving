@@ -1,0 +1,17 @@
+public class Solution {
+    public int MajorityElement(int[] nums)=> getNumbersCount(nums).FirstOrDefault(e => e.Value > (nums.Length / 2)).Key;
+
+    private static Dictionary<int, int> getNumbersCount(int[] nums)
+        {
+            Dictionary<int, int> dicNumbersCount = new Dictionary<int, int>();
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (dicNumbersCount.ContainsKey(nums[i]))
+                    dicNumbersCount[nums[i]]++;
+                else
+                    dicNumbersCount.Add(nums[i], 1);
+            }
+            return dicNumbersCount;
+        }
+}
