@@ -1,32 +1,36 @@
-  بدي أعرف عدد الموظفين في كل قسم
-  
-  [HttpGet]
-        public IActionResult test()
+بدي أعرف عدد الموظفين في كل قسم مع عرض أسماء الموظفين
+public IActionResult test()
         {
-            var employeeGroups = db.Employees.GroupBy(e => e.DepartmentId);
-            Dictionary<int, int> dicDeptIdWithEmployeeCount = new Dictionary<int, int>();
-
-            foreach (var item in employeeGroups)
-                dicDeptIdWithEmployeeCount.Add(item.Key, item.Count());
-
-            return Ok(dicDeptIdWithEmployeeCount);
-        }
-=========================================================================
-[HttpGet]
-        public IActionResult test()
-        {
-            var employeesGrop = db.Employees.GroupBy(e => e.DepartmentId);
-
-            foreach (var item in employeesGrop)
-            {
-                Console.WriteLine(item.Key.ToString(), item.Count());
-                Console.WriteLine("=============");
-                foreach (var employee in item)
+            var result =
+                db.Employees.GroupBy(e => e.DepartmentId)
+                .Select(e => new
                 {
-                    Console.WriteLine(employee.FirstName);
-                }
-                Console.WriteLine();
-            }
+                    departmentId = e.Key,
+                    departmentEmployeesCount = e.Count(),
+                    employees = db.Employees
+                                   .Where(x => x.DepartmentId == e.Key)
+                                  .ToList()
+                })
+                .OrderByDescending(e => e.departmentEmployeesCount);
 
-            return Ok();
+            return Ok(result);
+        }
+=====================================================================================
+نفس المثال السابق لكن بدي الداتا مرتبة حسب رقم القسم ومن ثم حسب اسم الموظف
+  public IActionResult test()
+        {
+            var result =
+                db.Employees.GroupBy(e => e.DepartmentId)
+                .Select(e => new
+                {
+                    departmentId = e.Key,
+                    departmentEmployeesCount = e.Count(),
+                    employees = db.Employees
+                                   .Where(d => d.DepartmentId == e.Key)
+                                   .OrderBy(e=>e.FirstName)
+                                  .ToList()
+                })
+                .OrderBy(e => e.departmentId);
+
+            return Ok(result);
         }
