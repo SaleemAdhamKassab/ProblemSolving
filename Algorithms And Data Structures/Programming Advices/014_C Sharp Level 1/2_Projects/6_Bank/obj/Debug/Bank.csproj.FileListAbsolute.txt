@@ -1,0 +1,74 @@
+C:\Users\Administrator\Desktop\Bank\bin\Debug\Bank.exe.config
+C:\Users\Administrator\Desktop\Bank\bin\Debug\Bank.exe
+C:\Users\Administrator\Desktop\Bank\bin\Debug\Bank.pdb
+C:\Users\Administrator\Desktop\Bank\obj\Debug\Bank.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\Bank\obj\Debug\Bank.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\Desktop\Bank\obj\Debug\Bank.FrmLogin.resources
+C:\Users\Administrator\Desktop\Bank\obj\Debug\Bank.Properties.Resources.resources
+C:\Users\Administrator\Desktop\Bank\obj\Debug\Bank.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\Bank\obj\Debug\Bank.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Bank\obj\Debug\Bank.exe
+C:\Users\Administrator\Desktop\Bank\obj\Debug\Bank.pdb
+C:\Users\Administrator\Desktop\Bank\obj\Debug\Bank.Shared.FrmHome.resources
+C:\Users\Administrator\Desktop\Bank\obj\Debug\Bank.Views.Clients.Home.resources
+C:\Users\Administrator\Desktop\Bank\obj\Debug\Bank.Views.Clients.Add.resources
+C:\Users\Administrator\Desktop\Bank\obj\Debug\Bank.Views.Clients.Update.resources
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.FrmLogin.resources
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Properties.Resources.resources
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.exe
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.pdb
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\Bank.exe.config
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\Bank.exe
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\Bank.pdb
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Views.Clients.Clients.resources
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\CircularProgressBar.dll
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\WinFormAnimation.dll
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\CircularProgressBar.xml
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.CopyComplete
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Shared.FrmLayout.resources
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Shared.FrmHome.resources
+C:\Users\Administrator\Desktop\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Views.FrmTransactions.resources
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\Bank.exe.config
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\Bank.exe
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\Bank.pdb
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\CircularProgressBar.dll
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\WinFormAnimation.dll
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\CircularProgressBar.xml
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.AssemblyReference.cache
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.SuggestedBindingRedirects.cache
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.FrmLogin.resources
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Properties.Resources.resources
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Shared.FrmLayout.resources
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Shared.FrmHome.resources
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Views.Clients.Clients.resources
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Views.FrmTransactions.resources
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.GenerateResource.cache
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.CoreCompileInputs.cache
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.CopyComplete
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.exe
+D:\TFS\yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.pdb
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\Bank.exe.config
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\Bank.exe
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\Bank.pdb
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\CircularProgressBar.dll
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\WinFormAnimation.dll
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\bin\Debug\CircularProgressBar.xml
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Properties.Resources.resources
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Shared.FrmLayout.resources
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Shared.FrmHome.resources
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Views.FrmTransactions.resources
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.csproj.CopyComplete
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.exe
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.pdb
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Views.Clients.FrmClients.resources
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Views.FrmManageUsers.resources
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.Views.FrmCurrencyExchange.resources
+C:\Users\Administrator\Desktop\Yesterday\014_C Sharp Level 1\2_Projects\6_Bank\obj\Debug\Bank.FrmLogin.resources
