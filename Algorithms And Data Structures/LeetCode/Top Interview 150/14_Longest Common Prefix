@@ -1,0 +1,36 @@
+public class Solution {
+    public string LongestCommonPrefix(string[] strs) {
+        if (strs.Length == 1 || strs[0].Length == 0)
+                return strs[0];
+
+            StringBuilder longestCommonPrefix = new StringBuilder();
+            int counter = 0,
+                strIndex = 0,
+                strLength = 0;
+            char tempStrChar = strs[0][strLength];
+
+            while (true)
+            {
+                for (int i = 0; i < strs.Length; i++)
+                {
+                    if (strLength < strs[i].Length)
+                        tempStrChar = strs[0][strLength];
+                    else
+                        return longestCommonPrefix.ToString();
+
+                    if ( strs[i][strIndex] != tempStrChar)
+                        return longestCommonPrefix.ToString();
+                    else
+                        counter++;
+                }
+
+                if (counter == strs.Length)
+                    longestCommonPrefix.Append(tempStrChar);
+
+                counter = 0;
+                tempStrChar = ' ';
+                strLength++;
+                strIndex++;
+            }
+    }
+}
