@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        This is a titile
+    </title>
+</head>
+
+<body>
+
+    <blockquote>this is a blockquote</blockquote>
+    <p>normal paragraph and <q>quates</q></p>
+    <p><abbr title="world wide web">WWW</abbr> says that internet is every thing!!! </p>
+
+    <address>
+        Saleem Adham Kassab<br />
+        Damascus, Jaramna <br />
+    </address>
+
+    <p><cite>The Scream</cite> by Edvard Munch. Painted in 1893.</p>
+
+    <p>hi <bdo dir="rtl">السلام عليكم  </bdo></p>
+    <bdo dir="rtl">This text will be written from right to left</bdo><br />
+    <bdo dir="rtl">السلام عليكم</bdo>
+
+</body>
+</html>
