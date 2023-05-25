@@ -1,0 +1,17 @@
+public IActionResult test()
+        {
+            var result = db.Employees
+                 .Join(
+                db.Departments,
+                e => e.DepartmentId,
+                d => d.Id,
+                (employee, department) => new
+                {
+                    employee.FirstName,
+                    department.Name,
+                    employee.Salary
+                })
+                 .OrderBy(d => d.Name).ThenBy(e => e.Salary).ToList();
+
+            return Ok(result);
+        }
