@@ -5,3 +5,18 @@ LINQ:
 
 Datastructure:
 Calc Time Complexcity
+
+
+
+
+
+ERD Symbols
+ 
+•	Derived Attribute:  هي عبارة عن خاصية يتم تمثيلها بنقاط ومارح أقوم بتخزينها بالداتابيز حيث يمكن حسبتها عن طريق خصائص أخرى مثل ال Age يمكن حسبته عن طريق ال (sysdate – birthdata)
+•	كل Entity (أي كل سطر بأي جدول) لازم يكون اله Primary Key
+•	Composite Attribute : مثل ال Name لايتم تمثيلها بحد ذاتها ضمن الداتا بيز وانما يتم تمثيل أولادها
+
+Relationships
+We can have more than one relationship between two entities.
+ 
+
