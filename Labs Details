@@ -13,3 +13,69 @@ ETL Engine	- ETL (Extract, Transformation & Load), Create migration procedures f
 Application Schema	- Application schema defines all KPIs, reports, visualizations, dashboards, …
 Application Development - 	Create a new tenant (Core) on application layer
 Application Server & Publish	- Prepare the server and publish the Core Performance Platform
+
+
+----------------
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>
+        This is a titile
+    </title>
+</head>
+
+<body>
+    <table>
+        <thead>
+        <th colspan="3">
+            <div id="divToChangeBackcolor" style="width:500px;height:50px"></div>
+        </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div style="text-align:center">Red</div>
+                    <div>
+                        <input id="red" type="range" min="0" max="255" onchange="changeDivBackGroundColor()" />
+                    </div>
+                    <div id="redValue" style="text-align:center"></div>
+                </td>
+                <td>
+                    <div style="text-align:center">Green</div>
+                    <div>
+                        <input id="green" type="range" min="0" max="255" onchange="changeDivBackGroundColor()" />
+                    </div>
+                    <div id="greenValue" style="text-align:center"></div>
+                </td>
+                <td>
+                    <div style="text-align:center">Blue</div>
+                    <div>
+                        <input id="blue" type="range" min="0" max="255" onchange="changeDivBackGroundColor()" increment="1"/>
+                        <div id="blueValue" style="text-align:center"></div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function changeDivBackGroundColor() {
+
+            var red = document.getElementById("red").value;
+            document.getElementById("redValue").innerHTML = red;
+
+
+            var green = document.getElementById("green").value;
+            document.getElementById("greenValue").innerHTML = green;
+
+            var blue = document.getElementById("blue").value;
+            document.getElementById("blueValue").innerHTML = blue;
+
+            var currentColor = "rgb(" + red + ", " + green + ", " + blue + ")";
+
+            var divTochangeColor = document.getElementById("divToChangeBackcolor");
+            divTochangeColor.style.backgroundColor = currentColor;
+        }
+    </script>
+</body>
+</html>
