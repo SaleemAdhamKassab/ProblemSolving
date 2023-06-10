@@ -1,0 +1,8 @@
+select t.department_id,
+       count(t.id),
+       sum(t.monthly_salary) totalsalaries,
+       avg(t.monthly_salary) avgsalaries,
+       min(t.monthly_salary) minsalary,
+       max(t.monthly_salary) maxSAlary
+from employees t
+group by t.department_id;
