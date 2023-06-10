@@ -1,0 +1,6 @@
+select 1+1 
+from dual
+where exists (
+select *
+from employees t
+where t.first_name = 'saleem1');
