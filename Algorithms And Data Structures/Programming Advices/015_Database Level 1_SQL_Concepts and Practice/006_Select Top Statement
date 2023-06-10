@@ -1,0 +1,18 @@
+select * from employees for update t
+order by t.id
+fetch first 1 row only;
+---------------------------------
+select * from employees t
+order by t.id
+fetch first (select (count(*) * 0.1 )  from employees) row only;
+---------------------------------
+select * from employees t
+where t.monthly_salary in (select distinct(t.monthly_salary) from employees t
+                           order by 1 desc
+                           fetch first 3 rows only);
+
+---------------------------------
+select * from employees t
+where t.monthly_salary in (select distinct(t.monthly_salary) from employees t
+                           order by 1 
+                           fetch first 3 rows only);
