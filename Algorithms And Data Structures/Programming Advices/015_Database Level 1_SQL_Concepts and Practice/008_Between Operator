@@ -1,0 +1,12 @@
+select *
+from employees  t
+where t.monthly_salary >= 500 and t.monthly_salary <=1000;
+-------------------------
+select *
+from employees  t
+where t.monthly_salary between 500 and 1000;
+-------------------------
+select *
+from employees  t
+where t.monthly_salary between 500 and 1000;
+ 
