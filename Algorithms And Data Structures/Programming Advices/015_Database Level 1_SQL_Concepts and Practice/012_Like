@@ -1,0 +1,46 @@
+select *
+from employees t
+where t.first_name like 'a%';
+------------------------------------
+select *
+from employees t
+where t.first_name like '%a';
+------------------------------------
+select *
+from employees t
+where t.first_name like '%a%';
+------------------------------------
+select *
+from employees t
+where t.first_name like 'a%a';
+------------------------------------
+select *
+from employees t
+where t.first_name like '_a%';
+------------------------------------
+select *
+from employees t
+where t.first_name like 'a%';
+------------------------------------
+select *
+from employees t
+where t.first_name like 'a__%';
+------------------------------------
+select *
+from employees t
+where t.first_name like 's[ae]%';
+------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
