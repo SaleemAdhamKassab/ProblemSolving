@@ -1,0 +1,59 @@
+
+using System.Text;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Calculater calculater = new Calculater();
+            calculater.add(10);
+            calculater.subtract(5);
+            calculater.divide(2);
+            calculater.printResult();
+            calculater.add(10);
+            calculater.printResult();
+            calculater.divide(0);
+            calculater.printResult();
+        }
+        public class Calculater
+        {
+            private int _Result { get; set; }
+            private string operationResultMessage(string operationType, int number) => "Result After " + operationType + " " + number + " " + " is:" + _Result;
+            private List<string> _MessageQueue = new List<string>();
+
+
+            public void add(int number)
+            {
+                _Result += number;
+                _MessageQueue.Add(operationResultMessage("Adding", number));
+            }
+            public void subtract(int number)
+            {
+                _Result -= number;
+                _MessageQueue.Add(operationResultMessage("Subtracting", number));
+            }
+            public void multiply(int number)
+            {
+                _Result *= number;
+                _MessageQueue.Add(operationResultMessage("Multipling", number));
+            }
+            public void divide(int number)
+            {
+                if (number < 1)
+                    number = 1;
+                _Result /= number;
+                _MessageQueue.Add(operationResultMessage("Dividing", number));
+            }
+
+            public void clear() => _Result = 0;
+            public void printResult()
+            {
+                foreach (string message in _MessageQueue)
+                    Console.WriteLine(message);
+                _MessageQueue.Clear();
+            }
+        }
+    }
+}
