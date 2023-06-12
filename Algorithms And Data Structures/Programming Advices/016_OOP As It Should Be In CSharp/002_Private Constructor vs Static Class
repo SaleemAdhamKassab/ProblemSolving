@@ -1,0 +1,26 @@
+
+using System.Text;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Setting setting1 = new Setting();
+            Console.WriteLine(setting1.getX());
+            Setting.updateX(5);
+            Console.WriteLine(setting1.getX());
+
+
+        }
+        class Setting
+        {
+            private Setting() { }
+
+            static int x = 10;
+            public static void updateX(int value) => x = value;
+            public int getX() => x;
+        }
+    }
+}
