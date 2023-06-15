@@ -132,6 +132,7 @@ Note: Important to solve all lessons question
       
   10-  Interfaces/ Abstract Class: 
       - ابرام الصفقات والعقود
+      - ممكن يحتوي على Normal + Abstract Methods
       - اجبر الديفلوبر لما يعمل كلاس يكون عنده Certain Methods
       - Abstract Class is the same concept of Interface Class and they are both contracts --> done by Pure Virtual Functions 
       - A pure virtual function:  function that has no definition.
