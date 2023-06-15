@@ -199,4 +199,4 @@ Note: Important to solve all lessons question
       لما بدي اعمله بالأساس هو مبني على الدبل لينكد ليست وهنا لم اقم بالوراثة منه لكنني قمت بانشاء كلاس من اللينكد ليست داخل الكلاس كيو
       طيب السؤال ليش ماعملت وراثة؟
       ببساطة لأني مابدي استخدم كل الميثودات تبع اللينكليست داخل الكيو كلاس 
-      Conclusion: Expose Certain Methods to another Class
+      Conclusion: Composition is a design pattern in object-oriented programming where Expose Certain Methods to another Class
