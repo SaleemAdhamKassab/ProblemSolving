@@ -1,0 +1,19 @@
+static int binarySearch(int[] arr, int numberToFind)
+        {
+            int low = 0,
+                height = arr.Length - 1,
+                mid = (low + height) / 2;
+
+            while (low <= height)
+            {
+                mid = (low + height) / 2;
+
+                if (arr[mid] == numberToFind)
+                    return mid; 
+                else if (numberToFind > arr[mid])
+                    low = mid + 1;
+                else
+                    height = mid - 1;
+            }
+            return -1;
+  	}
