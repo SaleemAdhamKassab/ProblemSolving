@@ -1,0 +1,28 @@
+
+using System.Text;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = new int[] { 10, 17, 5, 1, 9 };
+            selectionSort(arr);
+            Console.WriteLine();
+        }
+        static void swapBigNumberWithSmall(int[] arr, int bigNumberIndex, int smallNumberIndex)
+        {
+            int temp = arr[bigNumberIndex];
+            arr[bigNumberIndex] = arr[smallNumberIndex];
+            arr[smallNumberIndex] = temp;
+        }
+        static void selectionSort(int[] arr)
+        {
+            for (int i = 0; i < arr.Length - 1; i++)
+                for (int j = i + 1; j < arr.Length; j++)
+                    if (arr[j] < arr[i])
+                        swapBigNumberWithSmall(arr, i, j);
+        }
+    }
+}
