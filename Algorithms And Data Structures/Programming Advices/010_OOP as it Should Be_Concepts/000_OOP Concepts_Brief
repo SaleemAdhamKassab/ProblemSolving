@@ -1,8 +1,13 @@
 Note: Important to solve all lessons question
 
 -------------- OOP Concept Brief -------------
+مبادئ ال OOP الأربعة الرئيسية هي:
+  1-Encapsulation
+  2-Abstraction
+  3-Inheritance
+  4-Polymorphism
 
-1- Encapculation:
+1- Encapsulation:
   - Arrange all related (Variables-Methods) under the Class
   - access the class only through the objects
   
@@ -28,14 +33,16 @@ Note: Important to solve all lessons question
    - تعدد الأوجه للكود : يعني بنفس الاسم للميثود فيني اعمل اشياء مختلفة
      same method name i can do diffrent thing based on situation
    - can be done through 4 concepts:
-      1- Function Overloading
-      2- Operator Oveloading:
+      1- Compile Time Polymorphism:
+         Function Overloading 
+         Operator Overloading:
           5+3 = 8
           "Saleem" + "Kassab" = "saleemKassab";
-          operator + اشتغل شغلتين :
-          مع الارقام جمعهن ومع ال string  عملهن concat
-      3- Function Overriding
-      4- Virtual Functions (run time polymorphism)
+      2- Function Overriding (Run Time Polymorphism)
+      3- Virtual Functions (Run time polymorphism)
+      4- Inheritance (يعتبر شكل من أشكال ال Polymorphism) 
+        Person is Employee And User
+        فإذا البيرسون صار اله وجهين مرة بيلعب دور الموظف ومرة بيلعب دور اليوزر
    
    -  word Ploy means "Many" and word Morphism means "Form" so it means "Many Forms"
 
