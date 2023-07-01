@@ -1,0 +1,46 @@
+using Oracle.ManagedDataAccess.Client;
+using System.Data;
+
+namespace Database_Connectivity
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            deleteContact(6);
+
+        }
+        public struct strContact
+        {
+            public string firstName { get; set; }
+            public string lastName { get; set; }
+            public string email { get; set; }
+            public string phone { get; set; }
+            public string address { get; set; }
+            public int countryId { get; set; }
+        }
+        public static void deleteContact( int contactId)
+        {
+            OracleConnection connection = new OracleConnection();
+
+            string query = "delete from contacts t where t.id ="+ contactId;
+
+            OracleCommand command = new OracleCommand(query, connection);
+
+            try
+            {
+                connection.ConnectionString = "Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = XE) ) ):1521/xe; User ID=Database_Connectivity_18;Password=123";
+                connection.Open();
+
+                int affectedRows = command.ExecuteNonQuery();
+                Console.WriteLine(affectedRows + " row (s) deleted Successfully");
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        }
+    } 
+}
