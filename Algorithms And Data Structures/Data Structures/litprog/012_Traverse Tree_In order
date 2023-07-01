@@ -1,0 +1,55 @@
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            TreeNode root = new TreeNode(10);
+            TreeNode node5 = new TreeNode(5);
+            TreeNode node18 = new TreeNode(18);
+            TreeNode node3 = new TreeNode(3);
+            TreeNode node7 = new TreeNode(7);
+
+            root.leftNode = node5;
+            root.rightNode = node18;
+
+            node5.leftNode = node3;
+            node5.rightNode = node7;
+
+
+            //preOrder(root);
+            inOrder(root);
+        }
+
+        public class TreeNode
+        {
+            public TreeNode(int value)
+            {
+                this.value = value;
+            }
+
+            public int value { get; set; }
+            public TreeNode rightNode;
+            public TreeNode leftNode;
+        }
+        public static void preOrder(TreeNode root)
+        {
+            if (root == null)
+                return;
+
+            preOrder(root.leftNode);
+            Console.WriteLine(root.value);
+            preOrder(root.rightNode);
+
+        }
+        public static void inOrder(TreeNode root)
+        {
+            if (root == null)
+                return;
+
+            inOrder(root.leftNode);
+            Console.WriteLine(root.value);
+            inOrder(root.rightNode);
+        }
+    }
+}
