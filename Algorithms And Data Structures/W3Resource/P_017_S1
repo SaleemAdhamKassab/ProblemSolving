@@ -1,2 +1,0 @@
-   static string replaceBetweenStartAndLastCharacters(string s) =>
-            s[0] + s + s[0];

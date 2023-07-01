@@ -1,8 +1,0 @@
-SELECT * FROM Customers t
-WHERE t.country in('Germany', 'France', 'UK');
-===========================================================
-SELECT * FROM Customers t
-WHERE t.country not in('Germany', 'France', 'UK');
-===========================================================
-SELECT * FROM Customers
-where country in ('Norway', 'France');

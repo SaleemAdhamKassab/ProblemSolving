@@ -1,8 +1,0 @@
- static string reverseBasedOnFirstAndLastIndex(string s, int firstIndex, int lastIndex)
-    {
-        string result = "";
-        for (int i = firstIndex; i <= lastIndex; i++)
-            result += s[i];
-
-        return result;
-    }

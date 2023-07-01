@@ -1,9 +1,0 @@
-static int length(string s)
-        {
-            int stringLength = 0;
-
-            foreach (char c in s)
-                stringLength++;
-
-            return stringLength;
-        }

@@ -1,9 +1,0 @@
-static char[] stringToCharArray(string s)
-        {
-            char[] stringToCharrArray = new char[stringLength(s)];
-
-            for (int i = 0; i < stringLength(s); i++)
-                stringToCharrArray[i] = s[i];
-
-            return stringToCharrArray;
-        }

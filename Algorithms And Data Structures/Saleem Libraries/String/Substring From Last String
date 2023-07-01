@@ -1,8 +1,0 @@
- static string subLastWord(string s, int numberOfSubChars)
-        {
-            string result = "";
-            for (int i = s.Length - numberOfSubChars; i < s.Length; i++)
-                result += s[i];
-
-            return result;
-        }

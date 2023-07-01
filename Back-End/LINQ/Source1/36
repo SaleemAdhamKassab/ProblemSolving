@@ -1,4 +1,0 @@
-update EMPLOYEETEST e
-set e.salary = 8000
-where e.employee_id = 115 and e.salary < 6000;
-====================================

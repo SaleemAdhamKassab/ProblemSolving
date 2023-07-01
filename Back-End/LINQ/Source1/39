@@ -1,3 +1,0 @@
-update   EMPLOYEETEST e
-set e.job_id='IT_PROG'
-where e.employee_id =110 and e.department_id =10

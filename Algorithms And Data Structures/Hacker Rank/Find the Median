@@ -1,4 +1,0 @@
-function findMedian(arr: number[]): number {
-    let sortedArr = arr.sort(function(a, b){return a-b})
-        return sortedArr[Math.floor(arr.length/2)]
-}

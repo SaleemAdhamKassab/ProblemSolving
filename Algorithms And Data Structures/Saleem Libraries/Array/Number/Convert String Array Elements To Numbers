@@ -1,9 +1,0 @@
-private int[] convertStringArrayElementsToNumber(string[] arr)
-            {
-                int[] numberedArray = new int[arr.Length];
-
-                for (int i = 0; i < arr.Length; i++)
-                    numberedArray[i] = int.Parse(arr[i]);
-
-                return numberedArray;
-            }

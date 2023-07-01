@@ -1,2 +1,0 @@
-   static bool isNumberInRange(int startIndex, int lastIndex, int number) =>
-            number >= startIndex && number <= lastIndex ? true : false;

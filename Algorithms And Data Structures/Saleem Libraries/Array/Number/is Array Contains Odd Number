@@ -1,9 +1,0 @@
- static bool isOddNumber(int number) => number % 2 != 0;
-static bool isArrayContainsOddNumber(int[] numbers)
-        {
-            foreach (int number in numbers)
-                if (isOddNumber(number))
-                    return true;
-
-            return false;
-        }

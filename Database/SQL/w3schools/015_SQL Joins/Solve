@@ -1,9 +1,0 @@
-select o.orderid, c.customername, o.orderdate
- from customers c 
- join orders o 
- on c.customerid = o.customerid;
-==============================================================
-SELECT *
-FROM Orders
-LEFT JOIN Customers
-on orders.customerid = customers.customerid;

@@ -1,7 +1,0 @@
-static void swapTwoParams(ref object param1, ref object param2)
-        {
-            object temp = param1;
-
-            param1 = param2;
-            param2 = temp;
-        }

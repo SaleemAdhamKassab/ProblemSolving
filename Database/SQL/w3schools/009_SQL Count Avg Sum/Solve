@@ -1,8 +1,0 @@
-select count(productid)
-from products;
-================================
-select avg(price)
-from products;
-================================
-SELECT SUM(Quantity)
-FROM OrderDetails;

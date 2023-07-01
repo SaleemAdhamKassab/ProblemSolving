@@ -1,5 +1,0 @@
-  static void printFileContent(string filePath)
-        {
-            foreach (string line in File.ReadLines(filePath))
-                Console.WriteLine(line);
-        }

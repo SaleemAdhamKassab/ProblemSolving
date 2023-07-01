@@ -1,9 +1,0 @@
- static void Main(string[] args)
-        {
-            System.Console.WriteLine(isHired(15, false) ? "Hired" : "Rejected");
-        }
-
-static bool isHired(int age, bool hasCertificate)
-        {
-            return age > 21 && hasCertificate ? true : false;
-        }

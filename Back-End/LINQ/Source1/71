@@ -1,5 +1,0 @@
-select salary
-from employees main
-where  &requiredSal = (select count( distinct salary )
-            from employees
-            where  salary > main.salary)

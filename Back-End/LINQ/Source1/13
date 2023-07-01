@@ -1,3 +1,0 @@
-select e.first_name, e.hire_date,FlooR((sysdate - e.hire_date) /365)
-from employees e;
-============================

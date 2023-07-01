@@ -1,8 +1,0 @@
-static string stringRepeat(string s, int repeat, string seperator = "")
-        {
-            string result = "";
-            for (int i = 0; i < repeat - 1; i++)
-                result += s + seperator;
-
-            return result + s;
-        }

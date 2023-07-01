@@ -1,9 +1,0 @@
- public static int hurdleRace(int k, List<int> height)
-        {
-            int max = 0;
-            foreach(int i in height)
-            {
-                if (i > max) max = i;
-            }
-            return max > k ? max - k : 0; 
-        }

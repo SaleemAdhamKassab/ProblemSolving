@@ -1,8 +1,0 @@
-static string removeFirstChar(string str)
-    {
-        string result = "";
-        for (int i = 1; i < str.Length; i++)
-            result += str[i];
-
-        return result;
-    }

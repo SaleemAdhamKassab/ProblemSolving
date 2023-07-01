@@ -1,8 +1,0 @@
-static string removeLastChar(string str)
-        {
-            string result = "";
-            for (int i = 0; i < str.Length - 1; i++)
-                result += str[i];
-
-            return result;
-        }

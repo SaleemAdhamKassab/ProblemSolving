@@ -1,9 +1,0 @@
- static void Main(string[] args)
-        {
-            Console.Write("Enter number: ");
-            int number = int.Parse(Console.ReadLine());
-
-            Console.WriteLine(number * number);
-            Console.WriteLine(number * number * number);
-            Console.WriteLine(number * number * number * number);
-        }

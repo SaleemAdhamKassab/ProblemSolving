@@ -1,8 +1,0 @@
- static bool isArrayContainsWord(string [] arr, string word)
-        {
-            for (int i = 0; i < arr.Length; i++)
-                if (arr[i] == word)
-                    return true;
-            
-            return false;
-        }

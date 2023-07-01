@@ -1,9 +1,0 @@
-public class Solution {
-    public bool CanConstruct(string ransomNote, string magazine) {
-       foreach (char c in ransomNote)
-                if (magazine.Where(e => e == c).Count() < ransomNote.Where(e => e == c).Count())
-                    return false;
-
-            return true;  
-    }
-}

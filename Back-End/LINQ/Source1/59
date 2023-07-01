@@ -1,7 +1,0 @@
-select *
-from jobs j
-where j.job_id in (
-select e.job_id
-from employees e
-where to_char(e.hire_date,'yyyy') =  to_char(sysdate,'yyyy'))
-========================================

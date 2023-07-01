@@ -1,2 +1,0 @@
- public int MinTimeToVisitAllPoints(int[][] points) 
-		=> points.Zip(points.Skip(1), (a,b) => Math.Max(Math.Abs(a[0] - b[0]), Math.Abs(a[1] - b[1]))).Sum();

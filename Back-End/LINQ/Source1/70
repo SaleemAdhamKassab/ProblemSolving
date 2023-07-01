@@ -1,3 +1,0 @@
-select max(e.salary) from employees e where e.salary <
-(select max(e.salary) from employees e where e.salary < 
-(select max(e.salary) from employees e));

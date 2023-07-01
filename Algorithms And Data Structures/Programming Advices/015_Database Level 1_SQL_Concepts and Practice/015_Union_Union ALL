@@ -1,9 +1,0 @@
-select *
-from employees t
-where t.exit_date is null
-
-union
-
-select *
-from employees t
-where t.exit_date is not  null

@@ -1,6 +1,0 @@
-select  h.hacker_id,h.name, count(c.challenge_id)
-from Challenges c join Hackers h
-on c.hacker_id = h.hacker_id
-group by h.hacker_id,h.name
-having count(c.challenge_id) > 7 and count(c.challenge_id) !=12
-order by 3 desc, 1;

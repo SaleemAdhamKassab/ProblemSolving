@@ -1,7 +1,0 @@
-public static int simpleArraySum(List<int> ar)
-    {
-        int sum = 0;
-        foreach (int i in ar) sum+=i;
-        return sum;
-
-    }

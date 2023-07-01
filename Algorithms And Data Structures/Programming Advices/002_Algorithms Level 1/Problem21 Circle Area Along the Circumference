@@ -1,3 +1,0 @@
-Console.WriteLine("Enter Circle Area: ");
-            int l = int.Parse(Console.ReadLine());
-            Console.WriteLine((l * l) / (4 * 3.14));

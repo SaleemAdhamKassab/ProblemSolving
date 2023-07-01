@@ -1,5 +1,0 @@
-public class Solution {
-    public bool UniqueOccurrences(int[] arr) =>
-         arr.GroupBy(e => e).Select(e => e.Count()).Distinct().Count() == arr.Distinct().Count();
-    
-}

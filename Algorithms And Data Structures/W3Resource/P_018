@@ -1,2 +1,0 @@
-static bool p_18(int number1, int number2) =>
-         number1 > 0 && number2 < 0 || number1 < 0 && number2 > 0;

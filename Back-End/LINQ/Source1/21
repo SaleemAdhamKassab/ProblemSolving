@@ -1,1 +1,0 @@
-SELECT SYSDATE - to_date('01-jan-2011') FROM DUAL

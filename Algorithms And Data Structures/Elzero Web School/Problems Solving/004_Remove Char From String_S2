@@ -1,2 +1,0 @@
-  static string removeCharacterFromString(string s, char charToRemove)=>
-            Regex.Replace(s, charToRemove.ToString(), "", RegexOptions.Compiled);

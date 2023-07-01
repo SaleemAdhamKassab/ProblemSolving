@@ -1,1 +1,0 @@
-static bool IsNumberBetween(double number, double from, double to) => number >= from && number <= to;

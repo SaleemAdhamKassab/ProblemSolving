@@ -1,4 +1,0 @@
-select count(*)
-from employees e
-where to_char(e.hire_date,'dd')>15;
-==================

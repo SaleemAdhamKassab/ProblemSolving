@@ -1,9 +1,0 @@
-select o.orderid, c.customername
-from orders o
-join customers c
-on o.customerid = c.customerid;
-====================================================
-SELECT *
-FROM Orders
-inner join Customers
-ON Orders.CustomerID=Customers.CustomerID;

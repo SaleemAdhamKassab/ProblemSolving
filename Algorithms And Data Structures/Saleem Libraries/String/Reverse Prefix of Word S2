@@ -1,8 +1,0 @@
-public class Solution {
-    public string ReversePrefix(string word, char ch) {
-         int chIndex = word.IndexOf(ch);
-        if (chIndex > -1)
-            return new String(word.Substring(0, chIndex + 1).Reverse().ToArray()) + word.Substring(chIndex + 1);
-        return word;
-    }
-}

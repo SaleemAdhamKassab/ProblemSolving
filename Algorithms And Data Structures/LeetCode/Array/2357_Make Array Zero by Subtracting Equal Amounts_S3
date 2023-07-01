@@ -1,3 +1,0 @@
-public class Solution {
-    public int MinimumOperations(int[] nums)=>nums.Where(e => e != 0).Distinct().Count();
-}

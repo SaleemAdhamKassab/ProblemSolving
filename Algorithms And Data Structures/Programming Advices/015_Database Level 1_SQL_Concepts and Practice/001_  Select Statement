@@ -1,5 +1,0 @@
-select * from EMPLOYEES;
-select * from departments;
-select * from countries;
-
-select t.id,t.first_name,t.last_name from employees t;

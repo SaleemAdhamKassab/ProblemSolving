@@ -1,8 +1,0 @@
- public static long aVeryBigSum(List<long> ar)
-    {
-        long sum=0;
-        foreach(long i in ar) sum+=i;
-        
-        return sum;
-
-    }

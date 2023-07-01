@@ -1,6 +1,0 @@
-select e.department_id, e.first_name, e.salary
-  from employees e
- where e.salary in (select max(ee.salary)
-                      from employees ee
-                     where ee.department_id = e.department_id
-                     group by ee.department_id)

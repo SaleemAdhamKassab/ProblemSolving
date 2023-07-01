@@ -1,7 +1,0 @@
-select Upper(substr(e.first_name,1,1))|| lower(substr(e.first_name,2)) as "First Name",
-       Upper(substr(e.last_name,1,1))|| lower(substr(e.last_name,2)) as "First Name"
-
-from employees e;
-
-SELECT INITCAP(FIRST_NAME), INITCAP(LAST_NAME) FROM EMPLOYEES
-=====================

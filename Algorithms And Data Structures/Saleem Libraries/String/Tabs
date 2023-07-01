@@ -1,5 +1,0 @@
-  public static void tabs(int tabsCount)
-        {
-            for(int i=0;i<tabsCount;i++)
-                Console.Write("\t");
-        }

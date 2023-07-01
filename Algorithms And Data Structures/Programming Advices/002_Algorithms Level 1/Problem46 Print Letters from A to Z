@@ -1,5 +1,0 @@
-static void Main(string[] args)
-        {
-            for (char c = 'A'; c <= 'Z'; c++)
-                Console.WriteLine(c);
-        }

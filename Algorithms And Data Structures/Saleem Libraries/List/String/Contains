@@ -1,8 +1,0 @@
- static bool contains(List<string> lst, string str)
-        {
-            for (int i = 0; i < lst.Count; i++)
-                if (lst[i] == str)
-                    return true;
-
-            return false;
-        }

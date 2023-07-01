@@ -1,1 +1,0 @@
- static string append(string s, string stringToAdd) => s + stringToAdd;
