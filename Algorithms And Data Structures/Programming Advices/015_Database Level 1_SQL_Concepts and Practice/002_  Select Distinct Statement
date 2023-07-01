@@ -1,0 +1,6 @@
+select distinct(t.department_id)
+from employees t;
+---------------------------
+
+select distinct t.first_name, t.department_id
+from employees t;

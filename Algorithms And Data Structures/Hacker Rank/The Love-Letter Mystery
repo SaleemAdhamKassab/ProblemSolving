@@ -1,0 +1,34 @@
+function theLoveLetterMystery(s: string): number {
+    if (s.length % 2 == 0) {
+        return evenString(s)
+    }
+
+    return oddString(s)
+}
+
+// 1) even string
+function evenString(s: string): number {
+    let x = s.length / 2,
+        counter = 0
+
+    for (let i = Math.floor(s.length / 2); i < s.length; i++) {
+        x--
+        counter += Math.abs(s[i].charCodeAt(0) - s[x].charCodeAt(0))
+    }
+    return counter
+}
+
+// 2) odd string
+function oddString(s: string): number {
+    let j = Math.floor(s.length / 2),
+        x = Math.floor(s.length / 2),
+        counter = 0
+
+    for (let i = Math.floor(s.length / 2); i < s.length - 1; i++) {
+        j++;
+        x--
+        counter += Math.abs(s[j].charCodeAt(0) - s[x].charCodeAt(0))
+    }
+
+    return counter
+}

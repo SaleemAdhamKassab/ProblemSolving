@@ -1,0 +1,209 @@
+Note: Important to solve all lessons question
+
+-------------- OOP Concept Brief -------------
+مبادئ ال OOP الأربعة الرئيسية هي:
+  1-Encapsulation
+  2-Abstraction
+  3-Inheritance
+  4-Polymorphism
+
+1- Encapsulation:
+  - Arrange all related (Variables-Methods) under the Class
+  - access the class only through the objects
+  
+2- Abstraction:
+  - I only “expose” only the necessary class member (Variables - Methods )to the other users (developers), and “hides” the unnecessary details.
+  - Abstraction != Abstract Class
+  - بخفي عنك كتير methods and props  مابهموك مشان ماوجعلك راسك فيهن 
+  
+3- Inheritance:
+ - Maximize reusability/maintainability
+ - Super/Base Class <<<-----Inherits----- Sub/Derived Class
+ - Multi Level Inheritence: Person->Employee->Developer (Not like Multi Inheritence)
+ - Inheritince Types:
+    1- Single Inheritance Person:Employee
+    2- Multi Level Inheritance Person:Employee:Developer
+    3- Hierarchal Inhertance Employee:Doctor Employee:Developer Employee:Tester (All Inherites from base class Employee)
+    4- Multiple Inheritance (danger only with c++)
+    5- Hyperd Inheritance (more danger than 4)
+
+4- Polymorphism:
+   -  Consistent/Standard code.
+   عندي print() فنكشن واحدة الها وظائف مختلفة وتنفذ حسب مايتم استدعائهامن أي object 
+   - تعدد الأوجه للكود : يعني بنفس الاسم للميثود فيني اعمل اشياء مختلفة
+     same method name i can do diffrent thing based on situation
+   - can be done through 4 concepts:
+      1- Compile Time Polymorphism:
+         Function Overloading 
+         Operator Overloading:
+          5+3 = 8
+          "Saleem" + "Kassab" = "saleemKassab";
+      2- Function Overriding (Run Time Polymorphism)
+      3- Virtual Functions (Run time polymorphism)
+      4- Inheritance (يعتبر شكل من أشكال ال Polymorphism) 
+        Person is Employee And User
+        فإذا البيرسون صار اله وجهين مرة بيلعب دور الموظف ومرة بيلعب دور اليوزر
+   
+   -  word Ploy means "Many" and word Morphism means "Form" so it means "Many Forms"
+
+
+
+-------------- Important to Understand ---------
+
+1- Access Modifiers:
+    - set the accessibility of classes, methods, and other members.
+    - private: class
+    - protected: private for out class and public for class and childs
+    - public: All
+
+2- Constructors:
+    - special type of member function that is called automatically when an object is created
+    - same name as that of the class and it does not have a return type
+    - Default Constructor: A constructor with no parameters is known as a default constructor.
+    - Parameterized Constructor: a constructor with parameters is known as a parameterized constructor. This is the preferred method to initialize member data.
+    - When you have a parameterized constructor it will override the default constructor.
+    - A constructor is primarily used to initialize objects. They are also used to run a default code when an object is created.
+
+    - Copy Constructors: 
+      - The copy constructor is used to initialize the members of a newly created object by copying the members of an already existing object as below:
+          - Automaticly:  Person person2 = person1;
+          - Manual : pass calass by reference in the constructor
+    
+    -What are the types of constructors:
+       1- Default Construcotr
+       2- Parameterized constructor: ضمنلي انه مايكون عندي اوبجيكت فاضي (meaningful object: initialize all object data members)
+       3- Copy constructor
+       
+    -in sub class ctor i fill partmers (Parameterized Constructor of the Base Class):
+      1- force: related to base class
+      2- optional: related to sub class ex:
+         class Employee : Person
+            {
+                private double _salary;
+                private string _department;
+                private string _title;
+
+                public Employee(int id, string firstName, string lastName,
+                                string email, string phone,
+                                double salary, string department, string title) : base(id, firstName, lastName, email, phone)
+                {
+                    _salary = salary;
+                    _department = department;
+                    _title = title;
+                }
+  
+3- Destructors:
+    last function called before the destroy the object from memory
+   
+    
+4- Static Member:
+  - Static Member is a variable that is shared for all objects, any object modifies it it get modified for all other objects. (static variable = shared variable = global variable)
+  - Static members are on the class level not for each object ex: count all objects from class
+  - Static members are on the class level not for each object.
+
+5- Read only property doesn't have set method
+
+6- Function Overriding:
+   - Replace main function code with new implementation as i want
+   - Just create function in sub class with the same siqniture --> automaticlly override
+   
+7- Up Casting vs Down Casting:
+   - always convert from big to small (child is the big because it has member more than base class)
+   - up casting: Employee emp = new Person()--> True        down casting: Person person = new Employee()--> false
+   - base -> derived  (true)   derived -> base (false)
+   
+8-  Virtual Functions:
+    - A virtual function is a member function in the base class that we expect to redefine in derived classes.
+    - //up casting
+            Person p = new Employee();
+            p.print();
+
+            Person e = new Student();
+            e.print();
+       // Output 
+       Hi, i am an Employee
+       Hi, i am a Student
+       
+9- Static/Early Binding vs Dynamic/Late Binding:
+    - المصطلحات العلمية للفقرة السابقة 8
+    - Static/Early Binding 
+       1- call any class or methos as is with out using virtual
+       2-   يعني انت بتطلع عند رفيقك وبتعرف وين بيته مسبقا
+       3- little faster than late binding  
+       4- in compile time  
+       
+    - Dynamic/Late Binding:  
+      1- Overriding is a perfect example of dynamic binding. In overriding both parent and child classes have the same method.
+      2- بتطلع عند رفيقك وبتقله دلني ع البيت
+      3- in run time
+      
+  10-  Interfaces/ Abstract Class: 
+      - ابرام الصفقات والعقود
+      - ممكن يحتوي على Normal + Abstract Methods
+      - اجبر الديفلوبر لما يعمل كلاس يكون عنده Certain Methods
+      - Abstract Class is the same concept of Interface Class and they are both contracts --> done by Pure Virtual Functions 
+      - A pure virtual function:  function that has no definition.
+      - If you have one pure virtual function in a class then it will be converted to abstract class.
+      - Abstract Class/Interface Class is a class with pure virtual functions.
+      - I CANOOT inherite from Interface
+      - Must implements all functions, and class can has own methods
+      - Interfaces named by this name because we only declare the methods interface يعني سطر التعريف بالميثود 
+      - Reference OOP Course11 - Project 3: Bank System - Extension 10 :  Abstract Class/Interface Practical Example
+      
+ 11- Friend Class:
+      - A friend class can access both private and protected members.
+      - Since ClassB is a friend class, we can access all members of ClassA from inside ClassB. However, we cannot access members of ClassB from inside ClassA. It is because friend relation in C++ is only granted, not taken.
+      - We can use a friend Class in C++ using the "friend" keyword.
+      - friend class B; رشوة كبيرة الوصول لكافة ال members
+ 
+ 12 - Friend Function:
+      - friend mySum(A a); رشوة صغيرة بسمج لهي الميثود فقط بالوصول الى A members
+      - declare only method signiture inside the class A --> mySum(A a);
+  
+ 13- Static:
+    1- shared function for all classes
+    2- احسن مثال عملي هو لما انشأت مكتبة ال string
+    2- ex:
+       SaleemString(){
+       static int countWords(string s){...};
+       int countWords()=>countWords(_value);
+       }
+       
+      - call it without object (need parameter) -> using patameterized ctor 
+          saleemString.countWords("Saleem Kassab");
+          
+      - call it with object:   (not need parameter) -> using default ctor -> public method call static method 
+          SaleemString s = new SaleemString();
+          s.countWords(); 
+        
+  14- Diffrences between Class and Structure:
+  
+                       Class                                                 Structure
+      ----------------------------------------------------------------------------------
+      Member Access    Private                                               Public   
+      ----------------------------------------------------------------------------------
+      Purpose          Data Abstraction, Inheritance..                       Grouping Data
+      --------------------------------------------------------------------------------------
+      Stored           Reference Type (Heap)                                 Value type(Stack)     
+                       يعني بيعطي مساحات اكبرفي الرن تايم مشان أعمل اللي بدي ياه :Reference Type (Heap) 
+                       الأشياء الصغيرة بستخدملها ستركتشر والأشياء الكبيرة بستخدملها كلاس 
+              
+     -  ملخص خبرة الأستاذ: استخدم الستركتشر فقط  لل
+        Data Grouping 
+        واذا عندي حتى لو ميثود واحد بحوله لكلاس  
+        
+   15- Template Functions:
+      - موضوعها جدا بسيط ويوفر علينا كتابة كود  
+      - if i want to create function to find max 2 numbers (int,int) OR (double, double)....
+        مافي داعي اعمل اربعة فانكشننز والحل اني بخلي الداتاتايب  شو ماكان نوعه
+        int, double, float, char...
+
+        
+    16- Composition:
+      فكرة مهمة من الكورس الثالث عشر
+      13 - Algorithms & Problem Solving Level 5
+      وهي في البروجيكت الثاني - درس انشاء الكيو
+      لما بدي اعمله بالأساس هو مبني على الدبل لينكد ليست وهنا لم اقم بالوراثة منه لكنني قمت بانشاء كلاس من اللينكد ليست داخل الكلاس كيو
+      طيب السؤال ليش ماعملت وراثة؟
+      ببساطة لأني مابدي استخدم كل الميثودات تبع اللينكليست داخل الكيو كلاس 
+      Conclusion: Composition is a design pattern in object-oriented programming where Expose Certain Methods to another Class

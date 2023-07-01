@@ -1,0 +1,187 @@
+#33:
+static void Main(string[] args)
+        {
+            Console.Write("Enter number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            while (number < 0 || number > 100)
+            {
+                Console.Write("please enter number between 1 and 100: ");
+                number = int.Parse(Console.ReadLine());
+            }
+            Console.WriteLine(grade(number));
+        }
+
+static char grade(int number)
+        {
+            if (number >= 90) return 'A';
+            else if (number >= 80) return 'B';
+            else if (number >= 70) return 'C';
+            else if (number >= 60) return 'D';
+            else if (number >= 50) return 'E';
+            else return 'F';
+        }
+========================================================================================================================
+#34:
+static void Main(string[] args)
+        {
+            Console.Write("Enter number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(commission(number));
+        }
+
+static double commission(int number)
+        {
+            if (number >= 1000000) return number * 0.01;
+            else if (number >= 500000) return number * 0.02;
+            else if (number >= 100000) return number * 0.03;
+            else if (number >= 50000) return number * 0.05;
+            else if (number >= 50) return 0;
+            else return 'F';
+        }
+========================================================================================================================
+#36:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Enter operationType: ");
+        char operationType = char.Parse(Console.ReadLine());
+
+        while (!isValidOperator(operationType))
+        {
+            Console.Write("Invalid operator, Enter + - * / : ");
+            operationType = char.Parse(Console.ReadLine());
+        }
+
+        Console.Write("Enter Number1: ");
+        int number1 = int.Parse(Console.ReadLine());
+        Console.Write("Enter Number2: ");
+        int number2 = int.Parse(Console.ReadLine());
+
+        while (operationType == '/' && number2 <= 0)
+        {
+            Console.Write("cannot divide by 0, please enter number > 0: ");
+            number2 = int.Parse(Console.ReadLine());
+        }
+
+        if (operationType == '+')
+            Console.WriteLine(number1 + number2);
+        else if (operationType == '-')
+            Console.WriteLine(number1 - number2);
+        else if (operationType == '*')
+
+            Console.WriteLine(number1 * number2);
+        else
+            Console.WriteLine(number1 / number2);
+
+    }
+
+    static bool isValidOperator(char operationType)
+    {
+        return operationType == '+' ||
+        operationType == '-' ||
+        operationType == '*' ||
+        operationType == '/' ? true : false;
+    }
+
+}
+
+========================================================================================================================
+#44:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("enter the number: ");
+        int num = int.Parse(Console.ReadLine());
+
+        while (num < 1 || num > 7)
+        {
+            Console.Write("Wrong Day, enter a new number: ");
+            num = int.Parse(Console.ReadLine());
+        }
+
+        Console.WriteLine("It's " + weekDayName(num));
+    }
+
+    static string weekDayName(int number)
+    {
+
+        if (number == 1)
+            return "Sunday";
+        else if (number == 2)
+            return "Monday";
+        else if (number == 3)
+            return "Tuesday";
+        else if (number == 4)
+            return "Wednesday";
+        else if (number == 5)
+            return "Thursday";
+        else if (number == 6)
+            return "Friday";
+        else
+
+            return "Saturday";
+    }
+}
+========================================================================================================================
+#45:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("enter the month number: ");
+        int monthNum = int.Parse(Console.ReadLine());
+
+        while (monthNum < 1 || monthNum > 12)
+        {
+            Console.Write("Wrong month, enter a new number: ");
+            monthNum = int.Parse(Console.ReadLine());
+        }
+
+        Console.WriteLine("It's " + monthName(monthNum));
+    }
+
+    static string monthName(int number)
+    {
+
+        if (number == 1)
+            return "January";
+        else if (number == 2)
+            return "February";
+        else if (number == 3)
+            return "March";
+        else if (number == 4)
+            return "April";
+        else if (number == 5)
+            return "May";
+        else if (number == 6)
+            return "June";
+        else if (number == 6)
+            return "July";
+        else if (number == 8)
+            return "August";
+        else if (number == 9)
+            return "September";
+        else if (number == 10)
+            return "October";
+        else if (number == 11)
+            return "November";
+        else
+            return "December";
+    }
+}

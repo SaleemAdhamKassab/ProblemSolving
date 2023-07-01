@@ -1,0 +1,22 @@
+public class Solution {
+    public int MaxScore(string s) {
+        int zeroCount = 0, oneCount = 0, max = 0;
+
+            for (int i = 0; i < s.Length-1; i++)
+            {
+                if (s[i] == '0')
+                    zeroCount++;
+
+                for (int j = s.Length - 1; j > i; j--)
+                    if (s[j] == '1')
+                        oneCount++;
+
+                if (oneCount + zeroCount > max)
+                    max = oneCount + zeroCount;
+
+                oneCount = 0;
+            }
+
+            return oneCount == s.Length || zeroCount == s.Length ? s.Length - 1 : max;
+    }
+}

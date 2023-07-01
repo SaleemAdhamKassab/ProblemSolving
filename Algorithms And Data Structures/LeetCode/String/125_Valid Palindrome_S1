@@ -1,0 +1,25 @@
+public class Solution {
+    public bool IsPalindrome(string s) {
+        string ss = prepareString(s);
+        return ss == reverse(ss) ? true : false;
+    }
+    static bool IsCharacter(char c) => ((int)c >= 97 && (int)c <= 122) || ((int)c >= 65 && (int)c <= 90) ? true : false;
+        static bool isDigit(char c) => (int)c >= 48 && (int)c <= 57;
+        static char ToLower(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+        static string reverse(string str)
+        {
+            string result = "";
+            for (int i = str.Length - 1; i >= 0; i--)
+                result += ToLower(str[i]);
+            return result;
+        }
+        static string prepareString(string s)
+        {
+            string result = "";
+            for (int i = 0; i < s.Length; i++)
+                if (IsCharacter(s[i]) || isDigit(s[i]))
+                    result += ToLower(s[i]);
+            return result;
+
+        }
+}

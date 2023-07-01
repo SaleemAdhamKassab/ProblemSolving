@@ -1,0 +1,27 @@
+static string LongestCommonPrefix(string[] strs)
+        {
+            string result = "",
+                   minElement = minElementInArray(strs);
+
+            for (int i = 0; i < minElement.Length; i++)
+            {
+                for (int j = 0; j < strs.Length; j++)
+                    if (strs[0][i] != strs[j][i])
+                        return result;
+
+                result += strs[0][i];
+            }
+            return result;
+        }
+
+
+static string minElementInArray(string[] str)
+        {
+            string minString = str[0];
+
+            for (int i = 1; i < str.Length; i++)
+                if (str[i].Length < minString.Length)
+                    minString = str[i];
+
+            return minString;
+        }

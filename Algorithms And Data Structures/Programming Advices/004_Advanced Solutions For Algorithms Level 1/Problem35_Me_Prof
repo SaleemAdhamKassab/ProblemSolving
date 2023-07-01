@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double penniesCount = pennyCount(readPiggyBankContent());
+
+            Console.WriteLine("The Pennies Count is: {0}", penniesCount);
+            Console.WriteLine("The Dollars Count is: {0}", penniesCount / 100);
+        }
+        struct PiggyBankContent
+        {
+            public int Penny, Nickel, Dime, Quarter, Dollar;
+        }
+        static PiggyBankContent readPiggyBankContent()
+        {
+            PiggyBankContent piggyBankContent = new PiggyBankContent();
+
+            Console.Write("Enter Penny count: ");
+            piggyBankContent.Penny = int.Parse(Console.ReadLine());
+            Console.Write("Enter Nickel count: ");
+            piggyBankContent.Nickel = int.Parse(Console.ReadLine());
+            Console.Write("Enter Dime count: ");
+            piggyBankContent.Dime = int.Parse(Console.ReadLine());
+            Console.Write("Enter Quarter count: ");
+            piggyBankContent.Quarter = int.Parse(Console.ReadLine());
+            Console.Write("Enter Dollar count: ");
+            piggyBankContent.Dollar = int.Parse(Console.ReadLine());
+
+            return piggyBankContent;
+        }
+        static double pennyCount(PiggyBankContent piggyBankContent)
+        {
+            return piggyBankContent.Penny +
+                   piggyBankContent.Nickel * 5 +
+                   piggyBankContent.Dime * 10 +
+                   piggyBankContent.Quarter * 25 +
+                   piggyBankContent.Dollar * 100;
+        }
+    }
+}

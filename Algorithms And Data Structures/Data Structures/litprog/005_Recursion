@@ -1,0 +1,41 @@
+
+using System.Text;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            dream();
+        }
+        static void dream()
+        {
+            Console.WriteLine("dream");
+            dream();
+        }
+    }
+}
+
+=====================================================================================================================
+
+using System.Text;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            dream(5);
+        }
+        static void dream(int dreamsCount)
+        {
+            if (dreamsCount > 0)
+            {
+                Console.WriteLine("dream");
+                dream(--dreamsCount);
+            }
+        }
+    }
+}

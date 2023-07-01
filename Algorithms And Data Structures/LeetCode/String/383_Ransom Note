@@ -1,0 +1,41 @@
+public class Solution {
+    public bool CanConstruct(string ransomNote, string magazine) {
+        Dictionary<char, int> ransomNoteCountEachChar = countEachChar(ransomNote);
+
+            foreach (KeyValuePair<char, int> dic in ransomNoteCountEachChar)
+                if (CountSpecificLetter(magazine, dic.Key, true) < dic.Value)
+                    return false;
+
+            return true;
+    }
+    static Dictionary<char, int> countEachChar(string s)
+        {
+            Dictionary<char, int> dic = new Dictionary<char, int>();
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (dic.ContainsKey(s[i]))
+                    dic[s[i]]++;
+                else
+                    dic.Add(s[i], 1);
+            }
+
+            return dic;
+        }
+        static char ToLower(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+        static int CountSpecificLetter(string s, char letter, bool matchCase = true)
+        {
+            int counter = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (matchCase && ToLower(s[i]) == ToLower(letter))
+                    counter++;
+
+                if (!matchCase && s[i] == letter)
+                    counter++;
+            }
+
+            return counter;
+        }
+}

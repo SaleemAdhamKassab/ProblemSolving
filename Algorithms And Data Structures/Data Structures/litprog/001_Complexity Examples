@@ -1,0 +1,23 @@
+using Lab.Bank.Views.ManageUsers;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(getPairsWithSum3(new List<int> { 1, 2, 1, 2, 3 }));
+        }
+        static int getPairsWithSum3(List<int> lst)
+        {
+            int result = 0;
+
+            for (int i = 0; i < lst.Count - 1; i++)
+                for (int j = i + 1; j < lst.Count; j++)
+                    if (lst[i] + lst[j] == 3)
+                        result += 1;
+
+            return result;
+        }
+    }
+}

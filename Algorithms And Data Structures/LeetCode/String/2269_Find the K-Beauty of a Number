@@ -1,0 +1,19 @@
+public class Solution {
+    public int DivisorSubstrings(int num, int k) {
+        int counter = 0,
+                orginalNumber = num;
+            long mod = (long)Math.Pow(10, k);
+
+            while (orginalNumber >= mod / 10)
+            {
+                int div = (int)(orginalNumber % mod);
+
+                if (div != 0 && num % div == 0)
+                    counter++;
+
+                orginalNumber /= 10;
+            }
+
+            return counter;
+    }
+}

@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine(toUpperCase("salEEM kas%^%#sAB ??"));
+            Console.WriteLine(toLowerCase("salEEM kas%^%#sAB ??"));
+        }
+        static string toUpperCase(string s)
+        {
+            string result = "";
+            for (int i = 0; i < s.Length; i++)
+                    result += charToUpperCase(s[i]);
+
+            return result;
+        }
+        static string toLowerCase(string s)
+        {
+            string result = "";
+            for (int i = 0; i < s.Length; i++)
+                result += charToLowerCase(s[i]);
+
+            return result;
+        }
+        static char charToUpperCase(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
+        static char charToLowerCase(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+
+    }
+} 

@@ -1,0 +1,36 @@
+   [HttpGet]
+        public IActionResult test()
+        {
+            Customer customer = new Customer
+            {
+                CustomerName = "Cardinal",
+                ContactName = "Tom B. Erichsen",
+                Address = "Skagen 21",
+                City = "Stavanger",
+                PostalCode = 4006,
+                Country = "Norway"
+            };
+
+            db.Customers.Add(customer);
+            db.SaveChanges();
+
+            return Ok(customer);
+        }
+==================================================================
+ [HttpGet]
+        public IActionResult test()
+        {
+            Customer customer = new Customer
+            {
+                CustomerName = "Jamal",
+                City = "Stavanger",
+                Country = "Athina"
+            };
+
+            db.Customers.Add(customer);
+            db.SaveChanges();
+
+            return Ok(customer);
+        }
+        
+        

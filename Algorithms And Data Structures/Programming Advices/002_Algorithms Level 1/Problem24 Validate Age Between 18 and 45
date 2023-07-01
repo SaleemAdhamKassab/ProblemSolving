@@ -1,0 +1,8 @@
+ static void Main(string[] args)
+        {
+            Console.Write("enter age: ");
+            byte age = byte.Parse(Console.ReadLine());
+
+            if (age >= 18 && age <= 45) Console.WriteLine("Valid age");
+            else Console.WriteLine("Invalid age");
+        }

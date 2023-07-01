@@ -1,0 +1,17 @@
+select e.job_id,avg(e.salary)
+from employees e
+group by e.job_id
+having avg(e.salary) > 10000;
+=========================
+var result = (
+               from e in _db.Employees
+               group e by e.JobId into g
+               where g.Average(e => e.Salary) > 10000
+               select new
+               {
+                   jobId = g.Key,
+                   salAvg = g.Average(e => e.Salary)
+               }
+            ).ToList();
+            
+=========================

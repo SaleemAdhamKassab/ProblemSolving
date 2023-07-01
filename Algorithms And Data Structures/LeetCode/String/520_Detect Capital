@@ -1,0 +1,15 @@
+public class Solution {
+    public bool DetectCapitalUse(string word) =>
+                word.ToLower() == word ||
+                word.ToUpper() == word ||
+                CapitalizeWord(word) == word;
+                
+    static string CapitalizeWord(string word)
+        {
+            string result = word[0].ToString().ToUpper();
+
+            for (int i = 1; i < word.Length; i++)
+                result += word[i].ToString().ToLower();
+            return result;
+        }
+}

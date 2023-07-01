@@ -1,0 +1,76 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult();
+        }
+        static int readPositiveNumber(string message)
+        {
+            int number = 0;
+
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number < 1);
+
+            return number;
+        }
+        static int[] generateArrayFrom1ToN(int arrayLength)
+        {
+            int[] arr = new int[arrayLength];
+
+            for (int i = 0; i < arrayLength; i++)
+                arr[i] = i;
+
+            return arr;
+        }
+        static void printArray(int[] arr)
+        {
+            for(int i = 0; i < arr.Length; i++)
+                Console.Write(arr[i] + " ");
+
+            Console.WriteLine();
+        }
+        static int[] shuffleArray(int[] arr)
+        {
+            int[] shffledArray = new int[arr.Length];
+
+            for(int i = 0; i < shffledArray.Length; i++)
+            {
+                swap(ref arr[generateRandomeNumber()], ref arr[generateRandomeNumber()]);
+            }
+
+            return shffledArray;
+        }
+        static void swap(ref int a, ref int b)
+        {
+            int temp = 0;
+            temp = a;
+            a = b;
+            b = temp;
+        }
+        static int generateRandomeNumber()
+        {
+            Random random = new Random();
+            return random.Next(0, 9);
+        }
+        static void printResult()
+        {
+            int[] arr = generateArrayFrom1ToN(readPositiveNumber("Please Enter a Positive Number: "));
+            
+            Console.WriteLine("Array Before Shuffling:");
+            printArray(arr);
+
+            Console.WriteLine("Array After Shuffling:");
+            printArray(shuffleArray(arr));
+        }
+
+    }
+}

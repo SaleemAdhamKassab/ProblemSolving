@@ -1,0 +1,51 @@
+function alternate(s: string): number {
+    let max = 0,
+        temp = '',
+        x = -1,
+        flag = true,
+        distinctS = distinctString(s)
+
+    for (let i = 0; i < distinctS.length - 1; i++) {
+
+        for (let j = i + 1; j < distinctS.length; j++) {
+
+            for (let k = 0; k < s.length; k++) {
+
+                if (s[k] == distinctS[i]) {
+                    temp += s[k]
+                    x++
+                }
+
+                if (s[k] == distinctS[j]) {
+                    temp += s[j]
+                    x++
+                }
+
+                if (x > 0 && temp[x] == temp[x - 1]) {
+                    flag = false
+                    break
+                }
+            }
+
+            if (flag && temp.length > max) {
+                max = temp.length
+            }
+
+            temp = ''
+            flag = true
+            x = -1
+        }
+    }
+
+    return max
+}
+
+/// disinct string logic
+function distinctString(s: string): string {
+    let result: string = ''
+    for (let i = 0; i < s.length; i++) {
+        if (result.indexOf(s[i]) < 0) result += s[i]
+    }
+
+    return result
+}

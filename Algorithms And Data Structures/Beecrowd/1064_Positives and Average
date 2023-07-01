@@ -1,0 +1,35 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+        printFinalResult(countAndAvgPositiveInputNumbers());
+    }
+    static double readNumber() => double.Parse(Console.ReadLine());
+        static bool isPositive(double number) => number > 0;
+        static double[] countAndAvgPositiveInputNumbers()
+        {
+            int counter = 0;
+            double number = 0, sum = 0;
+
+            for (int i = 0; i < 6; i++)
+            {
+                number = readNumber();
+
+                if (isPositive(number))
+                {
+                    counter++;
+                    sum += number;
+                }
+            }
+
+            return new double[] { counter, sum / counter };
+        }
+        static void printFinalResult(double[] countAndAvgPositiveInputNumbers)
+        {
+            Console.WriteLine("{0} valores positivos", countAndAvgPositiveInputNumbers[0]);
+            Console.WriteLine(countAndAvgPositiveInputNumbers[1].ToString(".0"));
+        }
+
+
+}

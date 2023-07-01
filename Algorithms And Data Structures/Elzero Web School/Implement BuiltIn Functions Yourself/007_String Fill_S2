@@ -1,0 +1,2 @@
+ static string lpad(string text, int totalWidth, char fillWith) =>
+            text.PadLeft(totalWidth, fillWith);

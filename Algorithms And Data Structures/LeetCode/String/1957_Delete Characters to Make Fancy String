@@ -1,0 +1,24 @@
+public class Solution {
+    public string MakeFancyString(string s) {
+        StringBuilder fancyString = new StringBuilder();
+            char tempChar = s[0];
+
+            int counter = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == tempChar && counter < 2)
+                {
+                    fancyString.Append(tempChar); 
+                    counter++;
+                }
+                else if (s[i] != tempChar)
+                {
+                    tempChar = s[i];
+                    fancyString.Append(tempChar);
+                    counter = 1;
+                }
+            }
+            return fancyString.ToString();
+    }
+}

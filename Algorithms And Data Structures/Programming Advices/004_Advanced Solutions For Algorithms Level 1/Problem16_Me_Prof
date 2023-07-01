@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int  diagonal= 0, sideArea = 0;
+            readRectangle(ref diagonal, ref sideArea);
+            printArea(area(diagonal,sideArea));
+        }
+
+        static void readRectangle(ref int diagonal, ref int sideArea)
+        {
+            Console.Write("Please Enter the diagonal: ");
+            diagonal = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter the sideArea: ");
+            sideArea = int.Parse(Console.ReadLine());
+        }
+        static double area(int diagonal, int sideArea) => diagonal * Math.Sqrt((sideArea * sideArea) - (diagonal * diagonal));
+        static void printArea(double rectangleArea) => Console.WriteLine("The Area is: {0}", rectangleArea.ToString(".000"));
+    }
+}

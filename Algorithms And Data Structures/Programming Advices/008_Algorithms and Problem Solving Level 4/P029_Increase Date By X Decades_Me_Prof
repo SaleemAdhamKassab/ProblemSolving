@@ -1,0 +1,160 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalResult();
+        }
+        struct Date
+        {
+            public int day, month, year;
+        }
+        static int readNumber(string dateSection)
+        {
+            Console.Write("Please enter a {0}: ", dateSection);
+            return int.Parse(Console.ReadLine());
+        }
+        static Date readDate()
+        {
+            Date date = new Date();
+
+            date.day = readNumber("day");
+            date.month = readNumber("month");
+            date.year = readNumber("year");
+
+            return date;
+        }
+        static bool isLeapYear(int year) =>
+            ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) ? true : false;
+        static int numberDaysInAMonth(int year, int monthNumber)
+        {
+            int[] NumberOfMonthDays = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+            return monthNumber == 2 ? (isLeapYear(year) ? 29 : 28) : NumberOfMonthDays[monthNumber - 1];
+        }
+        static bool isLastDayInMonth(Date date) =>
+            date.day == numberDaysInAMonth(date.year, date.month) ? true : false;
+        static bool isLastMonthInYear(int Month)
+        {
+            return (Month == 12);
+        }
+        static string printDate(Date date) =>
+             date.day + "/" + date.month + '/' + date.year;
+        static Date increaseDateByOneDay(Date date)
+        {
+            if (isLastDayInMonth(date))
+            {
+                if (isLastMonthInYear(date.month))
+                {
+                    date.month = 1;
+                    date.day = 1;
+                    date.year++;
+                }
+                else
+                {
+                    date.day = 1;
+                    date.month++;
+                }
+            }
+            else
+            {
+                date.day++;
+            }
+            return date;
+        }
+        static Date increaseDateByXDays(Date date, int addingDays)
+        {
+            for (int i = 0; i < addingDays; i++)
+                date = increaseDateByOneDay(date);
+
+            return date;
+        }
+        static Date increaseDateByOneWeek(Date date)
+        {
+            for (int i = 0; i < 7; i++)
+                date = increaseDateByOneDay(date);
+
+            return date;
+        }
+        static Date increaseDateByTenWeeks(Date date)
+        {
+            for (int i = 0; i < 10; i++)
+                date = increaseDateByOneWeek(date);
+
+            return date;
+        }
+        static Date increaseDateByOneMonth(Date date)
+        {
+            int nextMonthDay = date.day + (numberDaysInAMonth(date.year, date.month) - date.day);
+
+            for (int i = 0; i < nextMonthDay; i++)
+                date = increaseDateByOneDay(date);
+
+            return date;
+        }
+        static Date increaseDateByXMonths(Date date, int addedMonths)
+        {
+            for (int i = 0; i < addedMonths; i++)
+                date = increaseDateByOneMonth(date);
+
+            return date;
+        }
+        static Date increaseDateByOneYear(Date date)
+        {
+            date.year = ++date.year;
+            return date;
+        }
+        static Date increaseDateByXYears(Date date, int addedYears)
+        {
+            for (int i = 0; i < addedYears; i++)
+                date = increaseDateByOneYear(date);
+
+            return date;
+        }
+        static Date increaseDateByXYearsFaster(Date date, int addedYears)
+        {
+            date.year += addedYears;
+            return date;
+        }
+        static Date increaseDateByOneDecade(Date date) => increaseDateByXYearsFaster(date, 10);
+        static Date increaseDateByXDecades(Date date, int addedDecades)
+        {
+            for (int i = 0; i < addedDecades; i++)
+                date = increaseDateByOneDecade(date);
+
+            return date;
+        }
+
+
+        static void printFinalResult()
+        {
+            Date date = readDate();
+
+            Console.WriteLine();
+            Console.WriteLine("Date After: ");
+            Console.WriteLine();
+
+            Console.WriteLine("01- Adding one day is: {0}", printDate(increaseDateByOneDay(date)));
+            Console.WriteLine("02- Adding 10 day is: {0}", printDate(increaseDateByOneDay(increaseDateByXDays(date, 10))));
+            Console.WriteLine("03- Adding one week is: {0}", printDate(increaseDateByOneWeek(increaseDateByOneDay(increaseDateByXDays(date, 10)))));
+            Console.WriteLine("04- Adding 10 weeks is: {0}", printDate(increaseDateByTenWeeks(increaseDateByOneWeek(increaseDateByOneDay(increaseDateByXDays(date, 10))))));
+            Console.WriteLine("05- Adding one month is: {0}", printDate(increaseDateByOneMonth(increaseDateByTenWeeks(increaseDateByOneWeek(increaseDateByOneDay(increaseDateByXDays(date, 10)))))));
+            Console.WriteLine("06- Adding 5 months is: {0}", printDate(increaseDateByXMonths(increaseDateByOneMonth(increaseDateByTenWeeks(increaseDateByOneWeek(increaseDateByOneDay(increaseDateByXDays(date, 10))))), 5)));
+            Console.WriteLine("07- Adding one year is: {0}", printDate(increaseDateByOneYear(increaseDateByXMonths(increaseDateByOneMonth(increaseDateByTenWeeks(increaseDateByOneWeek(increaseDateByOneDay(increaseDateByXDays(date, 10))))), 5))));
+            Console.WriteLine("08- Adding 10 years is: {0}", printDate(increaseDateByXYears(increaseDateByOneYear(increaseDateByXMonths(increaseDateByOneMonth(increaseDateByTenWeeks(increaseDateByOneWeek(increaseDateByOneDay(increaseDateByXDays(date, 10))))), 5)), 10)));
+
+            date = increaseDateByXYears(increaseDateByOneYear(increaseDateByXMonths(increaseDateByOneMonth(increaseDateByTenWeeks(increaseDateByOneWeek(increaseDateByOneDay(increaseDateByXDays(date, 10))))), 5)), 10);
+
+            Console.WriteLine("09- Adding 10 years (faster) is: {0}", printDate(increaseDateByXYearsFaster(date, 10)));
+            Console.WriteLine("10- Adding one Decade is: {0}", printDate(increaseDateByOneDecade(increaseDateByXYearsFaster(date, 10))));
+            Console.WriteLine("11- Adding 10 Decades is: {0}", printDate(increaseDateByXDecades(increaseDateByOneDecade(increaseDateByXYearsFaster(date, 10)), 10)));
+
+        }
+    }
+}

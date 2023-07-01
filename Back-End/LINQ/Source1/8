@@ -1,0 +1,26 @@
+select *
+from jobs j
+order by j.job_id desc;
+================
+var result = (
+             from j in _db.Jobs
+             orderby j.Id descending
+             select new
+             {
+                 JOB_ID = j.JobTitle,
+                 JOB_TITLE = j.JobTitle,
+                 MIN_SALARY = j.MinSalary,
+                 MAX_SALARY = j.MaxSalary
+             }
+
+
+            ).ToList();
+
+=========
+ var result = _db.Jobs.OrderByDescending(e => e.Id).Select(e => new
+            {
+                JOB_ID = e.JobTitle,
+                JOB_TITLE = e.JobTitle,
+                MIN_SALARY = e.MinSalary,
+                MAX_SALARY = e.MaxSalary
+            }).ToList();

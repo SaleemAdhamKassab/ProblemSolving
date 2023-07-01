@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult();
+        }
+        enum enRandomCharacters { smallLetter, capitalLetter, specialChar, digit }
+        static int generateRandomNumberFromTo(int from, int to)
+        {
+            Random rnd = new Random();
+            return rnd.Next(from, to);
+        }
+        static char getRandomChar(enRandomCharacters randomChar)
+        {
+            if (randomChar == enRandomCharacters.capitalLetter)
+                return ((char)generateRandomNumberFromTo(65, 90));
+            else if (randomChar == enRandomCharacters.smallLetter)
+                return ((char)generateRandomNumberFromTo(97, 122));
+            else if (randomChar == enRandomCharacters.digit)
+                return ((char)generateRandomNumberFromTo(48, 57));
+            else
+                return ((char)generateRandomNumberFromTo(33, 47));
+        }
+        static void printResult()
+        {
+            Console.WriteLine(getRandomChar(enRandomCharacters.capitalLetter));
+            Console.WriteLine(getRandomChar(enRandomCharacters.smallLetter));
+            Console.WriteLine(getRandomChar(enRandomCharacters.digit));
+            Console.WriteLine(getRandomChar(enRandomCharacters.specialChar));
+        }
+    }
+}

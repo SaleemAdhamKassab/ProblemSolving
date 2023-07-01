@@ -1,0 +1,93 @@
+public class Solution {
+    public int FindLUSlength(string a, string b) {
+         if (isEqualStrings(a, b)) return -1;
+            
+            int lengthB = stringLength(b),
+                lengthA = stringLength(a),
+                orginalBLength = stringLength(b);
+
+            b = sortStringAsc(b);
+
+            while (lengthB > 0)
+            {
+                if (lengthA > stringLength(b))
+                {
+                    if (orginalBLength >= lengthA)
+                        return orginalBLength;
+
+                    return lengthA;
+                }
+
+                b = removeLastChar(b);
+            }
+
+            return orginalBLength > lengthA ? orginalBLength:  - 1;
+    }
+
+    static bool isEqualStrings(string s1, string s2) =>
+            s1 == s2;
+        static string sortStringAsc(string s) =>
+            charArrayToString(sortCharArrayAsc(stringToCharArray(s)));
+        static int stringLength(string s)
+        {
+            int i = 0;
+            char c = ' ';
+
+            while (true)
+            {
+                try
+                {
+                    c = s[i];
+                    i++;
+                }
+                catch
+                {
+                    return i;
+                }
+            }
+        }
+        static char[] stringToCharArray(string s)
+        {
+            char[] stringToCharrArray = new char[stringLength(s)];
+
+            for (int i = 0; i < stringLength(s); i++)
+                stringToCharrArray[i] = s[i];
+
+            return stringToCharrArray;
+        }
+        static string charArrayToString(char[] arr)
+        {
+            string result = "";
+
+            for (int i = 0; i < arr.Length; i++)
+                result += arr[i];
+
+            return result;
+        }
+        static char[] sortCharArrayAsc(char[] arr)
+        {
+            char temp = ' ';
+
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] > arr[j])
+                    {
+                        temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+        static string removeLastChar(string str)
+        {
+            string result = "";
+            for (int i = 0; i < str.Length - 1; i++)
+                result += str[i];
+
+            return result;
+        }
+}

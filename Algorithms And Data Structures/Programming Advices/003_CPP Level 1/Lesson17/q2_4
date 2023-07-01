@@ -1,0 +1,39 @@
+ q2:
+ 
+ string name = "Saleem Kassab.",
+            city = "Damascus.",
+            country = "Syria.";
+            byte age = 44;
+            double monthlySalary = 600;
+            char gender = 'M';
+            bool isMarred = false;
+
+            char isMarredChar = isMarred ? '1' : '0';
+
+            Console.Write("*************************" + "\n" +
+            "Name: " + name + "\n" +
+            "Age: " + age + " Years." + "\n" +
+            "City: " + city + "\n" +
+            "Country: " + country + "\n" +
+            "monthlySalary: " + monthlySalary + "\n" +
+            "yearlySalary: " + (monthlySalary * 12) + "\n" +
+            "Gender: " + gender + "\n" +
+            "Married: " + isMarredChar + "\n" +
+            "*************************");
+===================================================================
+q3:
+
+int num1 = 20, num2 = 30, num3 = 10;
+
+            Console.Write(
+                num1 + " +" + "\n" +
+                num2 + " +" + "\n" +
+                num3 + "\n" +
+                "__________________" + "\n" +
+                "Total= " + (num1 + num2 + num3)
+            );
+ ===========================================================================
+ q4:
+ 
+ byte age = 25;
+Console.WriteLine("After 5 years you will be " + (age + 5) + " years old.");

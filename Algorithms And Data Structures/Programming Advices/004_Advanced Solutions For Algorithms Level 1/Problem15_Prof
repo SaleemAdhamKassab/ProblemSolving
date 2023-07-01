@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int height = 0, width = 0;
+            readRectangle(ref height,ref width);
+            printArea(area(height,width));
+        }
+
+        static void readRectangle(ref int height, ref int width)
+        {
+            Console.Write("Please Enter the Height: ");
+            height = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter the Width: ");
+            width = int.Parse(Console.ReadLine());
+        }
+        static int area(int height, int width) => height*width;
+        static void printArea(int rectangleArea) => Console.WriteLine("The Area is: {0}", rectangleArea);
+    }
+}

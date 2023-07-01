@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            upperAndLower("Saleem Kassab");
+
+            Console.WriteLine("String after Upper:");
+            Console.WriteLine(upper);
+
+            Console.WriteLine("String after Lower:");
+            Console.WriteLine(lower);
+
+        }
+        static string upper = "", lower = "";
+        static void upperAndLower(string s)
+        {
+            for (int i = 0; i < s.Length; i++)
+            {
+                upper += charToUpperCase(s[i]);
+                lower += charToLowerCase(s[i]);
+            }
+        }
+        static char charToUpperCase(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
+        static char charToLowerCase(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+
+    }
+}

@@ -1,0 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(DateTime.Now);
+            Console.WriteLine(DateTime.UtcNow);
+        }
+    }
+}
+

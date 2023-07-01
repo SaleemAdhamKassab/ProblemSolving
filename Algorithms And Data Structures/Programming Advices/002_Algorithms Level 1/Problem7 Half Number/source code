@@ -1,0 +1,6 @@
+static void Main(string[] args)
+        {
+            Console.Write("Pleas Enter the Number: ");
+            decimal number = decimal.Parse(Console.ReadLine());
+            Console.WriteLine("Half of {0} is {1}", number, number / 2);
+        }

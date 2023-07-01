@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table border="1" style="width:100%">
+        <tr>
+            <th>Company</th>
+            <th style="width:50%; height:50px">Contact</th>
+            <th>Country</th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>Syriatel</td>
+                <td>Syriatel.sy</td>
+                <td>Syria</td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <hr />
+    <table border="1">
+        <caption>Col span</caption>
+        <thead>
+            <th colspan="2">Name</th>
+            <th>Age</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>saleem</td>
+                <td>kassab</td>
+                <td>30</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr /> 
+    <br />
+    <table border="1">
+        <tr>
+            <th colspan="2">Name</th>
+            <th >Age</th>
+        </tr>
+        <tr>
+            <td>saleem</td>
+            <td>kassab</td>
+            <td>30</td>
+        </tr>
+    </table>
+    <hr />
+    <br />
+    <table border="1">
+        <tr>
+            <th >Name</th>
+            <td >saleem</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Phone</th>
+            <td>123</td>
+        </tr>
+        <tr>
+            <td>123</td>
+        </tr>
+        
+    </table>
+    <hr />
+    <br />
+
+</body>
+</html>

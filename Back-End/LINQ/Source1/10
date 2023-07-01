@@ -1,0 +1,28 @@
+select e.first_name, e.last_name
+from employees e
+where e.first_name like'S%' or  e.last_name like'S%';
+===========
+var result = (
+
+             from e in _db.Employees
+             where e.FirstName.StartsWith("S") || e.LastName.StartsWith("S")
+             select new
+             {
+                 FIRST_NAME = e.FirstName,
+                 LAST_NAME = e.LastName
+             }
+
+
+            ).ToList();
+=================
+ var result = _db.Employees.Where(e => e.FirstName != null &&
+                                            (e.FirstName.StartsWith("S") || e.LastName.StartsWith("S")))
+                                            .Select(e => new
+                                            {
+                                                FIRST_NAME = e.FirstName,
+                                                LAST_NAME = e.LastName
+                                            })
+
+                                            .ToList();
+
+            return result;

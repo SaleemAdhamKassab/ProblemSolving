@@ -1,0 +1,56 @@
+static string sortStringAsc(string s)=>
+            charArrayToString(sortCharArrayAsc(stringToCharArray(s)));
+        static int stringLength(string s)
+        {
+            int i = 0;
+            char c = ' ';
+
+            while (true)
+            {
+                try
+                {
+                    c = s[i];
+                    i++;
+                }
+                catch
+                {
+                    return i;
+                }
+            }
+        }
+        static char[] stringToCharArray(string s)
+        {
+            char[] stringToCharrArray = new char[stringLength(s)];
+
+            for (int i = 0; i < stringLength(s); i++)
+                stringToCharrArray[i] = s[i];
+
+            return stringToCharrArray;
+        }
+        static string charArrayToString(char[] arr)
+        {
+            string result = "";
+
+            for (int i = 0; i < arr.Length; i++)
+                result += arr[i];
+
+            return result;
+        }
+        static char[] sortCharArrayAsc(char[] arr)
+        {
+            char temp = ' ';
+
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] > arr[j])
+                    {
+                        temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            return arr;
+        }

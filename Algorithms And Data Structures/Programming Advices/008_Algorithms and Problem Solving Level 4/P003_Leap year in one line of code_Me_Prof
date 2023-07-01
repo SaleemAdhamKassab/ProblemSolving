@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalResult(readYear());
+        }
+        static int readYear()
+        {
+            Console.Write("Please Enter a year to check: ");
+            return int.Parse(Console.ReadLine());
+        }
+        static bool isLeapYear(int year) => 
+            ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) ? true : false;
+        static void printFinalResult(int year)
+        {
+            if (isLeapYear(year))
+                Console.WriteLine("Yes, Year {0} is a leap year.", year);
+            else
+                Console.WriteLine("No, Year {0} is Not a leap year.", year);
+        }
+    }
+}

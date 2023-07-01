@@ -1,0 +1,21 @@
+q1- q8
+The bit is the most basic unit of information in computing and digital communications. binary digit.[1] The bit represents a logical state with one of two possible values. These values are most commonly represented as either "1" or "0".
+
+crumb is 2 bits
+
+Nibble is equal to:
+2 cumbs
+4 bits
+
+Byte is equal to:
+2 Nibbles
+4 Crumbs
+8 bits
+===========
+q9 - 10
+Lower nibble is the first 4 bits in the byte
+Upper nibble is the last 4 bits in the byte
+===========
+q11 - q12
+LSB: has the lowest value of the byte, and his value is 0
+HSB: has the biggest value of the byte, and his value is 128

@@ -1,0 +1,27 @@
+public class Solution {
+    public int CountGoodRectangles(int[][] rectangles) {
+        int[] minRectanglesSideLength = new int[rectangles.Length];
+            int max = 0, count = 0;
+
+            for (int i = 0; i < rectangles.Length; i++)
+            {
+                minRectanglesSideLength[i] = rectangles[i].Min();
+            }
+
+            return maxNumberOccurrence(minRectanglesSideLength);  
+    }
+    static int maxNumberOccurrence(int[] arr)
+        {
+            int max = 0, counter = 0;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] > max) {
+                    max = arr[i];
+                    counter = 0;
+                }
+                if (arr[i] == max) counter++;
+            }
+            return counter;
+        }
+}

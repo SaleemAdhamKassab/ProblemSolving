@@ -1,0 +1,8 @@
+ [HttpGet]
+        public IActionResult test()
+        {
+            IEnumerable<Employee> employees1 = db.Employees.Where(e=>e.Id==1).Take(3);
+            IQueryable<Employee> employees2 = db.Employees.Where(e => e.Id == 1).Take(3);
+
+            return Ok("");
+        }

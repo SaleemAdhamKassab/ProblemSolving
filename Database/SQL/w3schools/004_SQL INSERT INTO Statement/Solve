@@ -1,0 +1,7 @@
+insert into customers  (CUSTOMERNAME, CONTACTNAME, ADDRESS, CITY, POSTALCODE, COUNTRY)
+values ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+commit;
+================================================================================================================
+insert into customers  (CUSTOMERNAME, CITY, COUNTRY)
+values ('Ola','Stavanger', 'Norway');
+commit; 

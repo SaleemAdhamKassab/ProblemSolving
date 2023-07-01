@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            firstCharOfEachWord("saleem adham kassab");
+        }
+        static List<char> firstCharOfEachWord(string word)
+        {
+            List<char> result = new List<char>();
+            
+            result.Add(word[0]);
+            for(int i = 0; i < word.Length; i++)
+            {
+                if (word[i] == ' ')
+                    result.Add(word[i + 1]);
+            }
+
+            return result;
+        }
+    }
+}

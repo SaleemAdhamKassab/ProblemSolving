@@ -1,0 +1,27 @@
+public class Solution {
+    public string[] SortPeople(string[] names, int[] heights) {
+        
+            int temp = 0;
+            string strTemp = "";
+
+            for (int i = 0; i < heights.Length - 1; i++)
+            {
+                for (int j = i + 1; j < heights.Length; j++)
+                {
+                    if (heights[i] < heights[j])
+                    {
+                        //swap names
+                        strTemp = names[i];
+                        names[i] = names[j];
+                        names[j] = strTemp;
+
+                        //swap numbers
+                        temp = heights[i];
+                        heights[i] = heights[j];
+                        heights[j] = temp;
+                    }
+                }
+            }
+            return names;
+    }
+}

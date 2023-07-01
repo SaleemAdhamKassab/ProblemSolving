@@ -1,0 +1,136 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Calculater calculater = new Calculater();
+            calculater.Add(10);
+            calculater.Add(10);
+            calculater.Subtract(10);
+            calculater.Multiply(2);
+            calculater.Divide(4);
+            calculater.PrintResult();
+            calculater.Clear();
+            calculater.Add(10);
+            calculater.Multiply(2);
+            calculater.CancelLastOperation();
+        }
+        class Calculater
+        {
+            struct resultRowProp
+            {
+                public resultRowProp() { }
+                public string operationLogName = "";
+                public int resultLog = 0, result = 0;
+            }
+            private int _result;
+            private List<string> _operationsNameLog = new List<string>();
+            private List<int> _resultLog = new List<int>();
+            private bool _IsNegativeNumber(int number) => number < 0;
+            private void _saveOperationLog(string operation) => _operationsNameLog.Add(operation);
+            private void _saveResultLog(int number) => _resultLog.Add(number);
+            private void _saveLog(int number, string operation)
+            {
+                _saveResultLog(number);
+                _saveOperationLog(operation);
+            }
+            private int _getResult(int resultLogIndex)
+            {
+                int result = 0;
+
+                for (int i = 0; i <= resultLogIndex; i++)
+                {
+                    if (_operationsNameLog[i] == "Adding") result += _resultLog[i];
+                    else if (_operationsNameLog[i] == "Subtracting") result -= _resultLog[i];
+                    else if (_operationsNameLog[i] == "Multipling") result *= _resultLog[i];
+                    else if (_operationsNameLog[i] == "Dividing") result /= _resultLog[i];
+                }
+                return result;
+            }
+            private string _printLogRow(resultRowProp resultRowProp) =>
+                "Result After " + resultRowProp.operationLogName.PadRight(12, ' ') + " "
+                                + resultRowProp.resultLog.ToString("00") + " is: "
+                                + resultRowProp.result.ToString("00");
+            private void _cancelLastOperation()
+            {
+                _operationsNameLog.RemoveAt(_operationsNameLog.Count - 1);
+                _resultLog.RemoveAt(_resultLog.Count - 1);
+            }
+            private void _clearMessage()
+            {
+                Console.WriteLine();
+                Console.WriteLine("_______Cleared Successfully_______");
+                Console.WriteLine();
+            }
+            private void _resetProps()
+            {
+                _result = 0;
+                _resultLog = new List<int>();
+                _operationsNameLog = new List<string>();
+            }
+            private void _cancelLastOperationMenue()
+            {
+                Console.WriteLine();
+                Console.WriteLine("_____Canceled last operation______");
+                Console.WriteLine("Type  : {0}", _operationsNameLog[_operationsNameLog.Count - 1]);
+                Console.WriteLine("Number: {0}", _resultLog[_resultLog.Count - 1].ToString("00"));
+                Console.WriteLine("___________________________________");
+                Console.WriteLine();
+            }
+            private resultRowProp _setResultRowPropStruct(string operationsName, int resultLog, int result)
+            {
+                resultRowProp resultRowProp = new resultRowProp();
+
+                resultRowProp.operationLogName = operationsName;
+                resultRowProp.resultLog = resultLog;
+                resultRowProp.result = result;
+
+                return resultRowProp;
+            }
+
+            public void Add(int number)
+            {
+                _saveLog(number, "Adding");
+                _result += number;
+            }
+            public void Subtract(int number)
+            {
+                _saveLog(number, "Subtracting");
+                _result -= number;
+            }
+            public void Multiply(int number)
+            {
+                _saveLog(number, "Multipling");
+                _result *= number;
+            }
+            public void Divide(int number)
+            {
+                _saveLog(number, "Dividing");
+                if (_IsNegativeNumber(number)) number = 1;
+                _result /= number;
+            }
+            public void Clear()
+            {
+                _clearMessage();
+                _resetProps();
+            }
+            public void CancelLastOperation()
+            {
+                PrintResult();
+                _cancelLastOperationMenue();
+                _cancelLastOperation();
+                PrintResult();
+            }
+            public void PrintResult()
+            {
+                for (int i = 0; i < _operationsNameLog.Count(); i++)
+                    Console.WriteLine(_printLogRow(_setResultRowPropStruct(_operationsNameLog[i], _resultLog[i], _getResult(i))));
+            }
+        }
+    }
+}

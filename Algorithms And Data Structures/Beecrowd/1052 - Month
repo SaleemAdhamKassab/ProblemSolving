@@ -1,0 +1,21 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+Console.WriteLine(monthName(readMonthNumber()));
+    }
+    
+     static int readMonthNumber() =>
+            int.Parse(Console.ReadLine());
+        static string monthName(int monthNumber)
+        {
+            string[] monthsNames = new string[]
+            { "January", "February", "March", "April", "May", "June", "July", "August",
+               "September", "October", "November", "December"
+            };
+
+            return monthsNames[monthNumber - 1];
+        }
+
+}

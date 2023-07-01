@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalResult();
+        }
+        struct Date
+        {
+            public int day, month, year;
+        }
+        static int readNumber(string dateSection)
+        {
+            Console.Write("Please enter a {0}: ", dateSection);
+            return int.Parse(Console.ReadLine());
+        }
+        static Date readDate()
+        {
+            Date date = new Date();
+
+            date.day = readNumber("day");
+            date.month = readNumber("month");
+            date.year = readNumber("year");
+
+            return date;
+        }
+        static bool isLeapYear(int year) =>
+            ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) ? true : false;
+        static int numberDaysInAMonth(int year, int monthNumber)
+        {
+            int[] NumberOfMonthDays = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+            return monthNumber == 2 ? (isLeapYear(year) ? 29 : 28) : NumberOfMonthDays[monthNumber - 1];
+        }
+        static bool isLastDayInMonth(Date date) =>
+            date.day == numberDaysInAMonth(date.year, date.month) ? true : false;
+        static bool isLastMonthInYear(int Month)
+        {
+            return (Month == 12);
+        }
+        static Date increaseDateByOneDay(Date date)
+        {
+            if (isLastDayInMonth(date))
+            {
+                if (isLastMonthInYear(date.month))
+                {
+                    date.month = 1;
+                    date.day = 1;
+                    date.year++;
+                }
+                else
+                {
+                    date.day = 1;
+                    date.month++;
+                }
+            }
+            else
+            {
+                date.day++;
+            }
+            return date;
+        }
+        static Date increaseDateByXDays(Date date, int addingDays)
+        {
+            for (int i = 0; i < addingDays; i++)
+                date = increaseDateByOneDay(date);
+
+            return date;
+        }
+        static string printDate(Date date) =>
+             date.day + "/" + date.month + '/' + date.year;
+        static void printFinalResult()
+        {
+            Date date = readDate();
+
+            Console.WriteLine();
+            Console.WriteLine("Date After: ");
+            Console.WriteLine();
+
+            Console.WriteLine("01- Adding one day is: {0}",printDate(increaseDateByOneDay(date)));
+            Console.WriteLine("02- Adding 10 day is: {0}", printDate(increaseDateByOneDay(increaseDateByXDays(date,10))));
+        }
+    }
+}

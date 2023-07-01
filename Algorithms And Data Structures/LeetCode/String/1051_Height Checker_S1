@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine(HeightChecker(new int[] { 1, 2, 3, 4, 5 }));
+        }
+        static int HeightChecker(int[] heights)
+        {
+            int numberOfIndices = 0;
+            int[] mainArr = new int[heights.Length];
+            Array.Copy(heights, mainArr, heights.Length);
+            selectionSortAsc(heights);
+                
+
+            for(int i = 0; i < mainArr.Length; i++)
+            {
+                if (mainArr[i] != heights[i])
+                    numberOfIndices++;
+            }
+
+            return numberOfIndices;
+        }
+
+      
+
+        static int[] selectionSortAsc(int[] arr)
+        {
+            int temp = 0;
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] > arr[j])
+                    {
+                        temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+    }
+}

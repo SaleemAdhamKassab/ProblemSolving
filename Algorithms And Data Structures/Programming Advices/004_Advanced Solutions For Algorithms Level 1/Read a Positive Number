@@ -1,0 +1,11 @@
+ static int readPositiveNumber(string message)
+        {
+            int number = 0;
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number <= 0);
+
+            return number;
+        }

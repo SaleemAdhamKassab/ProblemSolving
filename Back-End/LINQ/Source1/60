@@ -1,0 +1,27 @@
+select *
+from employees e
+where e.employee_id not in (
+select distinct jh.employee_id
+from job_history jh);
+===================================
+var sub = (
+              from jh in _db.JobHistory
+              select new
+              {
+                  jh.EmployeeId
+              }
+
+            ).Distinct();
+
+var result = (
+                from e in _db.Employees
+                where !sub.Select(e => e.EmployeeId).Contains(e.Id)
+                select new
+                {
+                    e.Id,
+                    e.FirstName,
+                    e.LastName,
+                    e.Salary
+                }
+
+            ).ToList();

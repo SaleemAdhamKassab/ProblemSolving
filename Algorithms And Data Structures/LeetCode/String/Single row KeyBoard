@@ -1,0 +1,15 @@
+static int calculateTime(string keyBoard, string word)
+        {
+            int result = 0;
+            for (int i = 0; i < word.Length; i++)
+            {
+                for (int j = 0; j < keyBoard.Length; j++)
+                {
+                    if (word[i] == keyBoard[j])
+                    {
+                        result += Math.Abs(i - j);
+                    }
+                }
+            }
+            return result;
+        }

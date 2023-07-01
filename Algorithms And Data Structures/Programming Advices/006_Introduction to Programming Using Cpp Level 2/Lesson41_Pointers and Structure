@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            unsafe
+            {
+                Student S1 = new Student(1, 95.0);
+                Student* S1_ptr = &S1;
+               
+                Console.WriteLine("Details of Student 1");
+                Console.WriteLine("Roll Number: {0} Marks: {1}",
+                                S1_ptr->rno, S1_ptr->marks);
+            }
+        }
+        struct Student
+        {
+            public int rno;
+            public double marks;
+
+            // Constructor to initialize values
+            public Student(int r, double m)
+            {
+                rno = r;
+                marks = m;
+            }
+        }
+    }
+}
+

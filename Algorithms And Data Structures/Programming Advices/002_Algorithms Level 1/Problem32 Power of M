@@ -1,0 +1,21 @@
+static void Main(string[] args)
+        {
+            Console.Write("Enter number: ");
+            int number = int.Parse(Console.ReadLine());
+            Console.Write("Enter M: ");
+            int m = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(nPowM(number, m));
+        }
+
+static int nPowM(int number, int m)
+        {
+            if (m == 0) return 1;
+
+            int result = 1;
+            for (int i = 1; i <= m; i++)
+            {
+                result *= number;
+            }
+            return result;
+        }

@@ -1,0 +1,26 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+
+ Console.WriteLine(printFinalresult(readNumber()));
+
+    }
+    static double readNumber() => double.Parse(Console.ReadLine());
+        static string printFinalresult(double number)
+        {
+            if (number < 0 || number > 100)
+                return "Fora de intervalo";
+
+            if (number >= 0 && number <= 25)
+                return "Intervalo [0,25]";
+            else if (number > 25 && number <= 50)
+                return "Intervalo (25,50]";
+            else if (number>50 && number<=75)
+                return "Intervalo (50,75]";
+            else 
+                return "Intervalo (75,100]";
+        }
+
+}

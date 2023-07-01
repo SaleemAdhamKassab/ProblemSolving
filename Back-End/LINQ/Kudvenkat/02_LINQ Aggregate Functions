@@ -1,0 +1,77 @@
+ [HttpGet]
+        public IActionResult test()
+        {
+            int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            int minNumber = numbers.Min();
+
+            return Ok(minNumber);
+
+        }
+=========================================================================================================
+ [HttpGet]
+        public IActionResult test()
+        {
+            int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            double minEvenNumber = numbers.Where(e => e % 2 == 0).Min();
+
+            return Ok(minEvenNumber);
+
+        }
+=========================================================================================================
+
+ [HttpGet]
+        public IActionResult test()
+        {
+            int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            int maxNumber = numbers.Max();
+
+            return Ok(maxNumber);
+
+        }
+=========================================================================================================
+ [HttpGet]
+        public IActionResult test()
+        {
+            int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            int sumNumbers = numbers.Sum();
+
+            return Ok(sumNumbers);
+
+        }
+=========================================================================================================
+ [HttpGet]
+        public IActionResult test()
+        {
+            int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            double avgNumbers = numbers.Average();
+
+            return Ok(avgNumbers);
+
+        }
+=========================================================================================================
+ [HttpGet]
+        public IActionResult test()
+        {
+            string [] countries = new string[] {"India", "Usa", "Uk"};
+
+            double minWordLength = countries.Min(e => e.Length);
+
+            return Ok(minWordLength);
+
+        }
+=========================================================================================================
+  [HttpGet]
+        public IActionResult test()
+        {
+            string [] countries = new string[] {"India", "Usa", "Uk"};
+
+            double maxWordLength = countries.Max(e => e.Length);
+
+            return Ok(maxWordLength);
+
+        }

@@ -1,0 +1,8 @@
+static bool StartWith (string s, string startWith)
+    {
+        for (int i = 0; i < startWith.Length; i++)
+            if (s[i] != startWith[i])
+                return false;
+
+        return true;
+    }

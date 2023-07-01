@@ -1,0 +1,42 @@
+[HttpGet]
+        public IActionResult test()
+        {
+            var distinctGender = db.Employees.Select(e=>e.Gender).Distinct().ToList();
+            
+            return Ok(distinctGender);
+        }
+=======================================================================
+[HttpGet]
+        public IActionResult test()
+        {
+            var distinctGender = db.Employees.Select(e=>e.Gender).Distinct(StringComparer.OrdinalIgnoreCase).ToList();
+            
+            return Ok(distinctGender);
+        }
+=======================================================================
+[HttpGet]
+        public IActionResult test()
+        {
+            var distinctGender = db.Employees.Select(e => e.FirstName)
+                .Union(db.Departments.Select(e=>e.Name)).ToList();
+            
+            return Ok(distinctGender);
+        }
+=======================================================================
+ [HttpGet]
+        public IActionResult test()
+        {
+            var distinctGender = db.Employees.Select(e => e.FirstName)
+                .Intersect(db.Departments.Select(e=>e.Name)).ToList();
+            
+            return Ok(distinctGender);
+        }
+=======================================================================
+[HttpGet]
+        public IActionResult test()
+        {
+            var distinctGender = db.Employees.Select(e => e.FirstName)
+                .Except(db.Departments.Select(e=>e.Name)).ToList();
+            
+            return Ok(distinctGender);
+        }

@@ -1,0 +1,19 @@
+select length(e.first_name) as "length"
+from employees e
+where e.last_name like'___b';
+
+==================
+var result = (
+            from e in _db.Employees
+            where e.FirstName.IndexOf("b") == 3
+            select new
+            {
+                firstName = e.FirstName,
+                length = e.FirstName.Length
+            }
+===============
+ var result = _db.Employees.Where(e => e.FirstName.IndexOf("b") == 3).Select(e => new
+            {
+                firstName = e.FirstName,
+                length = e.FirstName.Length
+            }).ToList();

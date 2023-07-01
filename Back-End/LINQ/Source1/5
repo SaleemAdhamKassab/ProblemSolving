@@ -1,0 +1,16 @@
+select e.employee_id,e.first_name,e.last_name
+from employees e
+where e.employee_id in (150,160)
+==================
+
+ var result = (
+                from e in _db.Employees
+                where e.Id == 150 || e.Id == 160
+                select new
+                {
+                    EMPLOYEE_ID = e.Id,
+                    FIRST_NAME = e.FirstName,
+                    LAST_NAME = e.LastName
+                }
+
+            ).ToList();

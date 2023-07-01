@@ -1,0 +1,15 @@
+select to_char(e.hire_date,'yyyy')
+from employees e
+group by to_char(e.hire_date,'yyyy')
+having count(*)>10;
+=============================
+var result = (
+               from e in _db.Employees
+               group e by e.HireDate into g
+               where g.Count() > 10
+               select new
+               {
+                   g.Key
+               }
+            ).ToList();
+=========================

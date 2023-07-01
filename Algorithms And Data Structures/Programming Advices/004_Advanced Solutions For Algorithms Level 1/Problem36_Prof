@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int number1 = readNumber("Please Enter Number1: "),
+                number2 = readNumber("Pleaes Enter Number2: ");
+
+            enOperationType operationType = readOperationType();
+
+            if (operationType == enOperationType.Divide && number2 == 0) Console.WriteLine("Cannot Dividid By Zero!!");
+            else Console.WriteLine("Result = {0}", calculater(number1, number2, operationType));
+        }
+        enum enOperationType { Add = '+', Subtract = '-', Multiply = '*', Divide = '/' }
+        static int readNumber(string message)
+        {
+            int number = 0;
+            Console.Write(message);
+            number = int.Parse(Console.ReadLine());
+
+            return number;
+        }
+        static enOperationType readOperationType()
+        {
+            char operationType;
+
+            do
+            {
+                Console.Write("Please Enter a Valid Operator + - * / :");
+                operationType = char.Parse(Console.ReadLine());
+            } while (!isValidOperationType(operationType));
+
+            return (enOperationType)operationType;
+        }
+        static bool isValidOperationType(char operationType) =>
+            (enOperationType)operationType == enOperationType.Add ||
+            (enOperationType)operationType == enOperationType.Subtract ||
+            (enOperationType)operationType == enOperationType.Multiply ||
+            (enOperationType)operationType == enOperationType.Divide ? true : false;
+
+        static double calculater(int number1, int number2, enOperationType operatorType)
+        {
+            switch (operatorType)
+            {
+                case enOperationType.Add:
+                    return number1 + number2;
+                case enOperationType.Subtract:
+                    return number1 - number2;
+                case enOperationType.Multiply:
+                    return number1 * number2;
+                default:
+                    return number1 / number2;
+            }
+        }
+    }
+}

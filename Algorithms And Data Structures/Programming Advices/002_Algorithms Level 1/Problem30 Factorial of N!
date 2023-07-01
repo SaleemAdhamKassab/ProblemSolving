@@ -1,0 +1,23 @@
+static void Main(string[] args)
+        {
+            Console.Write("Enter number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            while (number < 1)
+            {
+                Console.Write("please enter a positive number: ");
+                number = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine(factorial(number));
+        }
+
+static int factorial(int number)
+        {
+            int result = 1;
+            for (int i = 1; i <= number; i++)
+            {
+                result *= i;
+            }
+            return result;
+        }

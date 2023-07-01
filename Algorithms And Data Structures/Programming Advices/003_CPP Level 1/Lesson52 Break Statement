@@ -1,0 +1,13 @@
+ static int indexOfNumber(int[] arr, int num)
+        {
+            int index = 0;
+            for (int i=0; i<arr.Length;i++)
+            {
+                if (arr[i] == num)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }

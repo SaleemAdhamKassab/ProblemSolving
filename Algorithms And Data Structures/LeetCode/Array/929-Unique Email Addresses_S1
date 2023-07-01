@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Labs
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(NumUniqueEmails(new string[] {"a@leetcode.com", "b@leetcode.com", "c@leetcode.com" }));
+        }
+        static int NumUniqueEmails(string[] emails) => distinctRestructureEmailsCount(distinctRestructureEmails(restructureEmails(emails)));
+        static string[] restructureEmails(string[] emails)
+        {
+            for (int i = 0; i < emails.Length; i++)
+            {
+                emails[i] = restructureEmail(emails[i]);
+            }
+            return emails;
+        }
+        static string restructureEmail(string email)
+        {
+            string restructuredEmail = "";
+
+            for (int i = 0; i < email.Length; i++)
+            {
+                if (email[i] == '@')
+                {
+                    restructuredEmail += email.Substring(i);
+                    break;
+                }
+                else if (email[i] == '.')
+                {
+                    continue;
+                }
+                else if(email[i] == '+')
+                {
+                    i = email.IndexOf('@')-1;
+                }
+                else
+                {
+                    restructuredEmail += email[i];
+                }
+            }
+
+            return restructuredEmail;
+        }
+        static string[] distinctRestructureEmails(string[] s) => s.Distinct().ToArray();
+        static int distinctRestructureEmailsCount(string[] emails)
+        {
+            int counter = 0;
+            foreach (string email in emails)
+                counter++;
+
+            return counter;
+        }
+
+
+    }
+}

@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           printSumOfOddNumbers(sumOddNumber(readNumber()));
+        }
+        enum enOddOrEven { Odd, even};
+        static int readNumber()
+        {
+            Console.Write("Please Enter The Number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            return number;
+        }
+        static enOddOrEven checkOddOrEven(int number) => number % 2 != 0 ? enOddOrEven.Odd : enOddOrEven.even;
+        static int sumOddNumber(int number)
+        {
+            int sumOfOddNumbers = 0, i = 0;
+
+            do
+            {
+                if (checkOddOrEven(i) == enOddOrEven.Odd)
+                    sumOfOddNumbers += i;
+                i++;
+            } while (i < number);
+
+                return sumOfOddNumbers;
+        }
+        static void printSumOfOddNumbers(int sumOddNumber)
+        {
+            Console.WriteLine(sumOddNumber);
+        }
+    }
+}

@@ -1,0 +1,11 @@
+static string JoinArray(string[] arr, string delimiter = "")
+        {
+            string result = "";
+
+            for (int i = 0; i < arr.Length - 1; i++)
+                result += arr[i] + delimiter;
+
+            result += delimiter + arr[arr.Length - 1];
+
+            return result;
+        }

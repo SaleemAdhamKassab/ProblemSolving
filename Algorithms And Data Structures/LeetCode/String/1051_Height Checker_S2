@@ -1,0 +1,17 @@
+public class Solution {
+    public int HeightChecker(int[] heights) {
+        int numberOfIndices = 0;
+            int[] mainArr = new int[heights.Length];
+            Array.Copy(heights, mainArr, heights.Length);
+            Array.Sort(heights);
+                
+
+            for(int i = 0; i < mainArr.Length; i++)
+            {
+                if (mainArr[i] != heights[i])
+                    numberOfIndices++;
+            }
+
+            return numberOfIndices; 
+    }
+}

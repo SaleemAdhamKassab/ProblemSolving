@@ -1,0 +1,20 @@
+public static string balancedSums(List<int> arr)
+        {
+            int left = 0,
+            sum = sumListElements(arr);
+
+            for (int i = 0; i < arr.Count; i++)
+            {
+                if (sum - arr[i] / 2 == left) return "YES";
+                else left += arr[i];
+            }
+            return "NO";
+        }
+        public static int sumListElements(List<int> lst)
+        {
+            int sum = 0;
+            for (int i = 0; i < lst.Count; i++)
+                sum += lst[i];
+
+            return sum;
+        }

@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(AreNumbersAscending("sunset is at 7 51 pm overnight lows will be in the low 50 and 60 s"));
+        }
+        static bool AreNumbersAscending(string s)
+        {
+            string[] words = splitS(s);
+            int currentNumber = 0, previousNumber = 0;
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (isDigit(words[i]))
+                {
+                    currentNumber = convertStringToNumber(words[i]);
+                    
+                    if (currentNumber > previousNumber)
+                        previousNumber = convertStringToNumber(words[i]);
+                    else
+                        return false;
+                }
+            }
+
+            return true;
+        }
+        static string[] splitS(string s) => s.Split(' ');
+        static bool isDigit(string s) => int.TryParse(s, out int n);
+        static int convertStringToNumber(string s) => int.Parse(s);
+    }
+}

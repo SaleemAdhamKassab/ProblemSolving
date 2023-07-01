@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(dayName(readDayNumber()));
+        }
+        static int readDayNumber()
+        {
+            int dayNumber = 0;
+            do
+            {
+                Console.Write("Pleae Enter a Valid day Number Between 1 and 7: ");
+                dayNumber = int.Parse(Console.ReadLine());
+            } while (!isValidNumberInRange(dayNumber, 1,7));
+
+            return dayNumber;
+        }
+
+        static bool isValidNumberInRange(int number, int from, int to) => number >= from && number <= to ? true : false;
+        static string dayName(int dayNumber)
+        {
+            switch (dayNumber)
+            {
+                case 1:
+                    return "Sunday";
+                case 2:
+                    return "Monday";
+                case 3:
+                    return "Tuesday";
+                case 4:
+                    return "Wednesday";
+                case 5:
+                    return "Thursday";
+                case 6:
+                    return "Friday";
+            }
+            return "Saturday";
+        }
+
+    }
+}

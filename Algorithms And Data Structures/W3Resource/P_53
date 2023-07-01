@@ -1,0 +1,22 @@
+using Lab.Bank.Views.ManageUsers;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(p53(new int[] { 2, 4, 7, 8, 6 }));
+        }
+        static bool isOddNumber(int number) => number % 2 != 0;
+        static bool isArrayContainsOddNumber(int[] numbers)
+        {
+            foreach (int number in numbers)
+                if (isOddNumber(number))
+                    return true;
+
+            return false;
+        }
+        static bool p53(int[] arr) => isArrayContainsOddNumber(arr);
+    }
+}

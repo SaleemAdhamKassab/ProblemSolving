@@ -1,0 +1,32 @@
+q1+2+3:
+compiler/Interpreter: software translator to translate source code to the object code
+compiler:
+1- read all source code to check syntax errors
+2- buile
+3- object code(save on hdd)
+4- linker -> exe -> loader
+Interpreter:
+1- run
+2-execute source code line by line 
+==========
+q4:
+Assembler: convert assembly language to machine language
+==========
+q5:
+linker: link your source code with programming language libraries to make exe file
+==========
+q6:
+exe file: the output for your source code and can work even you delete the source code, and any update you need to rebuild your source code to get a new exe output file.
+==========
+q7:
+loader:
+when executing exe, load the file to memory
+==========
+q8:
+compiler is faster
+==========
+q9 +10:
+no
+==========
+q 11+12:
+yes

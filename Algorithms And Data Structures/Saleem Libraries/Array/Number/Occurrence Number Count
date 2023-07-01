@@ -1,0 +1,10 @@
+ static int occurrenceNumberCount(int[] arr, int number)
+        {
+            int counter = 0;
+
+            for (int i = 0; i < arr.Length; i++)
+                if (arr[i] == number)
+                    counter ++;
+                
+            return counter;
+        }

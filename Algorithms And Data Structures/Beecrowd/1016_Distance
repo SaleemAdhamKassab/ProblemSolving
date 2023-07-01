@@ -1,0 +1,13 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+
+  Console.WriteLine("{0} minutos",calcDistince(readDistince()));
+
+    }
+       static int readDistince() => int.Parse(Console.ReadLine());
+        static int calcDistince(int distince) => distince * 2;
+
+}

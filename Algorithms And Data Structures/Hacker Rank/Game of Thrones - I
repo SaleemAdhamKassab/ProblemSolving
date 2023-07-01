@@ -1,0 +1,21 @@
+function gameOfThrones(s: string): string {
+    let counter = 0,
+        flag = false,
+        distinctS = String.prototype.concat(...new Set(s))
+
+    for (let i = 0; i < distinctS.length; i++) {
+        for (let j = 0; j < s.length; j++) {
+            if (distinctS[i] == s[j]) {
+                counter++
+            }
+        }
+
+        if (counter % 2 != 0 && flag) return "NO"
+
+        if (counter % 2 != 0 && !flag)
+            flag = true
+
+        counter = 0
+    }
+    return "YES"
+}

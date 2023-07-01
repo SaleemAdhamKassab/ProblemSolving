@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+        }
+        public int ArithmeticTriplets(int[] nums, int diff)
+        {
+            int ans = 0;
+            for (int i = 0; i < nums.Length - 2; i++)
+            {
+                for (int j = i + 1; j < nums.Length - 1; j++)
+                {
+                    if (nums[j] - nums[i] == diff)
+                    {
+                        for (int k = j + 1; k < nums.Length; k++)
+                        {
+                            if (nums[k] - nums[j] == diff) ans++;
+                        }
+                    }
+                }
+            }
+
+            return ans;
+        }
+    }
+}

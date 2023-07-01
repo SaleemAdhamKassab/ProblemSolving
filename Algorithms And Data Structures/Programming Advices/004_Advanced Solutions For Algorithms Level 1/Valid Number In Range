@@ -1,0 +1,12 @@
+ static int readNumber(int number, int from, int to)
+        {
+            do
+            {
+                Console.Write("Pleae Enter a Valid Number Between {0} and {1}: ", from, to);
+                number = int.Parse(Console.ReadLine());
+            } while (!isValidNumberInRange(number, from, to));
+
+            return number;
+        }
+
+static bool isValidNumberInRange(int number, int from, int to) => number >= from && number <= to ? true : false;

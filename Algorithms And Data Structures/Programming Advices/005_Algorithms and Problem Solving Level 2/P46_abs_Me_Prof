@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        { 
+            int number = readNumber("Please Enter a Number: ");
+            Console.WriteLine("My abs Result: {0}", myAbs(number));
+            Console.WriteLine("C++ abs Result: {0}",Math.Abs(number));
+        }
+        static int readNumber(string message)
+        {
+            Console.Write(message);
+            return int.Parse(Console.ReadLine());
+        }
+        static int myAbs(int number) => number < 0 ? number * -1 : number;
+    }
+}

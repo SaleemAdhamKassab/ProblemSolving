@@ -1,0 +1,9 @@
+public static string removeCharAtPostion(string str, int number)
+        {
+            string result = "";
+            for (int i = 0; i < str.Length; i++)
+                if (i != number - 1)
+                    result += str[i];
+
+            return result;
+        }

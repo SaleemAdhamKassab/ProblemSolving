@@ -1,0 +1,9 @@
+static void Main(string[] args)
+        {
+            Console.Write("Enter a: ");
+            double a = double.Parse(Console.ReadLine());
+            Console.Write("Enter b: ");
+            double b = double.Parse(Console.ReadLine());
+
+            Console.WriteLine(3.14 * ((b * b) / 4) * (2 * a - b) / (2 * a + b));
+        }

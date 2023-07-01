@@ -1,0 +1,57 @@
+ static int Length(string s)
+    {
+        int i = 0;
+        char c = ' ';
+
+        while (true)
+        {
+            try
+            {
+                c = s[i];
+                i++;
+            }
+            catch
+            {
+                return i;
+            }
+        }
+    }
+    static string[] ConvertListToArray(List<string> lst)
+    {
+        string[] result = new string[lst.Count];
+
+        for (int i = 0; i < lst.Count; i++)
+            result[i] = lst[i];
+
+        return result;
+    }
+    static string[] splitWithStringDelimiter(string s, string delimiter)
+    {
+        List<string> result = new List<string>();
+        string word = "", tempDelimiter = "";
+        int sLength = Length(s), delimiterLength = Length(delimiter);
+
+        for (int i = 0; i < sLength; i++)
+        {
+            if (s[i] == delimiter[0])
+            {
+                for (int j = 0; j < delimiter.Length; j++)
+                    tempDelimiter += delimiter[j];
+
+                if (tempDelimiter == delimiter)
+                {
+                    result.Add(word);
+                    word = "";
+                    tempDelimiter = "";
+                }
+
+                i += delimiterLength - 1;
+            }
+            else
+                word += s[i];
+        }
+
+        if (word.Length > 0) result.Add(word);
+
+        return ConvertListToArray(result);
+    }

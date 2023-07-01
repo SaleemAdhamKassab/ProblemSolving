@@ -1,0 +1,23 @@
+ static void Main(string[] args)
+        {
+            Console.Write("enter pin: ");
+            int pin = int.Parse(Console.ReadLine()),
+            counter = 1;
+            bool flag = false;
+            
+            do
+            {
+                if (pin == 1234)
+                {
+                    flag = true;
+                    break;
+                }
+                Console.Write("Wrong Pin, you have " + (3 - counter) + " Attemps, enter a new one: ");
+                counter++;
+                pin = int.Parse(Console.ReadLine());
+
+            } while (counter < 3);
+
+            if (flag) Console.WriteLine("Your Balance is: 7500");
+            else Console.WriteLine("Card is Locked!");
+        }

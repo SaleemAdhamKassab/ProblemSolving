@@ -1,0 +1,13 @@
+public static int designerPdfViewer(List<int> h, string word)
+        {
+            int max = 0;
+            for (int i = 0; i < word.Length; i++)
+            {
+
+                if (h[((int)word[i]) - 97] > max)
+                {
+                    max = h[((int)word[i]) - 97];
+                }
+            }
+            return max * word.Length;
+        }

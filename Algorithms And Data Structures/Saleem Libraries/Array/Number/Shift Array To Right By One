@@ -1,0 +1,10 @@
+static int[] shiftArrayToRightByOne(int[] arr, int shiftIndex, int newValue)
+    {
+        for (int i = arr.Length - 1; i >= shiftIndex; i--)
+        {
+            if (arr[i] != -1)
+                arr[i + 1] = arr[i];
+        }
+        arr[shiftIndex] = newValue;
+        return arr;
+    }

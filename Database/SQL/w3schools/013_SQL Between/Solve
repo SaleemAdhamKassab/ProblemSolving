@@ -1,0 +1,23 @@
+select *
+from products t
+where t.price between 10 and 20;
+================================================================
+select *
+from products t
+where t.price not between 10 and 20;
+================================================================
+select *
+from products t
+where t.price  between 10 and 20 and t.categoryid not in (1,2,3);
+================================================================
+select *
+from products t
+where t.productname between 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+order by t.productname;
+================================================================
+select * from ORDERS t
+where trunc(t.orderdate) between '01-July-1996' and '31-July-1996';
+================================================================
+SELECT * FROM Products
+WHERE Price 
+between 10 and 20;

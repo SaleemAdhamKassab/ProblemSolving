@@ -1,0 +1,24 @@
+public class Solution {
+    public bool JudgeCircle(string moves) {
+        int leftCounter = 0, rightCounter = 0, upCounter = 0, downCounter = 0;
+        for (int i = 0; i < moves.Length; i++)
+        {
+            switch (moves[i])
+            {
+                case 'R':
+                    rightCounter++;
+                    break;
+                case 'L':
+                    leftCounter++;
+                    break;
+                case 'U':
+                    upCounter++;
+                    break;
+                default:
+                    downCounter++;
+                    break;
+            }
+        }
+        return Math.Abs(rightCounter - leftCounter) == 0 && Math.Abs(upCounter - downCounter) == 0 ? true : false;
+    }
+}

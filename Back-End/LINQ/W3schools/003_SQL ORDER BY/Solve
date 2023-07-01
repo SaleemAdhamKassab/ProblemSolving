@@ -1,0 +1,71 @@
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = db.Customers.OrderBy(e => e.Country).ToList();
+
+            return Ok(customersList);
+        }
+
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = (from customers in db.Customers
+                                            orderby customers.Country
+                                            select customers).ToList();
+
+            return Ok(customersList);
+        }
+        
+==================================================================================================================================================
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = db.Customers.OrderByDescending(e => e.Country).ToList();
+
+            return Ok(customersList);
+        }
+        
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = (from customers in db.Customers
+                                            orderby customers.Country descending
+                                            select customers).ToList();
+
+            return Ok(customersList);
+        }
+==================================================================================================================================================
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = db.Customers.OrderBy(e => e.Country).ThenBy(e => e.Name).ToList();
+
+            return Ok(customersList);
+        }
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = (from customers in db.Customers
+                                            orderby customers.Country, customers.Name
+                                            select customers).ToList();
+
+            return Ok(customersList);
+        }
+==================================================================================================================================================
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = db.Customers.OrderBy(e => e.Country).ThenByDescending(e => e.Name).ToList();
+
+            return Ok(customersList);
+        }
+        
+ [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = (from customers in db.Customers
+                                            orderby customers.Country, customers.Name descending
+                                            select customers).ToList();
+
+            return Ok(customersList);
+        }

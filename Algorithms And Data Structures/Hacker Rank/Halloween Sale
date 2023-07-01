@@ -1,0 +1,23 @@
+ public static int howManyGames(int p, int d, int m, int s)
+        {
+            if (p > s) return 0;
+
+            int counter = 0, sum = p;
+            do
+            {
+                counter++;
+
+                if (p - d >= m) 
+                {
+                    p -= d;
+                    sum += p;
+                }
+                else
+                {
+                    sum += m;
+                }
+                
+            } while (sum <= s) ;
+
+                return counter;
+        }

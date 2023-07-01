@@ -1,0 +1,45 @@
+
+FindOcurrences("ypkk lnlqhmaohv lnlqhmaohv lnlqhmaohv ypkk ypkk ypkk ypkk ypkk ypkk lnlqhmaohv lnlqhmaohv lnlqhmaohv lnlqhmaohv ypkk ypkk ypkk lnlqhmaohv lnlqhmaohv ypkk", "lnlqhmaohv" , "ypkk");
+
+
+
+static  string[] FindOcurrences(string text, string first, string second)
+{
+    string[] splitedText = splitString(text);
+
+    List<string> result = new List<string>();
+
+
+    for(int i = 0; i < splitedText.Count()-1; i++)
+    {
+        if(splitedText[i] == first && splitedText[i+1] == second && i+2 <splitedText.Length-1)
+        {
+            result.Add(splitedText[i + 2]);
+        }
+    }
+
+    return result.ToArray();
+}
+
+static string[] splitString(string s)
+{
+
+    List<string> splitedString = new List<string>();
+    string tempString = "";
+
+    s += " ";
+    for (int i = 0; i < s.Length; i++)
+    {
+        if (s[i] == ' ')
+        {
+            splitedString.Add(tempString);
+            tempString = "";
+            continue;
+        }
+
+        else
+            tempString += s[i];
+    }
+
+    return splitedString.ToArray();
+}

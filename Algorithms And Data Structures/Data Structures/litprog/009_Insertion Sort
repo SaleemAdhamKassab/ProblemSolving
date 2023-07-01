@@ -1,0 +1,33 @@
+
+using System.Text;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = new int[] { 10, 5,7,1,5 };
+            insertionSort(arr);
+            Console.WriteLine();
+        }
+        static void insertionSort(int[] arr)
+        {
+            int j = 0;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                j = i;
+
+                while (j > 0 && arr[j - 1] > arr[j])
+                {
+                    int temp = arr[j - 1];
+                    arr[j - 1] = arr[j];
+                    arr[j] = temp;
+
+                    j--;
+                }
+            }
+        }
+    }
+}

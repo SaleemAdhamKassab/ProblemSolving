@@ -1,0 +1,28 @@
+create or replace  function q5 
+return boolean
+is
+  minEmpId employees.employee_id%type;
+  maxEmpId employees.employee_id%type;
+  match    boolean;
+begin
+ 
+  --get min empid
+  select min(e.employee_id) into minEmpId from employees e;
+  --get max empid
+  select max(e.employee_id) into maxEmpId from employees e;
+  
+  FOR i IN minEmpId .. maxEmpId LOOP
+    FOR j IN (select e.employee_id from employees e order by 1) loop
+      if (i = j.employee_id) then
+        match := true;
+        exit;
+      end if;
+    end loop;
+  
+    if (match = false) then
+      dbms_output.put_line(i);
+    end if;
+  END LOOP;
+
+  return true;
+end q5;

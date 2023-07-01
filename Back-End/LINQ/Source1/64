@@ -1,0 +1,22 @@
+select e.first_name,j.job_title,jh.start_date,jh.end_date
+from job_history jh join jobs j
+     on jh.job_id = j.job_id
+join employees e  
+     on e.employee_id = jh.employee_id
+where e.commission_pct is null;
+===================================================
+var result = (
+                from jh in _db.JobHistory
+                join j in _db.Jobs
+                on jh.JobId equals j.Id
+                join e in _db.Employees
+                on jh.EmployeeId equals e.Id
+                where e.CommisionPct == null
+                select new
+                {
+                    e.FirstName,
+                    j.JobTitle,
+                    jh.StartDate,
+                    jh.EndDate
+                }
+            ).ToList();

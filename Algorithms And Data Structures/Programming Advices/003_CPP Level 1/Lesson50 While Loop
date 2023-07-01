@@ -1,0 +1,198 @@
+#q1:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter a Number: ");
+            int number = int.Parse(Console.ReadLine()),
+                i = 1;
+
+            while (i <= number)
+            {
+                Console.WriteLine(i);
+                i++;
+            }
+        }
+    }
+}
+====================================================================
+q2:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter a Number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(sumOddNumbers(number));
+        }
+        static int sumOddNumbers(int number)
+        {
+            int result = 0,
+                i = 1;
+
+            while (i <= number)
+            {
+                if (i % 2 != 0)
+                    result += i;
+                i++;
+            }
+            return result;
+        }
+    }
+}
+=======================================================================
+q3:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter a Number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(sumOddNumbers(number));
+        }
+        static int sumOddNumbers(int number)
+        {
+            int result = 0,
+                i = 1;
+
+            while (i <= number)
+            {
+                if (i % 2 == 0)
+                    result += i;
+                i++;
+            }
+            return result;
+        }
+    }
+}
+=======================================================================
+q4:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter number: ");
+            int number = int.Parse(Console.ReadLine());
+            Console.Write("Enter M: ");
+            int m = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(nPowM(number, m));
+        }
+        static int nPowM(int number, int m)
+        {
+            if (m == 0) return 1;
+
+            int result = 1, i = 1;
+            while (i <= m)
+            {
+                result *= number;
+                i++;
+            }
+            return result;
+        }
+    }
+}
+=======================================================================
+q37:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Please Enter Number to sum, or Enter -99 to break the program and print the sum: ");
+            int number = 0, result = 0;
+
+            while (true)
+            {
+                number = int.Parse(Console.ReadLine());
+                if (number == -99)
+                    break;
+
+                result += number;
+            }
+
+            Console.WriteLine(result == -99 ? 0 : result);
+        }
+
+    }
+}
+=======================================================================
+q46:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            char c = 'A';
+            while (c <= 'Z')
+            {
+                Console.WriteLine(c);
+                c++;
+            }
+                
+        }
+
+    }
+}
+=======================================================================
+q50:
+ static void Main(string[] args)
+        {
+            Console.Write("enter pin: ");
+            int pin = int.Parse(Console.ReadLine()),
+            counter = 1;
+            bool flag = false;
+            
+            do
+            {
+                if (pin == 1234)
+                {
+                    flag = true;
+                    break;
+                }
+                Console.Write("Wrong Pin, you have " + (3 - counter) + " Attemps, enter a new one: ");
+                counter++;
+                pin = int.Parse(Console.ReadLine());
+
+            } while (counter < 3);
+
+            if (flag) Console.WriteLine("Your Balance is: 7500");
+            else Console.WriteLine("Card is Locked!");
+        }

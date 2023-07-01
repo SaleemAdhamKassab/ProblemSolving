@@ -1,0 +1,267 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            StartGame();
+        }
+        enum enQuestionsLevel { EasyLevel = 1, MedLevel = 2, HardLevel = 3, Mix = 4 };
+        enum enOperationType { Add = 1, Sub = 2, Mult = 3, Div = 4, MixOp = 5 };
+        struct stQuestion
+        {
+            public int Number1, Number2, CorrectAnswer, PlayerAnswer;
+            public enOperationType OperationType;
+            public enQuestionsLevel QuestionLevel;
+            public bool AnswerResult;
+        }
+        struct stQuizz
+        {
+            public stQuestion[] QuestionList;
+            public short NumberOfQuestions, NumberOfWrongAnswers, NumberOfRightAnswers;
+            public enQuestionsLevel QuestionsLevel;
+            public enOperationType OpType;
+            public bool isPass;
+        }
+        static string GetOpTypeSymbol(enOperationType OpType)
+        {
+            switch (OpType)
+            {
+                case enOperationType.Add:
+                    return "+";
+                case enOperationType.Sub:
+                    return "-";
+                case enOperationType.Mult:
+                    return "x";
+                case enOperationType.Div:
+                    return "/";
+                default:
+                    return "Mix";
+            }
+        }
+        static string GetQuestionLevelText(enQuestionsLevel QuestionLevel)
+        {
+            if (QuestionLevel == enQuestionsLevel.EasyLevel)
+                return "Easy";
+            else if (QuestionLevel == enQuestionsLevel.MedLevel)
+                return "Med";
+            else if (QuestionLevel == enQuestionsLevel.HardLevel)
+                return "Hard";
+            else
+                return "Mix";
+        }
+        static int RandomNumber(int From, int To)
+        { //Function to generate a random number
+            Random random = new Random();
+            return random.Next(From, To);
+        }
+        static void SetScreenColor(bool Right)
+        {
+            if (Right)
+                Console.BackgroundColor = ConsoleColor.Green;
+            else
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.Write("\a");
+            }
+        }
+        static short ReadHowManyQuestions()
+        {
+            short NumberOfQuestions;
+
+            do
+            {
+                Console.Write("How Many Questions do you want to answer ? ");
+                NumberOfQuestions = short.Parse(Console.ReadLine());
+            } while (NumberOfQuestions < 1 || NumberOfQuestions > 10);
+
+            return NumberOfQuestions;
+        }
+        static enQuestionsLevel ReadQuestionsLevel()
+        {
+            short QuestionLevel = 0;
+            do
+            {
+                Console.WriteLine("Enter Questions Level [1] Easy, [2] Med, [3] Hard, [4] Mix ? ");
+                QuestionLevel = short.Parse(Console.ReadLine());
+            } while (QuestionLevel < 1 || QuestionLevel > 4);
+
+            return (enQuestionsLevel)QuestionLevel;
+        }
+        static enOperationType ReadOpType()
+        {
+            short OpType=0;
+
+            do
+            {
+                Console.Write("Enter Operation Type [1] Add, [2] Sub, [3] Mul, [4] Div, [5] Mix ? ");
+                OpType = short.Parse(Console.ReadLine());
+            } while (OpType < 1 || OpType > 5);
+
+            return (enOperationType) OpType;
+        }
+        static int SimpleCalculator(int Number1, int Number2, enOperationType OpType)
+        {
+            switch (OpType)
+            {
+                case enOperationType.Add:
+                    return Number1 + Number2;
+                case enOperationType.Sub:
+                    return Number1 - Number2;
+                case enOperationType.Mult:
+                    return Number1 * Number2;
+                case enOperationType.Div:
+                    return Number1 / Number2;
+                default:
+                    return Number1 + Number2;
+            }
+        }
+        static enOperationType GetRandomOperationType()
+        {
+            int Op = RandomNumber(1, 4);
+            return (enOperationType)Op;
+        }
+        static stQuestion GenerateQuestion(enQuestionsLevel QuestionLevel, enOperationType OpType)
+        {
+            stQuestion Question = new stQuestion();
+
+            if (QuestionLevel == enQuestionsLevel.Mix)
+            {
+                QuestionLevel = (enQuestionsLevel)RandomNumber(1, 3);
+            }
+
+            if (OpType == enOperationType.MixOp)
+            {
+                OpType = GetRandomOperationType();
+            }
+
+            Question.OperationType = OpType;
+
+            switch (QuestionLevel)
+            {
+                case enQuestionsLevel.EasyLevel:
+                    Question.Number1 = RandomNumber(1, 10);
+                    Question.Number2 = RandomNumber(1, 10);
+                    Question.CorrectAnswer = SimpleCalculator(Question.Number1, Question.Number2, Question.OperationType);
+                    Question.QuestionLevel = QuestionLevel;
+                    return Question;
+
+                case enQuestionsLevel.MedLevel:
+                    Question.Number1 = RandomNumber(10, 50);
+                    Question.Number2 = RandomNumber(10, 50);
+                    Question.CorrectAnswer = SimpleCalculator(Question.Number1, Question.Number2, Question.OperationType);
+                    Question.QuestionLevel = QuestionLevel;
+                    return Question;
+
+                case enQuestionsLevel.HardLevel:
+                    Question.Number1 = RandomNumber(50, 100);
+                    Question.Number2 = RandomNumber(50, 100);
+                    Question.CorrectAnswer = SimpleCalculator(Question.Number1, Question.Number2, Question.OperationType);
+                    Question.QuestionLevel = QuestionLevel;
+                    return Question;
+            }
+            return Question;
+        }
+        static void GenerateQuizzQuestions(ref stQuizz Quizz)
+        {
+            for (short Question = 0; Question < Quizz.NumberOfQuestions; Question++)
+            {
+                Quizz.QuestionList[Question] = GenerateQuestion(Quizz.QuestionsLevel, Quizz.OpType);
+            }
+        }
+        static int ReadQuestionAnswer()
+        {
+            int Answer = 0;
+            Answer = int.Parse(Console.ReadLine());
+
+            return Answer;
+        }
+        static void PrintTheQuestion(ref stQuizz Quizz, short QuestionNumber)
+        {
+            Console.Write("\n");
+            Console.WriteLine("Question [" + (QuestionNumber + 1) + "/" + Quizz.NumberOfQuestions + "] \n\n");
+            Console.WriteLine(Quizz.QuestionList[QuestionNumber].Number1);
+            Console.Write(Quizz.QuestionList[QuestionNumber].Number2 + " ");
+            Console.Write(GetOpTypeSymbol(Quizz.QuestionList[QuestionNumber].OperationType));
+            Console.WriteLine("\n_________");
+        }
+        static void CorrectTheQuestionAnswer(ref stQuizz Quizz, short QuestionNumber)
+        {
+            if (Quizz.QuestionList[QuestionNumber].PlayerAnswer != Quizz.QuestionList[QuestionNumber].CorrectAnswer)
+            {
+                Quizz.QuestionList[QuestionNumber].AnswerResult = false;
+                Quizz.NumberOfWrongAnswers++;
+                Console.Write("Worng Answer :-( \n");
+                Console.Write("The right answer is: ");
+                Console.Write(Quizz.QuestionList[QuestionNumber].CorrectAnswer);
+                Console.Write("\n");
+            }
+            else
+            {
+                Quizz.QuestionList[QuestionNumber].AnswerResult = true;
+                Quizz.NumberOfRightAnswers++;
+                Console.Write("Right Answer :-) \n");
+            }
+            Console.WriteLine();
+        }
+        static void AskAndCorrectQuestionListAnswers(ref stQuizz Quizz)
+        {
+            for (short QuestionNumber = 0; QuestionNumber < Quizz.NumberOfQuestions; QuestionNumber++)
+            {
+                PrintTheQuestion(ref Quizz, QuestionNumber);
+                Quizz.QuestionList[QuestionNumber].PlayerAnswer = ReadQuestionAnswer();
+                CorrectTheQuestionAnswer(ref Quizz, QuestionNumber);
+            }
+            Quizz.isPass = (Quizz.NumberOfRightAnswers >= Quizz.NumberOfWrongAnswers);
+        }
+        static string GetFinalResultsText(bool Pass)
+        {
+            if (Pass)
+                return "PASS :-)";
+            else
+                return "Fail :-(";
+        }
+        static void PrintQuizzResults(stQuizz Quizz)
+        {
+            Console.Write("\n");
+            Console.Write("______________________________\n\n");
+            Console.Write(" Final Resutls is " + GetFinalResultsText(Quizz.isPass));
+            Console.Write("\n______________________________\n\n");
+            Console.WriteLine("Number of Questions: " + Quizz.NumberOfQuestions);
+            Console.WriteLine("Questions Level    : " + GetQuestionLevelText(Quizz.QuestionsLevel));
+            Console.WriteLine("OpType             : " + GetOpTypeSymbol(Quizz.OpType));
+            Console.WriteLine("Number of Right Answers: " + Quizz.NumberOfRightAnswers);
+            Console.WriteLine("Number of Wrong Answers: " + Quizz.NumberOfWrongAnswers);
+            Console.WriteLine("______________________________\n");
+        }
+        static void PlayMathGame()
+        {
+            stQuizz Quizz = new stQuizz();
+            Quizz.NumberOfQuestions = ReadHowManyQuestions();
+            Quizz.QuestionsLevel = ReadQuestionsLevel();
+            Quizz.OpType = ReadOpType();
+            GenerateQuizzQuestions(ref Quizz);
+            AskAndCorrectQuestionListAnswers(ref Quizz);
+            PrintQuizzResults(Quizz);
+        }
+        static void ResetScreen() => Console.Clear();
+        static void StartGame()
+        {
+            char PlayAgain = 'Y';
+
+            do
+            {
+                ResetScreen();
+                PlayMathGame();
+                Console.WriteLine("Do you want to play again? Y/N? ");
+                PlayAgain = char.Parse(Console.ReadLine());
+            } while (PlayAgain == 'Y' || PlayAgain == 'y');
+        }
+
+
+    }
+}

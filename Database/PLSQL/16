@@ -1,0 +1,10 @@
+create or replace trigger check_sal_decreased
+before
+update of  salary
+on employees
+for each row
+  begin
+    if (:new.salary < :old.salary) then
+       raise_application_error(-20010,'cannot insert salary les than old salary');
+    end if;
+End;

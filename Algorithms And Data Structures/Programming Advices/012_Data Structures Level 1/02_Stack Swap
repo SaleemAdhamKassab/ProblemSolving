@@ -1,0 +1,48 @@
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Stack<int> st1 = new Stack<int>(),
+                       st2 = new Stack<int>();
+
+            st1.Push(10);
+            st1.Push(20);
+            st2.Push(30);
+            st2.Push(40);
+
+            Console.WriteLine("Stacks before Swapping:");
+            Console.Write("Stack1 = ");
+            printStack(st1);
+
+            Console.Write("Stack2 = ");
+            printStack(st2);
+
+            swapStacks(ref st1, ref st2);
+            Console.WriteLine();
+
+            Console.WriteLine("Stacks after Swapping:");
+            Console.Write("Stack1 = ");
+            printStack(st1);
+
+            Console.Write("Stack2 = ");
+            printStack(st2);
+
+        }
+        static void printStack(Stack<int> st)
+        {
+            foreach(int number in st)
+                Console.Write(number + " ");
+
+            Console.WriteLine();
+        }
+        static void swapStacks(ref Stack<int> st1, ref Stack<int> st2)
+        {
+            Stack<int> tempStack = st1;
+
+            st1 = st2;
+            st2 = tempStack;
+        }
+    }
+}

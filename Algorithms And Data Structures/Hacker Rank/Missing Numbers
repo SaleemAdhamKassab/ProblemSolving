@@ -1,0 +1,16 @@
+ public static List<int> missingNumbers(List<int> arr, List<int> brr)
+        {
+            List<int> result = new List<int>();
+            List<int> distinctBrr = brr.Distinct().ToList();
+
+            for(int i=0; i < distinctBrr.Count; i++)
+            {
+                if(countOfNumber(brr,distinctBrr[i]) != countOfNumber(arr, distinctBrr[i]))
+                {
+                    result.Add(distinctBrr[i]);
+                }
+            }
+
+            result.Sort();
+            return result;
+        }

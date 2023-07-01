@@ -1,0 +1,16 @@
+using System;
+
+class URI
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(p36(-5,8));
+    }
+    static int readNumber(string numberOrder)
+    {
+        Console.WriteLine("Input a "+numberOrder+" number");
+        return int.Parse(Console.ReadLine());
+    }
+    static bool isNumberInRange(int number) => number > -10 || number == 10;
+    static bool p36(int number1, int number2) => isNumberInRange(number1) || isNumberInRange(number2);
+}

@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            P_019(readRowsCount());
+        }
+        static int readRowsCount()
+        {
+            Console.Write("Enter a numbe to define the rows: ");
+            return int.Parse(Console.ReadLine());
+        }
+        static void drawLeftRow(int i)
+        {
+            for (int l = 1; l <= i; l++)
+                Console.Write(l);
+        }
+        static void drawRowSpaces(int rowsCount, int i)
+        {
+            for (int s = 0; s < (rowsCount - i) * 2; s++)
+                Console.Write(' ');
+        }
+        static void drawRighRow(int i)
+        {
+            for (int r = i; r >= 1; r--)
+                Console.Write(r);
+        }
+        static void P_019(int rowsCount)
+        {
+            for (int i = 1; i <= rowsCount; i++)
+            {
+                drawLeftRow(i);
+                drawRowSpaces(rowsCount, i);
+                drawRighRow(i);
+
+                Console.WriteLine();
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+public class Solution {
+    public int PercentageLetter(string s, char letter) {
+        
+            decimal result = Math.Floor( ((decimal)s.Count(f => (f == letter)) / (decimal)s.Length) * 100);
+            return (int)result;
+    }
+}

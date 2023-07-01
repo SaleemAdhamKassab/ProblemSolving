@@ -1,0 +1,6 @@
+select e.first_name,j.job_title
+from job_history jh join employees e
+     on jh.employee_id = e.employee_id 
+join jobs j
+     on jh.job_id = j.job_id
+where months_between (jh.end_date,jh.start_date)<6;

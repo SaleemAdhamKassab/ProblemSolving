@@ -1,0 +1,12 @@
+ static void Main(string[] args)
+        {
+            Console.Write("enter pin: ");
+            int pin = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(checkPin(pin) ? "ًYour Balance is: 7500" : "Wrong Pin");
+        }
+
+static bool checkPin(int pin)
+        {
+            return pin == 1234 ? true : false;
+        }

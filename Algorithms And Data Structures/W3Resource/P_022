@@ -1,0 +1,2 @@
+static bool result(int n) =>
+            Math.Abs(n - 100) <= 20 || Math.Abs(n - 200) <= 20;

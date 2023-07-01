@@ -1,0 +1,36 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalResult();
+        }
+        static double readNumber(string numberOrder)
+        {
+            Console.Write("Enter the {0} number:", numberOrder);
+            return double.Parse(Console.ReadLine());
+        }
+        static double avg(double number1, double number2, double number3, double number4) =>
+            (number1 + number2 + number3 + number4) / 4;
+        static void printFinalResult()
+        {
+            double number1 = readNumber("First"),
+                number2 = readNumber("Second"),
+                number3 = readNumber("Third"),
+                number4 = readNumber("Four");
+
+            Console.WriteLine("The average of {0} , {1} , {2} , {3} is: {4}",
+                number1, number2, number3, number4, avg(number1, number2, number3, number4));
+
+            Console.WriteLine("");
+        }
+
+    }
+}

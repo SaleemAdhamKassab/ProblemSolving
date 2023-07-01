@@ -1,0 +1,21 @@
+using System;
+using System.Linq;
+using System.Text;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("a".ToUpper());
+            Console.WriteLine("a".ToLower());
+            Console.WriteLine(Char.IsUpper('a'));
+            Console.WriteLine(Char.IsLower('a'));
+            Console.WriteLine(Char.IsDigit('0'));
+            Console.WriteLine(Char.IsPunctuation(';'));
+
+        }
+    }
+}
+

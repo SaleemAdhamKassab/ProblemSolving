@@ -1,0 +1,43 @@
+static void Main(string[] args)
+        {
+            Console.Write("enter the number: ");
+            int num = int.Parse(Console.ReadLine());
+
+            while (num < 1 || num > 12)
+            {
+                Console.Write("Wrong month, enter a new number: ");
+                num = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("It's " + dayName(num));
+        }
+
+static string dayName(int number)
+        {
+            switch (number)
+            {
+                case 1:
+                    return "January";
+                case 2:
+                    return "February";
+                case 3:
+                    return "March";
+                case 4:
+                    return "April";
+                case 5:
+                    return "May";
+                case 6:
+                    return "June";
+                case 7:
+                    return "July";
+                case 8:
+                    return "August";
+                case 9:
+                    return "September";
+                case 10:
+                    return "October";
+                case 11:
+                    return "November";
+            }
+            return "December";
+        }

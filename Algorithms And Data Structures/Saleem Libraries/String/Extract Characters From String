@@ -1,0 +1,12 @@
+        static string getCompletingWord(string word)
+        {
+            string completingWord = "";
+
+            for (int i = 0; i < word.Length; i++)
+                if (isCharacter(word[i]))
+                    completingWord += word[i];
+
+            return completingWord;
+        }
+        
+        static bool isCharacter(char c) => ((int)c >= 97 && (int)c <= 122) || ((int)c >= 65 && (int)c <= 90) ? true : false;

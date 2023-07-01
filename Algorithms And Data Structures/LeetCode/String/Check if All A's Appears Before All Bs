@@ -1,0 +1,27 @@
+public class Solution {
+    public bool CheckString(string s) {
+            int lastIndex = s.Length - 1, aLastIndex = s.Length - 1, bFirstIndex = 0;
+            bool aFlag = true, bFlag = true;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[lastIndex] == 'a' && aFlag)
+                {
+                    aLastIndex = lastIndex;
+                    aFlag = false;
+                }
+
+                if (s[i] == 'b' && bFlag)
+                {
+                    bFirstIndex = i;
+                    bFlag = false;
+                }
+
+                lastIndex--;
+
+                if (aFlag == false && bFlag == false) break;
+            }
+            if (aFlag == true || bFlag==true) return true;
+            return aLastIndex < bFirstIndex ? true : false;
+    }
+}

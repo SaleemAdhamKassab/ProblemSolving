@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            P21(readRowsCount());
+        }
+        static int readRowsCount()
+        {
+            Console.Write("Enter a number to define the rows:");
+            return (int.Parse(Console.ReadLine()));
+        }
+        static char getCharFromAsciiCode(int asciiNumber) =>
+            (char)('A' + asciiNumber);
+        static void P21(int rowsCount)
+        {
+            for (int i = 0; i < rowsCount; i++)
+            {
+                for (int j = 0; j <= i; j++)
+                    Console.Write(getCharFromAsciiCode(j) + " ");
+
+                Console.WriteLine();
+            }
+        }
+    }
+}

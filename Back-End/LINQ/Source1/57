@@ -1,0 +1,26 @@
+SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_ID IN
+( SELECT DEPARTMENT_ID FROM EMPLOYEES
+  GROUP BY DEPARTMENT_ID
+  HAVING MAX(SALARY)>10000)
+=====================================
+var sub = (
+               from e in _db.Employees
+               group e by e.DepartmentId into g
+               where g.Max(e => e.Salary) > 10000
+               select new
+               {
+                   g.Key
+               }
+            );
+
+var result = (
+                 from d in _db.Departments
+                 where sub.Select(e => e.Key).Contains(d.Id)
+                 select new
+                 {
+                     d.Id,
+                     d.DepartmentName,
+                     d.ManagerId,
+                     d.LocationId
+                 }
+            ).ToList();

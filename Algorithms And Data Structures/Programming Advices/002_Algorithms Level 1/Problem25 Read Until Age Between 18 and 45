@@ -1,0 +1,13 @@
+static void Main(string[] args)
+        {
+            Console.Write("enter age: ");
+            byte age = byte.Parse(Console.ReadLine());
+
+            while (age < 18 || age > 45)
+            {
+                Console.Write("wrong range, enter a new age: ");
+                age = byte.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("Valid age");
+        }

@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printYourName(readUserName());
+        }
+        static string readUserName()
+        {
+            Console.Write("Please Enter Your Name: ");
+            string userName = Console.ReadLine();
+            return userName;
+        }
+        static void printYourName(string name)
+        {
+            Console.WriteLine("Your Name is: {0}",name);
+        }
+    }
+}

@@ -1,0 +1,1 @@
+static bool isCharactersAreEquals(char c1, char c2) => c1 == c2;

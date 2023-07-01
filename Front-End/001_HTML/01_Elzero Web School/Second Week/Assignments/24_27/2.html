@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <input id="range" type="range" value="400" min="100" max="500" step="50" name="r" onchange="printRangeValue()" />
+    <p id="p1"></p>
+    <script>
+        function printRangeValue() {
+            document.getElementById("p1").innerHTML = document.getElementById("range").value;
+        }
+    </script>
+</body>
+</html>

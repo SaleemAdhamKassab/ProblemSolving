@@ -1,0 +1,28 @@
+static int lastCharIndex(string s)
+        {
+            for (int i = s.Length - 1; i >= 0; i--)
+                if (s[i] != ' ')
+                    return i;
+            return -1;
+        }
+
+static string TrimRight(string s)
+        {
+            string result = "";
+            int lastIndex = lastCharIndex(s);
+
+            for (int i = 0; i <= lastIndex; i++)
+                result += s[i];
+
+            return result;
+        }
+static string ReverseWords(string s)
+        {
+            string result = "";
+            string[] splitedString = s.Split(' ');
+
+            for (int i = splitedString.Length - 1; i >= 0; i--)
+                result += splitedString[i] + ' ';
+
+            return TrimRight(result);
+        }

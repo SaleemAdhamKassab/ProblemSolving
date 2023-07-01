@@ -1,0 +1,99 @@
+q1:
+#16
+  Console.Write("Enter number1: ");
+            int number1 = int.Parse(Console.ReadLine());
+            Console.Write("Enter number2: ");
+            int number2 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine((number1 * Math.Sqrt(Math.Pow(number2, 2) - Math.Pow(number1, 2))).ToString(".000"));
+-----------------------------------------------------------------------------------------------------------------------------------
+#18
+  Console.Write("Enter number1: ");
+            double number1 = double.Parse(Console.ReadLine());
+
+            Console.WriteLine(Math.Ceiling(3.14 * Math.Pow(number1, 2)));
+-------------------------------------------------------------------------------------------------------------------------------------
+#19
+Console.Write("Enter number1: ");
+            double number1 = double.Parse(Console.ReadLine());
+
+            Console.WriteLine(Math.Ceiling(3.14 * Math.Pow(number1,2) / 4));
+-------------------------------------------------------------------------------------------------------------------------------------
+ #20
+ Console.Write("Enter number1: ");
+            int number1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(Math.Ceiling(3.14 * Math.Pow(number1, 2) / 4));
+-------------------------------------------------------------------------------------------------------------------------------------
+#21:
+Console.WriteLine("Enter Circle Area: ");
+            int l = int.Parse(Console.ReadLine());
+            Console.WriteLine(Math.Floor(Math.Pow(l,2) / (4 * 3.14)));
+-------------------------------------------------------------------------------------------------------------------------------------
+#22:
+ Console.Write("Enter a: ");
+            double a = double.Parse(Console.ReadLine());
+            Console.Write("Enter b: ");
+            double b = double.Parse(Console.ReadLine());
+
+            Console.WriteLine(Math.Floor(3.14 * (Math.Pow(b,2) / 4) * (2 * a - b) / (2 * a + b)));
+-------------------------------------------------------------------------------------------------------------------------------------
+#23:
+ Console.Write("Enter a: ");
+            double a = double.Parse(Console.ReadLine());
+            Console.Write("Enter b: ");
+            double b = double.Parse(Console.ReadLine());
+            Console.Write("Enter c: ");
+            double c = double.Parse(Console.ReadLine());
+
+            double p = (a + b + c) / 2,
+            t = (a * b * c) / (4 * Math.Sqrt(p * (p - a) * (p - b) * (p - c)));
+
+            Console.WriteLine(Math.Round(3.14 * Math.Pow(t,2)));
+-------------------------------------------------------------------------------------------------------------------------------------
+#31:
+
+ Console.Write("Enter number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(Math.Round(Math.Pow(number, 2)));
+            Console.WriteLine(Math.Round(Math.Pow(number, 3)));
+            Console.WriteLine(Math.Round(Math.Pow(number, 4)));
+-------------------------------------------------------------------------------------------------------------------------------------
+#32:
+Console.Write("Enter number: ");
+            int number = int.Parse(Console.ReadLine());
+            Console.Write("Enter M: ");
+            int m = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(Math.Round(Math.Pow(number, m)));
+-------------------------------------------------------------------------------------------------------------------------------------
+#42:
+static void Main(string[] args)
+        {
+            Console.Write("days: ");
+            int days = int.Parse(Console.ReadLine());
+            Console.Write("hours: ");
+            int hours = int.Parse(Console.ReadLine());
+            Console.Write("minutes: ");
+            int minutes = int.Parse(Console.ReadLine());
+            Console.Write("seconds: ");
+            int seconds = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Total Seconds is: " + Math.Round(taskTimeInSeconds(days, hours, minutes, seconds)));
+        }
+
+        static double taskTimeInSeconds(int days, int hours, int minutes, int seconds)
+        {
+            return (days * 24 * Math.Pow(60,2)) + (hours *  Math.Pow(60,2)) + (minutes * 60) + seconds;
+        }
+-------------------------------------------------------------------------------------------------------------------------------------
+
+            
+            
+            
+            
+            
+            
+            
+            

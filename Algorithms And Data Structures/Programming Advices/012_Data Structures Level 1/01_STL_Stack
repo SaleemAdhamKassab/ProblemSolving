@@ -1,0 +1,25 @@
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Stack<int> stackNumbers = new Stack<int>();
+
+            stackNumbers.Push(10);
+            stackNumbers.Push(20);
+            stackNumbers.Push(30);
+            stackNumbers.Push(40);
+            stackNumbers.Push(50);
+
+            Console.WriteLine("Count = {0}", stackNumbers.Count());
+
+            Console.WriteLine("Numbers are: ");
+            while (stackNumbers.Count() != 0)
+            {
+                Console.WriteLine(stackNumbers.FirstOrDefault());
+                stackNumbers.Pop();
+            }
+        }
+    }
+}

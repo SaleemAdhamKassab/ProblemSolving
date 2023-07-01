@@ -1,0 +1,18 @@
+public class Solution {
+    public int MaximumCount(int[] nums) {
+        int positiveNumbersCount = 0, negativeNumbersCount = 0;
+
+            for (int i = 0; i < nums.Length; i++)
+                if (isZero(nums[i]))
+                    continue;
+                else if (isGreaterThanZero(nums[i]))
+                    positiveNumbersCount++;
+                else
+                    negativeNumbersCount++;
+
+            return max(positiveNumbersCount, negativeNumbersCount);
+    }
+     static bool isZero(int number) => number == 0;
+        static bool isGreaterThanZero(int number) => number > 0;
+        static int max(int num1, int num2) => num1 > num2 ? num1 : num2;
+}

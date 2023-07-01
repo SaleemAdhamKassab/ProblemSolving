@@ -1,0 +1,25 @@
+select j.job_title,d.department_name,e.last_name,jh.start_date
+from JOB_HISTORY jh join jobs j
+     on j.job_id = jh.job_id
+join departments d
+     on jh.department_id = d.department_id
+join employees e
+     on jh.employee_id = e.employee_id
+where to_char(jh.start_date,'yyyy') between  2000 and 2005;
+====================================
+var result = (
+                from jh in _db.JobHistory
+                join j in _db.Jobs
+                on jh.JobId equals j.Id
+                join d in _db.Departments
+                on jh.DepartmentId equals d.Id
+                join e in _db.Employees
+                on jh.EmployeeId equals e.Id
+                select new
+                {
+                    j.JobTitle,
+                    d.DepartmentName,
+                    e.LastName,
+                    jh.StartDate
+                }
+            ).ToList();

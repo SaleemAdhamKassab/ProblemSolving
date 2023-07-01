@@ -1,0 +1,9 @@
+static int[] initialize ArrayWithDefaultValue(int arrayLength, int defaultValue)
+    {
+        int[] result = new int[arrayLength];
+
+        for (int i = 0; i < arrayLength; i++)
+            result[i] = defaultValue;
+
+        return result;
+    }

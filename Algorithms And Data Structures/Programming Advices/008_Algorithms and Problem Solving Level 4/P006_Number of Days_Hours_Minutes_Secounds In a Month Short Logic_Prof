@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalResult();
+        }
+        struct monthDetails
+        {
+            public int days, hours, minutes, secounds;
+        }
+        static int readNumber(string msg)
+        {
+            Console.Write(msg);
+            return int.Parse(Console.ReadLine());
+        }
+        static bool isLeapYear(int year) =>
+            ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) ? true : false;
+        static int numberDaysInAMonth(int year, int monthNumber)
+        {
+            int[] NumberOfMonthDays = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+            return monthNumber == 2 ? (isLeapYear(year) ? 29 : 28) : NumberOfMonthDays[monthNumber - 1];
+        }
+        static int numberOfHoursInAMonth(int year, int monthNumber) => numberDaysInAMonth(year, monthNumber) * 24;
+        static int numberOfMinutesInAMonth(int year, int monthNumber) => numberOfHoursInAMonth(year, monthNumber) * 60;
+        static int numberOfSecoundsInAMonth(int year, int monthNumber) => numberOfMinutesInAMonth(year, monthNumber) * 60;
+        static monthDetails getMonthDetails(int year, int monthNumber)
+        {
+            monthDetails monthDetails = new monthDetails();
+
+            monthDetails.days = numberDaysInAMonth(year, monthNumber);
+            monthDetails.hours = numberOfHoursInAMonth(year, monthNumber);
+            monthDetails.minutes = numberOfMinutesInAMonth(year, monthNumber);
+            monthDetails.secounds = numberOfSecoundsInAMonth(year, monthNumber);
+
+            return monthDetails;
+        }
+        static void printMonthDetails(int monthNumber, monthDetails monthDetails)
+        {
+            Console.WriteLine("Number of Days     in Month [{0}] is: {1}", monthNumber, monthDetails.days);
+            Console.WriteLine("Number of Hours    in Month [{0}] is: {1}", monthNumber, monthDetails.hours);
+            Console.WriteLine("Number of Minutes  in Month [{0}] is: {1}", monthNumber, monthDetails.minutes);
+            Console.WriteLine("Number of Secounds in Month [{0}] is: {1}", monthNumber, monthDetails.secounds);
+        }
+        static void printFinalResult()
+        {
+            int year = readNumber("Please Enter a year to check:");
+            int monthNumber = readNumber("Please Enter a month to check: ");
+
+            printMonthDetails(monthNumber, getMonthDetails(year, monthNumber));
+        }
+    }
+}

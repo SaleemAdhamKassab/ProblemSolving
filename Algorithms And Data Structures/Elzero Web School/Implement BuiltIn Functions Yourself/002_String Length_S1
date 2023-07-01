@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine(length("saleem"));
+        }
+        static int length(string s)
+        {
+            int i = 0;
+            char c = ' ';
+
+            while (true)
+            {
+                try
+                {
+                    c = s[i];
+                    i++;
+                }
+                catch
+                {
+                    return i;
+                }
+            }
+        }
+    }
+}

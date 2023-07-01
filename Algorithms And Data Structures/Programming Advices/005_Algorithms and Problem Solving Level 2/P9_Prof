@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int mainNumber = readPositiveNumber("Please Enter The Main Number: ");
+            printResult(mainNumber);
+        }
+        static int readPositiveNumber(string message)
+        {
+            int number = 0;
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number <= 0);
+
+            return number;
+        }
+        static int digitFrequency(int mainNumber, int digit)
+        {
+            int digitFrequencyCounter = 0;
+
+            while (mainNumber > 0)
+            {
+                if (mainNumber % 10 == digit)
+                    digitFrequencyCounter++;
+
+                mainNumber = mainNumber / 10;
+            }
+            return digitFrequencyCounter;
+        }
+        static void printResult(int mainNumber)
+        {
+            int digitFrequencyCount = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                digitFrequencyCount = digitFrequency(mainNumber, i);
+                if (digitFrequencyCount > 0)
+                    Console.WriteLine("Digit {0} Frequency is {1} Time(s).", i, digitFrequencyCount);
+            }
+        }
+    }
+}

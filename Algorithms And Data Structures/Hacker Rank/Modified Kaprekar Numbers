@@ -1,0 +1,33 @@
+public static void kaprekarNumbers(int p, int q)
+        {
+            string num,l, r;
+            bool flag = false;
+
+            for(int i = p; i <= q; i++)
+            {
+                if (i < 9)
+                {
+                    if (i * i == 1)
+                    {
+                        flag = true;
+                        Console.Write($"{i} ");
+                    }
+                    continue;
+                }
+
+                long squared = (long) i * i;
+                num = squared.ToString();
+
+                l = num.Substring(0, num.Length / 2);
+                r = num.Substring((num.Length / 2));
+                
+                if (long.Parse(l) + long.Parse(r) == i)
+                {
+                    flag = true;
+                    Console.Write($"{i} ");
+                }
+            }
+
+            if(!flag) Console.Write("INVALID RANGE");
+
+        }

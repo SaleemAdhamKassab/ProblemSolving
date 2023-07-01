@@ -1,0 +1,15 @@
+public class Solution {
+    public int CountGoodRectangles(int[][] rectangles) {
+          int[] minRectanglesSideLength = new int[rectangles.Length];
+            int max = 0;
+
+            for (int i = 0; i < rectangles.Length; i++)
+            {
+                minRectanglesSideLength[i] = rectangles[i].Min();
+            }
+
+            max = minRectanglesSideLength.Max();
+
+            return minRectanglesSideLength.Count(x => x == max);
+    }
+}

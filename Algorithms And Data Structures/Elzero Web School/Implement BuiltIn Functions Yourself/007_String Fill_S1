@@ -1,0 +1,12 @@
+ static string padLeft(string word, int numberOfFiilingCells, char fillChar)
+        {
+            string prefix = "";
+
+            if (word.Length >= numberOfFiilingCells)
+                return word;
+
+            for (int i = word.Length; i < numberOfFiilingCells; i++)
+                prefix += fillChar;
+
+            return prefix + word;
+        }

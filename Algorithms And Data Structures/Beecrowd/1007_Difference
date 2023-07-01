@@ -1,0 +1,15 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+ int a = readNumber(),
+                b = readNumber(),
+                c = readNumber(),
+                d = readNumber();
+
+            Console.WriteLine("DIFERENCA = {0}", a * b - c * d);
+    }
+
+static int readNumber() => int.Parse(Console.ReadLine());
+}

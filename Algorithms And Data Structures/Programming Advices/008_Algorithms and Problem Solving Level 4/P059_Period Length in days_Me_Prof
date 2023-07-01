@@ -1,0 +1,115 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalResult();
+        }
+        struct Date
+        {
+            public int day, month, year;
+        }
+        struct DatePeriod
+        {
+           public Date StartDate, EndDate;
+        }
+        static int readNumber(string dateSection)
+        {
+            Console.Write("Please enter a {0}: ", dateSection);
+            return int.Parse(Console.ReadLine());
+        }
+        static Date readDate()
+        {
+            Date date = new Date();
+
+            date.day = readNumber("day");
+            date.month = readNumber("month");
+            date.year = readNumber("year");
+
+            return date;
+        }
+        static DatePeriod readPeriod()
+        {
+            DatePeriod datePeriod = new DatePeriod();
+
+            Console.WriteLine("Enter Start Date: ");
+            datePeriod.StartDate = readDate();
+
+            Console.WriteLine("Enter End Date: ");
+            datePeriod.EndDate = readDate();
+
+            return datePeriod;
+
+        }
+        static bool isLeapYear(int year) =>
+            ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) ? true : false;
+        static int numberDaysInAMonth(int year, int monthNumber)
+        {
+            int[] NumberOfMonthDays = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+            return monthNumber == 2 ? (isLeapYear(year) ? 29 : 28) : NumberOfMonthDays[monthNumber - 1];
+        }
+        static bool isLastDayInMonth(Date date) =>
+            date.day == numberDaysInAMonth(date.year, date.month) ? true : false;
+        static bool isDate1LessThanDate2(Date date1, Date date2) =>
+            date1.year < date2.year ||
+            date1.year == date2.year && date1.month < date2.month ||
+            date1.year == date2.year && date1.month == date2.month && date1.day < date2.day ? true : false;
+        static bool isLastMonthInYear(int Month)
+        {
+            return (Month == 12);
+        }
+        static Date increaseDateByOneDay(Date date)
+        {
+            if (isLastDayInMonth(date))
+            {
+                if (isLastMonthInYear(date.month))
+                {
+                    date.month = 1;
+                    date.day = 1;
+                    date.year++;
+                }
+                else
+                {
+                    date.day = 1;
+                    date.month++;
+                }
+            }
+            else
+            {
+                date.day++;
+            }
+            return date;
+        }
+        static int diffDaysBetweenDate1AndDate2(Date date1, Date date2)
+        {
+            int diffDays = 0;
+
+            while (isDate1LessThanDate2(date1, date2))
+            {
+                diffDays++;
+                date1 = increaseDateByOneDay(date1);
+            }
+
+            return diffDays;
+        }
+        static int periodLengthInDays(DatePeriod datePeriod) =>
+            diffDaysBetweenDate1AndDate2(datePeriod.StartDate, datePeriod.EndDate);
+        static void printFinalResult()
+        {
+            Console.WriteLine("Enter Period 1:");
+            DatePeriod datePeriod = readPeriod();
+
+            int diffDays = periodLengthInDays(datePeriod);
+
+            Console.WriteLine("Period Length is: {0}", diffDays);
+            Console.WriteLine("Period Length (Including end date) is: {0}", diffDays + 1);
+        }
+    }
+}

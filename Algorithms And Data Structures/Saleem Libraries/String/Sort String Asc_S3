@@ -1,0 +1,2 @@
+static string sortStringAsc(string s) =>
+            String.Concat(s.OrderBy(c => c));

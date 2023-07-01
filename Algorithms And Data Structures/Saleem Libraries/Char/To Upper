@@ -1,0 +1,1 @@
+static char ToUpper(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;

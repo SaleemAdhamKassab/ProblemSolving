@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine(trimLeft("**$saleem",'*'));
+        }
+        static string trimLeft(string s, char charToTrim=' ')
+        {
+            string result = "";
+            int firstIndex = firstCharIndex(s, charToTrim);
+
+            for (int i = firstIndex; i < s.Length; i++)
+                result += s[i];
+
+            return result;
+        }
+        static int firstCharIndex(string s, char charToTrim)
+        {
+            for (int i = 0; i <= s.Length; i++)
+                if (s[i] != charToTrim)
+                    return i;
+            return -1;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+ static void Main(string[] args)
+        {
+            Console.Write("Enter number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(commission(number));
+        }
+
+static double commission(int number)
+        {
+            if (number >= 1000000) return number * 0.01;
+            else if (number >= 500000) return number * 0.02;
+            else if (number >= 100000) return number * 0.03;
+            else if (number >= 50000) return number * 0.05;
+            else return 0;
+        }

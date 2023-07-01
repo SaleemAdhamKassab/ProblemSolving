@@ -1,0 +1,22 @@
+static void Main(string[] args)
+        {
+            Console.Write("Enter number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            while (number < 0 || number > 100)
+            {
+                Console.Write("please enter number between 1 and 100: ");
+                number = int.Parse(Console.ReadLine());
+            }
+            Console.WriteLine(grade(number));
+        }
+
+static char grade(int number)
+        {
+            if (number >= 90) return 'A';
+            else if (number >= 80) return 'B';
+            else if (number >= 70) return 'C';
+            else if (number >= 60) return 'D';
+            else if (number >= 50) return 'E';
+            else return 'F';
+        }

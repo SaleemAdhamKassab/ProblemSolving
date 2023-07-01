@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printMultiplicationTable();
+        }
+        static void printTableHeader()
+        {
+            string s = "Multiplication Table From 1 to 10";
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
+            Console.WriteLine(s);
+            Console.WriteLine();
+
+            for (int i = 1; i <= 10; i++)
+                Console.Write("\t{0}", i);
+
+            Console.WriteLine();
+            Console.WriteLine("_______________________________________________________________________________________");
+        }
+        static void printMultiplicationTable()
+        {
+            printTableHeader();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                if (i == 10)
+                    Console.Write("{0}  |", i);
+                else
+                    Console.Write("{0}   |", i);
+
+                for (int j = 1; j <= 10; j++)
+                {
+
+                    Console.Write("\t{0}", i * j);
+                }
+                Console.WriteLine();
+            }
+        }
+
+    }
+}

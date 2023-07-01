@@ -1,0 +1,7 @@
+static bool containsChar(string mainString, char c)
+        {
+            for (int i = 0; i < mainString.Length; i++)
+                if (mainString[i] == c) return true;
+
+            return false;
+        }

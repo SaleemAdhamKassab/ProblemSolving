@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printFinalresult(smallAndCapitalLettersCount("Saleem -Adham Kassab"));
+        }
+        static int[] smallAndCapitalLettersCount(string s)
+        {
+            int[] result = new int[3];
+            int lowerCaseCounter = 0,
+                upperCaseCounter = 0;
+
+            for(int i = 0; i < s.Length; i++)
+            {
+                if (isAlphabet(s[i]))
+                {
+                    if (s[i] == charToLowerCase(s[i]))
+                        lowerCaseCounter++;
+
+                    if (s[i] == charToUpperCase(s[i]))
+                        upperCaseCounter++;
+                }
+            }
+
+            result[0] = s.Length;
+            result[1] = lowerCaseCounter;
+            result[2] = upperCaseCounter;
+
+            return result;
+        }
+        static bool isAlphabet(char character) =>
+            (character >= 65 && character <= 90) || (character >= 97 && character <= 122) ?
+            true : false;
+        static char charToLowerCase(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+        static char charToUpperCase(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
+        static void printFinalresult(int[] resultArr)
+        {
+            Console.WriteLine("String Length: {0}",resultArr[0]);
+            Console.WriteLine("Capital Letters: {0}", resultArr[2]);
+            Console.WriteLine("Small Letters: {0}", resultArr[1]);
+        }
+    }
+}

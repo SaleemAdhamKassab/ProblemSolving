@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Person person1 = new Person("Saleem","Syria","Damascus");
+            person1.printInfo();
+            person1.address.print();
+        }
+        class Person
+        {
+            public class Address
+            {
+                private string _Country, _City;
+                public Address(string country, string city)
+                {
+                    _Country = country;
+                    _City = city;
+                }
+
+                public void print()
+                {
+                    Console.WriteLine("Country: {0}",_Country); 
+                    Console.WriteLine("City: {0}",_City); 
+                }
+            }
+
+            public string FullName;
+            public Address address;
+
+            public Person(string fullName, string country, string city)
+            {
+                FullName = fullName;
+                address = new Address(country, city);
+            }
+
+            public void printInfo()=> Console.WriteLine("Full Name: {0}",FullName);
+            
+        }
+    }
+}

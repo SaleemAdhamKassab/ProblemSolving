@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> lst = new List<int>();
+            readList(ref lst);
+            printList(ref lst);
+        }
+        static void readList(ref List<int> lst)
+        {
+            int counter = 0;
+            Console.WriteLine("Please Fill List Elements: ");
+
+            do
+            {
+                counter++;
+                Console.Write("Please Enter Element {0}: ", counter);
+                lst.Add(int.Parse(Console.ReadLine()));
+            } while (readMoreNumbers());
+        }
+        static bool readMoreNumbers()
+        {
+            char readMore = 'N';
+
+            Console.Write("Do You Want To Read More Numbers? Y/N: ");
+            readMore = char.Parse(Console.ReadLine());
+
+            return readMore == 'Y' || readMore == 'y' ? true : false;
+        }
+        static void printList(ref List<int> lst)
+        {
+            Console.WriteLine("List Elements are: ");
+            foreach (int number in lst)
+                Console.Write(number.ToString() + " ");
+
+            Console.WriteLine();
+        }
+
+    }
+}

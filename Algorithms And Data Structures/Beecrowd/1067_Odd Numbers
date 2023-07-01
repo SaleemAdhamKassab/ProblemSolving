@@ -1,0 +1,15 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) {
+         printOddNumbers(readNumber());
+    }
+     static int readNumber() => int.Parse(Console.ReadLine());
+    static void printOddNumbers(int to)
+    {
+        for(int i=1;i<=to;i+=2)
+            Console.WriteLine(i);
+    }
+
+}

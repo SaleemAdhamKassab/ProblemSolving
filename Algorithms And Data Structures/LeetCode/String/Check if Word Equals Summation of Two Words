@@ -1,0 +1,13 @@
+public class Solution {
+    public bool IsSumEqual(string firstWord, string secondWord, string targetWord) =>
+    numericalValue(firstWord) + numericalValue(secondWord) == numericalValue(targetWord) ? true : false;
+    
+     static int numericalValue(string s)
+    {
+       string numValue = "";
+        for (int i = 0; i < s.Length; i++)
+            numValue += (int)s[i] - 97;
+
+        return int.Parse(numValue);
+    }
+}

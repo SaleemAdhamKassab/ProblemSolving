@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            unsafe
+            {
+                int a = 20;
+                int* ptr = &a;
+                Console.WriteLine((int)ptr);
+                Console.WriteLine((int)&a);
+            }           
+        }
+    }
+}

@@ -1,0 +1,116 @@
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customers = db.Customers.Where(e => e.Country == "Germany" && e.City == "Berlin").ToList();
+
+            return Ok(customers);
+        }
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customers = (from cust in db.Customers
+                                        where cust.Country == "Germany" && cust.City == "Berlin"
+                                        select cust).ToList();
+
+            return Ok(customers);
+        }
+
+        
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = db.Customers.Where(e => e.City == "Berlin" || e.City == "Munchen").ToList();
+
+            return Ok(customersList);
+        }
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = (from customers in db.Customers
+                                            where customers.City == "Berlin" || customers.City == "Munchen"
+                                            select customers).ToList();
+
+            return Ok(customersList);
+        }
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = db.Customers.Where(e => e.Country == "Germany" || e.Country == "Spain").ToList();
+
+            return Ok(customersList);
+        }
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = (from customers in db.Customers
+                                            where customers.Country == "Germany" || customers.Country == "Spain"
+                                            select customers).ToList();
+
+            return Ok(customersList);
+        }
+
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = db.Customers.Where(e => e.Country != "Germany").ToList();
+
+            return Ok(customersList);
+        }
+
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = (from customers in db.Customers
+                                            where customers.Country!="Germany"
+                                            select customers).ToList();
+
+            return Ok(customersList);
+        }
+
+
+           [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = db.Customers.Where(e => e.Country == "Germany" &&
+                                                            (e.City == "Berlin" || e.City == "Munchen")).ToList();
+
+            return Ok(customersList);
+        }
+
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = (from customers in db.Customers
+                                            where customers.Country == "Germany" &&
+                                                           (customers.City == "Berlin" || customers.City == "Munchen")
+                                            select customers).ToList();
+
+            return Ok(customersList);
+        }
+
+
+          [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = db.Customers.Where(e => e.Country != "Germany" && e.Country != "USA").ToList();
+
+            return Ok(customersList);
+        }
+
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = (from customers in db.Customers
+                                            where customers.Country != "Germany" && customers.Country != "USA"
+                                            select customers).ToList();
+
+            return Ok(customersList);
+        }

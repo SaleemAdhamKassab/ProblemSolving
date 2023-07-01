@@ -1,0 +1,29 @@
+[HttpGet]
+public IActionResult test()
+        {
+            List<Customer> customers = db.Customers
+                .Where(e=>e.Country == "Germany" || e.Country == "France" || e.Country == "UK")
+                .ToList();
+
+            return Ok(customers);
+        }
+======================================================================================================================================
+[HttpGet]
+public IActionResult test()
+        {
+            List<Customer> customers = db.Customers
+                .Where(e=> e.Country != "Germany" || e.Country != "France" || e.Country != "UK")
+                .ToList();
+
+            return Ok(customers);
+        }
+======================================================================================================================================
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customers = db.Customers
+                .Where(e=> e.Country == "Norway" || e.Country == "France")
+                .ToList();
+
+            return Ok(customers);
+        }        

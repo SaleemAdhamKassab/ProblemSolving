@@ -1,0 +1,4 @@
+select distinct city
+from station
+where (SUBSTR(lower(city),-1,1) in ('a','o','e','i','u')) and 
+      (SUBSTR(lower(city),1,1) in ('a','o','e','i','u'));

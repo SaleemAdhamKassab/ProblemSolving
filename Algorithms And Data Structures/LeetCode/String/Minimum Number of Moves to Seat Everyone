@@ -1,0 +1,27 @@
+public class Solution {
+    public int MinMovesToSeat(int[] seats, int[] students) {
+         int[] orderedSeats = selectionSortAsc(seats), orderedStudents = selectionSortAsc(students);
+            int result = 0;
+            for (int i = 0; i < students.Length; i++)
+                result += Math.Abs(orderedSeats[i] - orderedStudents[i]);
+            return result;
+    }
+
+static int[] selectionSortAsc(int[] arr)
+        {
+            int temp = 0;
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] > arr[j])
+                    {
+                        temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+}

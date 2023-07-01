@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //printNumbersDown(10, 5);
+            Console.WriteLine(myPower(2, 4));
+        }
+        static void printNumbersDown(int from, int to)
+        {
+            if (from >= to)
+            {
+                Console.WriteLine(from);
+                printNumbersDown(from - 1, to);
+            }
+        }
+        static int myPower(int from, int to)
+        {
+            if (to == 0)
+                return 1;
+            else
+            {
+                return (from * myPower(from, to - 1));
+            }
+        }
+    }
+}

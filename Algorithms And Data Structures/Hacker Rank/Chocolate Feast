@@ -1,0 +1,16 @@
+public static int chocolateFeast(int n, int c, int m)
+        {
+            int total = 0,
+            pices = n / c,
+            wp = 0;
+
+            while (pices > 0)
+            {
+                total    += pices;
+                wp += pices;   
+                pices = wp / m;  
+                wp = wp % m;
+            }
+
+            return total;
+        }

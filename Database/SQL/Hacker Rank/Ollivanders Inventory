@@ -1,0 +1,12 @@
+select w.id, p.age, w.coins_needed,w.power
+    from wands w
+    join wands_property p
+      on p.code = w.code
+    where (p.age,w.power,w.coins_needed) in (
+            select p1.age,w1.power,min(w1.coins_needed)
+                from wands_property p1
+                join wands w1
+                  on w1.code = p1.code
+                where p1.is_evil = 0
+                group by p1.age, w1.power)
+    order by w.power desc, p.age desc;

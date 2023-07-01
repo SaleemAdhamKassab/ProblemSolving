@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int number1 = 0, number2 = 0;
+            readNumbers(ref number1, ref number2);
+            swap2Numbers(ref number1, ref number2);
+            printResult(number1, number2);
+        }
+        static void readNumbers(ref int num1, ref int num2)
+        {
+            Console.Write("Please Enter Number1: ");
+            num1 = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter Number2: ");
+            num2 = int.Parse(Console.ReadLine());
+        }
+        static void swap2Numbers(ref int number1,ref int number2)
+        {
+            int temp = number1;
+            number1 = number2;
+            number2 = temp;
+        }
+        static void printResult(int number1,int number2) 
+        {
+            Console.WriteLine("====================================");
+            Console.WriteLine("Number1 after swap is {0}", number1);
+            Console.WriteLine("Number2 after swap is {0}", number2);
+        }
+
+    }
+}

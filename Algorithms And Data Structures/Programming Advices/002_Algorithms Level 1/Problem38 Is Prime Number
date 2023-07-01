@@ -1,0 +1,18 @@
+static void Main(string[] args)
+        {
+            Console.Write("enter the number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(isPrime(number) ? "Prime" : "Not Prime");
+        }
+
+static bool isPrime(int num)
+        {
+        if(num==1 || num==2) return true;
+            for (int i = 2; i < num; i++)
+            {
+                if (num % i == 0) return false;
+            }
+
+            return true;
+        }

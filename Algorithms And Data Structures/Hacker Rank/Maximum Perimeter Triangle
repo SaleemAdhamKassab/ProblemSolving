@@ -1,0 +1,37 @@
+public static List<int> maximumPerimeterTriangle(List<int> sticks)
+        {
+            List<int> result = new List<int>();
+            sticks = sortDsc(sticks);
+            for (int i = 0; i < sticks.Count - 2; i++)
+            {
+                if (sticks[i] < sticks[i + 1] + sticks[i + 2])
+                {
+                    result.Add(sticks[i + 2]);
+                    result.Add(sticks[i + 1]);
+                    result.Add(sticks[i]);
+                    break;
+                }
+            }
+
+            if (result.Count < 1) result.Add(-1);
+
+            return result;
+        }
+
+static List<int> sortDsc(List<int> lst)
+        {
+            int temp = 0;
+            for (int i = 0; i < lst.Count - 1; i++)
+            {
+                for (int j = i + 1; j < lst.Count; j++)
+                {
+                    if (lst[i] < lst[j])
+                    {
+                        temp = lst[i];
+                        lst[i] = lst[j];
+                        lst[j] = temp;
+                    }
+                }
+            }
+            return lst;
+        }

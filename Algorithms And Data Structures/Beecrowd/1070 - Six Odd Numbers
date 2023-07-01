@@ -1,0 +1,21 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+
+  printSixOddNumbers(readNumber());
+
+    }
+    
+    static int readNumber() => int.Parse(Console.ReadLine());
+    static bool isPositive(int number) => number % 2 == 0;
+    static void printSixOddNumbers(int from)
+    {
+         if (isPositive(from)) from++;
+
+        for (int i = from; i <= from + 10; i += 2)
+            Console.WriteLine(i);
+    }
+
+}

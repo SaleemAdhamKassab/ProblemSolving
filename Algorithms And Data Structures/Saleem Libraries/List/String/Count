@@ -1,0 +1,9 @@
+static int count(List<string> lst)
+        {
+            int counter = 0;
+
+            for (int i = 0; i < lst.Count; i++)
+                counter++;
+
+            return counter;
+        }

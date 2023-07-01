@@ -1,0 +1,18 @@
+public class Solution {
+    public int[] SeparateDigits(int[] nums) {
+    List<int> answer = new List<int>();
+            string numberToString = "";
+            int numberToStringLength = 0;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                numberToString = nums[i].ToString();
+                numberToStringLength = numberToString.Length;
+
+                for (int j = 0; j < numberToStringLength; j++)
+                    answer.Add(int.Parse(numberToString[j].ToString()));
+            }
+
+            return answer.ToArray();    
+    }
+}

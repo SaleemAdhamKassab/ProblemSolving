@@ -1,0 +1,18 @@
+static char ToLower(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+static char ToUpper(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
+static bool IsLetter(char c) => c >= 97 && (int)c <= 122 || (int)c >= 65 && (int)c <= 90;
+static bool IsUpper(char c) => IsLetter(c) && c == ToUpper(c);
+static string CapitalizeWord(string word)
+        {
+            string result = IsUpper(word[0]) ? word[0].ToString() : ToUpper(word[0]).ToString();
+
+            for (int i = 1; i < word.Length; i++)
+            {
+                if (IsUpper(word[i]))
+                    result += ToLower(word[i]);
+                else
+                    result += word[i];
+            }
+
+            return result;
+        }

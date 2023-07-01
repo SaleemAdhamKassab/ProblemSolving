@@ -1,0 +1,11 @@
+static void Main(string[] args)
+        {
+            Console.Write("Enter Number1: ");
+            int number1 = int.Parse(Console.ReadLine());
+            Console.Write("Enter Number2: ");
+            int number2 = int.Parse(Console.ReadLine());
+            Console.Write("Enter Number3: ");
+            int number3 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(number1 + number2 + number3);
+        }

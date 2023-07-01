@@ -1,0 +1,12 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+
+int PROD = readNumber() * readNumber();
+            Console.WriteLine("PROD = {0}",PROD);
+
+    }
+static int readNumber() => int.Parse(Console.ReadLine());
+}

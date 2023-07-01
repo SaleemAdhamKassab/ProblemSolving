@@ -1,0 +1,15 @@
+public class Solution {
+    public bool IsPalindrome(string s) {
+        string preparedString = prepareString(s),
+                   reversedPreparedString = new string(preparedString.ToCharArray().Reverse().ToArray());
+            return preparedString == reversedPreparedString ? true : false;
+    }
+     static string prepareString(string s)
+        {
+            string result = "";
+            for (int i = 0; i < s.Length; i++)
+                if (Char.IsLetter(s[i]) || Char.IsDigit(s[i]))
+                    result += char.ToLower(s[i]);
+            return result;
+        }
+}

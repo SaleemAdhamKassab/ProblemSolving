@@ -1,0 +1,337 @@
+      [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customers = db.Customers.ToList();
+            return Ok(customers);
+        }
+
+ [HttpGet]
+        public IActionResult test()
+        {
+            var result = db.Customers.Select(e => new { e.Name, e.City }).ToList();
+
+            return Ok(result);
+        }
+
+        using Labs.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Labs.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class LinqController : ControllerBase
+    {
+        private readonly DataContext db;
+
+        public LinqController(DataContext dataContext)
+        {
+            db = dataContext;
+        }
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            var customers = db.Customers
+                                        .Select(e => new { e.Country })
+                                        .Distinct()
+                                        .ToList();
+
+
+            return Ok(customers);
+        }
+    }
+}
+
+
+[HttpGet]
+        public IActionResult test()
+        {
+            var customers = (from customer in db.Customers
+                            select customer.Country).Distinct();
+
+            return Ok(customers);
+        }
+
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            int distinctCustomersCountry = db.Customers.Select(e => e.Country).Distinct().Count();
+
+            return Ok(distinctCustomersCountry);
+        }
+
+          [HttpGet]
+        public IActionResult test()
+        {
+            int distinctCustomersCountry = (from customers in db.Customers
+                                           select customers.Country).Distinct().Count();
+
+            return Ok(distinctCustomersCountry);
+        }
+
+
+
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> mexicoCustomers = db.Customers.Where(e=>e.Country== "Mexico").ToList();
+
+            return Ok(mexicoCustomers);
+        }
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> mexicoCustomers = (from customers in db.Customers
+                                              where customers.Country == "Mexico"
+                                              select customers).ToList();
+
+            return Ok(mexicoCustomers);
+        }
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            Customer customer = db.Customers.Where(e => e.Id == 1).SingleOrDefault()!;
+                                 
+
+            return Ok(customer);
+        }
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            Customer customer = (from obj in db.Customers
+                                 where obj.Id==1
+                                 select obj).SingleOrDefault()!;
+                                 
+
+            return Ok(customer);
+        }
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> products = db.Products.Where(e => e.Price == 18).ToList();
+                                 
+
+            return Ok(products);
+        }
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> productsList = (from products in db.Products
+                                          where products.Price == 18
+                                          select products).ToList();
+                                 
+
+            return Ok(productsList);
+        }
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> products = db.Products.Where(e => e.Price > 30).ToList();
+                                 
+
+            return Ok(products);
+        }
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> productsList = (from products in db.Products
+                                          where products.Price > 30
+                                          select products).ToList();
+                                 
+
+            return Ok(productsList);
+        }
+
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> products = db.Products.Where(e => e.Price < 30).ToList();
+                                 
+
+            return Ok(products);
+        }
+
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> productsList = (from products in db.Products
+                                         where products.Price < 30
+                                         select products).ToList();
+
+
+            return Ok(productsList);
+        }
+
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> products = db.Products.Where(e => e.Price >= 30).ToList();
+                                 
+
+            return Ok(products);
+        }
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> productsList = (from products in db.Products
+                                         where products.Price >= 30
+                                         select products).ToList();
+
+
+            return Ok(productsList);
+        }
+
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> products = db.Products.Where(e => e.Price < 30).ToList();
+
+            return Ok(products);
+        }
+
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> products = (from obj in db.Products
+                                      where obj.Price < 30
+                                      select obj).ToList();
+
+            return Ok(products);
+        }
+
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> products =db.Products.Where(e=>e.Price>=30).ToList();
+
+            return Ok(products);
+        }
+
+
+                [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> products = (from obj in db.Products
+                                      where obj.Price >= 30
+                                      select obj).ToList();
+
+            return Ok(products);
+        }
+
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> products = db.Products.Where(e => e.Price <= 30).ToList();
+
+            return Ok(products);
+        }
+
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> productsList = (from products in db.Products
+                                          where products.Price <= 30
+                                          select products).ToList();
+
+            return Ok(productsList);
+        }
+
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> productsList = db.Products.Where(e => e.Price != 18).ToList();
+
+            return Ok(productsList);
+        }
+
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> productsList = (from products in db.Products
+                                          where products.Price!=18
+                                          select products).ToList();
+
+            return Ok(productsList);
+        }
+
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Product> products = db.Products.Where(e => e.Price >= 50 && e.Price <= 60).ToList(); 
+            
+                return Ok(products);
+        }
+
+[HttpGet]
+        public IActionResult test()
+        {
+            List<Product> products =(from prods in db.Products
+                                     where prods.Price>=50 && prods.Price<=60
+                                     select prods).ToList(); 
+            
+                return Ok(products);
+        }
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customers = db.Customers.Where(e => e.City.StartsWith("S")).ToList();
+
+            return Ok(customers);
+        }
+
+        [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = (from customers in db.Customers
+                                        where customers.City.StartsWith("S")
+                                        select customers).ToList();
+
+            return Ok(customersList);
+        }
+
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customers = db.Customers
+                                            .Where(e => e.City == "Paris" || e.City == "London")
+                                            .ToList();
+
+            return Ok(customers);
+        }
+
+
+         [HttpGet]
+        public IActionResult test()
+        {
+            List<Customer> customersList = (from customers in db.Customers
+                                            where customers.City == "Paris" || customers.City == "London"
+                                            select customers)
+                                            .ToList();
+
+            return Ok(customersList);
+        }
+

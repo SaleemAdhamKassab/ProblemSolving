@@ -1,0 +1,20 @@
+public class Solution {
+    public bool SquareIsWhite(string coordinates) {
+         int numberFromcoordinates = int.Parse(coordinates[1].ToString());
+        char charFromcoordinates = coordinates[0];
+
+        if (numberFromcoordinates % 2 == 0 &&
+            (charFromcoordinates == 'a' ||
+            charFromcoordinates == 'c' ||
+            charFromcoordinates == 'e' ||
+            charFromcoordinates == 'g'
+            )) return true;
+        else if (numberFromcoordinates % 2 != 0 &&
+            (charFromcoordinates == 'b' ||
+            charFromcoordinates == 'd' ||
+            charFromcoordinates == 'f' ||
+            charFromcoordinates == 'h'
+            )) return true;
+        else return false;
+    }
+}

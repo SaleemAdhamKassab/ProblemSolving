@@ -1,0 +1,15 @@
+JavaScript
+=========
+function weightedUniformStrings(s: string, queries: number[]): string[] {
+    const weights = new Set()
+    let sum = 0
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i-1] !== s[i]) sum = 0
+        sum += s[i].charCodeAt(0) - 97 + 1
+        weights.add(sum)
+    }
+
+    return queries.map(val => (weights.has(val) ? 'Yes' : 'No'))
+
+}

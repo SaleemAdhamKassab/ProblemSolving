@@ -1,0 +1,22 @@
+select j.employee_id
+from job_history j
+group by j.employee_id
+having count(*)>1;
+======================
+var result = (
+               from j in _db.JobHistory
+               group j by j.EmployeeId into g
+               where g.Count() > 1
+               select new
+               {
+                   empId = g.Key
+               }
+             ).ToList();
+======================
+var result = _db.JobHistory.GroupBy(e => e.EmployeeId).Select(e => new
+            {
+                empId = e.Key,
+                count = e.Count()
+            })
+            .Where(e => e.count > 1)
+            .ToList();

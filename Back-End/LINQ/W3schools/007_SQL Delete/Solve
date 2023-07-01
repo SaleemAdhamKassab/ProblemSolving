@@ -1,0 +1,37 @@
+ [HttpGet]
+public IActionResult test()
+        {
+            addNewCustomer(getTempCustomer());
+
+            Customer customer = db.Customers.Where(e => e.CustomerName == "TEMP CUSTOMER").FirstOrDefault();
+
+            if (customer != null)
+            {
+                db.Customers.Remove(customer);
+                db.SaveChanges();
+                return Ok("The customer (" + customer.CustomerName + ") Deleted successfully");
+            }
+            return BadRequest();
+        }
+==================================================================================================================
+[HttpGet]
+public IActionResult test()
+        {
+            List<Customer> customers = db.Customers.ToList();
+            db.Customers.RemoveRange(customers);
+            db.SaveChanges();
+
+            return Ok("All Rows Deleted");
+        }
+        
+==================================================================================================================        
+[HttpGet]
+public IActionResult test()
+        {
+            List<Customer> customers = db.Customers.Where(e => e.Country == "Norway").ToList();
+
+            db.Customers.RemoveRange(customers);
+            db.SaveChanges();
+
+            return Ok("Delted Successfully");
+        }

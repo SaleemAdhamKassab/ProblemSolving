@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            readNumbers();
+            Console.WriteLine("Result = {0}", result);
+        }
+        static int result = 0;
+        static void readNumbers()
+        {
+            int number = 0, i = 0;
+            while (true)
+            {
+                i++;
+                Console.Write("Please Enter Number{0}: ",i );
+                number = int.Parse(Console.ReadLine());
+                if (number != -99) sumNumbers(number);
+                else break;
+            }
+        }
+        static void sumNumbers(int number) => result += number;
+    }
+}

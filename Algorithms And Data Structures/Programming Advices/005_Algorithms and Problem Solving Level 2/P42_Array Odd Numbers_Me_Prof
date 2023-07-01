@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult(generteRandomArray(readPositiveNumber("Please Enter Array Length: ")));
+        }
+        static int readPositiveNumber(string message)
+        {
+            int number = 0;
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number < 1);
+
+            return number;
+        }
+        static int generateRandomNumber()
+        {
+            Random random = new Random();
+            return random.Next(1, 100);
+        }
+        static int[] generteRandomArray(int arrLength)
+        {
+            int[] arr = new int[arrLength];
+
+            for (int i = 0; i < arrLength; i++)
+                arr[i] = generateRandomNumber();
+
+            return arr;
+        }
+        static void PrintArray(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+                Console.Write(arr[i] + " ");
+
+            Console.WriteLine();
+        }
+        static bool isOddNumber(int number) => number % 2 != 0 ? true : false;
+        static int OddNumberCount(int[] arr)
+        {
+            int counter = 0;
+            for (int i = 0; i < arr.Length; i++)
+                if (isOddNumber(arr[i]))
+                    counter++;
+
+            return counter;
+        }
+        static void printResult(int[] arr)
+        {
+            Console.Write("Array Elements :");
+            PrintArray(arr);
+            Console.WriteLine("Odd Numbers Count is: {0}", OddNumberCount(arr));
+
+        }
+    }
+}

@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(DigitSum("00000000", 3));
+        }
+        static string DigitSum(string s, int k)
+        {
+            string result = consecutiveGroupsSum(s, k);
+
+            while (result.Length>k)
+            {
+                result = consecutiveGroupsSum(result, k);
+            }
+
+            return result;
+        }
+        static string consecutiveGroupsSum(string s, int k)
+        {
+            if (s.Length <= k)
+                return s;
+
+            string result = "", tempS = "";
+            int kCounter = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                tempS += s[i];
+                kCounter++;
+                if (kCounter == k || (i == s.Length - 1 && kCounter < k))
+                {
+                    result += subGroupsSum(tempS);
+                    tempS = "";
+                    kCounter = 0;
+                }
+
+            }
+
+            return result;
+        }
+        static int subGroupsSum(string s)
+        {
+            int sum = 0;
+            for (int i = 0; i < s.Length; i++)
+                sum += int.Parse(s[i].ToString());
+
+            return sum;
+        }
+
+    }
+}

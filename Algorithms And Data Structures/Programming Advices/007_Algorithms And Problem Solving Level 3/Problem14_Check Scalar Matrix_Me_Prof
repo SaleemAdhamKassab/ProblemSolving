@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            printResult();
+        }
+        static void printMatrix(int[,] arr)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(arr[i, j].ToString("000") + "  ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
+        static bool isScalarMatrix(int[,] arr)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if ((i == j && arr[i, j] != arr[0, 0]) || (i != j && arr[i, j] != 0))
+                        return false;
+                }
+            }
+            return true;
+        }
+        static void printResult()
+        {
+            int[,] matrix1 = { { 9, 0, 0 }, { 0, 9, 0 }, { 0, 0, 9 } };
+
+            Console.WriteLine("Matrix1: ");
+            printMatrix(matrix1);
+
+            Console.WriteLine(isScalarMatrix(matrix1) ?
+                "Yes: Matrix is Scalar" : "No: Matrix are Not Scalar");
+        }
+    }
+
+}

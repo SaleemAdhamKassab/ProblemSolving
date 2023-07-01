@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(MinOperations(new int[] {1,1,1 }));
+        }
+        static int MinOperations(int[] nums)
+        {
+            int counter = 0;
+
+            for (int i = 0; i < nums.Length - 1; i++)
+            {
+                if (nums[i] >= nums[i + 1])
+                {
+                    counter += (nums[i] + 1) - (nums[i + 1]);
+                    nums[i + 1] = nums[i] + 1;
+                }
+            }
+
+            return counter;
+        }
+
+    }
+}

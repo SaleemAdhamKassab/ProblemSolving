@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Person person1 = new Person();
+            person1.setFirstName("saleem");
+            person1.setLastName("kassab");
+            Console.WriteLine(person1.getFirstName());
+            Console.WriteLine(person1.getLastName());
+            Console.WriteLine(person1.getFullName());
+
+            Console.WriteLine(person1.getId());
+        }
+        class Person
+        {
+            private int _Id = 1;
+            private string _FirstName;
+            private string _LastName;
+            
+            //just create get without set to be readonly property
+            public int getId() => _Id;
+            public string getFirstName() => _FirstName;
+            public void setFirstName(string firstName) => _FirstName = firstName;
+            public string getLastName() => _LastName;
+            public void setLastName(string lastName) => _LastName = lastName;
+
+            public string getFullName() => _FirstName + " " + _LastName;
+        }
+    }
+}

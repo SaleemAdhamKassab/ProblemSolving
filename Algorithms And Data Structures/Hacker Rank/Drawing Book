@@ -1,0 +1,46 @@
+public static int pageCount(int n, int p)
+        {
+            int front = 0,
+                last = 0;
+            //check if p in first or last
+            if(p==1 || p == n || ((n % 2 != 0)&&((p == n - 1))) )
+            {
+                return 0;
+            }
+
+            if (p - 1 == 1 || n - p == 1)
+            {
+                return 1;
+            }
+
+            ///logic
+            //1) get cost from first 
+            if (p % 2 != 0)
+            {
+                front = (p - 1) / 2;
+            }
+            else
+            {
+                front = ((p - 1) / 2)+1;
+            }
+
+            //2) get cost from last
+            if(n %2 != 0)
+            {
+                last = (n - p) / 2;
+            }
+            else
+            {
+                if (p % 2 == 0)
+                {
+                    last = (n - p) / 2;
+                }
+                else
+                {
+                    last = ((n - p) / 2)+1;
+                }
+            }
+
+            return last < front ? last : front;
+
+        }

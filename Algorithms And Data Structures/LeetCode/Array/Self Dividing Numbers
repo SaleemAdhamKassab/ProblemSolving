@@ -1,0 +1,22 @@
+public class Solution {
+    public IList<int> SelfDividingNumbers(int left, int right) {
+           List<int> result = new List<int>();
+        for (int i = left; i <= right; i++)
+            if (isSelfDividingNumbers(i))
+                result.Add(i);
+
+        return result;
+    }
+
+static bool isSelfDividingNumbers(int num)
+    {
+        int firstDigit = 0, tempNum = num;
+        while (tempNum > 0)
+        {
+            firstDigit = tempNum % 10;
+            if (firstDigit == 0 || num % firstDigit != 0) return false;
+            tempNum = tempNum / 10;
+        }
+        return true;
+    }
+}

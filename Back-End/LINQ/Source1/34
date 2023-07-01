@@ -1,0 +1,26 @@
+select e.department_id,to_char(e.hire_date,'yyyy') as "Jooined Yeaer", count(*)
+from employees e
+group by e.department_id,to_char(e.hire_date,'yyyy')
+order by e.department_id;
+===========================================
+var result = (
+               from e in _db.Employees
+               group e by new { e.DepartmentId, e.HireDate } into g
+               select new
+               {
+                   deptId = g.Key.DepartmentId,
+                   hireDate = g.Key.HireDate,
+                   empsCount = g.Count()
+               }
+             )
+             .OrderBy(e => e.deptId)
+             .ToList();
+====================================================
+var result = _db.Employees.GroupBy(e => new { e.DepartmentId, e.HireDate }).Select(e => new
+            {
+                deptId = e.Key.DepartmentId,
+                hireDate = e.Key.HireDate,
+                empsCount = e.Count()
+            })
+            .OrderBy(e => e.deptId)
+            .ToList();

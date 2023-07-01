@@ -1,0 +1,8 @@
+static List<string> fillListFromFile(string filePath)
+        {
+            List<string> fileContent = new List<string>();
+            foreach (string line in File.ReadLines(filePath))
+                fileContent.Add(line);
+
+            return fileContent;
+        }

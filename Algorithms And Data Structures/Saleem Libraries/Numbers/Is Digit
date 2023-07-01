@@ -1,0 +1,1 @@
+static bool isDigit(char c) => (int)c >= 48 && (int)c <= 57;

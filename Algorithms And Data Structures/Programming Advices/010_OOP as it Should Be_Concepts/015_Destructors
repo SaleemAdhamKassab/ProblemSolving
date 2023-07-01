@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+
+        static void Main()
+        {
+            test();
+        }
+        class Person
+        {
+            private string _FullName;
+            public Person(string fullName)
+            {
+                Console.WriteLine("Hi from Constructor");
+
+                _FullName = fullName;
+            }
+            ~Person()
+            {
+                Console.WriteLine("Hi from Destructor");
+            }
+            public void printFullName() =>
+                Console.WriteLine("Full Name: {0}", _FullName);
+        }
+        static void test()
+        {
+            Person person1 = new Person("Saleem Kassab");
+            person1.printFullName();
+        }
+    }
+}

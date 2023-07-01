@@ -1,0 +1,8 @@
+ public static void bonAppetit(List<int> bill, int k, int b)
+        {
+            int x = b - (((bill.Sum()) - bill[k])/2);
+
+            if (x == 0) Console.WriteLine("Bon Appetit");
+            else Console.WriteLine(x);
+
+        }

@@ -1,0 +1,43 @@
+ public static List<int> acmTeam(List<string> topic)
+        {
+            List<char> main = new List<char>();
+            List<char> sub = new List<char>();
+            List<int> result = new List<int>();
+
+            int counter = 0,
+                max = 0,
+                team = 1;
+
+            for (int i = 0; i < topic.Count; i++)
+            {
+                main = topic[i].ToList();
+
+                for (int j = i + 1; j < topic.Count; j++)
+                {
+                    sub = topic[j].ToList();
+
+                    for (int x = 0; x < main.Count; x++)
+                    {
+                        if (main[x] == '1' || sub[x] == '1')
+                        {
+                            counter++;
+                        }
+                    }
+
+                    int old = max;
+                    if (counter >= max)
+                    {
+                        if (counter > old) team=0;
+
+                        team++;
+                        max = counter;
+                    }
+                    counter = 0;
+                }
+            }
+            result.Add(max);
+            result.Add(team);
+
+            return result;
+  
+        }

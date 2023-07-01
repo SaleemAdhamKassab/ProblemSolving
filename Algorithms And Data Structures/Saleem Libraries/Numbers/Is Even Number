@@ -1,0 +1,2 @@
+static bool isEvenNumber(int number) =>
+            number % 2 == 0;

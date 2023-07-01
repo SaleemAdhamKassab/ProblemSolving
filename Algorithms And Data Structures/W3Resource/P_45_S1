@@ -1,0 +1,17 @@
+static int occurrenceNumberCount(int[] arr, int number)
+        {
+            int counter = 0;
+
+            for (int i = 0; i < arr.Length; i++)
+                if (arr[i] == number)
+                    counter++;
+
+            return counter;
+        }
+static int readNumber(string msg)
+        {
+            Console.Write(msg);
+            return int.Parse(Console.ReadLine());
+        }
+        
+static void prinFinalResult() => Console.WriteLine("Number of 5 present in the said array: {0}", occurrenceNumberCount(new int[] { 1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 9 }, readNumber("Input an integer:")));

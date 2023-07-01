@@ -1,0 +1,67 @@
+using System; 
+using System.Collections.Generic;
+
+class URI {
+
+    static void Main(string[] args) { 
+  prrintFinalResult(triangleType(selectionSortDesc(splitedInput(readInput()))));
+    }
+ static string readInput() => Console.ReadLine();
+        static double[] splitedInput(string input)
+        {
+            string[] splitedInput = input.Split(' ');
+
+            double[] result = new double[splitedInput.Length];
+
+            for (int i = 0; i < splitedInput.Length; i++)
+                result[i] = double.Parse(splitedInput[i]);
+
+            return result;
+        }
+        static double[] selectionSortDesc(double[] arr)
+        {
+            double temp = 0;
+
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] < arr[j])
+                    {
+                        temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+        static List<string> triangleType(double[] sortedDescInput)
+        {
+      List<string> result = new List<string>();
+
+            if (sortedDescInput[0]>= (sortedDescInput[1] + sortedDescInput[2]) ||sortedDescInput[1]>= (sortedDescInput[0]+ sortedDescInput[2]) ||sortedDescInput[2]>= (sortedDescInput[0]+ sortedDescInput[1]))
+                result.Add("NAO FORMA TRIANGULO");
+            else if (sortedDescInput[0]*sortedDescInput[0]== (sortedDescInput[1] *sortedDescInput[1]+sortedDescInput[2]* sortedDescInput[2]) ||sortedDescInput[1]*sortedDescInput[1]== (sortedDescInput[0]*sortedDescInput[0]+sortedDescInput[2]* sortedDescInput[2]) ||sortedDescInput[2]*sortedDescInput[2]== (sortedDescInput[0]*sortedDescInput[0]+sortedDescInput[1]* sortedDescInput[1]))
+                result.Add("TRIANGULO RETANGULO");
+            else if (sortedDescInput[0]*sortedDescInput[0]> (sortedDescInput[1] *sortedDescInput[1]+sortedDescInput[2]* sortedDescInput[2]) ||sortedDescInput[1]*sortedDescInput[1]> (sortedDescInput[0]*sortedDescInput[0]+sortedDescInput[2]* sortedDescInput[2]) ||sortedDescInput[2]*sortedDescInput[2]> (sortedDescInput[0]*sortedDescInput[0]+sortedDescInput[1]* sortedDescInput[1]))
+                result.Add("TRIANGULO OBTUSANGULO");
+            else if (sortedDescInput[0]*sortedDescInput[0]< (sortedDescInput[1] *sortedDescInput[1]+sortedDescInput[2]* sortedDescInput[2]) ||sortedDescInput[1]*sortedDescInput[1]< (sortedDescInput[0]*sortedDescInput[0]+sortedDescInput[2]* sortedDescInput[2]) ||sortedDescInput[2]*sortedDescInput[2]< (sortedDescInput[0]*sortedDescInput[0]+sortedDescInput[1]* sortedDescInput[1]))
+                result.Add("TRIANGULO ACUTANGULO");
+            if (sortedDescInput[0]==sortedDescInput[1]&&sortedDescInput[0]== sortedDescInput[2])
+                result.Add("TRIANGULO EQUILATERO");
+            if ((sortedDescInput[0]==sortedDescInput[1]&&sortedDescInput[0]!= sortedDescInput[2]) || (sortedDescInput[0]==sortedDescInput[2]&&sortedDescInput[0]!= sortedDescInput[1]) || (sortedDescInput[1] ==sortedDescInput[2]&&sortedDescInput[1]!= sortedDescInput[0]))
+                result.Add("TRIANGULO ISOSCELES");
+
+            return result;
+        }
+        static bool towEqualSides(double A, double B, double C) =>
+            ((A == B && B != C) || (A == C && C != B) || (B == C && C != A));
+        static void prrintFinalResult(List<string> result)
+        {
+            for (int i = 0; i < result.Count; i++)
+            {
+                Console.WriteLine(result[i]);
+            }
+        }
+}

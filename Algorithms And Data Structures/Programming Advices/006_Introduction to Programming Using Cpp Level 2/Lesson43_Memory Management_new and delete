@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            unsafe
+            {
+                int* ptrX; // declare a float pointerfloat* ptrY; // dynamically allocate memory    ptrX = newint;     ptrY = newfloat; // assigning value to the memory    *ptrX = 45;     *ptrY = 58.35f;     cout << *ptrX << endl;     cout << *ptrY << endl; // deallocate the memorydelete ptrX; delete ptrY;
+
+            }
+        }
+    }
+}
+

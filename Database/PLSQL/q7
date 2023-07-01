@@ -1,0 +1,38 @@
+create or replace function q7 return boolean is
+  joeCount     number;
+  sal          employees.salary%type;
+  isSalUpdated number;
+
+begin
+  -- check joe count
+  select count(*)
+    into joeCount
+    from employees e
+   where e.first_name = 'Joe';
+
+  if (joeCount > 0) then
+    select min(e.salary)
+      into sal
+      from employees e
+     where e.first_name = 'Joe';
+  else
+    select avg(e.salary) into sal from employees e;
+  end if;
+
+  --update emp130 sal  
+  update employeetest e set e.salary = sal where e.employee_id = 130;
+  isSalUpdated := SQL%rowcount;
+  commit;
+
+  if (isSalUpdated > 0) then
+    return true;
+  end if;
+
+  return false;
+
+Exception
+  when others then
+    dbms_output.put_line(sqlerrm);
+  
+end q7;
+

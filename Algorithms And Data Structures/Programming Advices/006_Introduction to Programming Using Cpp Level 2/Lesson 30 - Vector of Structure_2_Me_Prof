@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printResult();
+        }
+        struct stEmployees
+        {
+            public string firstName, lastName;
+            public double salary;
+        }
+        static stEmployees readEmployeeInfo()
+        {
+            stEmployees emp = new stEmployees();
+
+            Console.Write("Please Enter First Name: ");
+            emp.firstName = Console.ReadLine();
+            Console.Write("Please Enter Last Name: ");
+            emp.lastName = Console.ReadLine();
+            Console.Write("Please Enter Salary: ");
+            emp.salary = double.Parse(Console.ReadLine());
+
+            return emp;
+        }
+        static void fillEmployeesList(ref List<stEmployees> lst)
+        {
+            lst.Add(readEmployeeInfo());
+        }
+        static void printEmployeesList(ref List<stEmployees> lst)
+        {
+            Console.WriteLine(" ==========Employees List==========");
+            Console.WriteLine();
+
+            foreach (stEmployees emp in lst)
+            {
+                Console.WriteLine("First Name: {0}", emp.firstName);
+                Console.WriteLine("Last Name: {0}", emp.lastName);
+                Console.WriteLine("Salary: {0}", emp.salary);
+                Console.WriteLine();
+            }
+        }
+        static void printResult()
+        {
+            List<stEmployees> employeesList = new List<stEmployees>();
+
+            char readMoreEmployee = 'N';
+
+            do
+            {
+                fillEmployeesList(ref employeesList);
+
+                Console.Write("Do You Want Add New Employee? Y/N: ");
+                readMoreEmployee = char.Parse(Console.ReadLine());
+
+            } while (readMoreEmployee == 'y' || readMoreEmployee == 'Y');
+
+            Console.WriteLine("");
+            printEmployeesList(ref employeesList);
+        }
+    }
+}

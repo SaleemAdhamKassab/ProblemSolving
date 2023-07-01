@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printUserInfo(getFullName(readUserInfo()));
+        }
+        struct UserInfo
+        {
+            public string firstName;
+            public string lastName;
+        }
+        static UserInfo readUserInfo()
+        {
+            UserInfo userInfo = new UserInfo();
+
+            Console.Write("Please Enter First Name: ");
+            userInfo.firstName = Console.ReadLine();
+            Console.Write("Please Enter Last Name: ");
+            userInfo.lastName = Console.ReadLine();
+
+            return userInfo;
+        }
+        static string getFullName(UserInfo userInfo) => userInfo.firstName + " " + userInfo.lastName;
+        static void printUserInfo(string userFullName) => Console.WriteLine("Your Full Name is: {0}", userFullName);
+    }
+}

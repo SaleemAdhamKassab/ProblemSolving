@@ -1,0 +1,19 @@
+select d.department_name,avg(e.salary),count(*)
+from employees e join departments d
+     on e.department_id = d.department_id
+where e.commission_pct is not null
+group by d.department_name;
+=========================================
+var result = (
+              from e in _db.Employees
+              join d in _db.Departments
+              on e.DepartmentId equals d.Id
+              where e.CommisionPct != null
+              group e by d.DepartmentName into g
+              select new
+              {
+                  deptName = g.Key,
+                  avgSal = g.Average(e => e.Salary),
+                  empCount = g.Count()
+              }
+            ).ToList();

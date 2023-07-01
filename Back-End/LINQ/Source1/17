@@ -1,0 +1,25 @@
+select j.job_title,
+       case
+         when instr(j.job_title, ' ') > 0 then
+          substr(j.job_title, 1, instr(j.job_title, ' ') - 1)
+         else
+          j.job_title
+       end
+
+  from jobs j;
+======================
+var result = (
+             from j in _db.Jobs
+             select new
+             {
+                 JobTitle = j.JobTitle,
+                 FirstWord = j.JobTitle.Contains(" ") ? j.JobTitle.Substring(0, j.JobTitle.IndexOf(' ')) : j.JobTitle
+             }
+
+            ).ToList();
+ ==========================
+ var result = _db.Jobs.Select(e => new
+            {
+                JobTitle = e.JobTitle,
+                FirstWord = e.JobTitle.Contains(" ") ? e.JobTitle.Substring(0, e.JobTitle.IndexOf(' ')) : e.JobTitle
+            }).ToList();

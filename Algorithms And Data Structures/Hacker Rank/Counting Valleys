@@ -1,0 +1,24 @@
+public static int countingValleys(int steps, string path)
+        {
+            int counter = 0,
+                Valleys = 0;
+
+            for (int i = 0; i < path.Length; i++)
+            {
+                if (path[i] == 'U')
+                {
+                    counter++;
+                }
+                else
+                {
+                    counter--;
+                }
+
+                if (counter == 0 && path[i]=='U')
+                {
+                    Valleys++;
+                }
+            }
+            return Valleys;
+
+        }

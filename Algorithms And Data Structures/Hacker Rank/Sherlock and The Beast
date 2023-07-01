@@ -1,0 +1,12 @@
+JS:
+=======
+function decentNumber(n: number): void {
+    if (n%3==0 && n!=0) {  
+     console.log( Array(n+1).join("5"));
+ } else if (n%3==1 && n>=10) {
+     console.log(Array((n-10)+1).join("5")+Array(10 + 1).join("3"));
+} else if (n%3==2 && n>=5){
+    console.log(Array((n-5)+1).join("5") + Array(5+1).join("3"));
+} else {
+    console.log('-1');
+}

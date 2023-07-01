@@ -1,0 +1,34 @@
+        static int IndexOf(string haystack, string needle)
+        {
+            if (needle.Length == 0) return 0;
+            if (needle.Length > haystack.Length) return -1;
+            if (haystack == needle) return 0;
+
+            int counter = 0, oldIndex = 0;
+
+            for (int i = 0; i < haystack.Length; i++)
+            {
+                oldIndex = i;
+                if (haystack[i] == needle[0] && i <= haystack.Length - needle.Length)
+                {
+                    if ((i == haystack.Length - 1) && (counter == needle.Length)) return i;
+                    for (int j = 0; j < needle.Length; j++)
+                    {
+                        if (haystack[i] == needle[j])
+                        {
+                            counter++;
+                            i++;
+                        }
+                        else
+                        {
+                            i = oldIndex;
+                            break;
+                        }
+                    }
+                    if (counter == needle.Length) return oldIndex;
+                    i = oldIndex;
+                    counter = 0;
+                }
+            }
+            return -1;
+        }

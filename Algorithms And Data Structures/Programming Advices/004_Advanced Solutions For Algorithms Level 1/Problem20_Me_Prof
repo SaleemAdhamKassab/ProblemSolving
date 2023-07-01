@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float  a= 0;
+            readSquareSide(ref a);
+            printArea(circleAreaInscribedInSquare(a));
+        }
+
+        static void readSquareSide(ref float a)
+        {
+            Console.Write("Please Enter a Square Side: ");
+            a = float.Parse(Console.ReadLine());
+        }
+        static double circleAreaInscribedInSquare(float a) => (3.14 * a * a) / 4;
+        static void printArea(double circleArea) => Console.WriteLine("The Area is: {0}", circleArea);
+    }
+}

@@ -1,0 +1,28 @@
+public class Solution {
+    public int MinimumRecolors(string blocks, int k) {
+        
+            int counterW = 0,counterB=0, minOperations = blocks.Length;
+
+            for (int i = 0; i <= blocks.Length - k; i++)
+            {
+                for (int j = i; j < i + k; j++)
+                {
+                    if (blocks[j] == 'W')
+                        counterW++;
+                    else
+                        counterB++;
+                }
+
+                if (counterB >= k)
+                    return 0;
+
+                if (counterW < minOperations)
+                    minOperations = counterW;
+
+                counterW = 0;
+                counterB = 0;
+            }
+
+            return  minOperations;
+    }
+}

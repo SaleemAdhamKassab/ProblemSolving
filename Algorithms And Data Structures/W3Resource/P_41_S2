@@ -1,0 +1,19 @@
+
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine(isStringContainsW3Times("w3resource"));
+        }
+        static bool isStringContainsW3Times(string s)
+        {
+            int wCount = s.Where(e => e == 'w').Count();
+
+            return wCount >= 1 && wCount <= 3;
+        }
+           
+    }
+}

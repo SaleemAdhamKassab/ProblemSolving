@@ -1,0 +1,53 @@
+static bool ArrayStringsAreEqual(string[] word1, string[] word2)
+        {
+            int i1 = 0, j1 = 0, i2 = 0, j2 = 0;
+            char chr1 = ' ', chr2 = ' ';
+
+            while (i1 < word1.Length || i2 < word2.Length)
+            {
+                for (int i = i1; i1 < word1.Length;)
+                {
+                    for (int j = j1; j1 < word1[i1].Length;)
+                    {
+                        chr1 = word1[i1][j1];
+                        break;
+                    }
+                    break;
+                }
+
+                for (int i = i2; i2 < word2.Length;)
+                {
+                    for (int j = j2; j2 < word2[i2].Length;)
+                    {
+                        chr2 = word2[i2][j2];
+                        break;
+                    }
+                    break;
+                }
+
+                if (chr1 != chr2) return false;
+                chr1 = ' ';
+                chr2 = ' ';
+
+                if (i1 < word1.Length)
+                {
+                    if (j1 < word1[i1].Length - 1) j1++;
+                    else
+                    {
+                        i1++;
+                        j1 = 0;
+                    }
+                }
+
+                if (i2 < word2.Length)
+                {
+                    if (j2 < word2[i2].Length - 1) j2++;
+                    else
+                    {
+                        i2++;
+                        j2 = 0;
+                    }
+                }
+            }
+            return true;
+        }

@@ -1,0 +1,13 @@
+static char ToUpper(char c) => (int)c >= 97 && (int)c <= 122 ? (char)((int)c - 32) : c;
+static char ToLower(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+static char InvertCase(char character) => character == ToLower(character) ? ToUpper(character) : ToLower(character);
+static string Invert(string s)
+        {
+            string invertedString = "";
+
+            for (int i = 0; i < s.Length; i++)
+                invertedString += InvertCase(s[i]);
+
+            return invertedString;
+        }
+

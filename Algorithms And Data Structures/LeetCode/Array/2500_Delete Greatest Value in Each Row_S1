@@ -1,0 +1,22 @@
+public class Solution {
+        public int DeleteGreatestValue(int[][] grid)
+        {
+            int result = 0;
+
+            for (int i = 0; i < grid.Length; i++)
+            {
+                Array.Sort(grid[i]);
+            }
+
+            for (int i = 0; i < grid[0].Length; i++)
+            {
+                int k = grid[0][i];
+                for (int j = 1; j < grid.Length; j++)
+                {
+                    k = Math.Max(k, grid[j][i]);
+                }
+                result += k;
+            }
+            return result;
+        }       
+}

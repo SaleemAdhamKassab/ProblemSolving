@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            char operatorType = readOperatorType();
+
+            int number1 = 0, number2 = 0;
+            readNumbers(ref number1, ref number2);
+
+            if(operatorType=='/' && number2==0) Console.WriteLine("Cannot Dividid By Zero!!");
+            else Console.WriteLine("{0}{1}{2}={3}",number1, operatorType,number2,calculater(number1,number2,operatorType));
+        }
+        static void readNumbers(ref int number1, ref int number2)
+        {
+            Console.Write("Please Enter Number1: ");
+            number1 = int.Parse(Console.ReadLine());
+            Console.Write("Please Enter Number2: ");
+            number2 = int.Parse(Console.ReadLine());
+        }
+        static char readOperatorType()
+        {
+            char operatorType;
+
+            do
+            {
+                Console.Write("Please Enter a Valid Operator + - * / :");
+                operatorType = char.Parse(Console.ReadLine());
+            } while (!isValidOperatorType(operatorType));
+
+            return operatorType;
+        }
+        static bool isValidOperatorType(char operatorType) =>
+            operatorType == '+' || operatorType == '-' || operatorType == '*' || operatorType == '/' ? true : false;
+
+        static double calculater(int number1, int number2, char operatorType)
+        {
+            switch (operatorType)
+            {
+                case '+':
+                    return number1 + number2;
+                case '-':
+                    return number1 - number2;
+                case '*':
+                    return number1 * number2;
+                default:
+                  return number1 / number2;
+            }
+        }
+    }
+}

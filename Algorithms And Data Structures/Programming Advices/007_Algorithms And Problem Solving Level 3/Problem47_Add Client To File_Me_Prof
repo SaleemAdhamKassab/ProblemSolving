@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            addClients();
+        }
+        struct strClientInfo
+        {
+            public int PinCode;
+            public double AccountBalance;
+            public string AccountNumber, Name, Phone;
+        }
+        static strClientInfo readClientInfo()
+        {
+            Console.WriteLine("Please Enter Client Data: ");
+            Console.WriteLine();
+
+            strClientInfo clientInfo = new strClientInfo();
+
+            Console.Write("Enter Account Number:");
+            clientInfo.AccountNumber = Console.ReadLine();
+
+            Console.Write("Enter Pin Code:");
+            clientInfo.PinCode = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Name:");
+            clientInfo.Name = Console.ReadLine();
+
+            Console.Write("Enter Phone:");
+            clientInfo.Phone = Console.ReadLine();
+
+            Console.Write("Enter Account Balance:");
+            clientInfo.AccountBalance = double.Parse(Console.ReadLine());
+
+            return clientInfo;
+        }
+        static string clientRecordForSaving(strClientInfo clientInfo)
+        {
+            return
+                clientInfo.AccountNumber + "#//#" +
+                clientInfo.PinCode + "#//#" +
+                clientInfo.Name + "#//#" +
+                clientInfo.Phone + "#//#" +
+                clientInfo.AccountBalance;
+        }
+        static void saveClientToFile(string clientRecordForSaving)
+        {
+            StreamWriter file = new StreamWriter("myFile.txt", append: true);
+            file.WriteLine(clientRecordForSaving);
+            file.Close();
+        }
+        static void addClients()
+        {
+            char addNewClient = 'y';
+            do
+            {
+                saveClientToFile(clientRecordForSaving(readClientInfo()));
+                Console.Write("Client Added Successfully, Do you want to add more clients? Y/N: ");
+                Console.WriteLine();
+                addNewClient = char.Parse(Console.ReadLine());
+
+                if (addNewClient.ToString().ToLower() == "y")
+                    Console.Clear();
+
+            } while (addNewClient.ToString().ToLower() == "y");
+        }
+    }
+}

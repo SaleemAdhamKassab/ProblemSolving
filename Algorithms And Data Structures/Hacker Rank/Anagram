@@ -1,0 +1,17 @@
+function anagram(s: string): number {
+    if (s.length % 2 !== 0) return -1
+
+    let secoundHalfWord = s.substring(s.length / 2),
+        counter = 0
+
+    for (let i = 0; i < s.length / 2; i++) {
+        if (secoundHalfWord.indexOf(s[i]) != -1) {
+            secoundHalfWord = secoundHalfWord.replace(s[i], '')
+        }
+        else {
+            counter++
+        }
+    }
+
+    return counter
+}

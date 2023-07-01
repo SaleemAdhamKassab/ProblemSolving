@@ -1,0 +1,1 @@
+static int convertStringToNumber(string s) => int.Parse(s);

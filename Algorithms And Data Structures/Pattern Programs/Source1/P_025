@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            P25(readRowsCount());
+        }
+        static int readRowsCount()
+        {
+            Console.Write("Enter a number to define the rows: ");
+            return int.Parse(Console.ReadLine()!);
+        }
+        static void P25(int rowsCount)
+        {
+            int charsRowCount = 1;
+            char c = 'A';
+
+            for (int i = 0; i < rowsCount; i++)
+            {
+                //print row spaces
+                for (int j = 0; j < rowsCount - i; j++)
+                    Console.Write("  ");
+
+                //print row characters
+                for (int x = 0; x < charsRowCount; x++)
+                {
+                    Console.Write((c) + " ");
+                }
+
+                Console.WriteLine();
+
+                c++;
+                charsRowCount += 2;
+            }
+        }
+    }
+}

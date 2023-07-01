@@ -1,0 +1,8 @@
+create or replace function q14(managerId in number) return varchar2 is
+  v_employees varchar2(1000);
+begin
+  for i in (select * from employees e where e.manager_id = managerId) loop
+    v_employees := i.first_name || ', ' || v_employees;
+  end loop;
+  return v_employees;
+end q14;

@@ -1,0 +1,35 @@
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            p8(10);
+        }
+        static void p8(int rowsCount)
+        {
+            int leftspaceIndex = rowsCount-1,
+                rightspaceIndex = rowsCount;
+
+            for (int i = 0; i < rowsCount; i++)
+            {
+                for (int j = 0; j < rowsCount * 2; j++)
+                {
+                    if (i==0 || j < leftspaceIndex || j > rightspaceIndex)
+                        Console.Write('*');
+                    else 
+                        Console.Write(' ');
+                }
+
+                if (i != 0)
+                {
+                    leftspaceIndex--;
+                    rightspaceIndex++;
+                }
+
+                Console.WriteLine();
+
+            }
+        }
+    }
+}

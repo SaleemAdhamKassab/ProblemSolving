@@ -1,0 +1,28 @@
+select *
+from departments d
+where d.manager_id = (
+select e.employee_id
+from employees e
+where lower(e.first_name) ='smith');
+======================================
+var sub = (
+              from e in _db.Employees
+              where e.FirstName.ToLower() == "smith"
+              select new
+              {
+                  e.Id
+              }
+
+            );
+
+var result = (
+                 from d in _db.Departments
+                 where sub.Select(e => e.Id).Contains(d.Id)
+                 select new
+                 {
+                     d.Id,
+                     d.DepartmentName,
+                     d.ManagerId,
+                     d.LocationId
+                 }
+            ).ToList();

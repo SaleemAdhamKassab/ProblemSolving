@@ -1,0 +1,34 @@
+static bool isContainsWord(string mainWord, string subWord)
+        {
+
+            string distinctSubWord = toLowerCase(distinct(subWord));
+            mainWord = toLowerCase(mainWord);
+            subWord = toLowerCase(subWord);
+
+            for (int i = 0; i < distinctSubWord.Length; i++)
+                if (!(countOfOccurrence(subWord, subWord[i]) <= countOfOccurrence(mainWord, subWord[i])))
+                    return false;
+
+            return true;
+        }
+        static string distinct(string s)=> new String(s.Distinct().ToArray());
+        static int countOfOccurrence(string s, char c)
+        {
+            int counter = 0;
+            for (int i = 0; i < s.Length; i++)
+                if (s[i] == c)
+                    counter++;
+            return counter;
+        }
+        static string toLowerCase(string s)
+        {
+            string result = "";
+            for (int i = 0; i < s.Length; i++)
+            {
+                if ((s[i] >= 65 && s[i] <= 90))
+                    result += (char)(((int)s[i]) + 32);
+                else
+                    result += s[i];
+            }
+            return result;
+        }

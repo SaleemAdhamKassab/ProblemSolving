@@ -1,0 +1,61 @@
+using Oracle.ManagedDataAccess.Client;
+
+namespace Database_Connectivity
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            addNewContact(new strContact
+            {
+                firstName = "nassem",
+                lastName = "kassab",
+                address = "jaramana",
+                email = "nassem@gmail.com",
+                phone = "0454541254",
+                countryId = 1
+            });
+
+        }
+        public struct strContact
+        {
+            public string firstName { get; set; }
+            public string lastName { get; set; }
+            public string email { get; set; }
+            public string phone { get; set; }
+            public string address { get; set; }
+            public int countryId { get; set; }
+        }
+        public static void addNewContact(strContact contact)
+        {
+            OracleConnection connection = new OracleConnection();
+
+            string query = "insert into contacts (FIRSTNAME, LASTNAME, EMAIL, PHONE, ADDRESS, COUNTRY_ID)values (" +
+                "'" + contact.firstName + "'," +
+                "'" + contact.lastName + "'," +
+                "'" + contact.email + "'," +
+                "'" + contact.phone + "'," +
+                "'" + contact.address + "'," +
+                contact.countryId + ')';
+
+            OracleCommand command = new OracleCommand(query, connection);
+
+            try
+            {
+                connection.ConnectionString = "Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = XE) ) ):1521/xe; User ID=Database_Connectivity_18;Password=123";
+                connection.Open();
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                    Console.WriteLine("Adeed " + rowsAffected + " rows success");
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        }
+    }
+}

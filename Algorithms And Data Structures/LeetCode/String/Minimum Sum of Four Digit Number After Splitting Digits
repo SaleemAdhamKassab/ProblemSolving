@@ -1,0 +1,27 @@
+static int MinimumSum(int num)
+        {
+            string mainNum = sortStringAsc(num.ToString());
+            int num1 = int.Parse(mainNum[0] + mainNum[2].ToString());
+            int num2 = int.Parse(mainNum[1] + mainNum[3].ToString());
+            return num1 + num2;
+
+        }
+
+static string sortStringAsc(string str)
+        {
+            char temp;
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                for (int j = i + 1; j < str.Length; j++)
+                {
+                    if (str[j] < str[i])
+                    {
+                        temp = str[i];
+                        str = str.Remove(i, 1).Insert(i, str[j].ToString());
+                        str = str.Remove(j, 1).Insert(j, temp.ToString());
+                    }
+                }
+            }
+            return str;
+        }

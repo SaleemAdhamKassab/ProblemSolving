@@ -1,0 +1,50 @@
+  static void Main(string[] args)
+        {
+            Console.Write("Enter Penny count: ");
+            int _Penny = int.Parse(Console.ReadLine());
+            Console.Write("Enter Nickel count: ");
+            int _Nickel = int.Parse(Console.ReadLine());
+            Console.Write("Enter Dime count: ");
+            int _Dime = int.Parse(Console.ReadLine());
+            Console.Write("Enter Quarter count: ");
+            int _Quarter = int.Parse(Console.ReadLine());
+            Console.Write("Enter Dollar count: ");
+            int _Dollar = int.Parse(Console.ReadLine());
+
+            Currency currency = new Currency
+            {
+                Penny = _Penny,
+                Nickel = _Nickel,
+                Dime = _Dime,
+                Quarter = _Quarter,
+                Dollar = _Dollar
+            };
+
+            // Console.WriteLine(penny(currency));
+            // Console.WriteLine(penny(currency) / 100);
+
+            // OR
+            double total = _Penny * 1 + _Nickel * 5 + _Dime * 10 + _Quarter * 25 + _Dollar * 100;
+            Console.WriteLine(total);
+            Console.WriteLine(total / 100);
+
+        }
+
+static double penny(Currency currency)
+        {
+            return currency.Penny +
+             currency.Nickel * 5 +
+             currency.Dime * 10 +
+             currency.Quarter * 25 +
+             currency.Dollar * 100;
+        }
+
+class Currency
+        {
+            public int Penny { get; set; }
+            public int Nickel { get; set; }
+            public int Dime { get; set; }
+            public int Quarter { get; set; }
+            public int Dollar { get; set; }
+
+        }

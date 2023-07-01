@@ -1,0 +1,6 @@
+select d.department_name,e.first_name,l.city
+from departments d join employees e
+     on d.manager_id = e.employee_id
+join locations l
+     on d.location_id = l.location_id;
+================================================

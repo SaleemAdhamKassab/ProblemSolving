@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(MinDeletionSize(new string[] { "zyx", "wvu", "tsr" }));
+        }
+        static int MinDeletionSize(string[] strs)
+        {
+            int counter = 0;
+            string tempWord = "";
+
+            for (int i = 0; i < strs[0].Length; i++)
+            {
+                for (int j = 0; j < strs.Length; j++)
+                    tempWord += strs[j][i];
+
+                if (tempWord != sortString(tempWord))
+                    counter++;
+
+                tempWord = "";
+            }
+
+            return counter;
+        }
+        static string sortString(string str) => String.Concat(str.OrderBy(c => c));
+    }
+}

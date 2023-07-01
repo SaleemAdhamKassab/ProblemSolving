@@ -1,0 +1,9 @@
+static string removeSpaces(string s)
+        {
+            string result = "";
+            foreach(char c in s)
+                if (c != ' ')
+                    result += c;
+
+            return result;
+        }

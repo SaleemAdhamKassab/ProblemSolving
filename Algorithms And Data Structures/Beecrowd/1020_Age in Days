@@ -1,0 +1,48 @@
+using System; 
+
+class URI {
+
+    static void Main(string[] args) { 
+
+printFinalResult(ageInYearsMonthsDays(readAge()));
+
+    }
+     static int readAge() => int.Parse(Console.ReadLine());
+        static int[] ageInYearsMonthsDays(int age)
+        {
+            int[] result = new int[3];
+
+            int years = 0, months = 0, days = 0;
+
+            while (age > 0)
+            {
+                if (age >= 365)
+                {
+                    years++;
+                    age -= 365;
+                }
+                else if (age >= 30)
+                {
+                    months++;
+                    age -= 30;
+                }
+                else
+                {
+                    days = age;
+                    break;
+                }
+            }
+            result[0] = years;
+            result[1] = months;
+            result[2] = days;
+
+            return result;
+        }
+        static void printFinalResult(int[] arr)
+        {
+            Console.WriteLine("{0} ano(s)",arr[0]);
+            Console.WriteLine("{0} mes(es)",arr[1]);
+            Console.WriteLine("{0} dia(s)",arr[2]);
+        }
+
+}

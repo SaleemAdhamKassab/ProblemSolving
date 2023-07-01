@@ -1,0 +1,36 @@
+بدي أعرف عدد الموظفين في كل قسم مع عرض أسماء الموظفين
+public IActionResult test()
+        {
+            var result =
+                db.Employees.GroupBy(e => e.DepartmentId)
+                .Select(e => new
+                {
+                    departmentId = e.Key,
+                    departmentEmployeesCount = e.Count(),
+                    employees = db.Employees
+                                   .Where(x => x.DepartmentId == e.Key)
+                                  .ToList()
+                })
+                .OrderByDescending(e => e.departmentEmployeesCount);
+
+            return Ok(result);
+        }
+=====================================================================================
+نفس المثال السابق لكن بدي الداتا مرتبة حسب رقم القسم ومن ثم حسب اسم الموظف
+  public IActionResult test()
+        {
+            var result =
+                db.Employees.GroupBy(e => e.DepartmentId)
+                .Select(e => new
+                {
+                    departmentId = e.Key,
+                    departmentEmployeesCount = e.Count(),
+                    employees = db.Employees
+                                   .Where(d => d.DepartmentId == e.Key)
+                                   .OrderBy(e=>e.FirstName)
+                                  .ToList()
+                })
+                .OrderBy(e => e.departmentId);
+
+            return Ok(result);
+        }

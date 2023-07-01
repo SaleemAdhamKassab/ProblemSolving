@@ -1,0 +1,83 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main()
+        {
+            MergeSimilarItems(new int[][] { new int[] { 1, 1 }, new int[] { 3, 2 }, new int[] { 2, 3 } },
+                new int[][] { new int[] { 2, 1 }, new int[] { 3, 2 }, new int[] {1,3 } });
+        }
+        static List<List<int>> MergeSimilarItems(int[][] items1, int[][] items2)
+        {
+            if (items1.Length > items2.Length)
+             return sortList(completeMissingItems(sumSimilarItems(items1, items2), items1));
+            else
+              return sortList(completeMissingItems(sumSimilarItems(items1, items2), items2));
+        }
+        static List<List<int>>  sumSimilarItems(int[][] items1, int[][] items2)
+        {
+            List<List<int>> result = new List<List<int>>();
+
+            for (int i = 0; i < items1.Length; i++)
+            {
+                for (int j = 0; j < items2.Length; j++)
+                {
+
+                    if (items1[i][0] == items2[j][0])
+                    {
+                        result.Add(new List<int> { items1[i][0], items1[i][1] + items2[j][1] });
+                    }
+                }
+            }
+
+            return result;
+        }
+        static List<List<int>> completeMissingItems(List<List<int>> similarItems, int[][] maxArr)
+        {
+            bool isItemExsist = false;
+
+            for (int i=0;i< maxArr.Length; i++)
+            {
+                for(int j=0;j< similarItems.Count; j++)
+                {
+                    if (maxArr[i][0] == similarItems[j][0])
+                    {
+                        isItemExsist = true;
+                        break;
+                    }
+                }
+                if(!isItemExsist)
+                    similarItems.Add(new List<int> { maxArr[i][0], maxArr[i][1] });
+
+                isItemExsist = false;
+
+            }
+             return similarItems;
+        }
+        static List<List<int>> sortList(List<List<int>> lst)
+        {
+            List<int> temp = new List<int>();
+
+            for (int i = 0; i < lst.Count - 1; i++)
+            {
+                for (int j = i + 1; j < lst.Count; j++)
+                {
+                    if (lst[i][0] > lst[j][0])
+                    {
+                        temp = lst[i];
+                        lst[i] = lst[j];
+                        lst[j] = temp;
+                    }
+                }
+            }
+            return lst;
+        }
+
+
+    }
+}

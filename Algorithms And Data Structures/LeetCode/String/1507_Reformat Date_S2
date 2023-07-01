@@ -1,0 +1,46 @@
+public class Solution {
+    public string ReformatDate(string date)=> finalformatedDateResult(date);
+        
+        
+             static string day(string day)
+        {
+            string dayResult = "";
+
+            if (day.Length < 4)
+                dayResult = day[0].ToString().PadLeft(2, '0');
+            else
+                dayResult = day[0] + day[1].ToString();
+
+            return dayResult;
+        }
+        static string month(string month)
+        {
+            if (month == "Dec") return "12";
+
+            string[] monthes = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+
+            string monthResult = "";
+
+            for (int i = 0; i < monthes.Length; i++)
+                if (month == monthes[i])
+                {
+                    if (i.ToString().Length < 2)
+                    {
+                        monthResult = ( i + 1 ).ToString().PadLeft(2, '0');
+                    }
+                    else
+                    {
+                        monthResult = (i+1).ToString();
+                    }
+
+                    break;
+                }
+            return monthResult;
+        }
+        static string finalformatedDateResult(string date)
+        {
+            string[] splitedDate = date.Split(' ');
+
+            return splitedDate[2] + "-" + month(splitedDate[1]) +"-"+ day(splitedDate[0]);
+        }
+}

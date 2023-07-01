@@ -1,0 +1,88 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printFinalResult();
+        }
+        static string clientsfile = "myFile.txt";
+        static void printFileContent(string filePath)
+        {
+            string[] splitedLine = new string[5];
+
+            foreach (string line in File.ReadLines(filePath))
+            {
+                splitedLine = splitString(line, "#//#");
+
+                foreach (string clientValue in splitedLine)
+                {
+                    Console.Write(padRight(clientValue, 20, ' '));
+                }
+                Console.WriteLine();
+            }
+        }
+        static string[] splitString(string s, string delimeter)
+        {
+            List<string> result = new List<string>();
+
+            while (s.IndexOf(delimeter) > -1)
+            {
+                result.Add(s.Substring(0, s.IndexOf(delimeter)).Trim());
+                s = s.Remove(0, s.IndexOf(delimeter) + delimeter.Length);
+            }
+            result.Add(s.Trim());
+            return result.ToArray();
+        }
+        static void printClientsTableInfo()
+        {
+            printBreakLine();
+            Console.WriteLine();
+            Console.WriteLine(
+                padRight("Account Number", 20, ' ') +
+                padRight("Pin Code", 20, ' ') +
+                padRight("Client Name", 20, ' ') +
+                padRight("Phone", 20, ' ') +
+                padRight("Balance", 20, ' '));
+
+            printBreakLine();
+            Console.WriteLine();
+            printFileContent(clientsfile);
+            printBreakLine();
+        }
+        static void printBreakLine() => Console.WriteLine(padRight("_", 99, '_'));
+        static string padRight(string word, int numberOfFiilingCells, char fillChar)
+        {
+            if (word.Length >= numberOfFiilingCells)
+                return word;
+
+            for (int i = word.Length; i < numberOfFiilingCells; i++)
+                word += fillChar;
+
+            return word;
+        }
+        static int fileRwosCount(string filePath)
+        {
+            int counter = 0;
+            foreach (string line in File.ReadLines(filePath))
+                counter++;
+
+            return counter;
+        }
+        static void printFinalResult()
+        {
+            string header = "Client List (" + fileRwosCount(clientsfile) + ") Client(s).";
+            Console.SetCursorPosition((Console.WindowWidth - header.Length) / 2, Console.CursorTop);
+            Console.WriteLine(header);
+
+            printClientsTableInfo();
+        }
+
+    }
+}

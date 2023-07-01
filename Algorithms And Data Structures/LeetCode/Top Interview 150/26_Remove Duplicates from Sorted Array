@@ -1,0 +1,13 @@
+public class Solution {
+    public int RemoveDuplicates(int[] nums) {
+           int[] distinctElements = nums.ToList().Distinct().ToArray();
+
+            for (int i = 0; i < distinctElements.Length; i++)
+                nums[i] = distinctElements[i];
+
+            for (int i = distinctElements.Length; i < nums.Length; i++)
+                nums[i] = 0;
+
+            return distinctElements.Count();
+    }
+}

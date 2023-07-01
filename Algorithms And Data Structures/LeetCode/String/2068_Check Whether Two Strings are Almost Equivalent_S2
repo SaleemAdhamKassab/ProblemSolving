@@ -1,0 +1,21 @@
+public class Solution {
+    public bool CheckAlmostEquivalent(string word1, string word2) {
+        string word1Distinct = distinctCharInString(word1),
+                   word2Distinct = distinctCharInString(word2);
+
+            return (!isAlmostEquivalent(word1Distinct, word1, word2) ||
+                    !isAlmostEquivalent(word2Distinct, word1, word2)) ? false : true;
+    }
+    
+    static string distinctCharInString(string word)=> new String(word.Distinct().ToArray());
+        static bool isAlmostEquivalent(string wordDistinct, string word1, string word2)
+        {
+            for (int i = 0; i < wordDistinct.Length; i++)
+            {
+                if (Math.Abs(word1.Count(x => x == wordDistinct[i]) - word2.Count(x => x == wordDistinct[i])) > 3)
+                    return false;
+            }
+
+            return true;
+        }
+}

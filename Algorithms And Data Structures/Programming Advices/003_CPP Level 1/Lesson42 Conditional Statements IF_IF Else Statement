@@ -1,0 +1,60 @@
+#4:
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine(isHired(15, false) ? "Hired" : "Rejected");
+    }
+    static bool isHired(int age, bool hasCertificate)
+    {
+        return age > 21 && hasCertificate ? true : false;
+    }
+}
+================================================================================================================
+#8:
+static void Main(string[] args)
+        {
+            Console.Write("Enter the Mark: ");
+            int mark = int.Parse(Console.ReadLine());
+            Console.WriteLine(mark >= 50 ? "PASS" : "Fail");
+        }
+================================================================================================================
+#11:
+
+static void Main(string[] args)
+        {
+            Console.Write("Enter mark1: ");
+            decimal mark1 = decimal.Parse(Console.ReadLine());
+            Console.Write("Enter mark2: ");
+            decimal mark2 = decimal.Parse(Console.ReadLine());
+            Console.Write("Enter mark3: ");
+            decimal mark3 = decimal.Parse(Console.ReadLine());
+
+            decimal average = (mark1 + mark2 + mark3) / 3;
+            Console.WriteLine(average);
+            System.Console.WriteLine(average >= 50 ? "PASS" : "Fail");
+        }
+================================================================================================================
+#24:
+ static void Main(string[] args)
+        {
+            Console.Write("enter age: ");
+            byte age = byte.Parse(Console.ReadLine());
+
+            if (age >= 18 && age <= 45) Console.WriteLine("Valid age");
+            else Console.WriteLine("Invalid age");
+        }
+================================================================================================================
+#49:
+ static void Main(string[] args)
+        {
+            Console.Write("enter pin: ");
+            int pin = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(checkPin(pin) ? "Your Balance is: 7500" : "Wrong Pin");
+        }
+
+static bool checkPin(int pin)
+        {
+            return pin == 1234 ? true : false;
+        }

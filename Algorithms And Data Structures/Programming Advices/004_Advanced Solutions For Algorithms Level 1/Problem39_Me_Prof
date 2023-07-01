@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int totalBill = readPositiveNumber("Enter Total Bill: ");
+            int cashPaid = readPositiveNumber("Enter Cash Paid: ");
+
+            Console.WriteLine("Total Bill {0}", totalBill);
+            Console.WriteLine("Total Cash {0}", cashPaid);
+            Console.WriteLine("***************************");
+            Console.WriteLine("Reminder Back: {0}", calculateReminder(totalBill, cashPaid));
+        }
+
+        static int readPositiveNumber(string message)
+        {
+            int number = 0;
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number <= 0);
+
+            return number;
+        }
+        static double calculateReminder(double totalBill, double cashPaid) => cashPaid - totalBill;
+    }
+}

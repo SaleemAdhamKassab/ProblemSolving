@@ -1,0 +1,14 @@
+static char ToLower(char c) => (int)c >= 65 && (int)c <= 90 ? (char)((int)c + 32) : c;
+static bool IsLetter(char c) => c >= 97 && (int)c <= 122 || (int)c >= 65 && (int)c <= 90;
+static string ToLower(string s)
+        {
+            string result = "";
+
+            for (int i = 0; i < s.Length; i++)
+                if (IsLetter(s[i]))
+                    result += ToLower(s[i]);
+                else
+                    result += s[i];
+
+            return result;
+        }

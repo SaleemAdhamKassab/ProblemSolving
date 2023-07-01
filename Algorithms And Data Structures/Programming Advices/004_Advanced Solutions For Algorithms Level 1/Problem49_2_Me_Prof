@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int pin = readPin();
+        }
+        static int readPin()
+        {
+            int number = 0;
+            do
+            {
+                Console.Write("Pleae Enter Pin Code: ");
+                number = int.Parse(Console.ReadLine());
+
+                if (number != 1234)
+                    wrongPinEffects();
+
+            } while (!isValidPin(number));
+
+            Console.BackgroundColor = ConsoleColor.Green;
+            return number;
+        }
+        static bool isValidPin(int pin) => pin == 1234 ? true : false;
+        static void wrongPinEffects()
+        {
+            Console.WriteLine("Wrong Pin");
+            Console.BackgroundColor = ConsoleColor.Red;
+        }
+    }
+}

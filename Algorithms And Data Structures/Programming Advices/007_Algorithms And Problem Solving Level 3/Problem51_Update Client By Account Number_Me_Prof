@@ -1,0 +1,22 @@
+static bool updateClient(string accountNumber, char updateConfirm)
+        {
+            try
+            {
+                if (isClientExsist(accountNumber))
+                {
+                    deleteClient(accountNumber);
+                    addNewClient();
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("The Account Number ({0}) is Not Exsists!", accountNumber);
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+        }

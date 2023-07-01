@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printMultiDimArray(generateMultiPlicationTable());
+        }
+        static int[][] generateMultiPlicationTable()
+        {
+            int[] CalculateMultTable = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            int[][] table = new int[10][];
+
+            for (int i = 0; i < 10; i++)
+            {
+                table[i] = new int[10];
+                for (int j = 0; j < 10; j++)
+                {
+
+                    table[i][j] = CalculateMultTable[j] * (i + 1);
+                }
+
+            }
+
+            return table;
+        }
+        static void printMultiDimArray(int [][] arr)
+        {
+            for(int i=0; i < 10; i++)
+            {
+                foreach (int j in arr[i])
+                {
+                    Console.Write(j.ToString().PadLeft(2,'0') + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}

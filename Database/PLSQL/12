@@ -1,0 +1,14 @@
+create or replace noneditionable function q12(empId in int) return number is
+  numberOfJobs number;
+begin
+  select count(*)
+    into numberOfJobs
+    from job_history jh
+   where jh.employee_id = empId
+   group by jh.employee_id;
+  return numberOfJobs;
+exception
+  when others then
+    dbms_output.put_line('No emp Founded');
+    return 0;
+end q12;

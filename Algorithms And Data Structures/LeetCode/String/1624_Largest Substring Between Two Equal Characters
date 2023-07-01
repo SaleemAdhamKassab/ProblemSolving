@@ -1,0 +1,36 @@
+public class Solution {
+    public int MaxLengthBetweenEqualCharacters(string s) {
+        int startIndex = 0,
+                lastIndex = s.Length - 1,
+                sLength = s.Length,
+                maxSubstrLength = 0,
+                counter = 0;
+
+            if (sLength == 2 && s[0] == s[1])
+                return 0;
+
+            for (int i = 0; i < sLength; i++)
+            {
+                for (int j = sLength - 1; j > i; j--)
+                {
+                    if (s[i] == s[j])
+                    {
+                        for (int x = i + 1; x <= j - 1; x++)
+                            counter++;
+
+                        if (counter > maxSubstrLength)
+                            maxSubstrLength = counter;
+
+                        counter = 0;
+                    }
+
+                    lastIndex--;
+                }
+
+                lastIndex = sLength - 1;
+                counter = 0;
+                startIndex++;
+            }
+            return maxSubstrLength > 0 ? maxSubstrLength : -1;
+    }
+}

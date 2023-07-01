@@ -1,0 +1,10 @@
+static List<int> getCharacterIndexes(string s, char c)
+        {
+            List<int> lst = new List<int>();
+
+            for (int i = 0; i < s.Length; i++)
+                if (s[i] == c)
+                    lst.Add(i);
+
+            return lst;
+        }

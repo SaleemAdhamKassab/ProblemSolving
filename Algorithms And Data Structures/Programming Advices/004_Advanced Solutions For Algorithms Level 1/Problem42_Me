@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int days = readPositiveNumber("Please Enter the days: ");
+            int hours = readPositiveNumber("Please Enter the hours: ");
+            int minutes = readPositiveNumber("Please Enter the minutes: ");
+            int seconds = readPositiveNumber("Please Enter the seconds: ");
+
+            Console.WriteLine("Total Seconds is: " + taskTimeInSeconds(days, hours, minutes, seconds));
+        }
+        static int readPositiveNumber(string message)
+        {
+            int number = 0;
+            do
+            {
+                Console.Write(message);
+                number = int.Parse(Console.ReadLine());
+            } while (number <= 0);
+
+            return number;
+        }
+        static int taskTimeInSeconds(int days, int hours, int minutes, int seconds)=> 
+            (days * 24 * 60 * 60) + (hours * 60 * 60) + (minutes * 60) + seconds;
+    }
+}
