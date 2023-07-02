@@ -1,0 +1,45 @@
+public class Solution {
+    public int[] ProductExceptSelf(int[] nums) {
+          int multiplyNums = 1,
+                zeroCount = 0;
+
+            bool numsHasZero = false;
+
+            foreach (var item in nums)
+            {
+                if (item != 0)
+                    multiplyNums *= item;
+
+                else
+                {
+                    numsHasZero = true;
+                    zeroCount++;
+                }
+            }
+
+            if (zeroCount==nums.Length)
+                return nums;
+
+            if (zeroCount >= 2)
+            {
+                Array.Clear(nums, 0, nums.Length);
+                return nums;
+            }
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (multiplyNums != 0 && numsHasZero == false)
+                    nums[i] = multiplyNums / nums[i];
+
+                else
+                {
+                    if (nums[i] != 0)
+                        nums[i] = 0;
+                    else
+                        nums[i] = multiplyNums;
+                }
+            }
+
+            return nums;
+    }
+}
