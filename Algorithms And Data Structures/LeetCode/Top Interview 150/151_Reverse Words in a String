@@ -1,0 +1,14 @@
+public class Solution {
+    public string ReverseWords(string s) {
+         s = s.Trim();
+            string[] spletedS = s.Split(' ');
+            string reversedWord = "";
+
+            for (int i = spletedS.Length - 1; i >= 0; i--)
+                if (spletedS[i] != "")
+                    reversedWord += spletedS[i] + ' ';
+
+            reversedWord = reversedWord.Trim();
+            return reversedWord;
+    }
+}
