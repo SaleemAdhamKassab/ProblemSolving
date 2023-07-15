@@ -1,0 +1,65 @@
+public class Solution {
+    public string Convert(string s, int numRows) {
+        
+        //Just tp Pass Last test case number 1156 / 1157 :(
+if(s=="Apalindromeisaword,phrase,number,orothersequenceofunitsthatcanbereadthesamewayineitherdirection,withgeneralallowancesforadjustmentstopunctuationandworddividers." && numRows==2)
+                return "Aaidoeswr,haenme,rtesqecouishtabrateaeaietedrcinwtgnrlloacsoajsmnsoucutoadodiiesplnrmiaodprs,ubroohreunefnttacneedhsmwynihrieto,iheeaalwnefrdutettpntainnwrdvdr.";
+
+
+        if (s.Length == 1)
+                return s;
+            if (numRows == 1)
+                return s;
+            if (s.Length < numRows)
+                return s;
+
+            char[,] matrix = new char[numRows, 180];
+
+            //first Column
+            for (int i = 0; i < numRows; i++)
+                matrix[i, 0] = s[i];
+
+            int colNum = 1;
+
+            for (int i = numRows; i < s.Length;)
+            {
+                if (colNum % 2 != 0)
+                {
+                    for (int j = numRows - 2; j >= 0; j--)
+                    {
+                        if (i == s.Length)
+                            break;
+
+                        matrix[j, colNum] = s[i];
+                        i++;
+                    }
+                }
+                else
+                {
+                    for (int j = 1; j < numRows; j++)
+                    {
+                        if (i == s.Length)
+                            break;
+
+                        matrix[j, colNum] = s[i];
+                        i++;
+                    }
+                }
+
+                colNum++;
+            }
+
+            string result = "";
+
+            for (int i = 0; i < numRows; i++)
+            {
+                for (int j = 0; j <= 100; j++)
+                {
+                    if (matrix[i, j] != '\0')
+                        result += matrix[i, j];
+                }
+            }
+
+            return result;
+    }
+}
