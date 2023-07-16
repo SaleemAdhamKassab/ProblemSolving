@@ -1,0 +1,37 @@
+using System.Data;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printemployees(employees());
+        }
+        static DataTable employees()
+        {
+            DataTable employees = new DataTable();
+
+            employees.Columns.Add("Id", typeof(int));
+            employees.Columns.Add("First Name", typeof(string));
+            employees.Columns.Add("Last Name", typeof(string));
+            employees.Columns.Add("Country", typeof(string));
+            employees.Columns.Add("Salary", typeof(double));
+            employees.Columns.Add("Added On", typeof(DateTime));
+
+            employees.Rows.Add(1, "saleem", "kassab", "syria", 1000, DateTime.Now);
+            employees.Rows.Add(2, "kareem", "najjar", "irbel", 2000, DateTime.Now);
+            employees.Rows.Add(3, "nassem", "hadad", "jordan", 6000, DateTime.Now);
+
+            return employees;
+        }
+        static void printemployees(DataTable employees)
+        {
+            Console.WriteLine("ID      First Name   Last Name    Country     Salary     Added On");
+            Console.WriteLine("_____________________________________________________________________________");
+
+            foreach (DataRow employee in employees.Rows)
+                Console.WriteLine(employee["Id"] + "       " + employee["First name"] + "       " + employee["Last Name"] + "       " + employee["Country"] + "       " + employee["Salary"] + "       " + employee["Added On"]);
+        }
+    }
+}
