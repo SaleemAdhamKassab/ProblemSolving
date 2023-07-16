@@ -1,0 +1,49 @@
+using System.Data;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            printemployees(employees());
+        }
+        static DataTable employees()
+        {
+            DataTable employees = new DataTable();
+
+            employees.Columns.Add("Id", typeof(int));
+            employees.Columns.Add("First Name", typeof(string));
+            employees.Columns.Add("Last Name", typeof(string));
+            employees.Columns.Add("Country", typeof(string));
+            employees.Columns.Add("Salary", typeof(double));
+            employees.Columns.Add("Added On", typeof(DateTime));
+
+            employees.Rows.Add(1, "saleem", "kassab", "syria", 1000, DateTime.Now);
+            employees.Rows.Add(2, "kareem", "najjar", "irbel", 2000, DateTime.Now);
+            employees.Rows.Add(3, "nassem", "hadad", "jordan", 6000, DateTime.Now);
+
+            return employees;
+        }
+        static void printemployees(DataTable employees)
+        {
+            Console.WriteLine("ID      First Name   Last Name    Country     Salary     Added On");
+            Console.WriteLine("_____________________________________________________________________________");
+
+            foreach (DataRow employee in employees.Rows)
+                Console.WriteLine(employee["Id"] + "       " + employee["First name"] + "       " + employee["Last Name"] + "       " + employee["Country"] + "       " + employee["Salary"] + "       " + employee["Added On"]);
+
+            Console.WriteLine();
+            Console.WriteLine();
+            printBreifOfEmployees(employees);
+        }
+        static void printBreifOfEmployees(DataTable employees)
+        {
+            Console.WriteLine("Count of Employees: {0}", employees.Rows.Count);
+            Console.WriteLine("Total Salayries: {0}", employees.AsEnumerable().Sum(e=>e.Field<double>("Salary")));
+            Console.WriteLine("Average Salayries: {0}", employees.AsEnumerable().Average(e=>e.Field<double>("Salary")));
+            Console.WriteLine("Minimum Salary: {0}", employees.AsEnumerable().Min(e=>e.Field<double>("Salary")));
+            Console.WriteLine("Maximum Salary: {0}", employees.AsEnumerable().Max(e=>e.Field<double>("Salary")));
+        }
+    }
+}
