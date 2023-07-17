@@ -1,0 +1,47 @@
+using System.Data;
+
+namespace lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            employeesDataView1(employees(),"","Id desc");
+        }
+        static DataTable initEmployees()
+        {
+            DataTable employees = new();
+
+            employees.Columns.Add("Id", typeof(int));
+            employees.Columns.Add("First Name", typeof(string));
+            employees.Columns.Add("Last Name", typeof(string));
+            employees.Columns.Add("Country", typeof(string));
+            employees.Columns.Add("Salary", typeof(double));
+            employees.Columns.Add("Added On", typeof(DateTime));
+
+            return employees;
+        }
+        static DataTable employees()
+        {
+            DataTable employees = initEmployees();
+
+            employees.Rows.Add(1, "saleem", "kassab", "syria", 1000, DateTime.Now);
+            employees.Rows.Add(2, "kareem", "najjar", "irbel", 2000, DateTime.Now);
+            employees.Rows.Add(3, "nassem", "hadad", "jordan", 6000, DateTime.Now);
+
+            return employees;
+        }
+        static void employeesDataView1(DataTable employees, string expression="", string sort="")
+        {
+            DataView dataView = employees.DefaultView;
+            dataView.RowFilter = expression;
+            dataView.Sort = sort;
+
+            Console.WriteLine("ID      First Name   Last Name    Country");
+            Console.WriteLine("____________________________________________________");
+
+            for (int i = 0; i < dataView.Count; i++)
+                Console.WriteLine(dataView[i][0] + "      " + dataView[i][1] + "      " + dataView[i][2] + "      " + dataView[i][3]);
+        }
+    }
+}
