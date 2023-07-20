@@ -1,1 +1,0 @@
-builder.Property(e => e.Url).HasColumnType("VARCHAR2(2000)");
