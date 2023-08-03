@@ -1,0 +1,35 @@
+names = ['saleem', 'aya', 'amr','ola']
+
+function namseStartWithA(names){
+    return names.filter(e=>e.startsWith('a'))
+} 
+
+console.log(names);
+console.log(namseStartWithA(names));
+-------------------------------------------------------------
+numbers = [1,2,3,4,5];
+
+function evenNumber(numbers){
+    return numbers.filter(e=>e%2==0)
+}
+
+console.log(numbers);
+console.log(evenNumber(numbers));
+-------------------------------------------------------------
+str = "aaa aaaa aaaaa aaaaaa aa a aaaa";
+
+function  removeWordWithMoreFourLetters(str){
+    return str.split(' ').filter(e=>e.length<=4).join(' ');
+}
+
+console.log(str);
+console.log(removeWordWithMoreFourLetters(str));
+-------------------------------------------------------------
+str = "sale123em";
+
+function  getChars(str){
+    return str.split('').filter(e=>isNaN(e)).join('');
+}
+
+console.log(str);
+console.log(getChars(str));
