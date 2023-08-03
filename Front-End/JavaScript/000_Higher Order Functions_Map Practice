@@ -1,0 +1,29 @@
+let arr = [1,2,3];
+let newArr = arr.map(e=>e+e);
+
+console.log(newArr);
+---------------------------------------------------------------------
+function changeLetterStatus(str){
+    return str.split('')
+    .map(e=> e==e.toLowerCase()?e.toUpperCase():e.toLowerCase())
+    .join('');
+} 
+
+console.log('sAleem');
+console.log(changeLetterStatus('sAleem'));
+---------------------------------------------------------------------
+numbers = [1,2,3,-1,-2,-3];
+
+function invertNumbers(numbers){
+    return numbers.map(e=>-e)
+} 
+
+console.log(numbers);
+console.log(invertNumbers(numbers));
+---------------------------------------------------------------------
+function ignoreNumbers(str){
+    return str.split('').map(e=> isNaN(e)?e:'').join('');
+} 
+
+console.log('salee123m');
+console.log(ignoreNumbers('salee123m'));
