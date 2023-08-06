@@ -20,3 +20,11 @@ sum = arr.reduce(function(acc,curr){
 })
 
 console.log(sum)
+------------------------------------------------------
+function sum(...number){
+    return number.reduce(function(acc,curr){
+        return acc+ curr;
+    })
+}
+
+ console.log(sum(1,2,3))
