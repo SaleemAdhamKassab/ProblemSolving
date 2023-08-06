@@ -1,0 +1,22 @@
+arr= ['saleem', 'nassem','amr']
+
+maxName = arr.reduce(function(acc,cur){
+    return acc>cur?acc:cur;
+});
+
+console.log(maxName)
+
+arr= ["sa",'@',"le",'@',"em"]
+
+finalString = arr.filter(e=> e!='@')
+                 .reduce(function(acc,curr){
+                        return acc+curr});
+console.log(finalString)
+------------------------------------------------------
+arr= [1,2,3,4,5]
+
+sum = arr.reduce(function(acc,curr){
+    return acc + curr
+})
+
+console.log(sum)
