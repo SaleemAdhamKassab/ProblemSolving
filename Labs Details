@@ -1,1 +1,25 @@
-sssdasdasdas
+select a.id,
+       a.name,
+       a.created_by,
+       a.is_default,
+       a.create_date,
+       
+       s.can_edit,
+       s.can_view,
+       s.is_owner
+       
+  from TECH4_meta_Dashboards a
+  join TECH4_meta_dashboard_share s
+    on a.id = s.dashboard_id
+    
+    
+ where upper(s.username) = upper('SALEEMK')
+   and upper(a.created_by) <> upper('SALEEMK')
+   and s.can_view = 1
+   and is_deleted = 0
+ order by create_date;
+          
+
+select * from tech4_meta_dashboards t;
+select * from TECH4_meta_dashboard_share t
+where t.dashboard_id = 82;
