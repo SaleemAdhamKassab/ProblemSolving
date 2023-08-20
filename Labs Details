@@ -1,253 +1,253 @@
-50331648
-50331649
-50331650
-50331651
-50331652
-50331653
-50331654
-50331656
-50331663
-50331676
-67109365
-67109366
-67109367
-67109368
-67109369
-67109372
-67109373
-67109374
-67109376
-67109377
-67109378
-67109379
-67109380
-67109381
-67109382
-67109384
-67109385
-67109386
-67109387
-67109390
-67109391
-67109392
-67109393
-67109394
-67109395
-67109411
-67109413
-67109420
-67109421
-67109422
-67109426
-67109428
-67109429
-67109430
-67109435
-67109438
-67109440
-67109443
-67109446
-67109447
-67109450
+HSDPA Measurement
+Iub Measurement per NodeB
+Cell Traffic Measurement
+HSUPA Measurement
+Traffic Measurement per CNOperator
+CPC Measurement
+NodeB Hardware Baseband Resource Measurement
+NodeB Board Service Measurement
+Cell Algorithm Measurement
+HSDPA Measurement 2
+RRC Connection Setup Measurement <per Cell>
+RRC Connection Release Measurement <per Cell>
+RRC Connection Reject Measurement <per Cell>
+CS RAB Setup Measurement <per Cell>
+CS RAB Setup Failure Measurement <per Cell>
+PS RAB Setup Measurement <per Cell>
+PS RAB Setup Failure Measurement <per Cell>
+PS RAB Modification Measurement <per Cell>
+RAB Release Measurement <per Cell>
+Multi-RAB Service Measurement <per Cell>
+RB Procedure Measurement <per Cell>
+Soft Handover Measurement <per Cell>
+Hard Handover Measurement <per Cell>
+Inter-RAT Handover Measurement <per Cell>
+Cell Update Measurement <per Cell>
+RRC MR Measurement <per Cell>
+TX and RX Power Measurement <per Cell>
+Iub Interface Measurement <per Cell>
+Traffic Measurement <per Cell>
+HSDPA Measurement <per Cell>
+Algorithm Measurement <per Cell>
+BLER Measurement <per Cell>
+RLC Measurement <per Cell>
+UMTS Cell-to-GSM Cell Handover Measurement
+UMTS Cell-to-UMTS Cell Handover Measurement
+SRNC Measurement per Iur Interface
+QoS Measurement <per Cell>
+RRC Connection Setup Measurement <per RNC>
+RRC Connection Release Measurement <per RNC>
+CS RAB Setup Measurement <per RNC>
+PS RAB Setup Measurement <per RNC>
+PS RAB Modification Measurement <per RNC>
+PS RAB Release Measurement <per RNC>
+RAB Release Measurement <per RNC>
+AMR Service Measurement <per RNC>
+Paging Measurement <per RNC>
+RB Procedure Measurement <per RNC>
+CS Inter-RAT Handover Measurement <per RNC>
+Soft Handover Measurement <per RNC>
+Hard Handover Measurement <per RNC>
+RRC Status Measurement <per RNC>
 67109453
-67109460
+Traffic Measurement <per RNC>
 67109467
 67109469
-67109471
-67109473
+HSUPA Measurement <per Cell>
+Measurement related to Algorithm per NodeB
 67109482
 67109488
 67109493
 67109495
 67109500
-67109508
-67109509
+Traffic Volume and Data Rate Measurement <per Cell>
+Paging Measurement <per Cell>
 67109515
 67109516
-67109523
-67109545
+Compressed Mode Measurement <per Cell>
+EFACH Measurement <per Cell>
 67109546
 82833917
 82833961
-82834952
-82863914
-82863927
-82863958
+RRC Status Measurement <per Cell>
+SPI Measurement <per Cell>
+UL Interoperability Measurement <per Cell>
+Algorithm Measurement 2 <per Cell>
 82863965
 82863968
 82863974
 82863978
-82863994
-82863996
-82864047
-82864097
-82864101
-82864116
-82864131
+CPU Measurement
+Subsystem Measurement
+UE Capability Measurement <per Cell>
+Voice Quality EVQI Measurement <per Cell>
+Parking Measurement<per Cell>
+PS service quality Measurement <per Cell>
+Measurement of Channel Reconfiguration to DCH <per Cell>
 82864182
-82864183
-1275069417
-1275069419
-1275069421
-1275069428
-1275069433
-1275071217
-1275071218
-1275071417
-1275071418
-1275071419
-1275071420
-1275071421
-1275071422
-1275071423
-1275071424
-1275071425
-1275071426
-1275071427
-1275071428
-1275071429
-1275071430
-1275071431
-1275071433
-1275071434
-1275071435
-1275071438
-1275071441
-1275071443
-1275071531
-1275071617
-1275071618
-1275071619
-1275071620
-1275071621
-1275071622
-1275071623
-1275071624
-1275071625
-1275071626
-1275071627
-1275071629
-1275071635
-1275071638
-1275071817
-1275071818
-1275071819
-1275071820
-1275071821
-1275071823
-1275071824
-1275071826
-1275072018
-1275072019
-1275072021
-1275072023
-1275072025
-1275072047
-1275072048
-1275072049
-1275072051
-1275072054
-1275072058
-1275072059
-1275072517
-1275072518
-1275072519
-1275072520
-1275072521
-1275072522
-1275072523
-1275072524
-1275072525
-1275072526
-1275072527
-1275072528
-1275072529
-1275072530
-1275072531
-1275072532
-1275072533
-1275072534
-1275072617
-1275072618
-1275072619
+UMTS NIU Subsystem Performance Measurement
+BTS State Measurement per BTS
+Cell Status Measurement <per Cell>
+TRX Status Measurement <per TRX>
+FlexAbis Measurement <per BTS>
+TRX Power Measurement <per TRX>
+A Interface Paging Measurement <per BSC>
+Abis Interface Paging Measurement <per Cell>
+Call Duration Measurement <per BSC>
+Flow Control Measurement <per Cell>
+Short Message Measurement <per Cell>
+Call Drop Measurement <per Cell>
+Channel Activation Measurement <per Cell>
+Channel Seizure Measurement <per TRX>
+Immediate Assignment Measurement <per Cell>
+Assignment Measurement <per Cell>
+Intra-Cell Handover Measurement <per Cell>
+Incoming Internal Inter-Cell Handover Measurement <per Cell>
+Outgoing Internal Inter-Cell Handover Measurement <per Cell>
+Incoming External Inter-Cell Handover Measurement <per Cell>
+Outgoing External Inter-Cell Handover Measurement <per Cell>
+Incoming Inter-RAT Inter-Cell Handover Measurement <per Cell>
+Outgoing Inter-RAT Inter-Cell Handover Measurement <per Cell>
+Outgoing GSM Cell-to-GSM Cell Handover Measurement
+MR Measurement upon Handover <per Cell>
+KPI Measurement <per Cell>
+SDCCH Call Drop Measurement <per Cell>
+TRX Measurement <per Cell>
+AMR Service Measurement <per Cell>
+MS Capability Measurement <per Cell>
+MR Quantity Measurement <per Cell>
+Interference Band Measurement <per TRX>
+Power Control Message Measurement <per Cell>
+Neighboring Cell Receive Level Measurement
+TCHF Receive Level Measurement <per TRX>
+TCHH Receive Level Measurement <per TRX>
+Receive Quality Measurement <per TRX>
+Uplink-and-Downlink Balance Measurement <per TRX>
+MR Quantity Measurement based on TA <per TRX>
+Radio Link Failure Measurement <per TRX>
+Radio Link Failure Measurement based on TA <per TRX>
+Customized MR Measurement <per TRX>
+RQI Distribution Measurement <per TRX>
+Frame Erasion Rate Measurement <per TRX>
+Channel Configuration Measurement <per Cell>
+Channel Conversion Measurement <per Cell>
+Channel Busy Duration Measurement <per Cell>
+Maximum Busy Channel Measurement <per Cell>
+Channel Status Measurement <per Cell>
+Channel Assignment Success Measurement <per TRX>
+Channel Assignment Failure Measurement <per Cell>
+Channel Assignment Queue Measurement <per Cell>
+Accessibility KPI Measurement <All Cells Under a BSC>
+TRX Measurement <All Cells Under a BSC>
+Call Measurement <All Cells Under a BSC>
+Assignment Measurement <All Cells Under a BSC>
+Call Drop Measurement <All Cells Under a BSC>
+Handover Failure Measurement <All Cells Under a BSC>
+Handover Attempt Measurement <All Cells Under a BSC>
+Handover Success Measurement <All Cells Under a BSC>
+Handover KPI Measurement <All Cells Under a BSC>
+TRX Receive Quality Measurement <All Cells Under a BSC>
+Packet Assignment Measurement <All Cells Under a BSC>
+TBF Establishment and Release Measurement <All Cells Under a BSC>
+Packet Access Measurement <per Cell>
+Packet Assignment Measurement <per Cell>
+Cell Paging Measurement <per Cell>
+Packet Reselection and Handover Measurement <per Cell>
+Uplink GPRS TBF Establishment and Release Measurement <per Cell>
+Downlink GPRS TBF Establishment and Release Measurement <per Cell>
+Uplink EGPRS TBF Establishment and Release Measurement <per Cell>
+Downlink EGPRS TBF Establishment and Release Measurement <per Cell>
+Uplink GPRS RLC Data Transfer Measurement <per Cell>
+Downlink GPRS RLC Data Transfer Measurement <per Cell>
+Uplink EGPRS RLC Data Transfer Measurement <per Cell>
+Downlink EGPRS RLC Data Transfer Measurement <per Cell>
+DOWNLINK_GMSK_MEAN_BEP Measurement <per Cell>
+DOWNLINK_8PSK_MEAN_BEP Measurement <per Cell>
+Uplink LLC Data Transfer Measurement <per Cell>
+Downlink LLC Data Transfer Measurement <per Cell>
+Resource Maintainability Measurement <per Cell>
+Abis Interface Resource Measurement <per Cell>
+Cell Radio Channel Measurement <per Cell>
+PDCH Resource Measurement <per Cell>
+PDCH User Measurement <per Cell>
 1275072818
-1275072917
-1275073017
+BSSGP Measurement <per Cell>
+TRAU Link Measurement <per Cell>
 1275073117
 1275073118
-1275073217
-1275073218
-1290793504
-1290793506
+PS Capability Measurement <per BSC>
+Packet User Measurement <per BSC>
+BTS Management Measurement
+TCH Call Drop Measurement <per Cell>
 1290793512
-1290793542
-1290823468
-1290823482
-1290823483
-1290823500
-1526726657
-1526726659
-1526726660
-1526726661
-1526726662
-1526726664
-1526726665
-1526726666
-1526726682
-1526726683
-1526726684
-1526726685
-1526726687
-1526726690
-1526726693
-1526726694
-1526726695
-1526726698
-1526726699
-1526726700
-1526726701
-1526726702
-1526726704
-1526726705
-1526726706
-1526726707
-1526726708
-1526726709
-1526726710
-1526726712
-1526726713
-1526726722
-1526726729
-1526726733
-1526726742
-1526726743
-1526726744
-1526726748
-1526726749
-1526726750
-1526726752
-1526726757
-1526726761
-1526726764
-1526726782
-1526726783
-1526726785
-1526726786
-1526726787
-1526726789
-1526726790
-1526726792
-1526726805
-1526726806
-1526726807
-1526726808
-1526726810
-1526726818
-1526726820
-1542455297
-1542455301
+Location Update Measurement <per Cell>
+Call Duration Measurement <per Cell>
+VAMOS Call Measurement <per Cell>
+MR VAMOS Measurement <per Cell>
+Power Consumption Measurement <per BTS>
+RRC Setup Measurement
+E-RAB Setup Measurement
+E-RAB Release Measurement
+E-RAB Setup Failure Measurement
+Cell Algorithm Measurement
+Throughput and Data Volume Measurement
+PDCP Measurement
+Paging Measurement
 1542455302
-1542455305
-1542455817
-1593835529
-1593835531
+RRC Setup Failure Measurement
+RRC Reestablishment Measurement
+RRC Reestablishment Failure Measurement
+E-RAB Modification Measurement
+DRB Measurement
+Security Mode Measurement
+RA Measurement
+S1 Link Measurement
+Channel Quality Measurement
+MIMO Measurement
+CQI Measurement
+MCS Measurement
+PRB Measurement
+MAC Measurement
+Cell User Quantity Measurement
+Outgoing Inter-RAT Handover Measurement
+Incoming Inter-RAT Handover Measurement
+Outgoing Intra-RAT Handover Measurement
+Incoming Intra-RAT Handover Measurement
+Outgoing Intra-RAT Handover Measurement over X2
+Outgoing Intra-RAT Handover Measurement in DRX
+LTE Cell-to-LTE Cell Outgoing Handover Measurement
+Packet Measurement
+UE Context Release Measurement
+eNodeB User Quantity Measurement
+UE Context Modification Measurement
+CA Measurement
+RLC Measurement
+UE Context Setup Measurement
+UE Context Setup Failure Measurement
+Incoming Intra-RAT Handover Measurement over X2
+Throughput Distribution Measurement
+EUTRAN Cell-to-WCDMA Cell Handover Measurement
+LTE Cell-to-LTE Cell Incoming Handover Measurement
+Packet Size Distribution Measurement
+Throughput and Data Volume Measurement 1
+Channel Quality Measurement1
+Resource Optimization Measurement
+UE Traffic Rate Distribution Measurement
+Throughput and Data Volume Measurement per Path Loss Range
+Outgoing Inter-RAT Handover Measurement 1
+Service Setup Measurement
+eNodeB Transmission Interface Measurement
+E-RAB Data Volume Distribution Measurement
+Cell Sector Equipment Physical Layer Measurement
+Inter-RAT MRO Measurement
+Outgoing Intra-RAT Handover Measurement 1
+eNodeB Board User-Plane CPU Measurement
+1542455302
+Channel Quality Measurement2
+1542455302
+1542455302
+1542455302
+1542455302
+1542455302
+Node Equipment Measurement
+1542455302
