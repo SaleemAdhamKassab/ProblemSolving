@@ -1,81 +1,81 @@
-Downlink Assignment Success Rate
-RRC Setup Success Rate (Signaling)
-Downlink Traffic Volume
-Uplink Traffic Volume
-Service Drop Rate (Always Online)
-B
-AAA
+A9514
+RRCS_SR signaling
+DLTrafficVolume
+ULTrafficVolume
+AlwaysOnline_CDR
+A
+TestKPI
 CSFB Preperation SR
-BBBB
+AAAA
 TestPublic
 TestPrivate
 AA
 BB
 4G Traffic
 Outage 3G
-K_R99 Traffic Vol DL [GByte]
-K_HSDPA RLC Traffic Vol [GByte]
-K_PS Traffic Vol DL [GByte]
+K_R99
+K_HSDPA
+K_PS
 K_R99 Traffic Vol UL [Gbyte]
 K_HSUPA RLC Traffic Vol [GByte] 
-K_PS Traffic Vol UL [GByte]=
-PGNG_OVRLD_R_CS
-Uplink Assignment Success Rate
-Downlink Assignment Success Rate
-Uplink TBF Establishment Success Rate
-Downlink TBF Establishment Success Rate
-Uplink EGPRS TBF Establishment Success Rate
-Downlink EGPRS TBF Establishment Success Rate
-Uplink TBF Congestion Rate
-Downlink TBF Congestion Rate
-Uplink EGPRS TBF Congestion Rate
-Downlink EGPRS TBF Congestion Rate
-RRC Setup Success Ratio (Cell.Service)
-Radio Access Success Ratio
-CS RRC setup success rate
-CS RAB Setup Success Ratio
-PS RRC setup success rate
-PS RAB Setup Success Ratio
-CS Radio Access Success Ratio
-PS Radio Access Success Ratio
-Cell Unavailability duration
-Downlink EGPRS TBF Drop Rate
-Uplink TBF Drop Rate
-Downlink TBF Drop Rate
-Uplink EGPRS TBF Drop Rate
-HSUPA Drop Ratio
-HSDPA RLC Traffic Volume
-stive
+K_PS Traffic Vol UL [GByte]
+2G001
+2G002
+2G003
+2G004
+2G005
+2G006
+2G007
+2G008
+2G009
+2G010
+2G011
+3G001
+3G002
+3G003
+3G004
+3G005
+3G006
+3G007
+3G008
+3G009
+2G012
+2G013
+2G014
+2G015
+3G010
+3G011
+mm
 test1
 Test1
 E2U HO
 E2U %
-hh
-Call Drop Rate
-Call Drop Rate_Test
-DownLink Traffic
-UL_Traffic_Volume(MByte)
-Downlink Traffic Volume 
-DL Traffic MB LTE TEST MOH
-ULCE.AVG
-Kfarnan-WT
-Kfarnan-WT
-Shbobieh
-Average UL Interference
-LTE UL Interference Test 2
-Test Test
-RRC SSR
-rrc setup
-AAAAAA
-BBBB
-321
+h
+code1
+code1
+LTE Ver 1
+LTE Ver 1
+test
+LTE_TEST
+TEST
+CA0499C1
+CA0499C1
+WA1181C1
+LTE Ver 1
+Ver 1 LTE Interference
 Test
-MHDISMREPORT
-KPI_MHDISM2019
-kpi2
+1.
+rasha1
+AAAAA
+BBBB
+123
+Ali
+MHDISM2019
+MHDISM2019
+#mhd
 UL TBF 
-Mhdism
-AvgUserNumber
+#Mhdism
+Mazen1
 LTE RRC Success Rate Mazen
 Average_User_Num
 Cell_DL_Avg_Thrp (Mbits/s)
@@ -92,8 +92,8 @@ DL_RB_Utility_Rate
 DL_RB_Utility_Rate Avg Test
 DL_RB_Utility_Rate Brackets Test
 E-RAB_Release
-ChMeas.PRB.DL.Used.Avg
-ChMeas.PRB.DL.Avail
+L.ChMeas.PRB.DL.Used.Avg
+L.ChMeas.PRB.DL.Avail
 DL RB Utility Rate
 E-RABAbnormalRelease
 HOinAttempt
@@ -117,7 +117,7 @@ L.ChMeas.PRB.TM2%
 L.ChMeas.PRB.TM3%
 L.ChMeas.PRB.TM4%
 L.ChMeas.PRB.TM5%
-DL_RB_Utility_Rate Brackets Test
+L.ChMeas.PRB.TM6%
 L.ChMeas.PRB.TM7%
 L.ChMeas.PRB.TM8%
 Minutes Per Service Drop (Minute)
@@ -125,7 +125,7 @@ Radio_Network_Unavailiblity_Rate
 Radio_Network_Availibilty
 RRC_Connection_Attempt(Service)
 RRC_Connection_Success(Service)
-RCC_SetupSuccessRate(Signaling)
+RCC_SetupSuccessRate(Signaling)(Signaling)
 RRC Setup Success Rate (Service)
 S1SIG_Connection_SSR
 Total duration of transmission (Minute)
@@ -138,13 +138,13 @@ Call_Setup_Success_Rate_(All)
 Call_Setup_Complete_Rate(all)
 IntraFreqHO_outSuccessRate
 TBF Establishment Success Rate
-New
+aaaa
 TBF NoZero Test
-Availability2G
-Availability2G
-Availability3G
-TestUpdate1
-TestUpdate2
+Av2G
+av2G2
+av3G2
+TestUpdate
+TestUpdate
 TCHF Seizures for Speech Service
 TCHH Seizures for Speech Service
 Rejects to Immediate Assigment (Circuit Service)
@@ -175,18 +175,18 @@ TCH Call Drop Rate
 TCH Congestion Rate (Overflow)
 Uplink TBF Congestion Rate
 DL TRAFFIC
-FACH SR
-Yaroub test
+FACH0002
+YI
 RRC SSR service Yaarobi
 RRC SSR signaling Yaarobi
 RRC SSR (Signaling) Yaarobi
 RRC SSR (Service) Yaarobi
-RRC.ConnReq (retransmission included)
-L.RRC.ConnReq (retransmission excluded)
-No of emergency L.RRC.ConnReq.Att
+L.RRC.ConnReq.Msg YAAROBI1526726657
+L.RRC.ConnReq.Att YAAROBI
+L.RRC.ConnReq.Att.Emc yaarobi
 HSDPA RLC Traffic Volume MB
 HSUPA RLC Traffic Volume MB
-RRC Setup Success Rate
+RRC Suc Rate
 RRC Setup Success Ratio (Cell.Service) (PCH)
 RRC Setup Success Ratio (Cell.Other) (PCH)
 Number of Erlangs for AMR Services for Cell (Erl)
@@ -196,687 +196,687 @@ Average Number of 64QAM UEs in a Cell
 Average Number of HSDPA UEs in a Cell
 Average Number of HSUPA UEs in a Cell
 Number of UEs in CELL_DCH State for Cel
-DL_Traffic_Volume (MByte)
-RRC_SetupSuccessRate(Signaling)
-Inter-RAT Handover Out Success Rate (LTE to WCDMA)
-DL_Traffic_Volume (MByte)
-RRC_SetupSuccessRate(Signaling)
+Sess1
+Sess1
+2222
+Sess2
+Sess2
 TCH Peak
-RRC Setup Success Ratio with PCH ( Cell.Service)
-RRC Setup Success Ratio with PCH (Cell.Other)
-Outgoing HO Req
-Outgoing HO Suc Rate
-Incoming HO Req
-Incoming HO Suc Rate
-Immediate Assignment Success Rate
-Assignment Success Rate 
-Call Drop Rate on SDCCH
-BSS Call Establishment Success Rate
-Intra Cell HO Suc Rate
-No of Sent Msgs PCH Overload
-SDCCH Seizure Suc Rate
-Immediate Assignment Suc Rate
-SDCCH Drop Rate
-TCH Assignment Suc Rate
-TCH Drop Rate
-Call Setup Suc Rate
-Cell Availability Rate
-DL_Traffic_Volume(Mbyte)
+Ah.1
+Ah.2
+rm Outgoing HO Req
+rm Outgoing HO Suc Rate
+rm Incoming HO Req
+rm Incoming HO Suc Rate
+"	 RA303G"
+"	 RCA313"
+ZTR104C
+RA333A
+rm Intra Cell HO Suc Rate
+rm No of Sent Msgs PCH Overload
+rm SDCCH Seizure Suc Rate
+rm Immediate Assignment Suc Rate
+rm SDCCH Drop Rate
+rm TCH Assignment Suc Rate
+rm TCH Drop Rate
+rm Call Setup Suc Rate
+rm Cell Availability Rate
+RASHA1
 PS RAB Setup Attempts(Yaarobi)
-SDCCH Congestion Rate
-Number of PS RAB Setup Fails due to Cong (Yaarobi)
-SDCCH Time Congestion Rate
-SDCCH Erl Min per Drop
-SDCCH Mean Time sec
-SDCCH Drop Reason Low Lev
-SDCCH Drop Reason Bad Qual
-SDCCH Drop Reason Timing Adv
-SDCCH Drop Reason Other
-Available SDCCH Res
-SDCCH Availability Rate
+rm SDCCH Congestion Rate
+Number of PS RAB Setup Fails due to Cong(Yaarobi)
+rm SDCCH Time Congestion Rate
+rm SDCCH Erl Min per Drop
+rm SDCCH Mean Time sec
+rm SDCCH Drop Reason Low Lev
+rm SDCCH Drop Reason Bad Qual
+rm SDCCH Drop Reason Timing Adv
+rm SDCCH Drop Reason Other
+rm Available SDCCH Res
+rm SDCCH Availability Rate
 Num PS RAB Abnormal Releases (Yaarobi)
 Total Num of PS RAB Releases(Y)
-PS Call Drop Ratio with PCH
-PS RAB Congestion Ratio
-SDCCH Cong Rate test
-PS Congestion rate
-HSDPA RLC Traffic volume MB
-PS Service Drop Ratio
-HSDPA UE Max Cell
+PS Call Drop Ratio with PCH (Y)
+PS RAB Congestion Ratio(Yaarobi)
+tee
+PS Congestion rate (Yaarobi)
+HSDPA RLC Traffic volume MB (Yaarobi)
+ PS Call Drop Ratio with PCH(Yaarobi)
+RASHA2
 BSS%
-CSSR
-Adm Refuse Rate of Dedicated Ch
-Fach Cong Time sec 
+1234
+AACoastal
+AACoastal
 Ps Service Drop rate (Yaarobi)
-No of Adm Refuse of Dedicated Ch Req
-Dedicated Ch Adm Refuse DL CE Cong
-Dedicated Ch Adm Refuse UL CE Cong
-No of RRC Conn Req Service
-RRC Setup Success Ratio (Cell.Service) 
-Intra Freq Out HO SR
-PS RAB Setup Success Ratio
-Intra-RAT HO In SR
-HSDPA RAB Setup Success Ratio
-CS No of Drop Conn
-Mean Downlink Throughput of single HSDPA MAC-d Flows for Cell (kbit/s)
-TCH Availability Rate
-Outgoing HO Req
-TCH Cong Rate
-TCH Drop Rate Sytra
-TCH Erl Min per Drop
-TCH Mean Time sec
-TCH HR Traffic Rate
-TCH Drop Reason DL Lev
-TCH Drop Reason UL Lev
-TCH Drop Reason BL Lev
-TCH Drop Reason DL Qual
-TCH Drop Reason UL Qual
-TCH Drop Reason BL Qual
-TCH Drop Reason Timing Adv
-TCH Drop Reason Other
-Available TCH Res
-HSDPA Service Drop Ratio 
-Soft Handover Success Ratio
-Softer Handover Success Ratio
-Inter-frequency Hard Handover Success Ratio
-Service Cell Change Success Ratio with SHO (H2H)
-Av TCH Traffic
-H2H Intrer-frequency Hard Handover Success Ratio
-CS Voice Traffic Erl
-CS Drop Conn Rate
-CS Drop Reason RLC Reset
-Dedicated Ch Adm Refuse DL PWR Cong
-Dedicated Ch Adm Refuse UL PWR Cong
-Dedicated Ch Adm Refuse DL Iub Cong
-Dedicated Ch Adm Refuse UL Iub Cong
-Dedicated Ch Adm Refuse Code Cong
-Dedicated Ch Adm Refuse HSDPA Cong
-CS Drop Reason UL Sync Fail
-Dedicated Ch Adm Refuse HSUPA Cong
-CS Drop Reason Air Interface
+AACoastal
+AACoastal
+AACoastal
+Mahersa 
+RRC Setup Success Ratio (Cell.Service) (Yaarobi)
+1-4
+PS RAB Setup Success Ratio (Yaarobi)
+2-4
+HSDPA RAB Setup Success Ratio (Yaarobi)
+Mahersa
+Mean Downlink Throughput of single HSDPA (Yaarobi)
+rm TCH Availability Rate
+rm Outgoing HO Req
+rm TCH Cong Rate
+rm TCH Drop Rate Sytra
+rm TCH Erl Min per Drop
+rm TCH Mean Time sec
+rm TCH HR Traffic Rate
+rm TCH Drop Reason DL Lev
+rm TCH Drop Reason UL Lev
+rm TCH Drop Reason BL Lev
+rm TCH Drop Reason DL Qual
+rm TCH Drop Reason UL Qual
+rm TCH Drop Reason BL Qual
+rm TCH Drop Reason Timing Adv
+rm TCH Drop Reason Other
+rm Available TCH Res
+HSDPA Service Drop Ratio (Yaarobi)
+Soft Handover Success Ratio (Yaarobi)
+Softer Handover Success Ratio (Yaarobi)
+Inter-frequency Hard Handover Success Ratio (Y)
+Serv Cell Change Suc Ratio with SHO (H2H) (Y)
+RK_Av TCH Traffic
+H2H Inter-freq Hard Ho Success Ratio(Yaarobi)
+Mahersa
+Mahersa
+Mahersa
+AACoastal
+AACoastal
+AACoastal
+AACoastal
+AACoastal
+AACoastal
+Mahersa
+AACoastal
+Mahersa
 BSS MOD
-TCH
-ho
-huspa tra
-Av Interf
-count Interf
-CS Drop Reason Other Cause
-HSDPA tra DL
-R99DL traffic
-R99 UL traffic
-PS R99 UL Traffic MByte
-Handover Success Rate
-PS R99 DL Traffic MByte
-RRC Connection Suc Rate
-E-RAB Establish Suc Rate
-S1 Signaling Suc Rate
-Call Setup Suc Rate
-Intra Freq HO Attempts
-Intra Freq HO Suc Rate
-CSFB Prep Suc Rate
-Cell Down Time h
+2G Traffic
+123
+hsurtra
+ts Av Interf
+ts count Interf
+Mahersa
+HSDPA TRA
+R99traDL
+R99ULtra
+Mahersa
+oscar
+Mahersa
+rm LTE RRC Connection Suc Rate
+rm LTE E-RAB Establish Suc Rate
+rm LTE S1 Signaling Suc Rate
+rm LTE Call Setup Suc Rate
+rm LTE Intra Freq HO Attempts
+rm LTE Intra Freq HO Suc Rate
+rm LTE CSFB Prep Suc Rate
+rm LTE Cell Down Time h
 4G Traffic
 E-RAB_Setup_Success_Rate(All)
-Call_DropRate(All)
-User_DL_Avg_Thrp (MBits/s)
-User_UL_Avg_Thrp(MBits/s)
-RRC Connection Requset Service
-RRC Connection Suc Rate Service
-Retransmit RRC Connection Service
-RRC Connection Suc Rate Signaling
-Retransmit RRC Connection Signaling
-Max RRC Connections in 1 Sec
-Av RRC Setup Time msec
-RRC ReEstablish Suc Rate
-RRC Fail Rate Cong
-RRC Fail Rate NoReply
-RRC Fail Rate CPU Load
-RRC Fail Rate MME Overload
-RRC Fail Rate Other
-RRC Cong Reason PUCCH Res
-RRC Cong Reason SRS Res
-RRC Cong Reason UE Limitation
-RRC Cong Reason Other Cause
-Initial E-RAB Establish Suc Rate
-Av E-RAB Establish Time msec
-E-RAB Establish Fail Rate Cong
-E-RAB Establish Fail Rate HO Conflict
-E-RAB Establish Fail Rate No Reply
-E-RAB Establish Fail Rate MME Release
-E-RAB Establish Fail Rate RNL
-E-RAB Establish Fail Rate TNL
-E-RAB Establish Fail Rate Security Mode
-E-RAB Establish Fail Rate SRB Reset
-E-RAB Establish Fail Rate Other
-E-RAB Cong Reason PUCCH Res
-E-RAB Cong Reason SRS Res
-E-RAB Cong Reason Low DL Satisfaction
-E-RAB Cong Reason Low UL Satisfaction
-E-RAB Cong Reason DL Thr License
-E-RAB Cong Reason UL Thr License
-E-RAB Cong Reason User License
-E-RAB Cong Reason UE Limitation
-E-RAB Cong Reason Other
-HSDPA RLC Traffic Volume MB
-HSUPA RLC Traffic Volume MB
-E-RAB Modify Suc Rate
-DL Traffic MByte
-UL Traffic MByte
-DL Cell avg Thr Mbps
-UL Cell Max Thr Mbps
-Av Users In Cell
-Max Users In Cell
-Av DRBs In Cell
-Max DRBs In Cell
-serv suc
-No of Dedicated Ch Req
-adm refuese of dedicated ch
-Adm Refuse Rate of Dedicated Ch
-Av PRB Utilization Rate DL
-Max PRB Utilization Rate DL
-Av PRB Utilization Rate UL
-Max PRB Utilization Rate UL
-No of Adm Refuse of Dedicated Ch Req
-Service Drop Rate
-Drop Reason Radio SRB Reset
-Drop Reason Radio DRB Reset
-Drop Reason Radio UL Sync Fail
-Drop Reason Radio UE No Reply
-Drop Reason Radio Others
-Drop Reason Transport Res Load
-Drop Reason Radio Res Load
-Drop Reason HO Failure
-Drop Reason EPC Fault
-Drop Reason Other Causes
-DL User Thr Mbps
-DL User Edge Thr Mbps
-UL User Thr Mbps
-UL User Edge Thr Mbps
-Adm Refuse DL CE Cong
-Adm Refuse Rate of Dedicated Ch
-Dedicated Ch Adm Refuse DL CE Cong
-Dedicated Ch Adm Refuse DL CE Cong RATE
-Dedicated Ch Adm Refuse UL CE Cong
+3
+4
+5
+rm LTE RRC Connection Requset Service
+rm LTE RRC Connection Suc Rate Service
+rm LTE Retransmit RRC Connection Service
+rm LTE RRC Connection Suc Rate Signaling
+rm LTE Retransmit RRC Connection Signaling
+rm LTE Max RRC Connections in 1 Sec
+rm LTE Av RRC Setup Time msec
+rm LTE RRC ReEstablish Suc Rate
+rm LTE RRC Fail Rate Cong
+rm LTE RRC Fail Rate NoReply
+rm LTE RRC Fail Rate CPU Load
+rm LTE RRC Fail Rate MME Overload
+rm LTE RRC Fail Rate Other
+rm LTE RRC Cong Reason PUCCH Res
+rm LTE RRC Cong Reason SRS Res
+rm LTE RRC Cong Reason UE Limitation
+rm LTE RRC Cong Reason Other Cause
+rm LTE Initial E-RAB Establish Suc Rate
+rm LTE Av E-RAB Establish Time msec
+rm LTE E-RAB Establish Fail Rate Cong
+rm LTE E-RAB Establish Fail Rate HO Conflict
+rm LTE E-RAB Establish Fail Rate No Reply
+rm LTE E-RAB Establish Fail Rate MME Release
+rm LTE E-RAB Establish Fail Rate RNL
+rm LTE E-RAB Establish Fail Rate TNL
+rm LTE E-RAB Establish Fail Rate Security Mode
+rm LTE E-RAB Establish Fail Rate SRB Reset
+rm LTE E-RAB Establish Fail Rate Other
+rm LTE E-RAB Cong Reason PUCCH Res
+rm LTE E-RAB Cong Reason SRS Res
+rm LTE E-RAB Cong Reason Low DL Satisfaction
+rm LTE E-RAB Cong Reason Low UL Satisfaction
+rm LTE E-RAB Cong Reason DL Thr License
+rm LTE E-RAB Cong Reason UL Thr License
+rm LTE E-RAB Cong Reason User License
+rm LTE E-RAB Cong Reason UE Limitation
+rm LTE E-RAB Cong Reason Other
+YS HSDPA RLC Traffic Volume MB
+YS HSUPA RLC Traffic Volume MB
+rm LTE E-RAB Modify Suc Rate
+rm LTE DL Traffic MByte
+rm LTE UL Traffic MByte
+rm LTE DL Cell Avg Thr Mbps
+rm LTE UL Cell Max Thr Mbps
+rm LTE Av Users In Cell
+rm LTE Max Users In Cell
+rm LTE Av DRBs In Cell
+rm LTE Max DRBs In Cell
+WKserv suc
+ WKserv Req
+adm ref
+adm ref rate
+rm LTE Av PRB Utilization Rate DL
+rm LTE Max PRB Utilization Rate DL
+rm LTE Av PRB Utilization Rate UL
+rm LTE Max PRB Utilization Rate UL
+ WKadmin ref tot
+rm LTE Service Drop Rate
+rm LTE Drop Reason Radio SRB Reset
+rm LTE Drop Reason Radio DRB Reset
+rm LTE Drop Reason Radio UL Sync Fail
+rm LTE Drop Reason Radio UE No Reply
+rm LTE Drop Reason Radio Others
+rm LTE Drop Reason Transport Res Load
+rm LTE Drop Reason Radio Res Load
+rm LTE Drop Reason HO Failure
+rm LTE Drop Reason EPC Fault
+rm LTE Drop Reason Other Causes
+rm LTE DL User Thr Mbps
+rm LTE DL User Edge Thr Mbps
+rm LTE UL User Thr Mbps
+rm LTE UL User Edge Thr Mbps
+adm ref dl
+adm ref rate 
+adm ref dl ce cong
+ Adm Refuse DL CE Cong Rate
+ Adm Refuse UL CE Cong
 Dedicated Ch Adm Refuse UL CE Cong rate
-PS Congestion Rate
+YS PS Congestion Rate
 Dedicated Ch Adm Refuse DL PWR Cong
-Dedicated Ch Adm Refuse DL PWR Cong RATE
+Dedicated Ch Adm Refuse DL PWR Cong
 Dedicated Ch Adm Refuse UL PWR Cong
 Dedicated Ch Adm Refuse UL PWR Cong RATE
 Dedicated Ch Adm Refuse Code Cong
 Dedicated Ch Adm Refuse Code Cong RATE
 RB Reconfig Adm Refuse HSUPA Cong
 RB Reconfig Adm Refuse HSUPA Cong RATE
-Av PDSCH MCS Numerator
-Av PDSCH MCS denominator
-PS Service Drop Ratio
-PDSCH IBLER
-PDSCH RBLER
-PDSCH Retransmission Rate
-PUSCH IBLER
-PUSCH RBLER
-PUSCH Retransmission Rate
-PDCCH DTX Ratio Agg Lvl1
-Av TA Range Index
-CCE Usage Rate
-DL Traffic
-PDCCH CFI3 Ratio
-HO_in_SuccessRateTest sesion
-DL Last TTI Ratio
-UL Small Packet Ratio
-UL Traffic
-MIMO Rank1 BRP Ratio
-UL Av Interference dBm
-TestKpiBO
-HSDPA Service Drop Rate
-DL User Thr
-UL User Thr
-RRC SR%
-Av PDCP DL SDU Size Byte
-Av PDCP UL SDU Size Byte
-Av PDSCH MCS Index
-Av PUSCH MCS Index
-Av TA Range Index
-Av CQI
-BSS Call establishment success rate
-HSUPA Call Drop Rate
-Inter eNodeB HO Av Time Over S1 msec
-Inter eNodeB HO Av Time Over X2 msec
-No of Intra Freq HO Preparation Fail
-Intra Freq HO Prep Fail Cause HO Cancel
-Intra Freq HO Prep Fail Cause MME
-Intra Freq HO Prep Fail Cause No Reply
-Intra Freq HO Prep Fail Cause TargPrepFail
-Intra Freq HO Prep Fail Cause TargNotValid
-HSDPA RLC Throughput (Kbit/Sec)
-No of RRC Redirect to Inter RAT
-CSFB Prep Fail Rate Conflict
-Rate of Idle UEs CSFB
-Rate of Emergency UEs CSFB
-HSUPA RLC Throughput (Kbit/Sec)
-Rate of Dedicated UEs CSFB
-e-RAB SR%
-RRC Fail Rate Due Cong
-E-RAB Estab Fail Rate Cong
-Service Drop Rate %
-Av Users in a cell
-Max User Num in cell
-BSS Call Establishment Success Rate
-Call Drop Rate on TCH per Cell (Including Handover)
-CSFB Prep SR %
-Call Drop Rate on SDCCH
-Intra Freq SR%
-Ave CQI
-TCH Congestion Rate
-Congestion Rate on SDCCH per Cell (Due to Busy)
-BSS
-bss_test
-adm ref rate of dedicated ch
-Mean HSDPA Users Number
-Mean HSUPA Users Number
-Average Number of 64QAM UEs in Cell
-Av No of Available PDCHs
-Max No of Available PDCHs
-PDCH Occupy Rate
-Av Duration of Occupy PDCHs sec
-UL TBF of all Occupied PDCHs Rate
-DL TBF of all Occupied PDCHs Rate
-PDCH Allocation Suc Rate
-PDTCH/PACCH Utilization Rate DL
-PDTCH/PACCH Utilization Rate UL
-Av Used DL PDCHs per GPRS User
-Av DL BW per GPRS PDCH kbps
-Av DL BW per GPRS User kbps
-Av Used DL PDCHs per EDGE User
-Av DL BW per EDGE PDCH kbps
-Av DL BW per EDGE User kbps
-Av Used UL PDCHs per GPRS User
-Av UL BW per GPRS PDCH kbps
-Av UL BW per GPRS User kbps
-Av Used UL PDCHs per EDGE User
-Av UL BW per EDGE PDCH kbps
-Av UL BW per EDGE User kbps
-DL GPRS RLC Data MByte
-DL EDGE RLC Data MByte
-DL Total RLC Data MByte
-DL CS3CS4 Rate of GPRS RLC Blocks
-DL MSC7 8 9 Rate of EDGE RLC Blocks
-Ave User Num
-Av CQI
-Av PUCCH SINR Index
-Max User Number
-CSSR%
- CQI
-Rate of PUSCH SINR Less Than -5dB
-Rate of PUSCH SINR Bet -5dB and -2dB
-Rate of PUSCH SINR Bet -2dB and 2dB
-Rate of PUSCH SINR Bet 2dB and 6dB
-Rate of PUSCH SINR Bet 6dB and 10dB
-Rate of PUSCH SINR Bet 10dB and 14dB
-Rate of PUSCH SINR Bet 14dB and 17dB
-Rate of PUSCH SINR Greater Than 17dB
-DL Assignment Suc Rate
-UL Assignment Suc Rate
-UL GPRS RLC Data MByte
-UL EDGE RLC Data MByte
-UL Total RLC Data MByte
-UL CS3CS4 Rate of GPRS RLC Blocks
-UL MSC7 8 9 Rate of EDGE RLC Blocks
-DL GPRS RLC Av Thr per PDCH kbps
-DL GPRS RLC Av Thr per Cell kbps
-DL GPRS RLC Retransmission Rate
-DL EDGE RLC Av Thr per PDCH kbps
-DL EDGE RLC Av Thr per Cell kbps
-DL EDGE RLC Retransmission Rate
-UL GPRS RLC Av Thr per PDCH kbps
-UL GPRS RLC Av Thr per Cell kbps
-UL GPRS RLC Retransmission Rate
-UL EDGE RLC Av Thr per PDCH kbps
-UL EDGE RLC Av Thr per Cell kbps
-UL EDGE RLC Retransmission Rate
-PS No of Drop Conn
-No of TBF Established DL
-TBF Establish Suc Rate DL
-TBF Congestion Rate DL
-TBF MS No Respond Rate DL
-No of TBF Drops DL
-TBF Drop Rate DL
-No of TBF Established UL
-TBF Establish Suc Rate UL
-TBF Congestion Rate UL
-TBF MS No Respond Rate UL
-No of TBF Drops UL
-TBF Drop Rate UL
-TBF Release EDGE Upgrade Rate DL
-TBF Release CS HO Rate DL
-TBF Release Abis Preemption Rate DL
-Subs Perceived TBF Drop Rate DL
-TBF Release EDGE Upgrade Rate UL
-TBF Release CS HO Rate UL
-TBF Release Abis Preemption Rate UL
-Subs Perceived TBF Drop Rate UL
-TBF Drop Reason Radio Qual DL
-TBF Drop Reason CS Services DL
-TBF Drop Reason Cell Reselct DL
-TBF Drop Reason No Channel DL
-TBF Drop Reason Ch Preempt DL
-TBF Drop Reason Other Cause DL
-TBF Drop Reason Radio Qual UL
-TBF Drop Reason CS Services UL
-TBF Drop Reason Cell Reselct UL
-TBF Drop Reason No Channel UL
-TBF Drop Reason Ch Preempt UL
-TBF Drop Reason Other Cause UL
-SDCCH peak
-TCH CONG-PEAK
-No of RRC Setups Serv
-RRC Setup Suc Rate Serv
-No of CS RAB Setups
-CS RAB Setup Suc Rate
-No of PS RAB Setups
-PS RAB Setup Suc Rate
-Cell Down Time H
-Soft HO Overhead Rate
-Av No of UEs in FACH State
-Max No of UEs in FACH State
-Av No of UEs in DCH State
-Max No of UEs in DCH State
-Av No of UEs in PCH State
-Max No of UEs in PCH State
-No of RRC Setups Other
-RRC Setup Suc Rate Other
-No of RRC Setups
-RRC Setup Suc Rate
-RRC Setup Fail Rate Rej Redirect
-RRC Setup Fail Rate NoReply
-RRC Setup Fail Rate RL
-RRC Setup Fail Rate Tx
-RRC Setup Fail Rate Cell Update Serv
-RRC Setup Fail Rate Cell Update Other
-RRC Setup Fail Rate Cong
-Traffic on sdcch -peak
-RRC Conn Max Time FACH msec
-RRC Conn Mean Time FACH msec
-RRC Conn Max Time DCH msec
-RRC Conn Mean Time DCH msec
-RRC Cong Reason UL Iub
-RRC Cong Reason DL Iub
-RRC Cong Reason UL PWR
-RRC Cong Reason DL PWR
-RRC Cong Reason UL CE
-RRC Cong Reason DL CE
-RRC Cong Reason Code
-RRC Cong Reason No Available Resources
-AMR NB Rate of CS RAB Setups
-AMR NB RAB Setup Suc Rate
-AMR WB Rate of CS RAB Setups
-AMR WB RAB Setup Suc Rate
-CS PS Multi RAB Setup Suc Rate
-CS RAB Setup Fail Rate Radio Layer
-CS RAB Setup Fail Rate Transport Layer
-CS RAB Setup Fail Rate Iub Interface
-CS RAB Setup Fail Rate Uu Interface
-CS RAB Setup Fail Rate Cong
-CS Drop Rate
-Percentage of 12.2 kbps AMR NB RABs
-Percentage of Low Rate AMR NB RABs
-Percentage of High Rate AMR WB RABs
-Percentage of Mid Rate AMR WB RABs
-Percentage of Low Rate AMR WB RABs
-CS RAB Cong Reason UL Iub
-CS RAB Cong Reason DL Iub
-CS RAB Cong Reason UL PWR
-CS RAB Cong Reason DL PWR
-CS RAB Cong Reason UL CE
-CS RAB Cong Reason DL CE
-CS RAB Cong Reason Code
+rm LTE Av PDSCH MCS Numerator
+rm LTE Av PDSCH MCS denominator
+YS PS Service Drop Ratio
+rm LTE PDSCH IBLER
+rm LTE PDSCH RBLER
+rm LTE PDSCH Retransmission Rate
+rm LTE PUSCH IBLER
+rm LTE PUSCH RBLER
+rm LTE PUSCH Retransmission Rate
+rm LTE PDCCH DTX Ratio Agg Lvl1
+rm LTE Av TA Range Index
+rm LTE CCE Usage Rate
+RK LTE DL Traffic
+rm LTE PDCCH CFI3 Ratio
+HO_in_SuccessRateTest session
+rm LTE DL Last TTI Ratio
+rm LTE UL Small Packet Ratio
+RK LTE UL Traffic
+rm LTE MIMO Rank1 BRP Ratio
+rm LTE UL Av Interference dBm
+Amr
+YS HSDPA Service Drop Rate
+RK LTE DL User Thr
+RK LTE UL User Thr
+RK LTE RRC SR%
+rm LTE Av PDCP DL SDU Size Byte
+rm LTE Av PDCP UL SDU Size Byte
+rm LTE Av PDSCH MCS Index
+rm LTE Av PUSCH MCS Index
+rm LTE Av TA Range Index
+rm LTE Av CQI
+RA333A
+YS HSUPA Call Drop Rate
+rm LTE Inter eNodeB HO Av Time Over S1 msec
+rm LTE Inter eNodeB HO Av Time Over X2 msec
+rm LTE No of Intra Freq HO Preparation Fail
+rm LTE Intra Freq HO Prep Fail Cause HO Cancel
+rm LTE Intra Freq HO Prep Fail Cause MME
+rm LTE Intra Freq HO Prep Fail Cause No Reply
+rm LTE Intra Freq HO Prep Fail Cause TargPrepFail
+rm LTE Intra Freq HO Prep Fail Cause TargNotValid
+YS HSDPA RLC Throughput (Kbit/Sec)
+rm LTE No of RRC Redirect to Inter RAT
+rm LTE CSFB Prep Fail Rate Conflict
+rm LTE Rate of Idle UEs CSFB
+rm LTE Rate of Emergency UEs CSFB
+YS HSUPA RLC Throughput (Kbit/Sec)
+rm LTE Rate of Dedicated UEs CSFB
+RK LTE e-RAB SR%
+RK LTE RRC Fail Rate Due Cong
+RK LTE E-RAB Estab Fail Rate Cong
+RK LTE Service Drop Rate
+RK LTE Av Users in a cell
+RK LTE Max User Num in cell
+OSCAR BSS
+OSCAR ZTR304
+RK LTE CSFB Prep SR %
+OSCAR ZTR104C
+RK LTE Intra Freq SR%
+RK LTE Ave CQI
+OSCAR K3041
+ OSCAR RR370
+O
+bss
+WKadm ref rate
+YS Mean HSDPA Users Number
+YS Mean HSUPA Users Number
+YS Average Number of 64QAM UEs in Cell
+rm GSM Av No of Available PDCHs
+rm GSM Max No of Available PDCHs
+rm GSM PDCH Occupy Rate
+rm GSM Av Duration of Occupy PDCHs sec
+rm GSM UL TBF of all Occupied PDCHs Rate
+rm GSM DL TBF of all Occupied PDCHs Rate
+rm GSM PDCH Allocation Suc Rate
+rm GSM PDTCH/PACCH Utilization Rate DL
+rm GSM PDTCH/PACCH Utilization Rate UL
+rm GSM Av Used DL PDCHs per GPRS User
+rm GSM Av DL BW per GPRS PDCH kbps
+rm GSM Av DL BW per GPRS User kbps
+rm GSM Av Used DL PDCHs per EDGE User
+rm GSM Av DL BW per EDGE PDCH kbps
+rm GSM Av DL BW per EDGE User kbps
+rm GSM Av Used UL PDCHs per GPRS User
+rm GSM Av UL BW per GPRS PDCH kbps
+rm GSM Av UL BW per GPRS User kbps
+rm GSM Av Used UL PDCHs per EDGE User
+rm GSM Av UL BW per EDGE PDCH kbps
+rm GSM Av UL BW per EDGE User kbps
+rm GSM DL GPRS RLC Data MByte
+rm GSM DL EDGE RLC Data MByte
+rm GSM DL Total RLC Data MByte
+rm GSM DL CS3CS4 Rate of GPRS RLC Blocks
+rm GSM DL MSC7 8 9 Rate of EDGE RLC Blocks
+LTE RK Ave User Num
+rm LTE Av CQI
+rm LTE Av PUCCH SINR Index
+LTE RK Max User Number
+LTE RK CSSR%
+RK LTE  CQI
+rm LTE Rate of PUSCH SINR Less Than -5dB
+rm LTE Rate of PUSCH SINR Bet -5dB and -2dB
+rm LTE Rate of PUSCH SINR Bet -2dB and 2dB
+rm LTE Rate of PUSCH SINR Bet 2dB and 6dB
+rm LTE Rate of PUSCH SINR Bet 6dB and 10dB
+rm LTE Rate of PUSCH SINR Bet 10dB and 14dB
+rm LTE Rate of PUSCH SINR Bet 14dB and 17dB
+rm LTE Rate of PUSCH SINR Greater Than 17dB
+rm GSM DL Assignment Suc Rate
+rm GSM UL Assignment Suc Rate
+rm GSM UL GPRS RLC Data MByte
+rm GSM UL EDGE RLC Data MByte
+rm GSM UL Total RLC Data MByte
+rm GSM UL CS3CS4 Rate of GPRS RLC Blocks
+rm GSM UL MSC7 8 9 Rate of EDGE RLC Blocks
+rm GSM DL GPRS RLC Av Thr per PDCH kbps
+rm GSM DL GPRS RLC Av Thr per Cell kbps
+rm GSM DL GPRS RLC Retransmission Rate
+rm GSM DL EDGE RLC Av Thr per PDCH kbps
+rm GSM DL EDGE RLC Av Thr per Cell kbps
+rm GSM DL EDGE RLC Retransmission Rate
+rm GSM UL GPRS RLC Av Thr per PDCH kbps
+rm GSM UL GPRS RLC Av Thr per Cell kbps
+rm GSM UL GPRS RLC Retransmission Rate
+rm GSM UL EDGE RLC Av Thr per PDCH kbps
+rm GSM UL EDGE RLC Av Thr per Cell kbps
+rm GSM UL EDGE RLC Retransmission Rate
+Mahersa
+rm GSM No of TBF Established DL
+rm GSM TBF Establish Suc Rate DL
+rm GSM TBF Congestion Rate DL
+rm GSM TBF MS No Respond Rate DL
+rm GSM No of TBF Drops DL
+rm GSM TBF Drop Rate DL
+rm GSM No of TBF Established UL
+rm GSM TBF Establish Suc Rate UL
+rm GSM TBF Congestion Rate UL
+rm GSM TBF MS No Respond Rate UL
+rm GSM No of TBF Drops UL
+rm GSM TBF Drop Rate UL
+rm GSM TBF Release EDGE Upgrade Rate DL
+rm GSM TBF Release CS HO Rate DL
+rm GSM TBF Release Abis Preemption Rate DL
+rm GSM Subs Perceived TBF Drop Rate DL
+rm GSM TBF Release EDGE Upgrade Rate UL
+rm GSM TBF Release CS HO Rate UL
+rm GSM TBF Release Abis Preemption Rate UL
+rm GSM Subs Perceived TBF Drop Rate UL
+rm GSM TBF Drop Reason Radio Qual DL
+rm GSM TBF Drop Reason CS Services DL
+rm GSM TBF Drop Reason Cell Reselct DL
+rm GSM TBF Drop Reason No Channel DL
+rm GSM TBF Drop Reason Ch Preempt DL
+rm GSM TBF Drop Reason Other Cause DL
+rm GSM TBF Drop Reason Radio Qual UL
+rm GSM TBF Drop Reason CS Services UL
+rm GSM TBF Drop Reason Cell Reselct UL
+rm GSM TBF Drop Reason No Channel UL
+rm GSM TBF Drop Reason Ch Preempt UL
+rm GSM TBF Drop Reason Other Cause UL
+oscar
+O 
+rm UMTS No of RRC Setups Serv
+rm UMTS RRC Setup Suc Rate Serv
+rm UMTS No of CS RAB Setups
+rm UMTS CS RAB Setup Suc Rate
+rm UMTS No of PS RAB Setups
+rm UMTS PS RAB Setup Suc Rate
+rm UMTS Cell Down Time H
+rm UMTS Soft HO Overhead Rate
+rm UMTS Av No of UEs in FACH State
+rm UMTS Max No of UEs in FACH State
+rm UMTS Av No of UEs in DCH State
+rm UMTS Max No of UEs in DCH State
+rm UMTS Av No of UEs in PCH State
+rm UMTS Max No of UEs in PCH State
+rm UMTS No of RRC Setups Other
+rm UMTS RRC Setup Suc Rate Other
+rm UMTS No of RRC Setups
+rm UMTS RRC Setup Suc Rate
+rm UMTS RRC Setup Fail Rate Rej Redirect
+rm UMTS RRC Setup Fail Rate NoReply
+rm UMTS RRC Setup Fail Rate RL
+rm UMTS RRC Setup Fail Rate Tx
+rm UMTS RRC Setup Fail Rate Cell Update Serv
+rm UMTS RRC Setup Fail Rate Cell Update Other
+rm UMTS RRC Setup Fail Rate Cong
+O K3004
+rm UMTS RRC Conn Max Time FACH msec
+rm UMTS RRC Conn Mean Time FACH msec
+rm UMTS RRC Conn Max Time DCH msec
+rm UMTS RRC Conn Mean Time DCH msec
+rm UMTS RRC Cong Reason UL Iub
+rm UMTS RRC Cong Reason DL Iub
+rm UMTS RRC Cong Reason UL PWR
+rm UMTS RRC Cong Reason DL PWR
+rm UMTS RRC Cong Reason UL CE
+rm UMTS RRC Cong Reason DL CE
+rm UMTS RRC Cong Reason Code
+rm UMTS RRC Cong Reason No Available Resources
+rm UMTS AMR NB Rate of CS RAB Setups
+rm UMTS AMR NB RAB Setup Suc Rate
+rm UMTS AMR WB Rate of CS RAB Setups
+rm UMTS AMR WB RAB Setup Suc Rate
+rm UMTS CS PS Multi RAB Setup Suc Rate
+rm UMTS CS RAB Setup Fail Rate Radio Layer
+rm UMTS CS RAB Setup Fail Rate Transport Layer
+rm UMTS CS RAB Setup Fail Rate Iub Interface
+rm UMTS CS RAB Setup Fail Rate Uu Interface
+rm UMTS CS RAB Setup Fail Rate Cong
+AACoastal
+rm UMTS Percentage of 12.2 kbps AMR NB RABs
+rm UMTS Percentage of Low Rate AMR NB RABs
+rm UMTS Percentage of High Rate AMR WB RABs
+rm UMTS Percentage of Mid Rate AMR WB RABs
+rm UMTS Percentage of Low Rate AMR WB RABs
+rm UMTS CS RAB Cong Reason UL Iub
+rm UMTS CS RAB Cong Reason DL Iub
+rm UMTS CS RAB Cong Reason UL PWR
+rm UMTS CS RAB Cong Reason DL PWR
+rm UMTS CS RAB Cong Reason UL CE
+rm UMTS CS RAB Cong Reason DL CE
+rm UMTS CS RAB Cong Reason Code
 Mean RTWP
-R99 PS RAB Setup Suc Rate
-HSDPA PS RAB Setup Suc Rate
-HSUPA PS RAB Setup Suc Rate
-PS RAB Setup Fail Rate During Cell Update
-PS RAB Setup Fail Rate Radio Layer
-PS RAB Setup Fail Rate Transport Layer
-PS RAB Setup Fail Rate Iub Interface
-PS RAB Setup Fail Rate Uu Interface
-PS RAB Setup Fail Rate Cong
-64QAM PS RAB Setup Suc Rate
-DC PS RAB Setup Suc Rate
-PS RAB Cong Reason UL Iub
-PS RAB Cong Reason DL Iub
-PS RAB Cong Reason UL PWR
-PS RAB Cong Reason DL PWR
-PS RAB Cong Reason UL CE
-PS RAB Cong Reason DL CE
-PS RAB Cong Reason Code
-PS RAB Cong Reason HSDPA
-PS RAB Cong Reason HSUPA
-Av PDSCH MCS
-PUSCH MCS Avg
-PDSCH IBLER
-PUSCH IBLER 
-PDSCH Retrans
-PUSCH Retrans
-PDCCH CCE Usage Rate%
-UL Small Packet Ratio%
-UL Interference Avg
-CS Drop Rate
-CS Drop Reason RLC Reset
-CS Drop Reason Air Interface
-CS Drop Reason Air Interface
-CS Drop Reason Other Cause
-No of AMR  NB Users DL
-No of AMR  NB Users UL
-No of AMR  WB Users DL
-No of AMR  WB Users UL
-PUSCH Retrans
-CS Drop Reason UL Sync Fail
+rm UMTS R99 PS RAB Setup Suc Rate
+rm UMTS HSDPA PS RAB Setup Suc Rate
+rm UMTS HSUPA PS RAB Setup Suc Rate
+rm UMTS PS RAB Setup Fail Rate During Cell Update
+rm UMTS PS RAB Setup Fail Rate Radio Layer
+rm UMTS PS RAB Setup Fail Rate Transport Layer
+rm UMTS PS RAB Setup Fail Rate Iub Interface
+rm UMTS PS RAB Setup Fail Rate Uu Interface
+rm UMTS PS RAB Setup Fail Rate Cong
+rm UMTS 64QAM PS RAB Setup Suc Rate
+rm UMTS DC PS RAB Setup Suc Rate
+rm UMTS PS RAB Cong Reason UL Iub
+rm UMTS PS RAB Cong Reason DL Iub
+rm UMTS PS RAB Cong Reason UL PWR
+rm UMTS PS RAB Cong Reason DL PWR
+rm UMTS PS RAB Cong Reason UL CE
+rm UMTS PS RAB Cong Reason DL CE
+rm UMTS PS RAB Cong Reason Code
+rm UMTS PS RAB Cong Reason HSDPA
+rm UMTS PS RAB Cong Reason HSUPA
+LTE Av PDSCH MCS RK
+LTE PUSCH MCS Avg  RK
+LTE PDSCH RBLER RK
+LTE PUSCH IBLER RK
+LTE PDSCH Retrans RK
+LTE PUSCH Retrans RK
+LTE PDCCH CCE Usage Rate%
+LTE UL Small Packet Ratio % RK
+LTE UL Interference Avg RK
+rm UMTS CS Drop Rate
+rm UMTS CS Drop Reason RLC Reset
+rm UMTS CS Drop Reason Air Interface
+rm UMTS CS Drop Reason Air Interface
+rm UMTS CS Drop Reason Other Cause
+rm UMTS No of AMR  NB Users DL
+rm UMTS No of AMR  NB Users UL
+rm UMTS No of AMR  WB Users DL
+rm UMTS No of AMR  WB Users UL
+LTE PUSCH Retrans RK
+rm UMTS CS Drop Reason UL Sync Fail
 TCH Traffic Traning
 HO_in_SuccessRate  
-PS R99 DL Traffic MByte
-PS R99 UL Traffic MByte
-PS R99 UL Av Thr kbps
-PS R99 DL Av Thr kbps
-PS No of Drops
-PS Drop Rate
-PS Drop Reason RLC Reset
-PS Drop Reason UL Sync Fail
-PS Drop Reason Air Interface
-PS Drop Reason Other Cause
-Av No of PS R99 UL Users
-Av No of PS R99 DL Users
-PS HSDPA Traffic MByte
-PS HSUPA Traffic MByte
-Av No of HSDPA Users
-SUM No of HSDPA Users
-Av No of HSUPA Users
-Max No of HSUPA Users
-HSDPA Thr per User kbps
-HSUPA Thr per User kbps
-HSDPA No of Drops
-HSDPA Drop Rate
-HSUPA No of Drops
-HSUPA Drop Rate
-Soft HO No of RL Add Attempts
-Soft HO RL Add Suc Rate
-Soft HO No of RL Delete Attempts
-Soft HO RL Delete Suc Rate
-RL Add Fail Reason Configuration
-RL Add Fail Reason No Reply
-DCH/FACH to HSUPA No of Ch Switchs
-DCH/FACH to HSUPA Ch Switch Suc Rate
-HSUPA to DCH/FACH No of Ch Switchs
-HSUPA to DCH/FACH Ch Switch Suc Rate
+rm UMTS PS R99 DL Traffic MByte
+rm UMTS PS R99 UL Traffic MByte
+rm UMTS PS R99 UL Av Thr kbps
+rm UMTS PS R99 DL Av Thr kbps
+rm UMTS PS No of Drops
+rm UMTS PS Drop Rate
+rm UMTS PS Drop Reason RLC Reset
+rm UMTS PS Drop Reason UL Sync Fail
+rm UMTS PS Drop Reason Air Interface
+rm UMTS PS Drop Reason Other Cause
+rm UMTS Av No of PS R99 UL Users
+rm UMTS Av No of PS R99 DL Users
+rm UMTS PS HSDPA Traffic MByte
+rm UMTS PS HSUPA Traffic MByte
+1234556
+123
+rm UMTS Av No of HSUPA Users
+rm UMTS Max No of HSUPA Users
+rm UMTS HSDPA Thr per User kbps
+rm UMTS HSUPA Thr per User kbps
+rm UMTS HSDPA No of Drops
+rm UMTS HSDPA Drop Rate
+rm UMTS HSUPA No of Drops
+rm UMTS HSUPA Drop Rate
+rm UMTS Soft HO No of RL Add Attempts
+rm UMTS Soft HO RL Add Suc Rate
+rm UMTS Soft HO No of RL Delete Attempts
+rm UMTS Soft HO RL Delete Suc Rate
+rm UMTS RL Add Fail Reason Configuration
+rm UMTS RL Add Fail Reason No Reply
+rm UMTS DCH/FACH to HSUPA No of Ch Switchs
+rm UMTS DCH/FACH to HSUPA Ch Switch Suc Rate
+rm UMTS HSUPA to DCH/FACH No of Ch Switchs
+rm UMTS HSUPA to DCH/FACH Ch Switch Suc Rate
 DL Power Cong
-No of CS Soft HO Attempts
-CS Soft HO Suc Rate
-PS Soft HO Suc Rate
-Sig Soft HO Suc Rate
-HSDPA Cell Change Suc Rate
-HSUPA Cell Change Suc Rate
-HSDPA No of Cell Change Attempts
-HSUPA No of Cell Change Attempts
-No of Intra Freq HHO Attempts
-Intra Freq HHO Suc Rate
-No of CM Activations
-Fail Rate CM Activation
-No of CS RAB Setup Att
-CS RAB Setup Suc Rate
-CS RAB Fail Rate Due to Cong
-CS Voice Traffic Erl
-CS Voice Traffic Erlng
-No of Dedicated Ch Requests
-No of Adm Refuse of Dedicated Ch Requests
-Adm Refuse Rate of Dedicated Ch
-Adm Refuse Rate of RB Reconfig
-No of Adm Refuse of RB Reconfig Requests
-No of Adm Refuse DCCC Requests
-hsdpa ho
-hsdpa ho att
-Dedicated Ch Adm Refuse DL CE Cong
-Dedicated Ch Adm Refuse UL CE Cong
-Dedicated Ch Adm Refuse DL PWR Cong
-Dedicated Ch Adm Refuse UL PWR Cong
-Dedicated Ch Adm Refuse DL Iub Cong
-Dedicated Ch Adm Refuse UL Iub Cong
-Dedicated Ch Adm Refuse Code Cong
-Dedicated Ch Adm Refuse HSDPA Cong
-Dedicated Ch Adm Refuse HSUPA Cong
-DCCC Adm Refuse DL CE Cong
-DCCC Adm Refuse UL CE Cong
-DCCC Adm Refuse DL PWR Cong
-DCCC Adm Refuse UL PWR Cong
-DCCC Adm Refuse Code Cong
-RB Reconfig Adm Refuse DL CE Cong
-RB Reconfig Adm Refuse UL CE Cong
-RB Reconfig Adm Refuse DL PWR Cong
-RB Reconfig Adm Refuse UL PWR Cong
-RB Reconfig Adm Refuse DL Iub Cong
-RB Reconfig Adm Refuse UL Iub Cong
-RB Reconfig Adm Refuse Code Cong
-RB Reconfig Adm Refuse HSDPA Cong
-RB Reconfig Adm Refuse HSUPA Cong
-Mean RTWP
-Min RTWP
-Mean NonHS TCP
-Min NonHS TCP
-Fach Cong Time sec
-DCH/FACH to HSDPA No of Ch Switchs
-DCH/FACH to HSDPA Ch Switch Suc Rate
-HSDPA to DCH/FACH No of Ch Switchs
-HSDPA to DCH/FACH Ch Switch Suc Rate
-CS RAB Setup Fail Rate Radio Layer
-CS RAB Setup Fail Rate Transport Layer
-CS RAB Setup Fail Rate Iub Interface
-CS RAB Setup Fail Rate Uu Interface
-Cong Reason UL Iub
-Cong Reason DL Iub
-Cong Reason UL PWR
-Cong Reason DL PWR
-Cong Reason UL CE
-Cong Reason DL CE
-Cong Reason Code
-No of AMR Down Rate
-No of Code Adjustment Attempts
-Code Adjustment Suc Rate
-No of IFreq Actions
-No of IRAT Actions
-No of UL User Release
-No of DL User Release
-IFreq HHO Suc Rate
-No of Fail IFreq HHO
-IFreq HHO Fail Rate
-Cov Based RSCP IFreq Rate
-Cov Based EcNo IFreq Rate
-LDR Based UL PWR IFreq Rate
-LDR Based DL PWR IFreq Rate
-LDR Based UL CE IFreq Rate
-LDR Based DL CE IFreq Rate
-LDR Based Code IFreq Rate
-QOS Based IFreq BLER Rate
-QOS Based IFreq TCP Rate
-QOS Based IFreq UE Tx Rate
-No of IFreq Not Perform Meas Expire
-No of Fail IFreq HHO Perparation
-No of HSDPA IFreq  HHO Attempts
-HSDPA IFreq HHO Suc Rate
-No of HSUPA IFreq  HHO Attempts
-HSUPA IFreq HHO Suc Rate
-IFreq Blind HO Suc Rate
-No of Drops due to Fail IFreq HHO
-IFreq Fail Reason Rate Configuration
-IFreq Fail Reason Rate PhyChFail
-IFreq Fail Reason Rate UE NoReply
-IFreq Fail Reason Rate Cell Update
-Reloc Prep IRAT CS HO Suc Rate
-No of Fail Reloc Prep IRAT CS HO
-Reloc Prep IRAT CS HO Fail Rate
-Reloc Prep Fail Reason Target System
-Reloc Prep Fail Reason Tar Cell Avail
-Reloc Prep Fail Reason Reloc Cancel
-Reloc Prep Fail Reason Req Info Not Avail
-Reloc Prep Fail Reason CN Wait Timeout
-Reloc Prep Fail Reason Iu Rel Comm Receive
-IRAT CS HO Suc Rate
-No of Fail IRAT CS HO
-IRAT CS HO Fail Rate
-IRAT CS HO Fail Reason Config Not Support
-IRAT CS HO Fail Reason Phy Ch Failure
-IRAT CS HO Fail Reason Signalling Conn Rel
-IRAT CS HO Fail Reason Iu Rel Timer Expire
-IRAT CS HO Fail Reason During Interface
-IRAT CS HO Fail Reason Abnormal Terminate
-IRAT CS HO Fail Reason Unspecified Failure
-IRAT CS HO Trigger Signalling Rate
-IRAT CS HO Trigger RSCP Rate
-IRAT CS HO Trigger EcNo Rate
-IRAT CS HO Trigger DL PWR Rate
-IRAT CS HO Trigger UL PWR Rate
-Av Ec\No of RRC Conn Estab 0-155 m
-Av Ec\No of RRC Conn Estab 156-389 m
-Av Ec\No of RRC Conn Estab 390-623 m
-Av Ec\No of RRC Conn Estab 624-857 m
-Av Ec\No of RRC Conn Estab 858-1091 m
-Av Ec\No of RRC Conn Estab 1092-1325 m
-Av Ec\No of RRC Conn Estab 1326-2261 m
-Av Ec\No of RRC Conn Estab 2262-3665 m
-Av Ec\No of RRC Conn Estab 3666-6005 m
-Av Ec\No of RRC Conn Estab 6006-8345 m
-Av Ec\No of RRC Conn Estab 8346-12792 m
-Av Ec\No of RRC Conn Estab more 12792 m
-licence lte 
-traffic.user.max.Daily
-LICENCE.Daily
-Licence LTE
-Filter HSPA Traffic
-Filter R99 Traffic
-licence4G Daily
-Licence 4G(70%)
-Licence4G
-USER.LTE.SUM
-bss
-RRC rejects due to LIC
-RRC Fail
+rm UMTS No of CS Soft HO Attempts
+rm UMTS CS Soft HO Suc Rate
+rm UMTS PS Soft HO Suc Rate
+rm UMTS Sig Soft HO Suc Rate
+rm UMTS HSDPA Cell Change Suc Rate
+rm UMTS HSUPA Cell Change Suc Rate
+rm UMTS HSDPA No of Cell Change Attempts
+rm UMTS HSUPA No of Cell Change Attempts
+rm UMTS No of Intra Freq HHO Attempts
+rm UMTS Intra Freq HHO Suc Rate
+rm UMTS No of CM Activations
+rm UMTS Fail Rate CM Activation
+AACoastal
+AACoastal
+AACoastal
+AACoastal
+AACoastal
+rm UMTS No of Dedicated Ch Requests
+rm UMTS No of Adm Refuse of Dedicated Ch Requests
+rm UMTS Adm Refuse Rate of Dedicated Ch
+rm UMTS Adm Refuse Rate of RB Reconfig
+rm UMTS No of Adm Refuse of RB Reconfig Requests
+rm UMTS No of Adm Refuse DCCC Requests
+ma
+ma
+rm UMTS Dedicated Ch Adm Refuse DL CE Cong
+rm UMTS Dedicated Ch Adm Refuse UL CE Cong
+rm UMTS Dedicated Ch Adm Refuse DL PWR Cong
+rm UMTS Dedicated Ch Adm Refuse UL PWR Cong
+rm UMTS Dedicated Ch Adm Refuse DL Iub Cong
+rm UMTS Dedicated Ch Adm Refuse UL Iub Cong
+rm UMTS Dedicated Ch Adm Refuse Code Cong
+rm UMTS Dedicated Ch Adm Refuse HSDPA Cong
+rm UMTS Dedicated Ch Adm Refuse HSUPA Cong
+rm UMTS DCCC Adm Refuse DL CE Cong
+rm UMTS DCCC Adm Refuse UL CE Cong
+rm UMTS DCCC Adm Refuse DL PWR Cong
+rm UMTS DCCC Adm Refuse UL PWR Cong
+rm UMTS DCCC Adm Refuse Code Cong
+rm UMTS RB Reconfig Adm Refuse DL CE Cong
+rm UMTS RB Reconfig Adm Refuse UL CE Cong
+rm UMTS RB Reconfig Adm Refuse DL PWR Cong
+rm UMTS RB Reconfig Adm Refuse UL PWR Cong
+rm UMTS RB Reconfig Adm Refuse DL Iub Cong
+rm UMTS RB Reconfig Adm Refuse UL Iub Cong
+rm UMTS RB Reconfig Adm Refuse Code Cong
+rm UMTS RB Reconfig Adm Refuse HSDPA Cong
+rm UMTS RB Reconfig Adm Refuse HSUPA Cong
+rm UMTS Mean RTWP
+rm UMTS Min RTWP
+rm UMTS Mean NonHS TCP
+rm UMTS Min NonHS TCP
+rm UMTS Fach Cong Time sec
+rm UMTS DCH/FACH to HSDPA No of Ch Switchs
+rm UMTS DCH/FACH to HSDPA Ch Switch Suc Rate
+rm UMTS HSDPA to DCH/FACH No of Ch Switchs
+rm UMTS HSDPA to DCH/FACH Ch Switch Suc Rate
+AACoastal
+AACoastal
+AACoastal
+AACoastal
+AACoastal
+AACoastal
+AACoastal
+AACoastal
+AACoastal
+AACoastal
+AACoastal
+rm UMTS No of AMR Down Rate
+rm UMTS No of Code Adjustment Attempts
+rm UMTS Code Adjustment Suc Rate
+rm UMTS No of IFreq Actions
+rm UMTS No of IRAT Actions
+rm UMTS No of UL User Release
+rm UMTS No of DL User Release
+rm UMTS IFreq HHO Suc Rate
+rm UMTS No of Fail IFreq HHO
+rm UMTS IFreq HHO Fail Rate
+rm UMTS Cov Based RSCP IFreq Rate
+rm UMTS Cov Based EcNo IFreq Rate
+rm UMTS LDR Based UL PWR IFreq Rate
+rm UMTS LDR Based DL PWR IFreq Rate
+rm UMTS LDR Based UL CE IFreq Rate
+rm UMTS LDR Based DL CE IFreq Rate
+rm UMTS LDR Based Code IFreq Rate
+rm UMTS QOS Based IFreq BLER Rate
+rm UMTS QOS Based IFreq TCP Rate
+rm UMTS QOS Based IFreq UE Tx Rate
+rm UMTS No of IFreq Not Perform Meas Expire
+rm UMTS No of Fail IFreq HHO Perparation
+rm UMTS No of HSDPA IFreq  HHO Attempts
+rm UMTS HSDPA IFreq HHO Suc Rate
+rm UMTS No of HSUPA IFreq  HHO Attempts
+rm UMTS HSUPA IFreq HHO Suc Rate
+rm UMTS IFreq Blind HO Suc Rate
+rm UMTS No of Drops due to Fail IFreq HHO
+rm UMTS IFreq Fail Reason Rate Configuration
+rm UMTS IFreq Fail Reason Rate PhyChFail
+rm UMTS IFreq Fail Reason Rate UE NoReply
+rm UMTS IFreq Fail Reason Rate Cell Update
+rm UMTS Reloc Prep IRAT CS HO Suc Rate
+rm UMTS No of Fail Reloc Prep IRAT CS HO
+rm UMTS Reloc Prep IRAT CS HO Fail Rate
+rm UMTS Reloc Prep Fail Reason Target System
+rm UMTS Reloc Prep Fail Reason Tar Cell Avail
+rm UMTS Reloc Prep Fail Reason Reloc Cancel
+rm UMTS Reloc Prep Fail Reason Req Info Not Avail
+rm UMTS Reloc Prep Fail Reason CN Wait Timeout
+rm UMTS Reloc Prep Fail Reason Iu Rel Comm Receive
+rm UMTS IRAT CS HO Suc Rate
+rm UMTS No of Fail IRAT CS HO
+rm UMTS IRAT CS HO Fail Rate
+rm UMTS IRAT CS HO Fail Reason Config Not Support
+rm UMTS IRAT CS HO Fail Reason Phy Ch Failure
+rm UMTS IRAT CS HO Fail Reason Signalling Conn Rel
+rm UMTS IRAT CS HO Fail Reason Iu Rel Timer Expire
+rm UMTS IRAT CS HO Fail Reason Radio Interface
+rm UMTS IRAT CS HO Fail Reason Abnormal Terminate
+rm UMTS IRAT CS HO Fail Reason Unspecified Failure
+rm UMTS IRAT CS HO Trigger Signalling Rate
+rm UMTS IRAT CS HO Trigger RSCP Rate
+rm UMTS IRAT CS HO Trigger EcNo Rate
+rm UMTS IRAT CS HO Trigger DL PWR Rate
+rm UMTS IRAT CS HO Trigger UL PWR Rate
+rm UMTS Av Ec\No of RRC Conn Estab 0-155 m
+rm UMTS Av Ec\No of RRC Conn Estab 156-389 m
+rm UMTS Av Ec\No of RRC Conn Estab 390-623 m
+rm UMTS Av Ec\No of RRC Conn Estab 624-857 m
+rm UMTS Av Ec\No of RRC Conn Estab 858-1091 m
+rm UMTS Av Ec\No of RRC Conn Estab 1092-1325 m
+rm UMTS Av Ec\No of RRC Conn Estab 1326-2261 m
+rm UMTS Av Ec\No of RRC Conn Estab 2262-3665 m
+rm UMTS Av Ec\No of RRC Conn Estab 3666-6005 m
+rm UMTS Av Ec\No of RRC Conn Estab 6006-8345 m
+rm UMTS Av Ec\No of RRC Conn Estab 8346-12792 m
+rm UMTS Av Ec\No of RRC Conn Estab more 12792 m
+333
+222
+111
+333
+rm UMTS Filter HSPA Traffic
+rm UMTS Filter R99 Traffic
+333
+0
+555
+888
 1234
-RRC_SSR(All)%
-RRC_SSR(All)%
-E-RAB_SSR(All)%
-Success Rate of Immediate Assignments
-Assignment Success Rate 
-BSS Call Establishment Success Rate3
-BSS Call Establishment Success Rate3
+RRC rejects due to
+RRC Fail
+CSSR
+01
+02
+03
+1
+2
+123
+oscar 123
 K-Success Rate of Immediate Assignments
 K-Assignment Success Rate
 K-SDCCH Drop Rate
 K-BSS Call Establishment Success Rate
-CDR(All)%
-RRC_SRR(All)%
+04
+11
 Call Drop Rate%
-LTE Total traffic (TB)
-LTE total traffic (GB)
-Amd_Max_Paginf
-Traffic Testing
-bbb
+05
+10
+AmD12
+Traffic Testing 
+aaa
 Traffic 2G
 3G Traning 7-9
 RRC Connection Rejects for (UL Power Congestion)
@@ -890,7 +890,7 @@ No Failed PS RAB
 Congestion Rate on SDCCH per CELL (due to Busy)
 Uplink TBF Drop Rate
 Downlink TBF Drop Rate
-Sahari
+DA0589C3
 Number of Uplink GPRS RLC Data Blocks 
 Number of Downlink GPRS RLC Data Blocks 
 F-EGPRS Uplink EGPRS RLC Data Blocks
@@ -909,37 +909,37 @@ F-PS Traffic (MByte)
 624-857m UMTS
 8346-12792m UMTS
 858-1091m UMTS
-VS.Periodic.MrRpt.EcNo.0
-VS.Periodic.MrRpt.EcNo.1
-VS.Periodic.MrRpt.EcNo.2
-VS.Periodic.MrRpt.EcNo.3
-VS.Periodic.MrRpt.EcNo.4
-VS.Periodic.MrRpt.EcNo.5
-VS.Periodic.MrRpt.EcNo.6
-VS.Periodic.MrRpt.EcNo.7
-"	VS.Periodic.MrRpt.EcNo.8"
+Ec/No range [-6 dB, 0 dB]
+Ec/No range [-8 dB, -6 dB)
+Ec/No range [-10 dB, -8 dB)
+Ec/No range [-12 dB, -10 dB)
+Ec/No range [-14 dB, -12 dB)
+Ec/No range [-16 dB, -14 dB)
+Ec/No range [-18 dB, -16 dB)
+Ec/No range [-23 dB, -18 dB)
+Ec/No range [-24 dB, -23 dB)
 Ec/No Above (-10 dB) 
 Ec/No Below (-16 dB)
 Ec/No Between (-10 dB & -14 dB)
 Ec/No Above (-10 dB) Ratio
 Call Drop Rate on TCH per cell(Excluding Handover)
-LTE Traffic
+4G Traffic
 HSPA Traffic GB
 Avg R99 users
-HSDPA Thr1
+HSDPA Thr.M
 Avg HSPA Users
 HSUPA Thr
 HSDPA Thr Peak
 TCH Traffic Volume Traning 27-09
-Handover Success Rate
+MM
 Congestion Rate On SDCCH
 BSS Call Establishment Success Rate
 VS.MeanTCP
-rtwp
+123
 TCH Traffic 2G Traning 12-10
-is Worse CSSR
+rm is Worse CSSR
 AD ISWorst
-IsWorstCSSR
+AD IsWorstCSSR
 RSCP range [-60 dBm, -25 dBm]
 RSCP range [-70 dBm, -60 dBm]
 RSCP range [-80 dBm, -70 dBm]
@@ -961,7 +961,7 @@ Measured Ec/No range [-23 dB, -18 dB]
 Measured Ec/No range [-24 dB, -23 dB]
 HSDPA.64QAM.UE.Mean.Cell
 RRC SSR Yaarobi2
-Lte.User.Max
+123
 Index 0: value of ranges (0-156 m)
 Index 1: value of ranges (156-234 m)
 Index 2: value of ranges (234-546 m)
@@ -973,9 +973,9 @@ Index 7: value of ranges (6630-14430 m)
 Index 8: value of ranges (14430-30030 m)
 Index 9: value of ranges (30030-53430 m)
 Index 10: value of ranges (53430-76830 m)
-CELL 2G OnAir (H)
+444
 DL_Traffic_Volume (MByte)
-RRC_SetupSuccessRate(Sig)
+Is
 Call_Setup_Complete_Rate_(All)
 Service Drop Rate (All)
 HO_In_SuccessRate
@@ -997,9 +997,9 @@ Immediate Assignment Success Rate
 Availible SDCCH
 onfigured SDCCH
 Configured SDCCH
-Is Worse CSSR
-E-RAB Setup SR All
-E-RAB FailNoLicens
+rm Is Worse CSSR
+E-RAB Setup SR
+L.E-RAB.FailEst.NoRadioRes.RrcUserLic
 E-RAB Fail
 L.IRATHO.E2U.A2MeasHOTooLate
 E-RAB Succ
@@ -1008,27 +1008,27 @@ L.HHO.IntraeNB.IntraFreq.ExecFailOut
 CDR (ALL)
 CDR (DRB)
 CDR (SRB)
-AAABBBCCC
-AAABBBCCC2
-NNNMMM
+NewKpiTest1
+NewKpiTest12
+NewKpiTest
 L.RRC.ReEst.Fail
-CDR (ALL)  1
-CDR (ALL)  1
-qqqq
-TRFC_Vol_RLC_GPRS_DNLNK_MB
-TRFC_Vol_RLC_EGPRS_DNLNK_MB
-TRFC_Vol_RLC_GPRS_UPLNK_MB
-TRFC_Vol_RLC_EGPRS_UPLNK_MB
-TRFC_VOL_2G
-Number of UEs in CELL_DCH State for Cell
-Soft HO Suc Rate
-Lower HSDPA Thr kbps
+CDR (ALL)
+CDR (ALL) 
+bbbb
+AFD
+AFD
+AFD
+AFD
+AFD
+73410510
+rm UMTS Soft HO Suc Rate
+rm UMTS Lower HSDPA Thr kbps
 RAN_Unavail_Rate
 SHO OverLoad
 Cell Traffic Volume
-VS.SHO.AS.4RL
-VS.SHO.AS.5RL
-VS.SHO.AS.6RL
+67203939
+67203940
+67203941
 VS.SHO.AS.1RL
 VS.SHO.AS.2RL
 VS.SHO.AS.3RL
@@ -1036,136 +1036,136 @@ VS.SHO.AS.4RL
 Softer Handover Success Ratio (Cell)
 Number of Soft Handover Attempts for Cell (AMR)
 UL CE Max
-TA 11-12
-TA 13-14
-TA 15-16
-TA 17-18
-TA 19-21
-TA 22-24
-TA 25-27
-TA 28-31
-TA 32-35
-TA 36-39
-UL RxQual Total
-UL Good RxQual Rate
-UL Acceptable RxQual Rate
-UL Bad RxQual Rate
-DL RxQual Total
-DL Good RxQual Rate
-DL Acceptable RxQual Rate
-DL Bad RxQual Rate
-RL Fail 11-12
-RL Fail 13-14
-RL Fail 15-16
-RL Fail 17-18
-RL Fail 19-21
-RL Fail 22-24
-RL Fail 25-27
-RL Fail 28-31
-RL Fail 32-35
-RL Fail 36-39
-ULQL(7)
-ULQL(6)
-ULQL(5)
-ULQL(0)
-ULQL
-ULQL(6)
-ULQL(1)
-ULQL(6-7)
-ULQL(0-1)
-TCH Band 1
-TCH Band 2
-TCH Band 3
-TCH Band 4
-TCH Band 5
-Cell Availability Rate
-Needed RRC(4G)
-70 % of license avg
-license 4G
-L.Traffic user MAX
+rm TRX TA 11-12
+rm TRX TA 13-14
+rm TRX TA 15-16
+rm TRX TA 17-18
+rm TRX TA 19-21
+rm TRX TA 22-24
+rm TRX TA 25-27
+rm TRX TA 28-31
+rm TRX TA 32-35
+rm TRX TA 36-39
+rm TRX UL RxQual Total
+rm TRX UL Good RxQual Rate
+rm TRX UL Acceptable RxQual Rate
+rm TRX UL Bad RxQual Rate
+rm TRX DL RxQual Total
+rm TRX DL Good RxQual Rate
+rm TRX DL Acceptable RxQual Rate
+rm TRX DL Bad RxQual Rate
+rm TRX RL Fail 11-12
+rm TRX RL Fail 13-14
+rm TRX RL Fail 15-16
+rm TRX RL Fail 17-18
+rm TRX RL Fail 19-21
+rm TRX RL Fail 22-24
+rm TRX RL Fail 25-27
+rm TRX RL Fail 28-31
+rm TRX RL Fail 32-35
+rm TRX RL Fail 36-39
+QL
+123
+123
+123
+123
+123
+123
+123
+123
+123
+123
+123
+123
+123
+rm LTE Cell Availability Rate
+123
+12324
+123
+222
 TCH Traffic
-Tch band 1
-TCH band2
-TCH band3
-TCH band4
-TCH band 5
-band 1 rate
-band 2 rate
-band 3 rate
-band 4 rate
-band 5 rate
-Number of Radio Link Deletion Attempts in Soft Handover for Cell
-Number of Successful Radio Link Deletions in Soft Handover for Cell
-Number of Successful Soft Handovers in CS Domain for Cell (AMR Service)
-Number of Radio Link Deletion Attempts in Softer Handover for Cell
-Number of Successful Radio Link Deletions in Softer Handover for Cell
-Number of Failed Radio Link Additions in Softer Handover for Cell (Configuration Unsupported)
-Number of Failed Radio Link Additions in Softer Handover due to UE No Response for Cell
-Number of Failed Radio Link Additions in Soft Handover for Cell (Configuration Unsupported)
-Number of Failed Radio Link Additions in Soft Handover due to UE No Response for Cell
-TA Index
-TA Index
-TA Index
-TA Index
-TA Index
-TA Index
-TA Index
-TA Index
-TA Index
-Number of inter-RAT handover attempts from E-UTRAN to WCDMA network
-Handover from E-UTRAN to WCDMA Success Rate
-Average number of downlink cell edge users (CEUs) in a cell
-Maximum number of downlink cell edge users (CEUs) in a cell
-Average number of uplink cell edge users (CEUs) in a cell
-Maximum number of uplink cell edge users (CEUs) in a cell
-0-155
-156-389
-390-623
-624-857
-858-1091
-1092-1325
-1326-2261
-2262-3665
-3666-6005
-6006-8345
-8346-12792
+1
+2
+3
+4
+5
+11
+22
+33
+44
+55
+67180508
+67180509
+67180520
+67180490
+67180491
+67180485
+67180489
+67180500
+67180504
+rm GSM TA Index
+rm GSM TA Index
+rm GSM TA Index
+rm GSM TA Index
+rm GSM TA Index
+rm GSM TA Index
+rm GSM TA Index
+rm GSM TA Index
+rm GSM TA Index
+1526726986
+1526727034
+1526727380
+1526727381
+1526728473
+1526728474
+73423486
+73423488
+73423490
+73423492
+73423494
+73423496
+73423498
+73423510
+73423502
+73423504
+73423506
 DL Traffic (Mb)
 UL Traffic (Mb)
-need RRC
+777
 RRC Setup Success Ratio(Cell.Service)
 RRC Setup Success Ratio (Cell.Other)
 PS RAB Setup Success Ratio(Cell)
 CS RAB Setup Success Ratio(Cell)
 HSDPA RAB Setup Success Ratio
 HSUPA RAB Setup Success Ratio
-Number of Erlangs for AMR Services for Cell
-RTWP Hours
+73426291
+rm UMTS RTWP Hours
 SHO Success Rate
 SoHO Success Rate
-Mean Power of Totally Received Bandwidth for Cell
-Throughput threshold
-Inter-Frequency HHO Success Ratio
+67199617
+9999
+Inter-Frequency HHO Success Ratio 
 Inter-Frequency HHO Success Ratio 
 Inter-Frequency HHO Success Rate
 Inter-Frequency HHO Success Rate
-Number of RRC Connection Rejects for Cell (UL Iub Bandwidth Congestion)
-Number of RRC Connection Rejects for Cell (UL Power Congestion)
-Number of RRC Connection Rejects for Cell (DL Power Congestion)
-Number of RRC Connection Rejects for Cell (DL Iub Bandwidth Congestion)
-Number of RRC Connection Rejects for Cell (UL CE Resource Congestion)
-Number of RRC Connection Rejects for Cell (DL CE Resource Congestion)
-Number of RRC Connection Rejects for Cell (Code Resource Congestion)
+67192608
+67193609
+67193610
+67192609
+67190404
+67190405
+67179524
 TCH Band1
 TCH Band2
 TCH Band3
 TCH Band4
 TCH Band5
 Number of CS Users
-Number of Failed PS RAB Establishments for Cell (UL CE Congestion)
-Number of Failed PS RAB Establishments for Cell (DL CE Congestion)
-Number of Failed PS RAB Establishments for Cell (UL Power Congestion)
-Number of Failed PS RAB Establishments for Cell (DL Power Congestion)
-Rx Quality
+67190408
+67190409
+67193613
+67193614
+amr: RxQuaity
 DL Traffice Volume (MB)
 UL Traffic Volume (MB)
 Cell Throughput (Kbps)
@@ -1174,161 +1174,161 @@ User Throughput (Kbps)
 Inter-Frequency HHO Success Rate
 test
 RRC rejects due to LIC
-HandoverF
-IntraF
-Handover-IntraF
-Kpi1
-2G Trafic
-traffic
-trafiic
-LTE Traffic hassan
-LTE
-LTE Traffic Hassan 2
-3G PS Traffic
-3G PS traffic
-All trafic
-LTE traffic
-2G CS Traffic
-BAI_TEST
-Cell Throughput (Kbps) Updated
-Cell Througput (kbps) Updated
-Number of Erlangs for AMR Services for Cell Updated
-Number of Erlangs for AMR Services for Cell Updatedd
-DL CE
-UL CE
-UL CE Max
-DL CE Max
-xxx
-xxx
-BBBB
-LTE
-traffic cs
-3G CS Traffic
-GSM
+1
+00
+Lubna
+Code1
+k3014
+k3014
+1
 2
-TEST
-ola
-LTE
-RRC
-RRC D
-Number of Cell Resource Requests During SHO for Cell
-traffic ola lte
-test lte
-drop call
-traffic
-drop on SDCCH
-drop call on TCH per cell 
- drop call on traffic channel 
-TCH Congestion%
-SDCCH Congestion%
-512
-1024
-554
-1108
-1662
-2216
-2770
-3324
-3878
-4432
-4986
-5540
-6094
-6648
-7202
-7756
-8310
-8864
-9418
-9972
-10526
-11080
-11634
-12188
-12742
-13296
-13850
-14404
-14958
-15512
-16066
-33240
-16620
-17728
-18836
-19944
-21052
-22160
-24930
-27700
-30470
-35456
-More tha 35000
-Receive Quality Rank 0
-Receive Quality Rank 1
-Receive Quality Rank 2
-Receive Quality Rank 3
-Receive Quality Rank 4
-Receive Quality Rank 5
-Receive Quality Rank 6
-Receive Quality Rank 7
-Receive Quality Rank 0
-Receive Quality Rank 1
-Receive Quality Rank 2
-Receive Quality Rank 3
-Receive Quality Rank 4
-Receive Quality Rank 5
-Receive Quality Rank 6
-Receive Quality Rank 7
-Mean Number of TCHFs in Interference Band 1
-Mean Number of TCHFs in Interference Band 2
-Mean Number of TCHFs in Interference Band 3
-Mean Number of TCHFs in Interference Band 4
-Mean Number of TCHFs in Interference Band 5
-Mean Number of TCHHs in Interference Band 1 
-Mean Number of TCHHs in Interference Band 2
-Mean Number of TCHHs in Interference Band 3
-Mean Number of TCHHs in Interference Band 4
-Mean Number of TCHHs in Interference Band 5
-RRC SSR_OLA
-RRC SSR
-filter_test
-filter_test_2
-filter_test
-filter_test
-filter_test
-ww
-Shawerma
-Number of Erlang AMR CS new
-Number of Erlang AMR CS traffic
-Max 
-VS.LC.ULCreditAvailable.Shared
-VS.LC.DLCreditAvailable.Shared
-VS.LC.ULMax.LicenseGroup.Shared
-VS.LC.DLMax.LicenseGroup.Shared
-UL CE Utilization Rate
-DL CE Utilization Rate
-VS.LC.UL_Av_Shared
-VS.LC.DL_Av_Shared
-VS.NodeB.ULCreditUsed.Max
-VS.NodeB.DLCreditUsed.Max
-VS.HW.UL_M
-VS.NodeB.ULCreditUsed.Max
-VS.HW.ULCreditAvailable
-VS.HW.DLCreditAvailable
-UL CE rate
-DL CE Rate
-VS.HW.DL_M
-CE Utilization Rate
-DL CE rate
-CE_HW.VS.CE_LICENSE (Need check=1)
-CE Utilization Rate
-UL CE RATE
-DL CE RATE
-HW.CE_UL_USAGE
-TEST
-test01
-tes_02
+3
+3
+111
+222
+333
+10
+1
+BAI_TEST
+Cell Throughput (Kbps)
+Cell Througput (kbps)
+73426291
+73426291_1
+C67202570
+C6722567
+C67191165
+C67191167
+1
+1
+122222
+D
+222
+12
+D
+2
+2
+1
+DD
+C
+C
+67181072
+1
+5
+GSM
+gsm
+3
+4
+5
+6
+7
+1278277417
+1278277418
+1278277417
+1278277418
+1278277419
+1278277420
+1278277421
+1278277422
+1278277423
+1278277424
+1278277425
+1278277426
+1278277427
+1278277428
+1278277429
+1278277430
+1278277431
+1278277432
+1278277433
+1278277434
+1278277435
+1278277436
+1278277437
+1278277438
+1278277439
+1278277440
+1278277441
+1278277442
+1278277443
+1278277444
+1278277445
+1278277446
+1278277446
+1278277447
+1278277448
+1278277449
+1278277450
+1278277451
+1278277452
+1278277453
+1278277454
+1278277455
+1278277456
+1278288417
+1278288418
+1278288419
+1278288420
+1278288421
+1278288422
+1278288423
+1278288424
+1278288425
+1278288426
+1278288427
+1278288428
+1278288429
+1278288430
+1278288431
+1278288432
+1282423996
+1282423997
+1282423998
+1282423999
+1282424000
+1282424001
+1282424002
+1282424003
+1282424004
+1282424005
+01
+1
+111111
+2222
+333333
+444444
+55555
+iz
+DA1523C4
+C73426291
+C73426291
+1
+2
+3
+4
+5
+1
+6
+CADH1
+CADH2
+7
+8
+Car01
+7
+9
+10
+11
+12
+Car02
+123
+12
+HW.VS.LICENSE
+ce12
+112
+112
+CAR
+TEST00
+TEST01
+test_02
 test_3
 test_3
 3
@@ -1342,63 +1342,63 @@ test_3
 5_5
 test_of
 test_of
-CE UTILI
-CE
-CE Utilization Rate
-ce utilization
-CE UTILIZATION
-ce uti
-CE UTI
-CE UTI
-traffic volume lte o
-traffic_LTE_O
-ola_traffic_lte
-Ammar_lte
-RRC_SSR_LTE_Ammar
-LTE_ERAB_SSR
-No of AMRWB Down Rate
-Handover Success Rate
-Success Rate of Dual-Band Handovers (900-1800)
-CE_RATE
-rate
+1
+12
+1234
+1
+1
+12
+1
+1
+1
+01
+02
+01
+01
+01
+rm UMTS No of AMRWB Down Rate
+RH303
+RH303F
+TEST
+Test
 test
 test
 test_1
 test
 test
-CE Ul Utilization Rate
-CE Ul Utilization Rate
-CE Dl Utilization Rate
-CE Ul Utilization Rate 2 
-CE Dl Utilization Rate 2
+rm
+rm
+rm
+rm
+rm 
 test
-Downlink PRB utilization rate %
-TotalRevenue
+BAIAD000
+rmTotalRevenue
 BaiServSetupSucRate
-Downlink PRB utilization rate
-Mean RTWP
+K900010014
+123
 rtwp
-HO Inter eNB In SR
+BAIHO01
 rtwp2
 rtwp1
 rtwp1
 RTWP
-2262-3665
-3666-6005
-6006-8345
-8346-12792
-More than 12792
-Failed Outgoing Inter-Cell Handovers (Uplink Quality)
-Failed Outgoing Inter-Cell Handovers (Downlink Quality)
-Failed Outgoing Inter-Cell Handovers (Uplink Strength)
-Failed Outgoing Inter-Cell Handovers (Downlink Strength)
-Failed Outgoing Inter-Cell Handovers (Timing Advance)
-Failed Outgoing Inter-Cell Handovers (Better Cell)
-Failed Outgoing Inter-Cell Handovers (Load)
-Failed Outgoing Inter-Cell Handovers (Rapid Level Drop)
-Failed Outgoing Inter-Cell Handovers (Other Causes)
-Failed Outgoing Inter-Cell Handovers (Other Causes)
-Failed Outgoing Inter-Cell Handovers (MSC Intervention)
+73423510
+73423502
+73423504
+73423506
+73423508
+1278085429
+1278085430
+1278085431
+1278085432
+1278085433
+1278085434
+1278085435
+1278085436
+1278085438
+1278085440
+1278085437
 BaiUnavailableTime
 BaiRrcSetupSucRate
 BaiErabEstSucRate
@@ -1462,36 +1462,36 @@ BaiRrcFailCauseUnknown
 BaiRateOfRrcSig
 BaiRateOfRrcServ
 rmTempRA333
-2262-3665
-3666-6005
-6006-8345
-8346-12792
-Above 12792
-Cell Availability Rate
-lt3e
-Cell availability
-TRX Usability
-Number of MRs on Downlink TCHF (Receive Level Rank 0 and Receive Quality Rank 0)
-Number of MRs on Downlink TCHF (Receive Level Rank 0 and Receive Quality Rank 1)
-Number of MRs on Downlink TCHF (Receive Level Rank 0 and Receive Quality Rank 2)
-Number of MRs on Downlink TCHF (Receive Level Rank 0 and Receive Quality Rank 3)
-Number of MRs on Downlink TCHF (Receive Level Rank 0 and Receive Quality Rank 4)
-Number of MRs on Downlink TCHF (Receive Level Rank 0 and Receive Quality Rank 5)
-Number of MRs on Downlink TCHF (Receive Level Rank 0 and Receive Quality Rank 6)
-Number of MRs on Downlink TCHF (Receive Level Rank 0 and Receive Quality Rank 7)
-Min HSDPA Thr kbps
-Max HSDPA Thr kbps
-sum sum HS Traffic
-max HSDPA user
-Min HSDPA user
-HSDPA av user
-UMTS Max No of HSDPA Users
-Number of successful radio link additions in the softer handover
-Number of successful radio link deletions in the softer handover
-"	Number of radio link addition attempts in the softer handover"
-Number of Radio Link Deletion Attempts in Softer Handover for Cell
+73423510
+73423502
+73423504
+73423506
+73423508
+rm UMTS Cell Availability Rate
+01
+123
+TRX001
+1278273481
+1278273482
+1278273483
+1278273484
+1278273485
+1278273486
+1278273487
+1278273488
+rm UMTS Min HSDPA Thr kbps
+rm Max HSDPA Thr kbps
+ab sum HS Traffic
+ab max HSDPA user
+ab Min HSDPA user
+ab HSDPA av user
+Ab UMTS Max No of HSDPA Users
+67180484
+67180491
+67180483
+67180490
 Softer Handover Success Ratio (Cell)
-Max LTE user
+ab.Max LTE user
 BaiCell RRC Suc Rate
 BaiCell Inintial E-RAB Suc Rate
 BaiCell Call Drop Rate
@@ -1503,46 +1503,46 @@ BaiCell DL User Thr Mbps
 Intra-Frequency Handover Out Success Rate
 Inter-Frequency Handover Out Success Rate
 CSFB Preparation Success Rate
-cssr
-SD Conge
-SDCCH Congestion Rate
-TCH HR Ratio
-SD conge
-HR Ratio
-Radio Handover 
-cellavailability
-Cell availability 
+k3014
+G1217
+ZTR103A
+A11
+za3025
+Ri1712
+Na0806
+11111
+01
 Cell Down Time H
-TCHCongRober
-MAIN LEVEL
-main
-main level
-diversity level
-main
-main level
+11
+O000
+0000
+0000
+o 100
+khoo
+o main level
 diversity
+oscar main
+dahi11
 main level
-main diversity
-main level
-main level
-main level
+dahi
+main 
 diversity_1
-Main level
-MAIN LEVEL1
+123
+1234
 diversity_2
 diversity_3
-Mainlevel2
-main
-main
+1234
+only log
+only log
 diversity_4
-main level
+wesam
 diversity_6
-main
-1
-2
-main
-3
-4
+wesam1
+12345
+1234
+kha
+123456
+123456
 diversity_12
 diversity_13
 diversity_14
@@ -1557,16 +1557,16 @@ Average Diversity Level in the Customized MR (dB)
 Average Main Level in the Customized MR (dB)
 Average Main Level in the Customized MR (dB)
 Average Diversity Level in the Customized MR(dB)
-main level
-MAIN LEVEL
-Diversity
-MAIN LEVEL
-Avg
+oscar
+OSCAR
+123
+OSCAR
+S4556
 Div_Diversity
-DIVERSITY LEVEL
-SUB
-Av No of HSDPA Users
-Max no of HSDPA users
+OSCAR
+OSCAR
+1
+2
 Av TCH traffic
 diversity_test
 divrsity_test2
@@ -1580,9 +1580,9 @@ diversity_test9
 diversity_test10
 diversity_test1
 diversity_test2
-test11
-test12
-CE DL Utilization%
+02
+03
+00001
 ab CELL.TRX.NUM
 ab NUM.TCH
 AV VS.SingleRAB.SF4
@@ -1599,7 +1599,7 @@ AV VS.MultRAB.SF32
 AV VS.MultRAB.SF8
 AV VS.MultRAB.SF64
 AV VS.MultRAB.SF128
-AV VS.MultRAB.SF256
+VS.MultRAB.SF256
 ab Code Utilization
 AV VS.MultRAB.SF256
 Code Utilization
@@ -1610,211 +1610,211 @@ diversity_test5
 diversity_test6
 diversity_test7
 diversity_test7
-ab Cell Downlink Power Load
-TCP Power (W)
 Cell Downlink Power Load
+Power
+ab Cell Downlink Power Load
 ab Cell Uplink Power Load
 cs fall back 
 cs fall back 2
 cs fall
-TCH_Cong
-dl max usage 
-GPRS_DL
-GPRS
-ul max CE usage
+1
+333
+AH.
+AH.GPRS_UL
+3333
 E-GPRS_DL
 HA.EGPRS_UL
-Total GPRS Traffic
-ul max CE usage
-up CE Max available 
-DL Max CE available 
-LTE_Traffic_2022
-LTE-Traffic-2022
-Traffic
-DL CE Utilization rate 
-UP CE Utilization rate 
-MAx UL Credit Used
-64 QAM UE
-Total Traffic Volume (GByte)
-RRC SSR AMV
-E-RAB SSR AMV
-CDR (ALL)
-IntraFreq HO Success Rate
-IntraFreq Preparation Success Rate
-IntraFreq HO Success Rate (All)
-Cell Availability
-Total Traffic Volume (GByte)
-IntraFreq Preparation Success_Rate
-RRC-SSR (All)%
-E-RAB_SSR(All) %
-CDR(All)%
-IntraFreq HO Success Rate
-IntraFreq Prepration Success Rate
-Call Drop Ratio %(R99+HSDPA).
-rrc setup success rate
-Call Drop Ratio %(R99+HSDPA)
-IntraFreq HO Success Rate (All)
-RRC_SSR(MHD)
-Number of
-sakkal
-Soft Handover Success Rate
-Soft HO Rate
-soft handover success rate 
-soft handover success rate
-AA
-soft handover success rate
-HSDPA throughput
-soft handover success rate
-Total Traffic Volume (GB)
-myNewKpi
-Used PRB Rate
-CSSR
-Handover
-RRC setup success ratio%
-RRC-SSR1
-rrc-ssr2
-TCH Availability
-TCH-DR
-E-RAB_SSR1
-S1_SSR
-CSSR
-Available DL RB
+AH.GPRS.Total
+3333
+5555
+666
+01`
+01
+01
+555
+666
+111
+abd64
+01
+01
+01
+01
+01
+01
+01
+01
+01
+01
+01
+01
+01
+01
+01
+111
+11
+22
+01
+01
+01
+00
+2
+ggg
+12
+12
+001
+12
+333
+13
+01
+002
+01
+01
+09
+qwerty
+5
+5
+2
+3
+5
+55
+4
+killwa
 ab Sum of user
-ps traffic1
-TCH Traffic Erl
-TCH Drop Sytra
-ASS-SR
-IMM-SR
-SD-DR
-CSSR
-TCH-BR
-SD-DR
-SD-BR
-HO-SR
-RRC setup Success Rate:
-ssofr handover 
-rrc success rate test 2
-Ah.Dl.cell.thr.avg
+000
+rm TCH Traffic Erl
+rm TCH Drop Sytra
+4-1
+4-2
+4-3
+4
+5
+6
+7
+8
+00
+13
+14
+Ah.LTE.Dl.Cell.thr.Avg
 Ah.Ul.Cell.Thr.avg
-SDCCH Block Rate (%)
-TCH Block Rate
-Handover Success Rate 
-UL 
-Total Data Traffic GByte
-Utilization 3G
-3g utili
-avg ul
-kh
-CS Traffic Erlang
-osc
-Total Traffic Volume GByte Sytra
-Initial E-RAB Suc Rate
-Call Drop Rate Sytra
-Intra Freq Prep Suc Rate
-Intra Freq HO Suc Rate All
-Total Traffic Volume GByte Sytra
-Elrang Min per Drop
-Mean Time Bet Drop
-DL R99 RCL Throughput Kbps:
-TCH-BR
-2138
-SD-DRate
-3G PS(GB)
-SD-BR
-HO-SR
-RRC Setup Success Ratio with PCH Total
-Soft Handover Success Rate
+Ah.GSM.SDCCH Block Rate (%)
+Ah.GSM
+Ah.GSM
+88
+rm UMTS Total Data Traffic GByte
+888
+888
+999
+777
+rm UMTS CS Traffic Erlang
+666
+rm LTE Total Traffic Volume GByte Sytra
+rm LTE Initial E-RAB Suc Rate
+rm LTE Call Drop Rate Sytra
+rm LTE Intra Freq Prep Suc Rate
+rm LTE Intra Freq HO Suc Rate All
+rm LTE Total Traffic Volume GByte Sytra
+rm Elrang Min per Drop
+rm UMTS Mean Time Bet Drop
+00
+5
 DL R99 RCL Throughput Kbps
-Ah.2FR_UL_Bad Samples FR
+66
+1
+7
+8
+11
+22
+4
+AH.UL Bad Samples FR
 AH.DL-BAD-FR
 Ah.DL_BAD_HR
-licence 4G(95%)
-LIC
-Total Traffic Volume GByte Sytra
-CDR(ALL).
-CDR(ALL)
-Call Drop (R99+HSPA) Rate   
-Total 3G Traffic MB
-UE in Cell DCH
-TCH-AR
-TCH-DR
-CSSR
-TCH-BR
-SD-DR
-SD-BR
-HO-SR
-SD-DR
-2G CS Traffic (Erlang)
-Utilization Rate %
-Utilization Rate %
-Utilization Rate
-4G Total Traffic (Giga)
+123
+121314
+rm LTE Total Traffic Volume GByte Sytra
+01
+01
+3
+Ah.
+ab UE in Cell DCH
+2
+3
+4
+5
+6
+7
+8
+6
+1
+000
+0
+0
+AH01
 uti
-AVG
+1T
 uti_new
-UTILIZATION-Avg
-Utilization Rate%
-Utilization Rate1
-khos
-mokh
-count
-AH-Intra Freq HO Out
-Intra-Frequency Handover Out Success Rate
-Intra-Frequency Handover Out Success Rate 
-Intra-Frequency Handover Out Success Rate 
-Intra-Frequency Handover In Success Rate
-Intra-Frequency Handover In Success Rate
-CDR Reason: Radio
-CDR Reason: HO failure
-CDR Reason: Cong.
-CDR Reason: TNL.
-CDR Reason: TNL.
-CDR Reason: Other.
-CDR Reasons : Radio
-CDR Reasons : HO Failure
-CDR Reasons : Cong
-CDR Reasons : TNL
-CDR Reason : Other
-CDR(all) %
-CDR Reasons : Radio
-CDR Reasons : HO Failure
-CDR Reasons : Cong
-CDR Reasons : TNL
-CDR Reason : Other
-CDR(all)
-Utilization 
-Cell Availability 3G
-cell availability 3G
-cell unavailable for 3G
-Cdr%
-RCC Setup Success Rate (Signaling)
-RCC_Connection_Attempt(Service)
-RCC_Connection_Success(Service)
-RRC Setup Success Rate (Service)
-HSDPA Throughput
-HSDPA.MeanChThroughput_NEW
+123
+123
+1234
+555
+66
+66
+AH 05
+AH-01
+AH001
+AH001
+AH002
+AH002
+01
+01
+01
+01
+01
+01
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+1
+7
+5
+7
+01
+Ah.LTE RCC Setup Success Rate
+AH.LTE.RCC_Connection_Attempt(Service)
+AH.LTE.RCC_Connection_Success(Service)
+AH.LTE.RRC Setup Success Rate (Service)
+AH.UMTS.HSDPA Throughput
+AH.UMTS.HSDPA.MeanChThroughput_NEW
 Ah.LTE.HO in Success Rate
 Ah.LTE.IntraFreq HO out Success Rate
-Ah.2G.voice Quality
+Ah.2G.voice Quality 
 Ah.LTE.IntraFreq HO in Success Rate NEW
 Ah.LTE.IntraFreq HO out Success Rate NEW
-Tr-Availability
-tr-Immediate-Assign
-PRB Utilization
-PRB U
-PRB U1
-RRC License
-rrc uti
-TCH-Traffic_RK
-SD Traffic
-TCH Traffic
-SD Traffic
+Tr20221208
+tr2022120802
+01
+01
+01
+01
+01
+K3014
+K3004
+C1278087438
+C1278087422
 Ah.LTE.HO in Success Rate_NEW 3
 Ah.UMTS.R99 RLC Throughput (kbps)
 Ah.Umts.<R99 RLC Throughput (kbps) 2
 AH.umts.R99 RLC Throughput (kbps) 3
-down2G
-Down2g
+12442
+121324
 Ah.Total 2G PS Traffic MB
 Ah.TCH Drop Rate (%)
 AH.Call Drop Rate on TCH
@@ -1828,457 +1828,457 @@ Ah.HSDPA Throughput (Kbps)
 Ah.4G.User_DL_Avg_Thrp (MBits/s)
 Ah.4G.User_UL_Avg_Thrp(MBits/s)
 Ah.Total 4G Traffic Volume MB
-Ah.RCC Setup Success Rate (Signaling
+Ah.LTE RRC Setup Success Rate (Signaling
 Ah.RRC Setup Success Rate (Service
 Ah.E-RAB Establish Success Rate
-Ah,Total Cell Average Throughput Mbits/s
+Ah.Total Cell Average Throughput Mbits/s
 Ah.Total User Average Throughput Mbits/s
 Ah.LTE.Call Drop Rate (All)
 AH.LTE.Service Drop Rate
-all causes (rab congestion)
-rab congestion(all causes)
-ps attempt establish
-Rab congestion %
-RRC congestion %
-RRC congestion %
-Ul CE Utilization
-DL CE Utilization
-TCH Drop Rate1
-TCH Cong Rate1
+50
+30
+31
+32
+test 3 
+test 3 
+1
+2
+rm TCH Drop Rate1
+rm TCH Cong Rate1
 Traffic Volume on TCH
-TRX Number
-E-RAB_Setup_Success_Rate(All)
-CS Congestion
-CS Traffic Erl1
-AMR WB Traffic Ratio
-test
-vs.nodeb
-Utilization UL CE
-Utilization DL CE
-RRC Setup Success Rate
-Outgoing HO Suc Rate
-Intra Cell HO Suc Rate
-SDCCH Drop Rate
-No of Sent Msgs PCH Overload
-SDCCH Seizure Suc Rate
-Immediate Assignment Suc Rate
-TCH Assignment Suc Rate
-Incoming HO Req
-Call Setup Suc Rate
-Cell Availability Rate
-Incoming HO Suc Rate
-SDCCH Drop Reason Low Lev
-Available SDCCH Res
-SDCCH Mean Time sec
-SDCCH Erl Min per Drop
-TCH Availability Rate
-SDCCH Availability Rate
-SDCCH Time Congestion Rate
-SDCCH Drop Reason Bad Qual
-SDCCH Drop Reason Timing Adv
-SDCCH Drop Reason Other
-Available TCH Res
-TCH Mean Time sec
-TCH Drop Reason Other
-TCH HR Traffic Rate
-TCH Drop Reason DL Lev
-TCH Drop Reason Timing Adv
-Outgoing HO Req
-TCH Cong Rate
-TCH Drop Reason UL Lev
-TCH Drop Reason BL Lev
-TCH Drop Reason DL Qual
-TCH Drop Reason UL Qual
-TCH Drop Reason BL Qual
-TCH Erl Min per Drop
-E-RAB Establish Suc Rate
-RRC Connection Suc Rate Service
-Max RRC Connections in 1 Sec
-RRC ReEstablish Suc Rate
-Initial E-RAB Establish Suc Rate
-Av E-RAB Establish Time msec
-E-RAB Establish Fail Rate No Reply
-E-RAB Establish Fail Rate Other
-S1 Signaling Suc Rate
-RRC Connection Requset Service
-Retransmit RRC Connection Signaling
-E-RAB Establish Fail Rate TNL
-E-RAB Cong Reason PUCCH Res
-E-RAB Cong Reason SRS Res
-E-RAB Cong Reason Low DL Satisfaction
-E-RAB Cong Reason Low UL Satisfaction
-E-RAB Cong Reason DL Thr License
-E-RAB Cong Reason UL Thr License
-E-RAB Cong Reason User License
-RRC Connection Suc Rate
-Call Setup Suc Rate
-Intra Freq HO Attempts
-Intra Freq HO Suc Rate
-CSFB Prep Suc Rate
-Cell Down Time h
-RRC Connection Suc Rate Signaling
-RRC Fail Rate CPU Load
-RRC Fail Rate MME Overload
-RRC Fail Rate Other
-RRC Cong Reason PUCCH Res
-Retransmit RRC Connection Service
-Av RRC Setup Time msec
-RRC Fail Rate Cong
-RRC Fail Rate NoReply
-RRC Cong Reason SRS Res
-RRC Cong Reason UE Limitation
-RRC Cong Reason Other Cause
-E-RAB Establish Fail Rate Cong
-E-RAB Establish Fail Rate HO Conflict
-E-RAB Establish Fail Rate MME Release
-E-RAB Establish Fail Rate RNL
-E-RAB Establish Fail Rate Security Mode
-E-RAB Establish Fail Rate SRB Reset
-Av PRB Utilization Rate DL
-Av PRB Utilization Rate UL
-Max PRB Utilization Rate UL
-Drop Reason Radio Others
-Av DRBs In Cell
-Drop Reason EPC Fault
-Drop Reason Other Causes
-DL User Thr Mbps
-DL Cell Max Thr Mbps
-UL Cell Max Thr Mbps
-Av Users In Cell
-Service Drop Rate
-Drop Reason HO Failure
-DL User Edge Thr Mbps
-PUSCH RBLER
-DL Last TTI Ratio
-Max DRBs In Cell
-MIMO Rank1 BRP Ratio
-UL Av Interference dBm
-E-RAB Cong Reason UE Limitation
-E-RAB Cong Reason Other
-E-RAB Modify Suc Rate
-Drop Reason Radio SRB Reset
-Drop Reason Radio DRB Reset
-DL Traffic MByte
-Max PRB Utilization Rate DL
-Drop Reason Radio UL Sync Fail
-Drop Reason Radio UE No Reply
-Drop Reason Transport Res Load
-Drop Reason Radio Res Load
-UL User Thr Mbps
-UL User Edge Thr Mbps
-PUSCH IBLER
-UL Traffic MByte
-PDSCH IBLER
-PUSCH Retransmission Rate
-PDSCH Retransmission Rate
-PDCCH CFI3 Ratio
-CCE Usage Rate
-PDCCH DTX Ratio Agg Lvl1
-UL Small Packet Ratio
-Av PDCP DL SDU Size Byte
-Av PDCP UL SDU Size Byte
-Av PDSCH MCS Index
-Av PUSCH MCS Index
-Av TA Range Index
-No of Intra Freq HO Preparation Fail
-PDSCH RBLER
-Av CQI
-Inter eNodeB HO Av Time Over S1 msec
-Inter eNodeB HO Av Time Over X2 msec
-Rate of Idle UEs CSFB
-Av No of Available PDCHs
-PDCH Occupy Rate
-UL TBF of all Occupied PDCHs Rate
-PDCH Allocation Suc Rate
-Av Used DL PDCHs per GPRS User
-Av DL BW per GPRS PDCH kbps
-Av Used DL PDCHs per EDGE User
-Av DL BW per EDGE User kbps
-Av UL BW per GPRS User kbps
-Av Used UL PDCHs per EDGE User
-Av UL BW per EDGE PDCH kbps
-Av UL BW per EDGE User kbps
-CSFB Prep Fail Rate Conflict
-TCH Congestion Rate
-DL GPRS RLC Data MByte
-DL Total RLC Data MByte
-Rate of Emergency UEs CSFB
-PDTCH/PACCH Utilization Rate UL
-Av DL BW per GPRS User kbps
-DL CS3CS4 Rate of GPRS RLC Blocks
-DL MSC7 8 9 Rate of EDGE RLC Blocks
-Intra Freq HO Prep Fail Cause MME
-Intra Freq HO Prep Fail Cause TargPrepFail
-DL TBF of all Occupied PDCHs Rate
-Av DL BW per EDGE PDCH kbps
-Av Used UL PDCHs per GPRS User
-Av UL BW per GPRS PDCH kbps
-DL EDGE RLC Data MByte
-Intra Freq HO Prep Fail Cause HO Cancel
-Intra Freq HO Prep Fail Cause No Reply
-No of RRC Redirect to Inter RAT
-Rate of Dedicated UEs CSFB
-Max No of Available PDCHs
-Av Duration of Occupy PDCHs sec
-PDTCH/PACCH Utilization Rate DL
-Intra Freq HO Prep Fail Cause TargNotValid
-Av PUCCH SINR Index
-Rate of PUSCH SINR Less Than -5dB
-Rate of PUSCH SINR Bet -5dB and -2dB
-Rate of PUSCH SINR Bet -2dB and 2dB
-Rate of PUSCH SINR Bet 2dB and 6dB
-Rate of PUSCH SINR Bet 6dB and 10dB
-Rate of PUSCH SINR Bet 10dB and 14dB
-Rate of PUSCH SINR Bet 14dB and 17dB
-Rate of PUSCH SINR Greater Than 17dB
-UL Assignment Suc Rate
-UL EDGE RLC Data MByte
-UL Total RLC Data MByte
-UL CS3CS4 Rate of GPRS RLC Blocks
-UL GPRS RLC Data MByte
-UL MSC7 8 9 Rate of EDGE RLC Blocks
-DL GPRS RLC Av Thr per PDCH kbps
-DL GPRS RLC Retransmission Rate
-DL Assignment Suc Rate
-DL GPRS RLC Av Thr per Cell kbps
-DL EDGE RLC Av Thr per PDCH kbps
-DL EDGE RLC Av Thr per Cell kbps
-TBF Release EDGE Upgrade Rate UL
-Subs Perceived TBF Drop Rate UL
-TBF Drop Reason Other Cause DL
-TBF Drop Rate DL
-TBF Drop Reason No Channel DL
-UL EDGE RLC Av Thr per PDCH kbps
-No of TBF Established DL
-TBF Establish Suc Rate DL
-TBF Establish Suc Rate UL
-TBF Congestion Rate UL
-DL EDGE RLC Retransmission Rate
-UL GPRS RLC Av Thr per PDCH kbps
-TBF Congestion Rate DL
-TBF MS No Respond Rate DL
-No of TBF Drops UL
-TBF Release EDGE Upgrade Rate DL
-TBF Release CS HO Rate DL
-Subs Perceived TBF Drop Rate DL
-TBF Release CS HO Rate UL
-TBF Drop Reason Radio Qual DL
-TBF Drop Reason Radio Qual UL
-UL EDGE RLC Retransmission Rate
-No of TBF Drops DL
-TBF Release Abis Preemption Rate DL
-TBF Release Abis Preemption Rate UL
-TBF Drop Reason Cell Reselct UL
-No of TBF Established UL
-TBF Drop Reason CS Services DL
-TBF Drop Reason Ch Preempt UL
-TBF Drop Reason Other Cause UL
-UL GPRS RLC Av Thr per Cell kbps
-UL GPRS RLC Retransmission Rate
-UL EDGE RLC Av Thr per Cell kbps
-TBF MS No Respond Rate UL
-TBF Drop Reason Cell Reselct DL
-TBF Drop Reason Ch Preempt DL
-RRC Cong Reason UL Iub
-CS PS Multi RAB Setup Suc Rate
-CS RAB Setup Fail Rate Iub Interface
-CS RAB Setup Fail Rate Uu Interface
-CS RAB Setup Fail Rate Cong
-Percentage of 12.2 kbps AMR NB RABs
-TBF Drop Reason No Channel UL
-Av No of UEs in PCH State
-RRC Conn Mean Time DCH msec
-AMR NB RAB Setup Suc Rate
-Percentage of High Rate AMR WB RABs
-Percentage of Mid Rate AMR WB RABs
-Percentage of Low Rate AMR WB RABs
-CS RAB Cong Reason UL Iub
-CS RAB Cong Reason DL Iub
-CS RAB Cong Reason DL CE
-No of RRC Setups Serv
-CS RAB Setup Suc Rate
-RRC Cong Reason DL Iub
-Percentage of Low Rate AMR NB RABs
-CS RAB Cong Reason UL PWR
-CS RAB Cong Reason DL PWR
-CS RAB Cong Reason UL CE
-CS RAB Cong Reason Code
-RRC Setup Suc Rate Serv
-No of PS RAB Setups
-TBF Drop Reason CS Services UL
-Soft HO Overhead Rate
-Av No of UEs in FACH State
-Max No of UEs in FACH State
-Max No of UEs in DCH State
-No of RRC Setups Other
-RRC Setup Suc Rate
-PS RAB Setup Suc Rate
-Cell Down Time H
-No of RRC Setups
-RRC Setup Fail Rate Rej Redirect
-RRC Setup Fail Rate NoReply
-RRC Setup Fail Rate RL
-RRC Setup Fail Rate Tx
-RRC Setup Suc Rate Other
-RRC Setup Fail Rate Cell Update Serv
-RRC Setup Fail Rate Cell Update Other
-RRC Setup Fail Rate Cong
-RRC Conn Max Time FACH msec
-RRC Conn Mean Time FACH msec
-RRC Conn Max Time DCH msec
-No of CS RAB Setups
-Av No of UEs in DCH State
-Max No of UEs in PCH State
-RRC Cong Reason UL PWR
-RRC Cong Reason DL PWR
-RRC Cong Reason UL CE
-RRC Cong Reason DL CE
-RRC Cong Reason Code
-RRC Cong Reason No Available Resources
-AMR NB Rate of CS RAB Setups
-AMR WB Rate of CS RAB Setups
-AMR WB RAB Setup Suc Rate
-CS RAB Setup Fail Rate Radio Layer
-CS RAB Setup Fail Rate Transport Layer
-64QAM PS RAB Setup Suc Rate
-PS RAB Cong Reason HSDPA
-PS RAB Cong Reason HSUPA
-No of AMR  NB Users UL
-No of AMR  WB Users DL
-PS RAB Setup Fail Rate Transport Layer
-PS RAB Setup Fail Rate Uu Interface
-DC PS RAB Setup Suc Rate
-No of AMR  NB Users DL
-No of AMR  WB Users UL
-PS R99 DL Traffic MByte
-No of AMR Down Rate
-No of UL User Release
-No of DL User Release
-HSDPA PS RAB Setup Suc Rate
-PS RAB Setup Fail Rate During Cell Update
-PS RAB Cong Reason UL Iub
-PS RAB Setup Fail Rate Iub Interface
-PS RAB Setup Fail Rate Cong
-PS RAB Cong Reason DL Iub
-PS RAB Cong Reason UL PWR
-PS RAB Cong Reason DL PWR
-PS RAB Cong Reason UL CE
-PS RAB Cong Reason Code
-CS Drop Reason UL Sync Fail
-HSDPA No of Drops
-DCH/FACH to HSUPA No of Ch Switchs
-R99 PS RAB Setup Suc Rate
-PS RAB Cong Reason DL CE
-CS Drop Rate
-CS Drop Reason Other Cause
-HSUPA PS RAB Setup Suc Rate
-PS RAB Setup Fail Rate Radio Layer
-CS Drop Reason RLC Reset
-CS Drop Reason Air Interface
-PS R99 UL Traffic MByte
-PS Drop Reason RLC Reset
-PS Drop Reason UL Sync Fail
-PS HSDPA Traffic MByte
-Max No of HSUPA Users
-HSDPA Thr per User kbps
-HSDPA Drop Rate
-PS Drop Rate
-HSUPA Drop Rate
-RL Add Fail Reason Configuration
-HSUPA to DCH/FACH No of Ch Switchs
-CS Soft HO Suc Rate
-No of CM Activations
-Fail Rate CM Activation
-No of Dedicated Ch Requests
-PS Drop Reason Other Cause
-Av No of PS R99 DL Users
-Soft HO RL Add Suc Rate
-DCH/FACH to HSUPA Ch Switch Suc Rate
-PS R99 DL Av Thr kbps
-HSUPA to DCH/FACH Ch Switch Suc Rate
-HSUPA Cell Change Suc Rate
-Intra Freq HHO Suc Rate
-PS R99 UL Av Thr kbps
-HSUPA Thr per User kbps
-PS Soft HO Suc Rate
-HSDPA Cell Change Suc Rate
-No of Adm Refuse DCCC Requests
-Av No of PS R99 UL Users
-Soft HO No of RL Add Attempts
-Soft HO No of RL Delete Attempts
-No of CS Soft HO Attempts
-HSDPA No of Cell Change Attempts
-HSUPA No of Cell Change Attempts
-No of Intra Freq HHO Attempts
-PS Drop Reason Air Interface
-PS HSUPA Traffic MByte
-Av No of HSUPA Users
-HSUPA No of Drops
-Soft HO RL Delete Suc Rate
-Adm Refuse Rate of Dedicated Ch
-Adm Refuse Rate of RB Reconfig
-PS No of Drops
-RL Add Fail Reason No Reply
-Sig Soft HO Suc Rate
-No of Adm Refuse of Dedicated Ch Requests
-No of Adm Refuse of RB Reconfig Requests
-DCCC Adm Refuse UL CE Cong
-Av Ec\No of RRC Conn Estab 1326-2261 m
-Av Ec\No of RRC Conn Estab 2262-3665 m
-Av Ec\No of RRC Conn Estab 3666-6005 m
-Number of Failed PS RAB Establishments for Cell (DL Power Congestion)
-Handover-IntraF
-Failed Outgoing Inter-Cell Handovers (Uplink Quality)
+TRX Number (zy)
+E-RAB_Setup_Success_Rate(All)(zy)
+rm UMTS CS Congestion
+rm UMTS CS Traffic Erl1
+rm UMTS AMR WB Traffic Ratio
+lu
+10
+1
+2
+RRC Suc Rate
+rm Outgoing HO Suc Rate
+rm Intra Cell HO Suc Rate
+rm SDCCH Drop Rate
+rm No of Sent Msgs PCH Overload
+rm SDCCH Seizure Suc Rate
+rm Immediate Assignment Suc Rate
+rm TCH Assignment Suc Rate
+rm Incoming HO Req
+rm Call Setup Suc Rate
+rm Cell Availability Rate
+rm Incoming HO Suc Rate
+rm SDCCH Drop Reason Low Lev
+rm Available SDCCH Res
+rm SDCCH Mean Time sec
+rm SDCCH Erl Min per Drop
+rm TCH Availability Rate
+rm SDCCH Availability Rate
+rm SDCCH Time Congestion Rate
+rm SDCCH Drop Reason Bad Qual
+rm SDCCH Drop Reason Timing Adv
+rm SDCCH Drop Reason Other
+rm Available TCH Res
+rm TCH Mean Time sec
+rm TCH Drop Reason Other
+rm TCH HR Traffic Rate
+rm TCH Drop Reason DL Lev
+rm TCH Drop Reason Timing Adv
+rm Outgoing HO Req
+rm TCH Cong Rate
+rm TCH Drop Reason UL Lev
+rm TCH Drop Reason BL Lev
+rm TCH Drop Reason DL Qual
+rm TCH Drop Reason UL Qual
+rm TCH Drop Reason BL Qual
+rm TCH Erl Min per Drop
+rm LTE E-RAB Establish Suc Rate
+rm LTE RRC Connection Suc Rate Service
+rm LTE Max RRC Connections in 1 Sec
+rm LTE RRC ReEstablish Suc Rate
+rm LTE Initial E-RAB Establish Suc Rate
+rm LTE Av E-RAB Establish Time msec
+rm LTE E-RAB Establish Fail Rate No Reply
+rm LTE E-RAB Establish Fail Rate Other
+rm LTE S1 Signaling Suc Rate
+rm LTE RRC Connection Requset Service
+rm LTE Retransmit RRC Connection Signaling
+rm LTE E-RAB Establish Fail Rate TNL
+rm LTE E-RAB Cong Reason PUCCH Res
+rm LTE E-RAB Cong Reason SRS Res
+rm LTE E-RAB Cong Reason Low DL Satisfaction
+rm LTE E-RAB Cong Reason Low UL Satisfaction
+rm LTE E-RAB Cong Reason DL Thr License
+rm LTE E-RAB Cong Reason UL Thr License
+rm LTE E-RAB Cong Reason User License
+rm LTE RRC Connection Suc Rate
+rm LTE Call Setup Suc Rate
+rm LTE Intra Freq HO Attempts
+rm LTE Intra Freq HO Suc Rate
+rm LTE CSFB Prep Suc Rate
+rm LTE Cell Down Time h
+rm LTE RRC Connection Suc Rate Signaling
+rm LTE RRC Fail Rate CPU Load
+rm LTE RRC Fail Rate MME Overload
+rm LTE RRC Fail Rate Other
+rm LTE RRC Cong Reason PUCCH Res
+rm LTE Retransmit RRC Connection Service
+rm LTE Av RRC Setup Time msec
+rm LTE RRC Fail Rate Cong
+rm LTE RRC Fail Rate NoReply
+rm LTE RRC Cong Reason SRS Res
+rm LTE RRC Cong Reason UE Limitation
+rm LTE RRC Cong Reason Other Cause
+rm LTE E-RAB Establish Fail Rate Cong
+rm LTE E-RAB Establish Fail Rate HO Conflict
+rm LTE E-RAB Establish Fail Rate MME Release
+rm LTE E-RAB Establish Fail Rate RNL
+rm LTE E-RAB Establish Fail Rate Security Mode
+rm LTE E-RAB Establish Fail Rate SRB Reset
+rm LTE Av PRB Utilization Rate DL
+rm LTE Av PRB Utilization Rate UL
+rm LTE Max PRB Utilization Rate UL
+rm LTE Drop Reason Radio Others
+rm LTE Av DRBs In Cell
+rm LTE Drop Reason EPC Fault
+rm LTE Drop Reason Other Causes
+rm LTE DL User Thr Mbps
+rm LTE DL Cell Max Thr Mbps
+rm LTE UL Cell Max Thr Mbps
+rm LTE Av Users In Cell
+rm LTE Service Drop Rate
+rm LTE Drop Reason HO Failure
+rm LTE DL User Edge Thr Mbps
+rm LTE PUSCH RBLER
+rm LTE DL Last TTI Ratio
+rm LTE Max DRBs In Cell
+rm LTE MIMO Rank1 BRP Ratio
+rm LTE UL Av Interference dBm
+rm LTE E-RAB Cong Reason UE Limitation
+rm LTE E-RAB Cong Reason Other
+rm LTE E-RAB Modify Suc Rate
+rm LTE Drop Reason Radio SRB Reset
+rm LTE Drop Reason Radio DRB Reset
+rm LTE DL Traffic MByte
+rm LTE Max PRB Utilization Rate DL
+rm LTE Drop Reason Radio UL Sync Fail
+rm LTE Drop Reason Radio UE No Reply
+rm LTE Drop Reason Transport Res Load
+rm LTE Drop Reason Radio Res Load
+rm LTE UL User Thr Mbps
+rm LTE UL User Edge Thr Mbps
+rm LTE PUSCH IBLER
+rm LTE UL Traffic MByte
+rm LTE PDSCH IBLER
+rm LTE PUSCH Retransmission Rate
+rm LTE PDSCH Retransmission Rate
+rm LTE PDCCH CFI3 Ratio
+rm LTE CCE Usage Rate
+rm LTE PDCCH DTX Ratio Agg Lvl1
+rm LTE UL Small Packet Ratio
+rm LTE Av PDCP DL SDU Size Byte
+rm LTE Av PDCP UL SDU Size Byte
+rm LTE Av PDSCH MCS Index
+rm LTE Av PUSCH MCS Index
+rm LTE Av TA Range Index
+rm LTE No of Intra Freq HO Preparation Fail
+rm LTE PDSCH RBLER
+rm LTE Av CQI
+rm LTE Inter eNodeB HO Av Time Over S1 msec
+rm LTE Inter eNodeB HO Av Time Over X2 msec
+rm LTE Rate of Idle UEs CSFB
+rm GSM Av No of Available PDCHs
+rm GSM PDCH Occupy Rate
+rm GSM UL TBF of all Occupied PDCHs Rate
+rm GSM PDCH Allocation Suc Rate
+rm GSM Av Used DL PDCHs per GPRS User
+rm GSM Av DL BW per GPRS PDCH kbps
+rm GSM Av Used DL PDCHs per EDGE User
+rm GSM Av DL BW per EDGE User kbps
+rm GSM Av UL BW per GPRS User kbps
+rm GSM Av Used UL PDCHs per EDGE User
+rm GSM Av UL BW per EDGE PDCH kbps
+rm GSM Av UL BW per EDGE User kbps
+rm LTE CSFB Prep Fail Rate Conflict
+OSCAR K3041
+rm GSM DL GPRS RLC Data MByte
+rm GSM DL Total RLC Data MByte
+rm LTE Rate of Emergency UEs CSFB
+rm GSM PDTCH/PACCH Utilization Rate UL
+rm GSM Av DL BW per GPRS User kbps
+rm GSM DL CS3CS4 Rate of GPRS RLC Blocks
+rm GSM DL MSC7 8 9 Rate of EDGE RLC Blocks
+rm LTE Intra Freq HO Prep Fail Cause MME
+rm LTE Intra Freq HO Prep Fail Cause TargPrepFail
+rm GSM DL TBF of all Occupied PDCHs Rate
+rm GSM Av DL BW per EDGE PDCH kbps
+rm GSM Av Used UL PDCHs per GPRS User
+rm GSM Av UL BW per GPRS PDCH kbps
+rm GSM DL EDGE RLC Data MByte
+rm LTE Intra Freq HO Prep Fail Cause HO Cancel
+rm LTE Intra Freq HO Prep Fail Cause No Reply
+rm LTE No of RRC Redirect to Inter RAT
+rm LTE Rate of Dedicated UEs CSFB
+rm GSM Max No of Available PDCHs
+rm GSM Av Duration of Occupy PDCHs sec
+rm GSM PDTCH/PACCH Utilization Rate DL
+rm LTE Intra Freq HO Prep Fail Cause TargNotValid
+rm LTE Av PUCCH SINR Index
+rm LTE Rate of PUSCH SINR Less Than -5dB
+rm LTE Rate of PUSCH SINR Bet -5dB and -2dB
+rm LTE Rate of PUSCH SINR Bet -2dB and 2dB
+rm LTE Rate of PUSCH SINR Bet 2dB and 6dB
+rm LTE Rate of PUSCH SINR Bet 6dB and 10dB
+rm LTE Rate of PUSCH SINR Bet 10dB and 14dB
+rm LTE Rate of PUSCH SINR Bet 14dB and 17dB
+rm LTE Rate of PUSCH SINR Greater Than 17dB
+rm GSM UL Assignment Suc Rate
+rm GSM UL EDGE RLC Data MByte
+rm GSM UL Total RLC Data MByte
+rm GSM UL CS3CS4 Rate of GPRS RLC Blocks
+rm GSM UL GPRS RLC Data MByte
+rm GSM UL MSC7 8 9 Rate of EDGE RLC Blocks
+rm GSM DL GPRS RLC Av Thr per PDCH kbps
+rm GSM DL GPRS RLC Retransmission Rate
+rm GSM DL Assignment Suc Rate
+rm GSM DL GPRS RLC Av Thr per Cell kbps
+rm GSM DL EDGE RLC Av Thr per PDCH kbps
+rm GSM DL EDGE RLC Av Thr per Cell kbps
+rm GSM TBF Release EDGE Upgrade Rate UL
+rm GSM Subs Perceived TBF Drop Rate UL
+rm GSM TBF Drop Reason Other Cause DL
+rm GSM TBF Drop Rate DL
+rm GSM TBF Drop Reason No Channel DL
+rm GSM UL EDGE RLC Av Thr per PDCH kbps
+rm GSM No of TBF Established DL
+rm GSM TBF Establish Suc Rate DL
+rm GSM TBF Establish Suc Rate UL
+rm GSM TBF Congestion Rate UL
+rm GSM DL EDGE RLC Retransmission Rate
+rm GSM UL GPRS RLC Av Thr per PDCH kbps
+rm GSM TBF Congestion Rate DL
+rm GSM TBF MS No Respond Rate DL
+rm GSM No of TBF Drops UL
+rm GSM TBF Release EDGE Upgrade Rate DL
+rm GSM TBF Release CS HO Rate DL
+rm GSM Subs Perceived TBF Drop Rate DL
+rm GSM TBF Release CS HO Rate UL
+rm GSM TBF Drop Reason Radio Qual DL
+rm GSM TBF Drop Reason Radio Qual UL
+rm GSM UL EDGE RLC Retransmission Rate
+rm GSM No of TBF Drops DL
+rm GSM TBF Release Abis Preemption Rate DL
+rm GSM TBF Release Abis Preemption Rate UL
+rm GSM TBF Drop Reason Cell Reselct UL
+rm GSM No of TBF Established UL
+rm GSM TBF Drop Reason CS Services DL
+rm GSM TBF Drop Reason Ch Preempt UL
+rm GSM TBF Drop Reason Other Cause UL
+rm GSM UL GPRS RLC Av Thr per Cell kbps
+rm GSM UL GPRS RLC Retransmission Rate
+rm GSM UL EDGE RLC Av Thr per Cell kbps
+rm GSM TBF MS No Respond Rate UL
+rm GSM TBF Drop Reason Cell Reselct DL
+rm GSM TBF Drop Reason Ch Preempt DL
+rm UMTS RRC Cong Reason UL Iub
+rm UMTS CS PS Multi RAB Setup Suc Rate
+rm UMTS CS RAB Setup Fail Rate Iub Interface
+rm UMTS CS RAB Setup Fail Rate Uu Interface
+rm UMTS CS RAB Setup Fail Rate Cong
+rm UMTS Percentage of 12.2 kbps AMR NB RABs
+rm GSM TBF Drop Reason No Channel UL
+rm UMTS Av No of UEs in PCH State
+rm UMTS RRC Conn Mean Time DCH msec
+rm UMTS AMR NB RAB Setup Suc Rate
+rm UMTS Percentage of High Rate AMR WB RABs
+rm UMTS Percentage of Mid Rate AMR WB RABs
+rm UMTS Percentage of Low Rate AMR WB RABs
+rm UMTS CS RAB Cong Reason UL Iub
+rm UMTS CS RAB Cong Reason DL Iub
+rm UMTS CS RAB Cong Reason DL CE
+rm UMTS No of RRC Setups Serv
+rm UMTS CS RAB Setup Suc Rate
+rm UMTS RRC Cong Reason DL Iub
+rm UMTS Percentage of Low Rate AMR NB RABs
+rm UMTS CS RAB Cong Reason UL PWR
+rm UMTS CS RAB Cong Reason DL PWR
+rm UMTS CS RAB Cong Reason UL CE
+rm UMTS CS RAB Cong Reason Code
+rm UMTS RRC Setup Suc Rate Serv
+rm UMTS No of PS RAB Setups
+rm GSM TBF Drop Reason CS Services UL
+rm UMTS Soft HO Overhead Rate
+rm UMTS Av No of UEs in FACH State
+rm UMTS Max No of UEs in FACH State
+rm UMTS Max No of UEs in DCH State
+rm UMTS No of RRC Setups Other
+rm UMTS RRC Setup Suc Rate
+rm UMTS PS RAB Setup Suc Rate
+rm UMTS Cell Down Time H
+rm UMTS No of RRC Setups
+rm UMTS RRC Setup Fail Rate Rej Redirect
+rm UMTS RRC Setup Fail Rate NoReply
+rm UMTS RRC Setup Fail Rate RL
+rm UMTS RRC Setup Fail Rate Tx
+rm UMTS RRC Setup Suc Rate Other
+rm UMTS RRC Setup Fail Rate Cell Update Serv
+rm UMTS RRC Setup Fail Rate Cell Update Other
+rm UMTS RRC Setup Fail Rate Cong
+rm UMTS RRC Conn Max Time FACH msec
+rm UMTS RRC Conn Mean Time FACH msec
+rm UMTS RRC Conn Max Time DCH msec
+rm UMTS No of CS RAB Setups
+rm UMTS Av No of UEs in DCH State
+rm UMTS Max No of UEs in PCH State
+rm UMTS RRC Cong Reason UL PWR
+rm UMTS RRC Cong Reason DL PWR
+rm UMTS RRC Cong Reason UL CE
+rm UMTS RRC Cong Reason DL CE
+rm UMTS RRC Cong Reason Code
+rm UMTS RRC Cong Reason No Available Resources
+rm UMTS AMR NB Rate of CS RAB Setups
+rm UMTS AMR WB Rate of CS RAB Setups
+rm UMTS AMR WB RAB Setup Suc Rate
+rm UMTS CS RAB Setup Fail Rate Radio Layer
+rm UMTS CS RAB Setup Fail Rate Transport Layer
+rm UMTS 64QAM PS RAB Setup Suc Rate
+rm UMTS PS RAB Cong Reason HSDPA
+rm UMTS PS RAB Cong Reason HSUPA
+rm UMTS No of AMR  NB Users UL
+rm UMTS No of AMR  WB Users DL
+rm UMTS PS RAB Setup Fail Rate Transport Layer
+rm UMTS PS RAB Setup Fail Rate Uu Interface
+rm UMTS DC PS RAB Setup Suc Rate
+rm UMTS No of AMR  NB Users DL
+rm UMTS No of AMR  WB Users UL
+rm UMTS PS R99 DL Traffic MByte
+rm UMTS No of AMR Down Rate
+rm UMTS No of UL User Release
+rm UMTS No of DL User Release
+rm UMTS HSDPA PS RAB Setup Suc Rate
+rm UMTS PS RAB Setup Fail Rate During Cell Update
+rm UMTS PS RAB Cong Reason UL Iub
+rm UMTS PS RAB Setup Fail Rate Iub Interface
+rm UMTS PS RAB Setup Fail Rate Cong
+rm UMTS PS RAB Cong Reason DL Iub
+rm UMTS PS RAB Cong Reason UL PWR
+rm UMTS PS RAB Cong Reason DL PWR
+rm UMTS PS RAB Cong Reason UL CE
+rm UMTS PS RAB Cong Reason Code
+rm UMTS CS Drop Reason UL Sync Fail
+rm UMTS HSDPA No of Drops
+rm UMTS DCH/FACH to HSUPA No of Ch Switchs
+rm UMTS R99 PS RAB Setup Suc Rate
+rm UMTS PS RAB Cong Reason DL CE
+rm UMTS CS Drop Rate
+rm UMTS CS Drop Reason Other Cause
+rm UMTS HSUPA PS RAB Setup Suc Rate
+rm UMTS PS RAB Setup Fail Rate Radio Layer
+rm UMTS CS Drop Reason RLC Reset
+rm UMTS CS Drop Reason Air Interface
+rm UMTS PS R99 UL Traffic MByte
+rm UMTS PS Drop Reason RLC Reset
+rm UMTS PS Drop Reason UL Sync Fail
+rm UMTS PS HSDPA Traffic MByte
+rm UMTS Max No of HSUPA Users
+rm UMTS HSDPA Thr per User kbps
+rm UMTS HSDPA Drop Rate
+rm UMTS PS Drop Rate
+rm UMTS HSUPA Drop Rate
+rm UMTS RL Add Fail Reason Configuration
+rm UMTS HSUPA to DCH/FACH No of Ch Switchs
+rm UMTS CS Soft HO Suc Rate
+rm UMTS No of CM Activations
+rm UMTS Fail Rate CM Activation
+rm UMTS No of Dedicated Ch Requests
+rm UMTS PS Drop Reason Other Cause
+rm UMTS Av No of PS R99 DL Users
+rm UMTS Soft HO RL Add Suc Rate
+rm UMTS DCH/FACH to HSUPA Ch Switch Suc Rate
+rm UMTS PS R99 DL Av Thr kbps
+rm UMTS HSUPA to DCH/FACH Ch Switch Suc Rate
+rm UMTS HSUPA Cell Change Suc Rate
+rm UMTS Intra Freq HHO Suc Rate
+rm UMTS PS R99 UL Av Thr kbps
+rm UMTS HSUPA Thr per User kbps
+rm UMTS PS Soft HO Suc Rate
+rm UMTS HSDPA Cell Change Suc Rate
+rm UMTS No of Adm Refuse DCCC Requests
+rm UMTS Av No of PS R99 UL Users
+rm UMTS Soft HO No of RL Add Attempts
+rm UMTS Soft HO No of RL Delete Attempts
+rm UMTS No of CS Soft HO Attempts
+rm UMTS HSDPA No of Cell Change Attempts
+rm UMTS HSUPA No of Cell Change Attempts
+rm UMTS No of Intra Freq HHO Attempts
+rm UMTS PS Drop Reason Air Interface
+rm UMTS PS HSUPA Traffic MByte
+rm UMTS Av No of HSUPA Users
+rm UMTS HSUPA No of Drops
+rm UMTS Soft HO RL Delete Suc Rate
+rm UMTS Adm Refuse Rate of Dedicated Ch
+rm UMTS Adm Refuse Rate of RB Reconfig
+rm UMTS PS No of Drops
+rm UMTS RL Add Fail Reason No Reply
+rm UMTS Sig Soft HO Suc Rate
+rm UMTS No of Adm Refuse of Dedicated Ch Requests
+rm UMTS No of Adm Refuse of RB Reconfig Requests
+rm UMTS DCCC Adm Refuse UL CE Cong
+rm UMTS Av Ec\No of RRC Conn Estab 1326-2261 m
+rm UMTS Av Ec\No of RRC Conn Estab 2262-3665 m
+rm UMTS Av Ec\No of RRC Conn Estab 3666-6005 m
+67193614
+Lubna
+1278085429
 BaiDlThrCell
-Code Adjustment Suc Rate
-test lte
+rm UMTS Code Adjustment Suc Rate
+5
 BaiRrcFailCauseEnbCong
-Number of successful radio link deletions in the softer handover
-rrc-ssr2
+67180491
+5
 BaiS1SigConnSucRate
 BaiErabFailCauseProcOverload
 BaiCqiIndex
-RB Reconfig Adm Refuse UL Iub Cong
-Min RTWP
-Fach Cong Time sec
-TBF Drop Rate UL
-TRFC_Vol_RLC_EGPRS_UPLNK_MB
-Mean Power of Totally Received Bandwidth for Cell
-DCCC Adm Refuse Code Cong
+rm UMTS RB Reconfig Adm Refuse UL Iub Cong
+rm UMTS Min RTWP
+rm UMTS Fach Cong Time sec
+rm GSM TBF Drop Rate UL
+AFD
+67199617
+rm UMTS DCCC Adm Refuse Code Cong
 BAI_TEST
-Cell Througput (kbps) Updated
-xxx
-Failed Outgoing Inter-Cell Handovers (Timing Advance)
+Cell Througput (kbps)
+1
+1278085433
 BaiRateOfRrcServ
-2262-3665
-3666-6005
-TRX Usability
-Max HSDPA Thr kbps
-Min HSDPA user
-HSDPA av user
+73423510
+73423502
+TRX001
+rm Max HSDPA Thr kbps
+ab Min HSDPA user
+ab HSDPA av user
 BaiCell Inintial E-RAB Suc Rate
 CSFB Preparation Success Rate
-SD conge
-Cell availability 
+za3025
+01
 Av TCH traffic
-Dedicated Ch Adm Refuse HSUPA Cong
-Cov Based RSCP IFreq Rate
-IFreq Fail Reason Rate Cell Update
-3G PS Traffic
-Shawerma
-RB Reconfig Adm Refuse HSUPA Cong
-QOS Based IFreq UE Tx Rate
-QOS Based IFreq BLER Rate
-No of IFreq Not Perform Meas Expire
-Number of Erlang AMR CS traffic
-traffic_LTE_O
-RRC_SSR_LTE_Ammar
-LTE_ERAB_SSR
-LDR Based Code IFreq Rate
-QOS Based IFreq TCP Rate
-No of HSDPA IFreq  HHO Attempts
-IFreq Blind HO Suc Rate
-DCH/FACH to HSDPA No of Ch Switchs
+rm UMTS Dedicated Ch Adm Refuse HSUPA Cong
+rm UMTS Cov Based RSCP IFreq Rate
+rm UMTS IFreq Fail Reason Rate Cell Update
+111
+DA1523C4
+rm UMTS RB Reconfig Adm Refuse HSUPA Cong
+rm UMTS QOS Based IFreq UE Tx Rate
+rm UMTS QOS Based IFreq BLER Rate
+rm UMTS No of IFreq Not Perform Meas Expire
+C73426291
+01
+01
+01
+rm UMTS LDR Based Code IFreq Rate
+rm UMTS QOS Based IFreq TCP Rate
+rm UMTS No of HSDPA IFreq  HHO Attempts
+rm UMTS IFreq Blind HO Suc Rate
+rm UMTS DCH/FACH to HSDPA No of Ch Switchs
 AV VS.SingleRAB.SF64
 AV VS.SingleRAB.SF256
 AV VS.MultRAB.SF4
@@ -2286,24 +2286,24 @@ AV VS.MultRAB.SF32
 AV VS.MultRAB.SF8
 AV VS.MultRAB.SF256
 cs fall
-RB Reconfig Adm Refuse Code Cong
-RB Reconfig Adm Refuse HSDPA Cong
-No of IRAT Actions
-No of HSUPA IFreq  HHO Attempts
-HSUPA IFreq HHO Suc Rate
-Cell Availability Rate
-No of AMRWB Down Rate
-HO Inter eNB In SR
-Failed Outgoing Inter-Cell Handovers (Rapid Level Drop)
-Failed Outgoing Inter-Cell Handovers (Other Causes)
-Failed Outgoing Inter-Cell Handovers (MSC Intervention)
-IRAT CS HO Fail Reason Phy Ch Failure
+rm UMTS RB Reconfig Adm Refuse Code Cong
+rm UMTS RB Reconfig Adm Refuse HSDPA Cong
+rm UMTS No of IRAT Actions
+rm UMTS No of HSUPA IFreq  HHO Attempts
+rm UMTS HSUPA IFreq HHO Suc Rate
+rm LTE Cell Availability Rate
+rm UMTS No of AMRWB Down Rate
+BAIHO01
+1278085436
+1278085438
+1278085437
+rm UMTS IRAT CS HO Fail Reason Phy Ch Failure
 BaiDlTraMB
 BaiErabDropRate
-lt3e
-IntraFreq HO Success Rate
-RB Reconfig Adm Refuse UL PWR Cong
-IFreq Fail Reason Rate Configuration
+01
+01
+rm UMTS RB Reconfig Adm Refuse UL PWR Cong
+rm UMTS IFreq Fail Reason Rate Configuration
 RRC Setup Success Ratio (Cell.Other)
 BaiUlThrCell
 BaiDlMaxPacketLossPpm
@@ -2311,98 +2311,98 @@ BaiUlPrbUtlizationRate
 BaiIntraFreqHoExecSucRate
 BaiIntraFreqHoPrepSucRate
 BaiErabFailCauseUnknown
-1326-2261
-Number of RRC Connection Rejects for Cell (DL Iub Bandwidth Congestion)
-max HSDPA user
-Number of Radio Link Deletion Attempts in Softer Handover for Cell
-Call Drop Ratio %(R99+HSDPA)
-AA
-E-RAB_SSR1
-Available DL RB
-ASS-SR
+73423498
+67192609
+ab max HSDPA user
+67180490
+22
+001
+5
+killwa
+4-1
 BaiPagingSucRate
 BaiMaxRrcConnections
-6006-8345
-Above 12792
-UMTS Max No of HSDPA Users
-Number of successful radio link additions in the softer handover
-"	Number of radio link addition attempts in the softer handover"
+73423504
+73423508
+Ab UMTS Max No of HSDPA Users
+67180484
+67180483
 BaiCell IntraFreq HO Suc Rate
 BaiCell IntraFreq HO Prep Suc Rate
 Inter-Frequency Handover Out Success Rate
-cssr
-SD Conge
-Av Ec\No of RRC Conn Estab 0-155 m
+k3014
+G1217
+rm UMTS Av Ec\No of RRC Conn Estab 0-155 m
 BaiRachSucRate
 BaiDlHarqNackRate
-ps traffic1
+000
 AV VS.SingleRAB.SF4
 AV VS.MultRAB.SF16
 Number of CS Users
-IMM-SR
-Ah.Dl.cell.thr.avg
+4-2
+Ah.LTE.Dl.Cell.thr.Avg
 Ah.Ul.Cell.Thr.avg
-TCH Block Rate
-Average number of downlink cell edge users (CEUs) in a cell
-Average number of uplink cell edge users (CEUs) in a cell
+Ah.GSM
+1526727380
+1526728473
 CS RAB Setup Success Ratio(Cell)
 HSDPA RAB Setup Success Ratio
 Code Utilization
-TRFC_Vol_RLC_GPRS_DNLNK_MB
-Maximum number of downlink cell edge users (CEUs) in a cell
-drop call
-Mean Time Bet Drop
-DL R99 RCL Throughput Kbps:
-Av Ec\No of RRC Conn Estab 156-389 m
+AFD
+1526727381
+GSM
+rm UMTS Mean Time Bet Drop
+00
+rm UMTS Av Ec\No of RRC Conn Estab 156-389 m
 RAN_Unavail_Rate
 SHO Success Rate
 SoHO Success Rate
-Number of Failed PS RAB Establishments for Cell (DL CE Congestion)
-TCH_Cong
-Traffic
-RRC SSR AMV
-Cell Availability
-CDR(All)%
-IntraFreq HO Success Rate
-Dedicated Ch Adm Refuse DL PWR Cong
-Av Ec\No of RRC Conn Estab 390-623 m
-licence 4G(95%)
-4G Total Traffic (Giga)
-Dedicated Ch Adm Refuse UL PWR Cong
-HSDPA throughput
-myNewKpi
-Handover
-RRC-SSR1
-No of Fail IRAT CS HO
-IRAT CS HO Trigger RSCP Rate
-TRFC_Vol_RLC_GPRS_UPLNK_MB
-Handover from E-UTRAN to WCDMA Success Rate
-3G PS(GB)
-RTWP Hours
-Number of Failed PS RAB Establishments for Cell (UL Power Congestion)
+67190409
+1
+01
+01
+01
+01
+01
+rm UMTS Dedicated Ch Adm Refuse DL PWR Cong
+rm UMTS Av Ec\No of RRC Conn Estab 390-623 m
+123
+AH01
+rm UMTS Dedicated Ch Adm Refuse UL PWR Cong
+333
+002
+09
+5
+rm UMTS No of Fail IRAT CS HO
+rm UMTS IRAT CS HO Trigger RSCP Rate
+AFD
+1526727034
+1
+rm UMTS RTWP Hours
+67193613
 User Throughput (Kbps)
 Inter-Frequency HHO Success Rate
-DL CE
-BBBB
-LTE
-GSM
-traffic ola lte
-RRC setup success ratio%
-No of Fail Reloc Prep IRAT CS HO
-624-857
+C67202570
+122222
+D
+D
+1
+qwerty
+rm UMTS No of Fail Reloc Prep IRAT CS HO
+73423492
 PS RAB Setup Success Ratio(Cell)
-Number of RRC Connection Rejects for Cell (UL Power Congestion)
-RRC SSR
-RRC Setup Success Ratio with PCH Total
-IRAT CS HO Trigger Signalling Rate
-IRAT CS HO Trigger DL PWR Rate
-IRAT CS HO Trigger UL PWR Rate
+67193609
+1
+11
+rm UMTS IRAT CS HO Trigger Signalling Rate
+rm UMTS IRAT CS HO Trigger DL PWR Rate
+rm UMTS IRAT CS HO Trigger UL PWR Rate
 Number of Soft Handover Attempts for Cell (AMR)
-drop on SDCCH
-drop call on TCH per cell 
-SDCCH Congestion%
-HSDPA to DCH/FACH Ch Switch Suc Rate
-RRC setup Success Rate:
+3
+4
+7
+rm UMTS HSDPA to DCH/FACH Ch Switch Suc Rate
+00
 BaiUlMaxPacketLossPpm
 BaiUlAvPacketLossPpm
 BaiErabFailCauseRadioCong
@@ -2410,113 +2410,113 @@ BaiErabFailCauseUeLost
 BaiErabFailCauseUPResCong
 BaiDlRetransRate
 BaiUlRetransRate
-Cell Availability Rate
-CDR(ALL)
-Call Drop (R99+HSPA) Rate   
-LDR Based DL PWR IFreq Rate
-LTE
-ww
-rrc success rate test 2
-Intra Freq Prep Suc Rate
-ntra Freq HO Suc Rate All
-Is Worse CSSR
-UL CE Max
-DL CE Max
-traffic volume lte o
+rm UMTS Cell Availability Rate
+01
+3
+rm UMTS LDR Based DL PWR IFreq Rate
+DD
+iz
+14
+rm LTE Intra Freq Prep Suc Rate
+rm LTE Intra Freq HO Suc Rate All
+rm Is Worse CSSR
+C67191165
+C67191167
+1
 BaiRrcSetupSucRate
-Total 3G Traffic MB
-IRAT CS HO Fail Reason Iu Rel Timer Expire
-IFreq HHO Suc Rate
-RB Reconfig Adm Refuse DL PWR Cong
-RB Reconfig Adm Refuse DL Iub Cong
-No of Code Adjustment Attempts
-LDR Based UL CE IFreq Rate
+Ah.
+rm UMTS IRAT CS HO Fail Reason Iu Rel Timer Expire
+rm UMTS IFreq HHO Suc Rate
+rm UMTS RB Reconfig Adm Refuse DL PWR Cong
+rm UMTS RB Reconfig Adm Refuse DL Iub Cong
+rm UMTS No of Code Adjustment Attempts
+rm UMTS LDR Based UL CE IFreq Rate
 UL Traffic Volume (MB)
-LTE Traffic hassan
-DCCC Adm Refuse DL CE Cong
-CDR Reason: Radio
-CDR Reason: HO failure
-CDR Reason: TNL.
-CDR Reasons : HO Failure
-CDR Reasons : TNL
-CDR Reason : Other
-cell unavailable for 3G
-Dedicated Ch Adm Refuse UL Iub Cong
-Total Data Traffic GByte
-RB Reconfig Adm Refuse DL CE Cong
-Throughput threshold
-Number of RRC Connection Rejects for Cell (UL Iub Bandwidth Congestion)
-IRAT CS HO Fail Reason During Interface
-IRAT CS HO Fail Reason Abnormal Terminate
+2
+rm UMTS DCCC Adm Refuse DL CE Cong
+01
+01
+01
+11
+11
+11
+7
+rm UMTS Dedicated Ch Adm Refuse UL Iub Cong
+rm UMTS Total Data Traffic GByte
+rm UMTS RB Reconfig Adm Refuse DL CE Cong
+9999
+67192608
+rm UMTS IRAT CS HO Fail Reason Radio Interface
+rm UMTS IRAT CS HO Fail Reason Abnormal Terminate
 RRC Setup Success Ratio(Cell.Service)
-Number of RRC Connection Rejects for Cell (UL CE Resource Congestion)
-ola_traffic_lte
-trafiic
-UL CE
-Failed Outgoing Inter-Cell Handovers (Uplink Strength)
+67190404
+02
+1
+C6722567
+1278085431
 DL Traffic (Mb)
 UL Traffic (Mb)
-traffic cs
-ola
-Number of Cell Resource Requests During SHO for Cell
-Av Ec\No of RRC Conn Estab 624-857 m
-Number of inter-RAT handover attempts from E-UTRAN to WCDMA network
-Failed Outgoing Inter-Cell Handovers (Downlink Strength)
-Failed Outgoing Inter-Cell Handovers (Other Causes)
+222
+1
+67181072
+rm UMTS Av Ec\No of RRC Conn Estab 624-857 m
+1526726986
+1278085432
+1278085440
 BaiCsfbSucRate
-UE in Cell DCH
-Intra-Frequency Handover Out Success Rate 
-CDR Reason: Cong.
-CDR Reason: TNL.
-CDR Reasons : Radio
-TotalRevenue
+ab UE in Cell DCH
+AH001
+01
+01
+11
+rmTotalRevenue
 BaiUnavailableTime
 BaiErabEstSucRate
 BaiErabFailCauseRadioFail
 BaiServSetupSucRate
 BaiUlTbErrRate
 BaiDlMeanMcsIndex
-8346-12792
+73423506
 Cell Down Time H
-Failed Outgoing Inter-Cell Handovers (Better Cell)
+1278085434
 rmTempRA333
-Cell availability
+123
 Ah.LTE.IntraFreq HO out Success Rate NEW
-Tr-Availability
-tr-Immediate-Assign
-PRB U
-PRB U1
-3G PS traffic
-Soft HO Suc Rate
+Tr20221208
+tr2022120802
+01
+01
+222
+rm UMTS Soft HO Suc Rate
 RRC rejects due to LIC
-SDCCH Congestion Rate
-Number of RRC Connection Rejects for Cell (DL CE Resource Congestion)
-Number of RRC Connection Rejects for Cell (Code Resource Congestion)
-TEST
+ZTR103A
+67190405
+67179524
+2
 AV VS.MultRAB.SF128
-AV VS.MultRAB.SF256
-RB Reconfig Adm Refuse UL CE Cong
-IRAT CS HO Fail Reason Signalling Conn Rel
-RRC SSR_OLA
+VS.MultRAB.SF256
+rm UMTS RB Reconfig Adm Refuse UL CE Cong
+rm UMTS IRAT CS HO Fail Reason Signalling Conn Rel
+01
 AV VS.SingleRAB.SF8
 AV VS.SingleRAB.SF16
-RRC License
-Dedicated Ch Adm Refuse DL CE Cong
-Ammar_lte
-Handover Success Rate
-156-389
-CDR(all)
-Cdr%
-RCC Setup Success Rate (Signaling)
-RCC_Connection_Success(Service)
-Kpi1
-RRC
+01
+rm UMTS Dedicated Ch Adm Refuse DL CE Cong
+01
+RH303
+73423488
+11
+01
+Ah.LTE RCC Setup Success Rate
+AH.LTE.RCC_Connection_Success(Service)
+Code1
+C
 ab CELL.TRX.NUM
 ab Cell Uplink Power Load
-64 QAM UE
-Total Traffic Volume (GB)
-SDCCH Block Rate (%)
-Filter R99 Traffic
+abd64
+01
+Ah.GSM.SDCCH Block Rate (%)
+rm UMTS Filter R99 Traffic
 BaiUlThrUe
 BaiUlTraMB
 BaiAvActiveUe
@@ -2526,138 +2526,138 @@ BaiUlMeanMcsIndex
 BaiRrcSucRateSig
 BaiRrcSucRateServ
 BaiRrcFailCauseUnknown
-Min HSDPA Thr kbps
+rm UMTS Min HSDPA Thr kbps
 BaiCell RRC Suc Rate
-TCHCongRober
-Number of RRC Connection Rejects for Cell (DL Power Congestion)
-RRC D
+11
+67193610
+C
 HA.EGPRS_UL
-0-155
-need RRC
-xxx
+73423486
+777
+1
 BaiAvRrcConnections
-sum sum HS Traffic
+ab sum HS Traffic
 BaiRrcFailCauseEnbErr
 Intra-Frequency Handover Out Success Rate
-Max no of HSDPA users
+2
 ab NUM.TCH
 AV VS.MultRAB.SF64
-Cell Downlink Power Load
-Dedicated Ch Adm Refuse UL CE Cong
-CDR Reasons : Cong
-Dedicated Ch Adm Refuse DL Iub Cong
-Min NonHS TCP
-Reloc Prep IRAT CS HO Suc Rate
-Reloc Prep Fail Reason Target System
-HandoverF
-IntraF
-TCH Congestion%
-IntraFreq Preparation Success Rate
-IntraFreq HO Success Rate (All)
-IntraFreq Preparation Success_Rate
-IRAT CS HO Fail Rate
-390-623
-Av No of HSDPA Users
+ab Cell Downlink Power Load
+rm UMTS Dedicated Ch Adm Refuse UL CE Cong
+11
+rm UMTS Dedicated Ch Adm Refuse DL Iub Cong
+rm UMTS Min NonHS TCP
+rm UMTS Reloc Prep IRAT CS HO Suc Rate
+rm UMTS Reloc Prep Fail Reason Target System
+1
+00
+6
+01
+01
+01
+rm UMTS IRAT CS HO Fail Rate
+73423490
+1
 ab Sum of user
-Mean NonHS TCP
-Reloc Prep Fail Reason Iu Rel Comm Receive
-IRAT CS HO Fail Reason Config Not Support
-Filter HSPA Traffic
-Maximum number of uplink cell edge users (CEUs) in a cell
-2G Trafic
+rm UMTS Mean NonHS TCP
+rm UMTS Reloc Prep Fail Reason Iu Rel Comm Receive
+rm UMTS IRAT CS HO Fail Reason Config Not Support
+rm UMTS Filter HSPA Traffic
+1526728474
+k3014
 BaiDlPrbUtlizationRate
 AV VS.SingleRAB.SF128
-IntraFreq HO Success Rate (All)
-Soft HO Rate
-CSSR
-TCH Traffic Erl
-DCH/FACH to HSDPA Ch Switch Suc Rate
-HSDPA to DCH/FACH No of Ch Switchs
-Av Ec\No of RRC Conn Estab 858-1091 m
-858-1091
-1092-1325
-RRC Setup Success Rate (Service)
-HSDPA Throughput
+01
+ggg
+4
+rm TCH Traffic Erl
+rm UMTS DCH/FACH to HSDPA Ch Switch Suc Rate
+rm UMTS HSDPA to DCH/FACH No of Ch Switchs
+rm UMTS Av Ec\No of RRC Conn Estab 858-1091 m
+73423494
+73423496
+AH.LTE.RRC Setup Success Rate (Service)
+AH.UMTS.HSDPA Throughput
 BaiCell IntraFreq HO Suc Rate All
 BaiCell DL User Thr Mbps
-CS Traffic Erlang
-Call Drop Rate Sytra
-Dedicated Ch Adm Refuse HSDPA Cong
-IRAT CS HO Trigger EcNo Rate
-Failed Outgoing Inter-Cell Handovers (Downlink Quality)
-cellavailability
-RRC-SSR (All)%
-Dedicated Ch Adm Refuse Code Cong
+rm UMTS CS Traffic Erlang
+rm LTE Call Drop Rate Sytra
+rm UMTS Dedicated Ch Adm Refuse HSDPA Cong
+rm UMTS IRAT CS HO Trigger EcNo Rate
+1278085430
+11111
+01
+rm UMTS Dedicated Ch Adm Refuse Code Cong
 DL Traffice Volume (MB)
 BaiErabFailCauseTransport
 AV VS.RAB.SFOccupy.MAX
 AV VS.SingleRAB.SF32
-LIC
-Intra-Frequency Handover In Success Rate
-CDR Reason: Other.
-RCC_Connection_Attempt(Service)
-HSDPA.MeanChThroughput_NEW
-DCCC Adm Refuse DL PWR Cong
-DCCC Adm Refuse UL PWR Cong
-traffic
-LTE
+121314
+AH002
+01
+AH.LTE.RCC_Connection_Attempt(Service)
+AH.UMTS.HSDPA.MeanChThroughput_NEW
+rm UMTS DCCC Adm Refuse DL PWR Cong
+rm UMTS DCCC Adm Refuse UL PWR Cong
+k3014
+3
 2
-traffic
+gsm
 BaiCell Call Drop Rate
-No of Fail IFreq HHO
-IFreq HHO Fail Rate
-Cov Based EcNo IFreq Rate
-IFreq Fail Reason Rate PhyChFail
- drop call on traffic channel 
+rm UMTS No of Fail IFreq HHO
+rm UMTS IFreq HHO Fail Rate
+rm UMTS Cov Based EcNo IFreq Rate
+rm UMTS IFreq Fail Reason Rate PhyChFail
+5
 BaiDlTbErrRate
 Softer Handover Success Ratio (Cell)
-S1_SSR
-No of IFreq Actions
-CSSR
-Elrang Min per Drop
-IFreq Fail Reason Rate UE NoReply
-Av Ec\No of RRC Conn Estab 1092-1325 m
-Av Ec\No of RRC Conn Estab 6006-8345 m
+55
+rm UMTS No of IFreq Actions
+01
+rm Elrang Min per Drop
+rm UMTS IFreq Fail Reason Rate UE NoReply
+rm UMTS Av Ec\No of RRC Conn Estab 1092-1325 m
+rm UMTS Av Ec\No of RRC Conn Estab 6006-8345 m
 RTWP
 BaiDlThrUe
 BaiCell Tra Volume MByte
-IntraFreq Prepration Success Rate
-All trafic
+01
+333
 test
 BaiDlAvPacketLossPpm
 BaiRateOfRrcSig
 E-GPRS_DL
-E-RAB_SSR(All) %
-RRC_SSR(MHD)
-TCH Drop Sytra
-Soft Handover Success Rate
-IRAT CS HO Suc Rate
-Radio Handover 
-sakkal
-LDR Based UL PWR IFreq Rate
-Av Ec\No of RRC Conn Estab 8346-12792 m
-Av Ec\No of RRC Conn Estab more 12792 m
-Total GPRS Traffic
-Total Traffic Volume GByte Sytra
-LDR Based DL CE IFreq Rate
-No of Fail IFreq HHO Perparation
-Reloc Prep IRAT CS HO Fail Rate
-LTE traffic
-HSDPA IFreq HHO Suc Rate
-No of Drops due to Fail IFreq HHO
-IRAT CS HO Fail Reason Unspecified Failure
-TCH HR Ratio
-Reloc Prep Fail Reason Tar Cell Avail
-Reloc Prep Fail Reason Reloc Cancel
-Number of Failed PS RAB Establishments for Cell (UL CE Congestion)
-Failed Outgoing Inter-Cell Handovers (Load)
-HR Ratio
-Used PRB Rate
-E-RAB SSR AMV
-Mean RTWP
-Reloc Prep Fail Reason Req Info Not Avail
-Reloc Prep Fail Reason CN Wait Timeout
-TCH Traffic
+01
+01
+rm TCH Drop Sytra
+22
+rm UMTS IRAT CS HO Suc Rate
+Na0806
+00
+rm UMTS LDR Based UL PWR IFreq Rate
+rm UMTS Av Ec\No of RRC Conn Estab 8346-12792 m
+rm UMTS Av Ec\No of RRC Conn Estab more 12792 m
+AH.GPRS.Total
+rm LTE Total Traffic Volume GByte Sytra
+rm UMTS LDR Based DL CE IFreq Rate
+rm UMTS No of Fail IFreq HHO Perparation
+rm UMTS Reloc Prep IRAT CS HO Fail Rate
+10
+rm UMTS HSDPA IFreq HHO Suc Rate
+rm UMTS No of Drops due to Fail IFreq HHO
+rm UMTS IRAT CS HO Fail Reason Unspecified Failure
+A11
+rm UMTS Reloc Prep Fail Reason Tar Cell Avail
+rm UMTS Reloc Prep Fail Reason Reloc Cancel
+67190408
+1278085435
+Ri1712
+01
+01
+rm UMTS Mean RTWP
+rm UMTS Reloc Prep Fail Reason Req Info Not Avail
+rm UMTS Reloc Prep Fail Reason CN Wait Timeout
+C1278087438
 Ah.Total 4G Traffic Volume MB
 Ah.Soft Handover Success Rate
 Ah.Total User Average Throughput Mbits/s
@@ -2666,64 +2666,64 @@ Traffic Volume on TCH
 AH.umts.R99 RLC Throughput (kbps) 3
 AH.Call Drop Rate on TCH
 Ah.LTE.Call Drop Rate (All)
-TCH Drop Rate1
+rm TCH Drop Rate1
 AH.LTE.Service Drop Rate
-E-RAB_Setup_Success_Rate(All)
+E-RAB_Setup_Success_Rate(All)(zy)
 Ah.4G.User_UL_Avg_Thrp(MBits/s)
-Ah.RCC Setup Success Rate (Signaling
-SD Traffic
+Ah.LTE RRC Setup Success Rate (Signaling
+C1278087422
 Ah.Total 2G PS Traffic MB
-ps attempt establish
-all causes (rab congestion)
+31
+50
 Ah.Umts.<R99 RLC Throughput (kbps) 2
-Rab congestion %
+32
 Ah.UMTS.R99 RLC Throughput (kbps)
-rab congestion(all causes)
+30
 Ah.TCH Drop Rate (%)
 Ah.HSUPA RLC Traffic Volume
-SD Traffic
+K3004
 Ah.E-RAB Establish Success Rate
-TCH Cong Rate1
+rm TCH Cong Rate1
 RRC Setup Success Ratio with PCH (Total)
-rrc uti
-Down2g
+01
+121324
 Ah.LTE.HO in Success Rate_NEW 3
-CS Congestion
+rm UMTS CS Congestion
 Ah.Total 3G Data Volume (MByte)
 Ah.RRC Setup Success Rate (Service
-TRX Number
-Ah,Total Cell Average Throughput Mbits/s
+TRX Number (zy)
+Ah.Total Cell Average Throughput Mbits/s
 Ah.Call Drop (R99+HSPA) Rate
 Ah.Total 3G CS Traffic
 Ah.HSDPA Throughput (Kbps)
-AMR WB Traffic Ratio
-CS Traffic Erl1
+rm UMTS AMR WB Traffic Ratio
+rm UMTS CS Traffic Erl1
 Ah.LTE.IntraFreq HO out Success Rate
 LTE average cell available
 Umts.Availability Rate %
 UMTS Cell Availability Rate
-Cell Availability Rate(Day)
+rm Cell Availability Rate
 Ah.UMTS.Cell Availbility
-HSDPA Min User Thr kbps
+rm UMTS HSDPA Min User Thr kbps
 Max RAB.AMR.Erlang.cell
-CSFB Prep Success Idle
-CSFB Preparation Success
-CSFB Preparation Success Emergency
-CSFB Prep attempt Idle
-CSFB Prep Attempt
-CSFB Prep Attempt Emergency
-CSFB E2W IDLE
-CSFB E2W
-CSFB E2W Emergency
-CSFB RRC Redirect
-CSFB RRC Redirect Timeout
-CSFB Paging Success
-average of usage (downlink) 
-average of usage(uplink)
-averge up
+CSFB
+CSFB
+CSFB
+CSFB
+CSFB
+CSFB
+CSFB
+CSFB
+CSFB
+CSFB
+CSFB
+CSFB
+1
+2
+3
 cell_dl_thr_mb
 cell_dl_thr_mb
-Cell Avg Thrp
+123456
 Ah.UMTS.cell Availability 1
 Ah.UMTS.cell Availability 2
 Ah.UMTS.cell Availability avg
@@ -2743,155 +2743,155 @@ AYA
 AYA
 AYA
 Aya
-referf
+ferf
 ab L User Downlink Average Throughput
-ICHO Suc Rate
-SDCCH Congestion Rate1
-RxQual0 DL
-RxQual1 DL
-RxQual2 DL
-RxQual3 DL
-RxQual4 DL
-RxQual5 DL
-RxQual6 DL
-RxQual7 DL
-RxQual0 UL
-RxQual1 UL
-RxQual2 UL
-RxQual3 UL
-RxQual4 UL
-RxQual5 UL
-RxQual6 UL
-RxQual7 UL
-HO Success Rate
-HO Fail Rate Radio Cause
-HO Fail Rate Busy Target
-HO Reason UL Quality
-HO Reason DL Quality
-HO Reason UL Strength
-HO Reason DL Strength
-HO Reason Timing Adv
-HO Reason Better Cell
-HO Reason Load
-HO Reason Interfernce
-HO Reason Other
+rm ICHO Suc Rate
+rm SDCCH Congestion Rate1
+rm RxQual0 DL
+rm RxQual1 DL
+rm RxQual2 DL
+rm RxQual3 DL
+rm RxQual4 DL
+rm RxQual5 DL
+rm RxQual6 DL
+rm RxQual7 DL
+rm RxQual0 UL
+rm RxQual1 UL
+rm RxQual2 UL
+rm RxQual3 UL
+rm RxQual4 UL
+rm RxQual5 UL
+rm RxQual6 UL
+rm RxQual7 UL
+rm HO Success Rate
+rm HO Fail Rate Radio Cause
+rm HO Fail Rate Busy Target
+rm HO Reason UL Quality
+rm HO Reason DL Quality
+rm HO Reason UL Strength
+rm HO Reason DL Strength
+rm HO Reason Timing Adv
+rm HO Reason Better Cell
+rm HO Reason Load
+rm HO Reason Interfernce
+rm HO Reason Other
 73424007:VS.NodeB.ULCreditUsed.Mean
-saleemtest
-saleemtest
+saleemTest
+saleemTest
 JJ
 saleemtest
 saleemtest
-saleemkt
-saleemtest
+saleemktest
+saleemTest
 saleemktest
 saleemk
 saleemktest
 saleemktest
-ttt
-ssss
-dfsf
-dasd
+saleemktest
+saleemktest
+saleemktest
+saleemktest
 tt
 tt
 test
 test
 test
 ayaTest
-CS Conv Att Rate
-Percentage of 7.95 kbps AMR NB RABs
-Percentage of 4.75 kbps AMR NB RABs
-CS Over HSPA RAB Setup Suc Rate
-No of HSDPA PS RAB Setups
-No of HSUPA PS RAB Setups
-No of PS RAB Modify Att
-PS RAB Modify Suc Rate
-PS RAB Modify Fail Rate Radio Layer
-PS RAB Modify Fail Rate Transport Layer
-Av No of HSDPA Users1
-Max No of HSDPA Users1
-salemk
-Mean TCP
-Min TCP
+rm UMTS CS Conv Att Rate
+rm UMTS Percentage of 7.95 kbps AMR NB RABs
+rm UMTS Percentage of 4.75 kbps AMR NB RABs
+rm UMTS CS Over HSPA RAB Setup Suc Rate
+rm UMTS No of HSDPA PS RAB Setups
+rm UMTS No of HSUPA PS RAB Setups
+rm UMTS No of PS RAB Modify Att
+rm UMTS PS RAB Modify Suc Rate
+rm UMTS PS RAB Modify Fail Rate Radio Layer
+rm UMTS PS RAB Modify Fail Rate Transport Layer
+rm UMTS Av No of HSDPA Users1
+rm UMTS Max No of HSDPA Users1
+salemo
+rm UMTS Mean TCP
+rm UMTS Min TCP
 saleemtestkpi
-Paging Cong Rate
-Percentage of IdleCS Pages
-Percentage of IdlePS Pages
-Percentage of PCH Pages
-Max Used UL Credits
-Mean Used UL Credits
-Max Used DL Credits
-Mean Used DL Credits
-Max Code Utilization Rate
-Mean Code Utilization Rate
-Max UL ENU
-Mean UL ENU
-Mean DL ENU
-Max DL ENU
-PS R99 Max Estab Time msec
-PS R99 Mean Estab Time msec
-AMR Max Estab Time msec
-AMR Mean Estab Time msec
-HSDPA Max Estab Time msec
-HSUPA Max Estab Time msec
-HSDPA Mean Estab Time msec
-HSUPA Mean Estab Time msec
-Voice Av VQI
-RACH UL BLER
-AMR UL BLER
-AMRWB UL BLER
+rm UMTS Paging Cong Rate
+rm UMTS Percentage of IdleCS Pages
+rm UMTS Percentage of IdlePS Pages
+rm UMTS Percentage of PCH Pages
+rm UMTS Max Used UL Credits
+rm UMTS Mean Used UL Credits
+rm UMTS Max Used DL Credits
+rm UMTS Mean Used DL Credits
+rm UMTS Max Code Utilization Rate
+rm UMTS Mean Code Utilization Rate
+rm UMTS Max UL ENU
+rm UMTS Mean UL ENU
+rm UMTS Mean DL ENU
+rm UMTS Max DL ENU
+rm UMTS PS R99 Max Estab Time msec
+rm UMTS PS R99 Mean Estab Time msec
+rm UMTS AMR Max Estab Time msec
+rm UMTS AMR Mean Estab Time msec
+rm UMTS HSDPA Max Estab Time msec
+rm UMTS HSUPA Max Estab Time msec
+rm UMTS HSDPA Mean Estab Time msec
+rm UMTS HSUPA Mean Estab Time msec
+rm UMTS Voice Av VQI
+rm UMTS RACH UL BLER
+rm UMTS AMR UL BLER
+rm UMTS AMRWB UL BLER
 saleemtest
-saleemk
-saleem_test
-saleem_test
-Incoming IFreq HHO Suc Rate
-Incoming Reloc Prep IRAT CS HO Suc Rate
-Incoming IRAT CS HO Suc Rate
-No of Retransmit RRC
-Intra Freq HO Prep Att
-Inter Freq HO Prep Att
-Inter Freq HO Suc Rate All
-Cell Available Duration h
-Max RRC Setup Time msec
-RRC ReEstab Reason Failed HO
-RRC ReEstab Reason Failed Reconfig
-RRC ReEstab Reason Other Better Cell
-RRC ReEstab Fail Rate Cong
-RRC ReEstab Fail Rate NoReply
-RRC ReEstab Fail Rate CPU Load
-RRC ReEstab Fail Rate UE Context
-RRC ReEstab Fail Rate Other
-DL CE Usage
-UP CE Usage
-UL CE Usage /2
-Max E-RAB Establish Time msec
-E-RAB Recover from Unsync to Sync Suc Rate
-E-RAB Modify Fail Rate Cong
-Suc Rate of E-RAB Estab for Incoming HO
-DL Cell Max Thr Mbps
-UE Cntxt Establish Suc Rate
-UE Cntxt Abnormal Rel Rate
-UE Cntxt Modify Suc Rate
-Inter Freq HO Attempts
-Inter Freq HO Suc Rate
-No of Intra Freq HO Prep Attempts
-No of Inter Freq HO Prep Attempts
-Intra Freq HO Prep Suc Rate
-Inter Freq HO Prep Suc Rate
-Inter Freq HO Prep Fail Cause HO Cancel
-Inter Freq HO Prep Fail Cause MME
-Inter Freq HO Prep Fail Cause No Reply
-Inter Freq HO Prep Fail Cause TargPrepFail
-Inter Freq HO Prep Fail Cause TargNotValid
-Total HO Prep Fail
-HO Prep Fail Cause RNL
-HO Prep Fail Cause TNL
-HO Prep Fail Cause HO Cancel
-HO Prep Fail Cause MME
-HO Prep Fail Cause No Reply
-HO Prep Fail Cause TargPrepFail
-HO Prep Fail Cause TargNotValid
-HO Prep Fail Cause Other
-LTE IRAT HO E2W Suc Rate
-IRAT HO E2G Suc Rate
+das
+saleem
+saleem
+rm UMTS Incoming IFreq HHO Suc Rate
+rm UMTS Incoming Reloc Prep IRAT CS HO Suc Rate
+rm UMTS Incoming IRAT CS HO Suc Rate
+rm LTE No of Retransmit RRC
+rm LTE Intra Freq HO Prep Att
+rm LTE Inter Freq HO Prep Att
+rm LTE Inter Freq HO Suc Rate All
+rm LTE Cell Available Duration h
+rm LTE Max RRC Setup Time msec
+rm LTE RRC ReEstab Reason Failed HO
+rm LTE RRC ReEstab Reason Failed Reconfig
+rm LTE RRC ReEstab Reason Other Better Cell
+rm LTE RRC ReEstab Fail Rate Cong
+rm LTE RRC ReEstab Fail Rate NoReply
+rm LTE RRC ReEstab Fail Rate CPU Load
+rm LTE RRC ReEstab Fail Rate UE Context
+rm LTE RRC ReEstab Fail Rate Other
+1
+2
+3
+rm LTE Max E-RAB Establish Time msec
+rm LTE E-RAB Recover from Unsync to Sync Suc Rate
+rm LTE E-RAB Modify Fail Rate Cong
+rm LTE Suc Rate of E-RAB Estab for Incoming HO
+rm LTE DL Cell Max Thr Mbps
+rm LTE UE Cntxt Establish Suc Rate
+rm LTE UE Cntxt Abnormal Rel Rate
+rm LTE UE Cntxt Modify Suc Rate
+rm LTE Inter Freq HO Attempts
+rm LTE Inter Freq HO Suc Rate
+rm LTE No of Intra Freq HO Prep Attempts
+rm LTE No of Inter Freq HO Prep Attempts
+rm LTE Intra Freq HO Prep Suc Rate
+rm LTE Inter Freq HO Prep Suc Rate
+rm LTE Inter Freq HO Prep Fail Cause HO Cancel
+rm LTE Inter Freq HO Prep Fail Cause MME
+rm LTE Inter Freq HO Prep Fail Cause No Reply
+rm LTE Inter Freq HO Prep Fail Cause TargPrepFail
+rm LTE Inter Freq HO Prep Fail Cause TargNotValid
+rm LTE Total HO Prep Fail
+rm LTE HO Prep Fail Cause RNL
+rm LTE HO Prep Fail Cause TNL
+rm LTE HO Prep Fail Cause HO Cancel
+rm LTE HO Prep Fail Cause MME
+rm LTE HO Prep Fail Cause No Reply
+rm LTE HO Prep Fail Cause TargPrepFail
+rm LTE HO Prep Fail Cause TargNotValid
+rm LTE HO Prep Fail Cause Other
+rm LTE IRAT HO E2W Suc Rate
+rm LTE IRAT HO E2G Suc Rate
 SD_congestion_rate
 SD_congestion_rate
