@@ -1,56 +1,87 @@
-        public bool checkParanthesis(string EncodeS)
+        public KPI addKPI(string user, KPI kpi)
         {
-            string s = EncodeS.Replace("%2B", "+");
-            s = s.Replace(" >= ", "%>=%").Replace(" <= ", "%<=%").Replace(" <> ", "%<>%").Replace(" AND ", "%AND%").Replace(" OR ", "%OR%"); // New 20200417
-            s = s.Replace(" ", ""); // New 20200417
-            s = s.Replace("%>=%", " >= ").Replace("%<=%", " <= ").Replace("%<>%", " <> ").Replace("%AND%", " AND ").Replace("%OR%", " OR "); // New 20200417
-            if (s.Contains("AND)") || s.Contains("OR)") || s.Contains("<=)") || s.Contains(">=)"))
+            string pattern = "(\\sIF\\s\\(\\s)(.+)(\\s,\\s)(.+)(\\s,\\s)(.+)(\\s\\))$";
+            Regex.IsMatch(kpi.Sql, pattern);
+            string sl2 = kpi.Sql.ToString();
+            string sl = Regex.Replace(kpi.Sql, pattern, m => " CASE WHEN " + m.Groups[2].Value + " THEN " + m.Groups[4].Value + " ELSE " + m.Groups[6].Value + " END ");
+            string s2 = "";
+            string s = "";
+            if (sl2.Length > 3500 && sl2.Length < 7000)
             {
-                return false;
+                s2 = "to_clob('" + sl2.Substring(0, 3500) + "') || to_clob('" +
+                            sl2.Substring(3500) + "')";
             }
-            var naRegex1 = new Regex("[+|\\-|*|,|<|>|\\/]\\)"); // +)
-            var naRegex2 = new Regex("\\([+|\\-|*|,|\\/]"); // (+
-            var naRegex3 = new Regex("\\)[A-Za-z_.0-9]"); // )Any
-            var r1 = naRegex1.IsMatch(s);
-            var r2 = naRegex2.IsMatch(s);
-            var r3 = naRegex3.IsMatch(s);
-            if (naRegex1.IsMatch(s) || naRegex2.IsMatch(s) || naRegex3.IsMatch(s))
+            else if (sl2.Length >= 7000 && sl2.Length < 10500)
             {
-                return false;
+                s2 = "to_clob('" + sl2.Substring(0, 3500) + "') || to_clob('" +
+                            sl2.Substring(3500, 3500) + "') || to_clob('" + sl2.Substring(7000) + "')";
             }
-            if (s.Contains("()"))
-            {
-                return false;
-            }
-            string q = s.Replace("(", "");
-            q = q.Replace(")", "");
-            var regex = new Regex(@"^([A-Za-z_.0-9])+(((\s(AND|OR|>=|<=|<>)\s)|[+-\/*><=,])([A-Za-z_.0-9])+)*$");
-            if (!regex.IsMatch(q))
-            {
-                return false;
-            }
-            Stack<char> st = new Stack<char>();
-            char[] sChar = s.ToArray();
-            foreach (char c in sChar)
-            {
-                if (c == '(')
-                {
-                    st.Push(c);
-                }
-                if (c == ')')
-                {
-                    if (st.Count == 0)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        st.Pop();
-                    }
-                }
-            }
-            if (st.Count == 0)
-                return true;
             else
-                return false;
+            {
+                s2 = "'" + sl2 + "'";
+            }
+            if (sl.Length > 3500 && sl.Length < 7000)
+            {
+                s = "to_clob('" + sl.Substring(0, 3500) + "') || to_clob('" +
+                     sl.Substring(3500) + "')";
+            }
+            else if (sl.Length >= 7000 && sl.Length < 10500)
+            {
+                s = "to_clob('" + sl.Substring(0, 3500) + "') || to_clob('" +
+                     sl.Substring(3500, 3500) + "') || to_clob('" + sl.Substring(7000) + "')";
+            }
+            else
+            {
+                s = "'" + sl + "'";
+            }
+            kpi.Sql = s;
+            kpi.SqlC = s2;
+
+            var Is_Accepted = kpi.Is_Public ? "0" : "1";
+            OracleConnection oraconn = new OracleConnection(ConfigurationManager.ConnectionStrings["TECH"].ConnectionString);
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = oraconn;
+            cmd.CommandText = "insert into " + HttpContext.Current.Items["mask"] + "_META_KPIS(Name,Code,Category_Id,Technology_Id,Sql,SqlC,IS_DELETED,CreatedBy,Is_Public,Domain_Id, Device, IS_ACCEPTED) values " +
+                              " ('" + kpi.Name + "','" + kpi.Code + "'," + kpi.Category_Id + "," + kpi.Technology_Id + "," + kpi.Sql + "," + kpi.SqlC + ",0,'" + user + "'," + (kpi.Is_Public ? "1" : "0") + "," + (kpi.Domain_Id == null ? "1" : kpi.Domain_Id.ToString()) + ",'" + kpi.Device + "'," + Is_Accepted + ") returning id into :myOutputParameter";
+            cmd.Parameters.Add(new OracleParameter("myOutputParameter", OracleDbType.Int32, ParameterDirection.ReturnValue));
+            oraconn.Open();
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                kpi.Id = int.Parse(cmd.Parameters["myOutputParameter"].Value.ToString());
+                OracleCommand cmd3 = new OracleCommand();
+                cmd3.Connection = oraconn;
+                foreach (int i in kpi.Counters)
+                {
+                    cmd3.CommandText = "insert into " + HttpContext.Current.Items["mask"] + "_META_KPIs_Counters values (" + kpi.Id + "," + i + ")";
+                    cmd3.ExecuteNonQuery();
+                }
+                foreach (int i in kpi.Kpis)
+                {
+                    cmd3.CommandText = "insert into " + HttpContext.Current.Items["mask"] + "_META_KPIs_KPIS values (" + kpi.Id + "," + i + ")";
+                    cmd3.ExecuteNonQuery();
+                }
+
+                foreach (string i in kpi.Subsets)
+                {
+                    if (i != null)
+                    {
+                        cmd3.CommandText = "insert into " + HttpContext.Current.Items["mask"] + "_META_KPIs_Subsets values (" + kpi.Id + ",'" + i + "')";
+                        cmd3.ExecuteNonQuery();
+                    }
+                }
+                oraconn.Close();
+                kpi.CreatedBy = user;
+                if (kpi.Is_Public)
+                {
+                    EmailRepository emailRepo = new EmailRepository();
+                    emailRepo.sendPendingKpiEmail(kpi);
+                }
+
+                return kpi;
+            }
+            else
+            {
+                oraconn.Close();
+                return null;
+            }
         }
