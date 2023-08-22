@@ -1,1 +1,56 @@
-test
+        public bool checkParanthesis(string EncodeS)
+        {
+            string s = EncodeS.Replace("%2B", "+");
+            s = s.Replace(" >= ", "%>=%").Replace(" <= ", "%<=%").Replace(" <> ", "%<>%").Replace(" AND ", "%AND%").Replace(" OR ", "%OR%"); // New 20200417
+            s = s.Replace(" ", ""); // New 20200417
+            s = s.Replace("%>=%", " >= ").Replace("%<=%", " <= ").Replace("%<>%", " <> ").Replace("%AND%", " AND ").Replace("%OR%", " OR "); // New 20200417
+            if (s.Contains("AND)") || s.Contains("OR)") || s.Contains("<=)") || s.Contains(">=)"))
+            {
+                return false;
+            }
+            var naRegex1 = new Regex("[+|\\-|*|,|<|>|\\/]\\)"); // +)
+            var naRegex2 = new Regex("\\([+|\\-|*|,|\\/]"); // (+
+            var naRegex3 = new Regex("\\)[A-Za-z_.0-9]"); // )Any
+            var r1 = naRegex1.IsMatch(s);
+            var r2 = naRegex2.IsMatch(s);
+            var r3 = naRegex3.IsMatch(s);
+            if (naRegex1.IsMatch(s) || naRegex2.IsMatch(s) || naRegex3.IsMatch(s))
+            {
+                return false;
+            }
+            if (s.Contains("()"))
+            {
+                return false;
+            }
+            string q = s.Replace("(", "");
+            q = q.Replace(")", "");
+            var regex = new Regex(@"^([A-Za-z_.0-9])+(((\s(AND|OR|>=|<=|<>)\s)|[+-\/*><=,])([A-Za-z_.0-9])+)*$");
+            if (!regex.IsMatch(q))
+            {
+                return false;
+            }
+            Stack<char> st = new Stack<char>();
+            char[] sChar = s.ToArray();
+            foreach (char c in sChar)
+            {
+                if (c == '(')
+                {
+                    st.Push(c);
+                }
+                if (c == ')')
+                {
+                    if (st.Count == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        st.Pop();
+                    }
+                }
+            }
+            if (st.Count == 0)
+                return true;
+            else
+                return false;
+        }
