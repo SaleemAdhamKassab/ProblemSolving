@@ -1,24 +1,22 @@
-create view VehicleMasterDetails as
+create view VehicleMasterDetails  as
 
-select v.ID, v.MakeID, m.Make,v.ModelID, mm.ModelName, v.SubModelID, sm.SubModelName, v.BodyID, b.BodyName, v.Vehicle_Display_Name,
-       v.Year, v.DriveTypeID, d.DriveTypeName, v.Engine, v.Engine_CC, v.Engine_Cylinders, v.Engine_Liter_Display, v.FuelTypeID, f.FuelTypeName,
-	   v.NumDoors
+select   v.ID, v.MakeID, ma.Make,v.ModelID, m.ModelName, v.SubModelID, s.SubModelName, v.BodyID,b.BodyName,v.Vehicle_Display_Name,v.Year, v.DriveTypeID,d.DriveTypeName,v.Engine, v.Engine_CC, v.Engine_Cylinders, v.Engine_Liter_Display, v.FuelTypeID, f.FuelTypeName,v.NumDoors
 
 from VehicleDetails v
-join makes m
-on v.MakeID =  v.MakeID
+join SubModels s
+on s.SubModelID = v.SubModelID
 
-join MakeModels mm
-on mm.ModelID = v.MakeID
+join MakeModels m
+on s.ModelID = m.ModelID
 
-join SubModels sm
-on sm.ModelID = v.SubModelID
+join Makes ma
+on m.MakeID = ma.MakeID
 
-join Bodies b
-on b.BodyID = v.BodyID
+left join Bodies b
+on v.BodyID = b.BodyID
 
-join DriveTypes d
+left join DriveTypes d
 on d.DriveTypeID = v.DriveTypeID
 
-join FuelTypes f
-on f.FuelTypeID = v.FuelTypeID
+left join FuelTypes f
+on f.FuelTypeID = v.FuelTypeID;
