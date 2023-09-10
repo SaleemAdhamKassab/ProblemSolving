@@ -1,0 +1,23 @@
+	
+	select  m.Make, count(*) as NumberOfVehicle
+	from VehicleMasterDetails v
+	join makes m
+	on v.MakeID = m.MakeID
+	where year between 1950 and 2000
+	group by m.Make
+	--having count(*)> 12000
+	order by count(*) desc;
+
+	select * 
+	from (
+	select m.Make, count(*) as NumberOfVehicle
+	from VehicleMasterDetails v
+	join makes m
+	on v.MakeID = m.MakeID
+	where year between 1950 and 2000
+	group by m.Make) r1
+
+	where r1.NumberOfVehicle > 12000
+	order by r1.NumberOfVehicle desc;
+
+	
