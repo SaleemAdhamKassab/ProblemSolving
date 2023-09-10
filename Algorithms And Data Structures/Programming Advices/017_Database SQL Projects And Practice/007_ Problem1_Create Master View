@@ -1,0 +1,24 @@
+create view VehicleMasterDetails as
+
+select v.ID, v.MakeID, m.Make,v.ModelID, mm.ModelName, v.SubModelID, sm.SubModelName, v.BodyID, b.BodyName, v.Vehicle_Display_Name,
+       v.Year, v.DriveTypeID, d.DriveTypeName, v.Engine, v.Engine_CC, v.Engine_Cylinders, v.Engine_Liter_Display, v.FuelTypeID, f.FuelTypeName,
+	   v.NumDoors
+
+from VehicleDetails v
+join makes m
+on v.MakeID =  v.MakeID
+
+join MakeModels mm
+on mm.ModelID = v.MakeID
+
+join SubModels sm
+on sm.ModelID = v.SubModelID
+
+join Bodies b
+on b.BodyID = v.BodyID
+
+join DriveTypes d
+on d.DriveTypeID = v.DriveTypeID
+
+join FuelTypes f
+on f.FuelTypeID = v.FuelTypeID
