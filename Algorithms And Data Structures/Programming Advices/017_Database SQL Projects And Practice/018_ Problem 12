@@ -1,0 +1,11 @@
+select m.Make, count(*) NumberOfVehicles
+from makes m join VehicleDetails v
+on v.MakeID = m.MakeID
+
+join FuelTypes f
+on f.FuelTypeID = v.FuelTypeID
+
+where f.FuelTypeName = 'GAS'
+group by m.Make
+
+order by NumberOfVehicles desc;
