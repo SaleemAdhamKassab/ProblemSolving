@@ -1,0 +1,6 @@
+Problem 8: Get Make, FuelTypeName and Number of Vehicles per FuelType per Make
+
+select make,FuelTypeName, count(*) NumberOfVehicles
+from vehicleMasterDetails
+group by make,FuelTypeName
+order by Make;
