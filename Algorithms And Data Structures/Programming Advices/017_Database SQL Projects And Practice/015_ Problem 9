@@ -1,0 +1,5 @@
+Problem 9: Get all vehicles that runs with GAS
+
+select *
+from vehicleMasterDetails
+where FuelTypeName ='GAS';
