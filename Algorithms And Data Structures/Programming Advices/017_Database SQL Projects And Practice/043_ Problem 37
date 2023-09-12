@@ -1,0 +1,5 @@
+Problem 37: Get total vehicles that have Engin_CC above average
+
+Select VehicleDetails.Vehicle_Display_Name 
+from VehicleDetails
+where Engine_CC > ( select  avg(Engine_CC) as MinEngineCC  from VehicleDetails );
