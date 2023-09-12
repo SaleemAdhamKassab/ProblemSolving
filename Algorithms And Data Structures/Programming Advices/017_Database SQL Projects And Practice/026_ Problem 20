@@ -1,0 +1,5 @@
+Get all Vehicles that number of doors is not specified
+
+select *
+from VehicleDetails v
+where v.NumDoors is null;  
