@@ -1,0 +1,17 @@
+Get total vehicles per DriveTypeName Per Make and order them per make asc then per total Desc
+
+
+select d.DriveTypeName, m.Make, count(*) Total
+
+from VehicleDetails v
+join Makes m
+
+on v.MakeID = m.MakeID
+
+join DriveTypes d
+on v.DriveTypeID = d.DriveTypeID
+
+group by d.DriveTypeName, m.Make
+
+order by m.make, Total desc;
+
