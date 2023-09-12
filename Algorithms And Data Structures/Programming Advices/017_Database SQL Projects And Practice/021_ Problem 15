@@ -1,0 +1,5 @@
+Write a query to get all Makes with make ends with 'W'.
+
+select m.Make
+from makes m
+where m.Make like '%W';
