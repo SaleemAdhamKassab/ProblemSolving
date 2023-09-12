@@ -1,0 +1,25 @@
+Problem 30: Get all Vehicle_Display_Name, NumDoors and add extra column to describe number of doors by words, and if door is null display 'Not Set'
+
+select distinct v.NumDoors
+from VehicleDetails v
+order by 1;
+
+
+select v.Vehicle_Display_Name,
+       v.NumDoors,
+	   case when v.NumDoors=0 then 'Zero Doors'
+	        when v.NumDoors=1 then 'One Door'
+            when v.NumDoors=2 then 'Two Doors'
+		    when v.NumDoors=3 then 'Three Doors'
+            when v.NumDoors=4 then 'Four Doors'
+		    when v.NumDoors=5 then 'Five Doors'
+		    when v.NumDoors=5 then 'Six Doors'
+		    when v.NumDoors=5 then 'Eight Doors'
+		    when v.NumDoors is null then 'Not Set'
+            else 'Unknown'
+       end DoorsDesc
+
+from VehicleDetails v
+order by v.NumDoors;
+
+
