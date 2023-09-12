@@ -1,0 +1,9 @@
+Get all vehicles that their body is 'Coupe' or 'Hatchback' or 'Sedan' and manufactured in year 2008 or 2020 or 2021
+
+select b.BodyName,*
+from VehicleDetails v
+join Bodies b
+on v.BodyID =  b.BodyID
+
+where (b.BodyName in('Coupe','Hatchback','Sedan')) AND v.Year in(2008,2020,2021)
+order by b.BodyName;
