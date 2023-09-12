@@ -1,0 +1,5 @@
+Write a query to get all Makes with make starts with 'B'.
+
+select m.Make
+from makes m
+where m.Make like 'B%';
