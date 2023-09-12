@@ -1,12 +1,20 @@
-Problem 47: Get the highest number of models manufactured
+Problem 48: Get the highest Manufacturers manufactured the highest number of models
+Get the highest Manufacturers manufactured the highest number of models , remember that they could be more than one manufacturer have the same high number of models
 
-select Max(NumberOfModels) as MaxNumberOfModels
-from
-(
+select r1.*
+from( select m.Make, count(*) numberofModels
+	from makes m
+	join MakeModels mk
 
-		SELECT        Makes.Make, COUNT(*) AS NumberOfModels
-		FROM            Makes INNER JOIN
-								 MakeModels ON Makes.MakeID = MakeModels.MakeID
-		GROUP BY Makes.Make
-		
-) R1
+on mk.MakeID = m.MakeID
+group by m.Make) r1
+
+where r1.numberofModels = (select max(r2.numberofModels)
+							from(
+							select m.Make, count(*) numberofModels
+							from makes m
+							join MakeModels mk
+
+							on mk.MakeID = m.MakeID
+							group by m.Make) r2);
+
