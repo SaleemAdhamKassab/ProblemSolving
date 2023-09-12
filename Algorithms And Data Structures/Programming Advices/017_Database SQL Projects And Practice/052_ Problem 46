@@ -1,7 +1,7 @@
-Problem 45: Get Number of Models Per Make
+Problem 46: Get the highest 3 manufacturers that make the highest number of models
 
-select m.Make, count(v.ModelID)
-from VehicleDetails v
-join Makes m
-on v.MakeID = m.MakeID
-group by m.Make;
+SELECT      top 3  Makes.Make, COUNT(*) AS NumberOfModels
+FROM            Makes INNER JOIN
+                         MakeModels ON Makes.MakeID = MakeModels.MakeID
+GROUP BY Makes.Make
+Order By NumberOfModels Desc
