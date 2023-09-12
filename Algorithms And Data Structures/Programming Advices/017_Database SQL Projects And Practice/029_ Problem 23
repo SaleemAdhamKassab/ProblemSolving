@@ -1,0 +1,11 @@
+Get MakeID , Make, SubModelName for all vehicles that have SubModelName 'Elite'
+
+select distinct v.MakeID, m.Make, s.SubModelName
+from VehicleDetails v
+join SubModels s
+on v.SubModelID = s.SubModelID
+
+join makes m
+on v.MakeID = m.MakeID
+
+where s.SubModelName = 'Elite';
