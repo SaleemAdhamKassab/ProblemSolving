@@ -1,0 +1,8 @@
+Get all vehicles that their Body is 'Coupe' or 'Hatchback' or 'Sedan'
+
+select *
+from VehicleDetails v
+join Bodies b
+on v.BodyID =  b.BodyID
+
+where b.BodyName in('Coupe','Hatchback','Sedan');
