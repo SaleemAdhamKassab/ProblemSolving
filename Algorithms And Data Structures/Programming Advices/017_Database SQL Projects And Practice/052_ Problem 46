@@ -1,0 +1,7 @@
+Problem 45: Get Number of Models Per Make
+
+select m.Make, count(v.ModelID)
+from VehicleDetails v
+join Makes m
+on v.MakeID = m.MakeID
+group by m.Make;
