@@ -1,0 +1,12 @@
+  Problem 16: Get all Makes that manufactures DriveTypeName = FWD
+
+select distinct m.Make, d.DriveTypeName
+from VehicleDetails v
+join Makes m
+
+on v.MakeID = m.MakeID
+
+join DriveTypes d
+on v.DriveTypeID = d.DriveTypeID
+
+where d.DriveTypeName = 'FWD';
