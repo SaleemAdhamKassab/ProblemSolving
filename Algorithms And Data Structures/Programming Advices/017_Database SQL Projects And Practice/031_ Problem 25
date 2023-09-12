@@ -1,0 +1,8 @@
+Get make and vehicles that the engine contains 'OHV' and have Cylinders = 4
+
+select m.Make, v.*
+from VehicleDetails v
+join makes m
+on v.MakeID = m.MakeID
+
+where v.Engine like '%OHV%' and v.Engine_Cylinders=4;
