@@ -1,0 +1,5 @@
+Get all vehicles that have Engines > 3 Liters and have only 2 doors
+
+select *
+from VehicleDetails v
+where v.Engine_Liter_Display>3 and v.NumDoors = 2;
