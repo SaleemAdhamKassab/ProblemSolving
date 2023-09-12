@@ -1,0 +1,4 @@
+Get percentage of vehicles that has no doors specified
+
+select cast((select count(*) from VehicleDetails v where v.NumDoors is null) as float) / count(*) PercOfNoSpecifiedDoors
+from VehicleDetails;
