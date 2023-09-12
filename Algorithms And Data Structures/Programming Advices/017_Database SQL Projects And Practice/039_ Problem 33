@@ -1,0 +1,4 @@
+Problem 33: Get Minimum Engine CC , Maximum Engine CC , and Average Engine CC of all Vehicles
+
+select min(v.Engine_CC) MinimimEngineCC, max(v.Engine_CC) MaximumEngineCC,avg(v.Engine_CC) AverageEngineCC
+from VehicleDetails v;
