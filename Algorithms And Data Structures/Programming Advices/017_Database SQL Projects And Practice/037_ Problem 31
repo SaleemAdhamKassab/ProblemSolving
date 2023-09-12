@@ -1,0 +1,9 @@
+Get all Vehicle_Display_Name, year and add extra column to calcuate the age of the car then sort the results by age desc.
+
+select 
+v.Vehicle_Display_Name,
+v.Year,
+year(getdate())- v.Year CarAge
+
+from VehicleDetails v
+order by CarAge desc;
