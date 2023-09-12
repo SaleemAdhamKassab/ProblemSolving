@@ -1,0 +1,12 @@
+Problem 53: Get all employees that have manager or does not have manager along with Manager's name, incase no manager name the same employee name as manager to himself
+
+SELECT 
+e.EmployeeID,
+e.Name EmployeeName,
+e.Salary, 
+case when m.Name is null then e.Name else m.name end ManagerName
+
+FROM Employees e
+left join Employees m
+
+on e.ManagerID = m.EmployeeID;
