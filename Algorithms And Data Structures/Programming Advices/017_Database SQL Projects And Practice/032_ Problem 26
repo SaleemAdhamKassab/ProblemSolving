@@ -1,0 +1,8 @@
+Get all vehicles that their body is 'Sport Utility' and Year > 2020
+
+select *
+from VehicleDetails v
+join Bodies b
+on v.BodyID =  b.BodyID
+
+where b.BodyName = 'Sport Utility' and v.Year > 2000;
