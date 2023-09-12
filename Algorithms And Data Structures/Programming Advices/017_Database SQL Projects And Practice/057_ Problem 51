@@ -1,0 +1,7 @@
+Problem 51: Get all employees that have manager along with Manager's name.
+
+SELECT e.EmployeeID, e.Name EmployeeName, m.Name ManagerName
+FROM Employees e
+join Employees m
+
+on e.ManagerID = m.EmployeeID;
