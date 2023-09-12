@@ -1,0 +1,10 @@
+Get all Vehicle_Display_Name, year, Age for vehicles that their age between 15 and 25 years old 
+
+select 
+v.Vehicle_Display_Name,
+v.Year,
+year(getdate())- v.Year CarAge
+
+from VehicleDetails v
+where year(getdate())- v.Year between 15 and 25
+order by CarAge desc;
