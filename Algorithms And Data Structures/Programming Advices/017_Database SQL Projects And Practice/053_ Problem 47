@@ -1,7 +1,12 @@
-Problem 46: Get the highest 3 manufacturers that make the highest number of models
+Problem 47: Get the highest number of models manufactured
 
-SELECT      top 3  Makes.Make, COUNT(*) AS NumberOfModels
-FROM            Makes INNER JOIN
-                         MakeModels ON Makes.MakeID = MakeModels.MakeID
-GROUP BY Makes.Make
-Order By NumberOfModels Desc;
+select Max(NumberOfModels) as MaxNumberOfModels
+from
+(
+
+		SELECT        Makes.Make, COUNT(*) AS NumberOfModels
+		FROM            Makes INNER JOIN
+								 MakeModels ON Makes.MakeID = MakeModels.MakeID
+		GROUP BY Makes.Make
+		
+) R1
