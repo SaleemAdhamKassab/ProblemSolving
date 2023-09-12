@@ -1,0 +1,11 @@
+Problem 13: Get all Makes/Count Of Vehicles that manufactures more than 20K Vehicles
+
+select m.Make, count(*) NumberOfVehicles
+
+from VehicleDetails v
+join makes m
+on v.MakeID = m.MakeID
+
+group by m.make
+having count(*) > 20000
+order by NumberOfVehicles desc;
