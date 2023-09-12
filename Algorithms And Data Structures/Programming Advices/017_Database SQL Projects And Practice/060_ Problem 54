@@ -1,0 +1,13 @@
+Problem 54: Get All Employees managed by 'Mohammed'
+
+SELECT 
+e.EmployeeID,
+e.Name EmployeeName,
+e.Salary, 
+case when m.Name is null then e.Name else m.name end ManagerName
+
+FROM Employees e
+left join Employees m
+
+on e.ManagerID = m.EmployeeID
+where m.Name ='Mohammed';
