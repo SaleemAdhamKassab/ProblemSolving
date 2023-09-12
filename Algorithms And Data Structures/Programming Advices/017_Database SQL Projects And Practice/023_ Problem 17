@@ -1,0 +1,15 @@
+Get total Makes that Mantufactures DriveTypeName=FWD
+
+
+select count(*) MakeWithFWD
+from
+(select distinct m.Make, d.DriveTypeName
+from VehicleDetails v
+join Makes m
+
+on v.MakeID = m.MakeID
+
+join DriveTypes d
+on v.DriveTypeID = d.DriveTypeID
+
+where d.DriveTypeName = 'FWD') r1;
