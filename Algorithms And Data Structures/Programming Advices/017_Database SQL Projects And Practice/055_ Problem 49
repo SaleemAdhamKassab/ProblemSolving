@@ -1,0 +1,19 @@
+Problem 49: Get the Lowest Manufacturers manufactured the lowest number of models
+Get the Lowest Manufacturers manufactured the lowest number of models , remember that they could be more than one manufacturer have the same lowest number of models
+
+select r1.*
+from( select m.Make, count(*) numberofModels
+	from makes m
+	join MakeModels mk
+
+on mk.MakeID = m.MakeID
+group by m.Make) r1
+
+where r1.numberofModels = (select min(r2.numberofModels)
+							from(
+							select m.Make, count(*) numberofModels
+							from makes m
+							join MakeModels mk
+
+							on mk.MakeID = m.MakeID
+							group by m.Make) r2);
