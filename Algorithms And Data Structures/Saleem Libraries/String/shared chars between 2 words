@@ -1,4 +1,4 @@
- private static string intersect(string word1, string word2)
+ private static string sharedchars(string word1, string word2)
         {
             string sharedchars = "";
 
