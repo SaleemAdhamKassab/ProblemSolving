@@ -1,0 +1,19 @@
+ private static string intersect(string word1, string word2)
+        {
+            string sharedchars = "";
+
+            for (int i = 0; i < word1.Length; i++)
+            {
+                for (int j = 0; j < word2.Length; j++)
+                {
+                    if (word1[i] == word2[j])
+                    {
+                        sharedchars += word1[i];
+                        word2 = word2.Remove(j, 1);
+                        break;
+                    }
+                }
+            }
+
+            return sharedchars;
+        }
