@@ -1,58 +1,7 @@
  BI system “Core Performance Platform”
 Project Scope:
-Integrate MAE system for core performance measurements with Datawarehouse.
+Integrate the hawaawi MAE system for core performance measurements with Datawarehouse.
 
+Platform is a multi-tenancy system which support multiple stake holders and subjects for Radio, Transmission and Core decision makers
 
------------
-
-
-
-// See https://aka.ms/new-console-template for more information
-using Newtonsoft.Json;
-using Oracle.ManagedDataAccess.Client;
-using SiteResponsibilityLoad.Models;
-using System.Configuration.Assemblies;
-
-var _httpClient = new HttpClient();
-var response = await _httpClient.GetAsync("http://10.249.94.244:11006/T_RD_SR/Read_Sites");
-if (!response.IsSuccessStatusCode)
-{
-    Console.WriteLine("SESITES244 server error");
-    return;
-}
-var responseString = await response.Content.ReadAsStringAsync();
-var result = JsonConvert.DeserializeObject<SiteResponseModel>(responseString);
-if (result.Errors != null && result.Errors.Length > 0)
-{
-    Console.WriteLine("Getting Info Error");
-    return;
-}
-var data = result.Data;
-OracleConnection oraCon = new();
-oraCon.ConnectionString = "Data Source=10.2.115.73:1523/TECH;Persist Security Info=True;User ID=TECH;Password=TECH_123; Connection Lifetime=300; Pooling=true;Min Pool Size=10; Max Pool Size=5000;";
-
-try
-{
-    //OracleCommand cmd = oraCon.CreateCommand();
-    OracleCommand cmd = new OracleCommand
-    {
-        Connection = oraCon,
-        CommandType = System.Data.CommandType.Text
-    };
-
-    foreach (SiteResponsibility site in data)
-    {
-        cmd.CommandText = $"INSERT INTO SITERESPONSIBILITY VALUES ({site.ID}, {site.BSC}, {site.ENGINEER}, {site.RADIO_HO},{site.NSD_ENGINEER},{site.NSD_REGION},{site.SITE_CODE},{site.SITE_NAME},{site.RDATE},{site.SDATE},{site.NOT_EXISTE}, sysdate);";
-    }
-
-    oraCon.Open();
-    cmd.ExecuteScalar();
-}
-catch (Exception ex)
-{
-    Console.WriteLine(ex.Message);
-}
-finally
-{
-    oraCon.Close();
-}
+While Technical Performance Platform is used by most of Radio, Transmission and Core engineers to build their daily studies and share it with decision makers and due to receiving plenty of requests from many parties to make changes on Technical Performance Platform, 
