@@ -1,3 +1,3 @@
-SELECT TRIM (REGEXP_REPLACE (col1, '(\w+.\w+@\w+ ?)|(.)','\1')) dblink
-  FROM temp
-  where TRIM (REGEXP_REPLACE (col1, '(\w+.\w+@\w+ ?)|(.)', '\1')) is not null
+SELECT TRIM (REGEXP_REPLACE (col1, '(\w+\.+\w+@+\w+ )|(.)', '\1')) DbLinks
+FROM temp
+where TRIM (REGEXP_REPLACE (col1, '(\w+\.+\w+@+\w+ )|(.)', '\1')) is not null;
