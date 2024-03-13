@@ -1,13 +1,770 @@
-4	(SUM(TECH4_M1275072521.C1279173418)+SUM(TECH4_M1275072523.C1279175418))/NOZERO((SUM(TECH4_M1275072521.C1279173417)+SUM(TECH4_M1275072523.C1279175417)))
-5	(SUM(TECH4_M67109365.C67179460)+SUM(TECH4_M67109365.C67179464)+SUM(TECH4_M67109365.C67179459)+SUM(TECH4_M67109365.C67179465))/NOZERO(SUM(TECH4_M67109365.C67179332)+SUM(TECH4_M67109365.C67179331)+SUM(TECH4_M67109365.C67179337)+SUM(TECH4_M67109365.C67179336))
-6	(SUM(TECH4_M67109372.C67179928)+SUM(TECH4_M67109372.C67179925)+SUM(TECH4_M67109372.C67179927)+SUM(TECH4_M67109372.C67179926))/NOZERO(SUM(TECH4_M67109372.C67179924)+SUM(TECH4_M67109372.C67179921)+SUM(TECH4_M67109372.C67179923)+SUM(TECH4_M67109372.C67179922))
-
-
-
-
---------------------
-
-(min(TECH4_M1526726684.C1526726684)+min(TECH4_M1526726684.C1526726684)+min(TECH4_M1526726684.C1526726684)+min(TECH4_M1526726684.C1526726684)/NoZero(((min(TECH4_M1526726684.C1526726684)+min(TECH4_M1526726684.C1526726684)+min(TECH4_M1526726684.C1526726684)+min(TECH4_M1526726684.C1526726684))))+min(TECH4_M1526726684.C1526726684)+min(TECH4_M1526726684.C1526726684)+min(TECH4_M1526726684.C1526726684))
-
-
-(min(TECH4_M1526726684.C1526726684)+Case when (min(TECH4_M1526726684.C1526726684)>10) then (1) else (0)+PWR(((min(TECH4_M1526726684.C1526726684))),((2))))
+USE [shishand_tenor_db]
+GO
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 13/03/2024 10:31:19 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[__EFMigrationsHistory](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AccessLogs]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AccessLogs](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserName] [nvarchar](max) NOT NULL,
+	[IP] [nvarchar](max) NOT NULL,
+	[ResponseMessage] [nvarchar](max) NOT NULL,
+	[ActionDate] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_AccessLogs] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CounterFields]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CounterFields](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FieldId] [int] NOT NULL,
+	[IsActive] [bit] NOT NULL,
+ CONSTRAINT [PK_CounterFields] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CounterFieldValues]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CounterFieldValues](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CounterId] [int] NOT NULL,
+	[CounterFieldId] [int] NOT NULL,
+	[FieldValue] [nvarchar](max) NULL,
+ CONSTRAINT [PK_CounterFieldValues] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Counters]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Counters](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[SupplierId] [nvarchar](max) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[Code] [nvarchar](max) NULL,
+	[ColumnName] [nvarchar](max) NOT NULL,
+	[RefColumnName] [nvarchar](max) NOT NULL,
+	[Description] [nvarchar](max) NOT NULL,
+	[Aggregation] [nvarchar](max) NOT NULL,
+	[SubsetId] [int] NOT NULL,
+	[IsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_Counters] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DashboardFields]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DashboardFields](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FieldId] [int] NOT NULL,
+	[IsActive] [bit] NOT NULL,
+ CONSTRAINT [PK_DashboardFields] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DashboardFieldValues]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DashboardFieldValues](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[DashboardId] [int] NOT NULL,
+	[DashboardFieldId] [int] NOT NULL,
+	[FieldValue] [nvarchar](max) NULL,
+ CONSTRAINT [PK_DashboardFieldValues] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Dashboards]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Dashboards](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_Dashboards] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Devices]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Devices](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[Description] [nvarchar](max) NOT NULL,
+	[SupplierId] [nvarchar](max) NOT NULL,
+	[ParentId] [int] NULL,
+	[IsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_Devices] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ExtraFields]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ExtraFields](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[Type] [int] NOT NULL,
+	[Content] [nvarchar](max) NULL,
+	[Url] [nvarchar](max) NULL,
+	[IsMandatory] [bit] NOT NULL,
+ CONSTRAINT [PK_ExtraFields] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Functions]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Functions](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[ArgumentsCount] [int] NOT NULL,
+	[IsBool] [bit] NOT NULL,
+ CONSTRAINT [PK_Functions] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[GroupTenantRoles]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[GroupTenantRoles](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[GroupName] [nvarchar](50) NOT NULL,
+	[TenantId] [int] NULL,
+	[RoleId] [int] NOT NULL,
+ CONSTRAINT [PK_GroupTenantRoles] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[KpiFields]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[KpiFields](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FieldId] [int] NOT NULL,
+	[IsActive] [bit] NOT NULL,
+ CONSTRAINT [PK_KpiFields] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[KpiFieldValues]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[KpiFieldValues](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[KpiId] [int] NOT NULL,
+	[KpiFieldId] [int] NOT NULL,
+	[FieldValue] [nvarchar](max) NULL,
+ CONSTRAINT [PK_KpiFieldValues] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Kpis]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Kpis](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[OperationId] [int] NOT NULL,
+	[DeviceId] [int] NULL,
+	[CreatedBy] [nvarchar](max) NOT NULL,
+	[CreationDate] [datetime2](7) NOT NULL,
+	[IsPublic] [bit] NOT NULL,
+	[DeletedBy] [nvarchar](max) NULL,
+	[DeletedDate] [datetime2](7) NULL,
+	[ModifyBy] [nvarchar](max) NULL,
+	[ModifyDate] [datetime2](7) NULL,
+ CONSTRAINT [PK_Kpis] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Operations]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Operations](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Order] [int] NOT NULL,
+	[Value] [nvarchar](max) NULL,
+	[Type] [int] NOT NULL,
+	[Aggregation] [int] NOT NULL,
+	[CounterId] [int] NULL,
+	[KpiId] [int] NULL,
+	[FunctionId] [int] NULL,
+	[OperatorId] [int] NULL,
+	[ParentId] [int] NULL,
+ CONSTRAINT [PK_Operations] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Operators]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Operators](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Operators] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Permissions]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Permissions](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Permissions] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ReportFields]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ReportFields](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FieldId] [int] NOT NULL,
+	[IsActive] [bit] NOT NULL,
+ CONSTRAINT [PK_ReportFields] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ReportFieldValues]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ReportFieldValues](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ReportId] [int] NOT NULL,
+	[ReportFieldId] [int] NOT NULL,
+	[FieldValue] [nvarchar](max) NULL,
+ CONSTRAINT [PK_ReportFieldValues] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Reports]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Reports](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_Reports] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RolePermissions]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RolePermissions](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[RoleId] [int] NOT NULL,
+	[PermissionId] [int] NOT NULL,
+ CONSTRAINT [PK_RolePermissions] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Roles]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Roles](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Roles] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Subsets]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Subsets](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[SupplierId] [nvarchar](max) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[Description] [nvarchar](max) NOT NULL,
+	[TableName] [nvarchar](max) NOT NULL,
+	[RefTableName] [nvarchar](max) NOT NULL,
+	[SchemaName] [nvarchar](max) NOT NULL,
+	[RefSchema] [nvarchar](max) NOT NULL,
+	[MaxDataDate] [int] NULL,
+	[IsLoad] [bit] NOT NULL,
+	[DataTS] [nvarchar](max) NOT NULL,
+	[IndexTS] [nvarchar](max) NOT NULL,
+	[DbLink] [nvarchar](max) NOT NULL,
+	[RefDbLink] [nvarchar](max) NOT NULL,
+	[DeviceId] [int] NOT NULL,
+	[IsDeleted] [bit] NOT NULL,
+	[DimensionTable] [nvarchar](max) NOT NULL,
+	[FactDimensionReference] [nvarchar](max) NULL,
+	[GranularityPeriod] [int] NULL,
+	[JoinExpression] [nvarchar](max) NOT NULL,
+	[LoadPriorety] [int] NULL,
+	[StartChar] [nvarchar](1) NULL,
+	[SummaryType] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Subsets] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TenantDevice]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TenantDevice](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[TenantId] [int] NOT NULL,
+	[DeviceId] [int] NOT NULL,
+ CONSTRAINT [PK_TenantDevice] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tenants]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tenants](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Tenants] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UserTenantRoles]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserTenantRoles](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserName] [nvarchar](50) NOT NULL,
+	[TenantId] [int] NULL,
+	[RoleId] [int] NOT NULL,
+ CONSTRAINT [PK_UserTenantRoles] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UserTokens]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserTokens](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserName] [nvarchar](max) NOT NULL,
+	[Token] [nvarchar](max) NOT NULL,
+	[TokenExpired] [datetime2](7) NOT NULL,
+	[RefreshToken] [nvarchar](max) NOT NULL,
+	[RefreshTokenExpired] [datetime2](7) NOT NULL,
+	[CreatedAt] [datetime2](7) NOT NULL,
+	[IsActive] [bit] NOT NULL,
+ CONSTRAINT [PK_UserTokens] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [shishand_technicalda].[DeviceLevels]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [shishand_technicalda].[DeviceLevels](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[DeviceId] [int] NOT NULL,
+	[LevelId] [int] NOT NULL,
+ CONSTRAINT [PK_DeviceLevels] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [shishand_technicalda].[Levels]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [shishand_technicalda].[Levels](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_Levels] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [shishand_technicalda].[SubsetFields]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [shishand_technicalda].[SubsetFields](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FieldId] [int] NOT NULL,
+	[IsActive] [bit] NOT NULL,
+ CONSTRAINT [PK_SubsetFields] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [shishand_technicalda].[SubsetFieldValues]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [shishand_technicalda].[SubsetFieldValues](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[SubsetId] [int] NOT NULL,
+	[SubsetFieldId] [int] NOT NULL,
+	[FieldValue] [nvarchar](max) NULL,
+ CONSTRAINT [PK_SubsetFieldValues] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [shishand_technicalda].[Trees]    Script Date: 13/03/2024 10:31:20 ص ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [shishand_technicalda].[Trees](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[DeviceLevelId] [int] NOT NULL,
+	[ParentId] [int] NULL,
+ CONSTRAINT [PK_Trees] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[ExtraFields] ADD  DEFAULT (CONVERT([bit],(0))) FOR [IsMandatory]
+GO
+ALTER TABLE [dbo].[Kpis] ADD  DEFAULT (N'') FOR [CreatedBy]
+GO
+ALTER TABLE [dbo].[Kpis] ADD  DEFAULT ('0001-01-01T00:00:00.0000000') FOR [CreationDate]
+GO
+ALTER TABLE [dbo].[Kpis] ADD  DEFAULT (CONVERT([bit],(0))) FOR [IsPublic]
+GO
+ALTER TABLE [dbo].[Subsets] ADD  DEFAULT (N'') FOR [DimensionTable]
+GO
+ALTER TABLE [dbo].[Subsets] ADD  DEFAULT (N'') FOR [JoinExpression]
+GO
+ALTER TABLE [dbo].[CounterFields]  WITH CHECK ADD  CONSTRAINT [FK_CounterFields_ExtraFields_FieldId] FOREIGN KEY([FieldId])
+REFERENCES [dbo].[ExtraFields] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[CounterFields] CHECK CONSTRAINT [FK_CounterFields_ExtraFields_FieldId]
+GO
+ALTER TABLE [dbo].[CounterFieldValues]  WITH CHECK ADD  CONSTRAINT [FK_CounterFieldValues_CounterFields_CounterFieldId] FOREIGN KEY([CounterFieldId])
+REFERENCES [dbo].[CounterFields] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[CounterFieldValues] CHECK CONSTRAINT [FK_CounterFieldValues_CounterFields_CounterFieldId]
+GO
+ALTER TABLE [dbo].[CounterFieldValues]  WITH CHECK ADD  CONSTRAINT [FK_CounterFieldValues_Counters_CounterId] FOREIGN KEY([CounterId])
+REFERENCES [dbo].[Counters] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[CounterFieldValues] CHECK CONSTRAINT [FK_CounterFieldValues_Counters_CounterId]
+GO
+ALTER TABLE [dbo].[Counters]  WITH CHECK ADD  CONSTRAINT [FK_Counters_Subsets_SubsetId] FOREIGN KEY([SubsetId])
+REFERENCES [dbo].[Subsets] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Counters] CHECK CONSTRAINT [FK_Counters_Subsets_SubsetId]
+GO
+ALTER TABLE [dbo].[DashboardFields]  WITH CHECK ADD  CONSTRAINT [FK_DashboardFields_ExtraFields_FieldId] FOREIGN KEY([FieldId])
+REFERENCES [dbo].[ExtraFields] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[DashboardFields] CHECK CONSTRAINT [FK_DashboardFields_ExtraFields_FieldId]
+GO
+ALTER TABLE [dbo].[DashboardFieldValues]  WITH CHECK ADD  CONSTRAINT [FK_DashboardFieldValues_DashboardFields_DashboardFieldId] FOREIGN KEY([DashboardFieldId])
+REFERENCES [dbo].[DashboardFields] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[DashboardFieldValues] CHECK CONSTRAINT [FK_DashboardFieldValues_DashboardFields_DashboardFieldId]
+GO
+ALTER TABLE [dbo].[DashboardFieldValues]  WITH CHECK ADD  CONSTRAINT [FK_DashboardFieldValues_Dashboards_DashboardId] FOREIGN KEY([DashboardId])
+REFERENCES [dbo].[Dashboards] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[DashboardFieldValues] CHECK CONSTRAINT [FK_DashboardFieldValues_Dashboards_DashboardId]
+GO
+ALTER TABLE [dbo].[Devices]  WITH CHECK ADD  CONSTRAINT [FK_Devices_Devices_ParentId] FOREIGN KEY([ParentId])
+REFERENCES [dbo].[Devices] ([Id])
+GO
+ALTER TABLE [dbo].[Devices] CHECK CONSTRAINT [FK_Devices_Devices_ParentId]
+GO
+ALTER TABLE [dbo].[GroupTenantRoles]  WITH CHECK ADD  CONSTRAINT [FK_GroupTenantRoles_Roles_RoleId] FOREIGN KEY([RoleId])
+REFERENCES [dbo].[Roles] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[GroupTenantRoles] CHECK CONSTRAINT [FK_GroupTenantRoles_Roles_RoleId]
+GO
+ALTER TABLE [dbo].[GroupTenantRoles]  WITH CHECK ADD  CONSTRAINT [FK_GroupTenantRoles_Tenants_TenantId] FOREIGN KEY([TenantId])
+REFERENCES [dbo].[Tenants] ([Id])
+GO
+ALTER TABLE [dbo].[GroupTenantRoles] CHECK CONSTRAINT [FK_GroupTenantRoles_Tenants_TenantId]
+GO
+ALTER TABLE [dbo].[KpiFields]  WITH CHECK ADD  CONSTRAINT [FK_KpiFields_ExtraFields_FieldId] FOREIGN KEY([FieldId])
+REFERENCES [dbo].[ExtraFields] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[KpiFields] CHECK CONSTRAINT [FK_KpiFields_ExtraFields_FieldId]
+GO
+ALTER TABLE [dbo].[KpiFieldValues]  WITH CHECK ADD  CONSTRAINT [FK_KpiFieldValues_KpiFields_KpiFieldId] FOREIGN KEY([KpiFieldId])
+REFERENCES [dbo].[KpiFields] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[KpiFieldValues] CHECK CONSTRAINT [FK_KpiFieldValues_KpiFields_KpiFieldId]
+GO
+ALTER TABLE [dbo].[KpiFieldValues]  WITH CHECK ADD  CONSTRAINT [FK_KpiFieldValues_Kpis_KpiId] FOREIGN KEY([KpiId])
+REFERENCES [dbo].[Kpis] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[KpiFieldValues] CHECK CONSTRAINT [FK_KpiFieldValues_Kpis_KpiId]
+GO
+ALTER TABLE [dbo].[Kpis]  WITH CHECK ADD  CONSTRAINT [FK_Kpis_Devices_DeviceId] FOREIGN KEY([DeviceId])
+REFERENCES [dbo].[Devices] ([Id])
+GO
+ALTER TABLE [dbo].[Kpis] CHECK CONSTRAINT [FK_Kpis_Devices_DeviceId]
+GO
+ALTER TABLE [dbo].[Kpis]  WITH CHECK ADD  CONSTRAINT [FK_Kpis_Operations_OperationId] FOREIGN KEY([OperationId])
+REFERENCES [dbo].[Operations] ([Id])
+GO
+ALTER TABLE [dbo].[Kpis] CHECK CONSTRAINT [FK_Kpis_Operations_OperationId]
+GO
+ALTER TABLE [dbo].[Operations]  WITH CHECK ADD  CONSTRAINT [FK_Operations_Counters_CounterId] FOREIGN KEY([CounterId])
+REFERENCES [dbo].[Counters] ([Id])
+GO
+ALTER TABLE [dbo].[Operations] CHECK CONSTRAINT [FK_Operations_Counters_CounterId]
+GO
+ALTER TABLE [dbo].[Operations]  WITH CHECK ADD  CONSTRAINT [FK_Operations_Functions_FunctionId] FOREIGN KEY([FunctionId])
+REFERENCES [dbo].[Functions] ([Id])
+GO
+ALTER TABLE [dbo].[Operations] CHECK CONSTRAINT [FK_Operations_Functions_FunctionId]
+GO
+ALTER TABLE [dbo].[Operations]  WITH CHECK ADD  CONSTRAINT [FK_Operations_Kpis_KpiId] FOREIGN KEY([KpiId])
+REFERENCES [dbo].[Kpis] ([Id])
+GO
+ALTER TABLE [dbo].[Operations] CHECK CONSTRAINT [FK_Operations_Kpis_KpiId]
+GO
+ALTER TABLE [dbo].[Operations]  WITH CHECK ADD  CONSTRAINT [FK_Operations_Operators_OperatorId] FOREIGN KEY([OperatorId])
+REFERENCES [dbo].[Operators] ([Id])
+GO
+ALTER TABLE [dbo].[Operations] CHECK CONSTRAINT [FK_Operations_Operators_OperatorId]
+GO
+ALTER TABLE [dbo].[ReportFields]  WITH CHECK ADD  CONSTRAINT [FK_ReportFields_ExtraFields_FieldId] FOREIGN KEY([FieldId])
+REFERENCES [dbo].[ExtraFields] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ReportFields] CHECK CONSTRAINT [FK_ReportFields_ExtraFields_FieldId]
+GO
+ALTER TABLE [dbo].[ReportFieldValues]  WITH CHECK ADD  CONSTRAINT [FK_ReportFieldValues_ReportFields_ReportFieldId] FOREIGN KEY([ReportFieldId])
+REFERENCES [dbo].[ReportFields] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ReportFieldValues] CHECK CONSTRAINT [FK_ReportFieldValues_ReportFields_ReportFieldId]
+GO
+ALTER TABLE [dbo].[ReportFieldValues]  WITH CHECK ADD  CONSTRAINT [FK_ReportFieldValues_Reports_ReportId] FOREIGN KEY([ReportId])
+REFERENCES [dbo].[Reports] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ReportFieldValues] CHECK CONSTRAINT [FK_ReportFieldValues_Reports_ReportId]
+GO
+ALTER TABLE [dbo].[RolePermissions]  WITH CHECK ADD  CONSTRAINT [FK_RolePermissions_Permissions_PermissionId] FOREIGN KEY([PermissionId])
+REFERENCES [dbo].[Permissions] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[RolePermissions] CHECK CONSTRAINT [FK_RolePermissions_Permissions_PermissionId]
+GO
+ALTER TABLE [dbo].[RolePermissions]  WITH CHECK ADD  CONSTRAINT [FK_RolePermissions_Roles_RoleId] FOREIGN KEY([RoleId])
+REFERENCES [dbo].[Roles] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[RolePermissions] CHECK CONSTRAINT [FK_RolePermissions_Roles_RoleId]
+GO
+ALTER TABLE [dbo].[Subsets]  WITH CHECK ADD  CONSTRAINT [FK_Subsets_Devices_DeviceId] FOREIGN KEY([DeviceId])
+REFERENCES [dbo].[Devices] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Subsets] CHECK CONSTRAINT [FK_Subsets_Devices_DeviceId]
+GO
+ALTER TABLE [dbo].[TenantDevice]  WITH CHECK ADD  CONSTRAINT [FK_TenantDevice_Devices_DeviceId] FOREIGN KEY([DeviceId])
+REFERENCES [dbo].[Devices] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[TenantDevice] CHECK CONSTRAINT [FK_TenantDevice_Devices_DeviceId]
+GO
+ALTER TABLE [dbo].[TenantDevice]  WITH CHECK ADD  CONSTRAINT [FK_TenantDevice_Tenants_TenantId] FOREIGN KEY([TenantId])
+REFERENCES [dbo].[Tenants] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[TenantDevice] CHECK CONSTRAINT [FK_TenantDevice_Tenants_TenantId]
+GO
+ALTER TABLE [dbo].[UserTenantRoles]  WITH CHECK ADD  CONSTRAINT [FK_UserTenantRoles_Roles_RoleId] FOREIGN KEY([RoleId])
+REFERENCES [dbo].[Roles] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[UserTenantRoles] CHECK CONSTRAINT [FK_UserTenantRoles_Roles_RoleId]
+GO
+ALTER TABLE [dbo].[UserTenantRoles]  WITH CHECK ADD  CONSTRAINT [FK_UserTenantRoles_Tenants_TenantId] FOREIGN KEY([TenantId])
+REFERENCES [dbo].[Tenants] ([Id])
+GO
+ALTER TABLE [dbo].[UserTenantRoles] CHECK CONSTRAINT [FK_UserTenantRoles_Tenants_TenantId]
+GO
+ALTER TABLE [shishand_technicalda].[DeviceLevels]  WITH CHECK ADD  CONSTRAINT [FK_DeviceLevels_Devices_DeviceId] FOREIGN KEY([DeviceId])
+REFERENCES [dbo].[Devices] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [shishand_technicalda].[DeviceLevels] CHECK CONSTRAINT [FK_DeviceLevels_Devices_DeviceId]
+GO
+ALTER TABLE [shishand_technicalda].[DeviceLevels]  WITH CHECK ADD  CONSTRAINT [FK_DeviceLevels_Levels_LevelId] FOREIGN KEY([LevelId])
+REFERENCES [shishand_technicalda].[Levels] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [shishand_technicalda].[DeviceLevels] CHECK CONSTRAINT [FK_DeviceLevels_Levels_LevelId]
+GO
+ALTER TABLE [shishand_technicalda].[SubsetFields]  WITH CHECK ADD  CONSTRAINT [FK_SubsetFields_ExtraFields_FieldId] FOREIGN KEY([FieldId])
+REFERENCES [dbo].[ExtraFields] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [shishand_technicalda].[SubsetFields] CHECK CONSTRAINT [FK_SubsetFields_ExtraFields_FieldId]
+GO
+ALTER TABLE [shishand_technicalda].[SubsetFieldValues]  WITH CHECK ADD  CONSTRAINT [FK_SubsetFieldValues_SubsetFields_SubsetFieldId] FOREIGN KEY([SubsetFieldId])
+REFERENCES [shishand_technicalda].[SubsetFields] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [shishand_technicalda].[SubsetFieldValues] CHECK CONSTRAINT [FK_SubsetFieldValues_SubsetFields_SubsetFieldId]
+GO
+ALTER TABLE [shishand_technicalda].[SubsetFieldValues]  WITH CHECK ADD  CONSTRAINT [FK_SubsetFieldValues_Subsets_SubsetId] FOREIGN KEY([SubsetId])
+REFERENCES [dbo].[Subsets] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [shishand_technicalda].[SubsetFieldValues] CHECK CONSTRAINT [FK_SubsetFieldValues_Subsets_SubsetId]
+GO
+ALTER TABLE [shishand_technicalda].[Trees]  WITH CHECK ADD  CONSTRAINT [FK_Trees_DeviceLevels_DeviceLevelId] FOREIGN KEY([DeviceLevelId])
+REFERENCES [shishand_technicalda].[DeviceLevels] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [shishand_technicalda].[Trees] CHECK CONSTRAINT [FK_Trees_DeviceLevels_DeviceLevelId]
+GO
+ALTER TABLE [shishand_technicalda].[Trees]  WITH CHECK ADD  CONSTRAINT [FK_Trees_Trees_ParentId] FOREIGN KEY([ParentId])
+REFERENCES [shishand_technicalda].[Trees] ([Id])
+GO
+ALTER TABLE [shishand_technicalda].[Trees] CHECK CONSTRAINT [FK_Trees_Trees_ParentId]
+GO
