@@ -1,15 +1,23 @@
-Central	Hama
-Central	Homs
-Coastal	Latakia
-Coastal	Tartous
-Eastern	Deir Alzor
-Eastern	Hasakeh
-Eastern	Raqa
-NA	NA
-Northern	Aleppo
-Northern	Idleb
-Southern	Damascus
-Southern	Damascus Rural
-Southern	Daraa
-Southern	Kounaitra
-Southern	Sweida
+Central
+Coastal
+Eastern
+NA
+Northern
+Southern
+
+
+Aleppo
+Damascus
+Damascus Rural
+Daraa
+Deir Alzor
+Hama
+Hasakeh
+Homs
+Idleb
+Kounaitra
+Latakia
+NA
+Raqa
+Sweida
+Tartous
