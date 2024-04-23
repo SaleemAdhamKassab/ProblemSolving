@@ -1,18 +1,58 @@
-TECH5_BSIC_TRFIC_STTIS_INDCTRS27_15	ROUTER
-TECH5_ROUTER_INTERFACE_INDICATOR60011_15	ROUTER
-TECH5_BSIC_TRFIC_STTIS_INDCTRS27_15_DETAILS	ROUTER(Min)
-TECH5_ROUTER_INTERFACE_INDICATOR60011_15__DETAILS	ROUTER(Min)
-TECH5_RTN_IF_PORT_SDH_PERFORMANCE	RTN
-TECH5_RTN_ODU_PRT_SDH_PRF	RTN
-TECH5_RTN_PTN_ETH_PRT_RMON_PRF	RTN
-TECH5_ODU_BOARD_SDH_PERFORMANCE	RTN
-TECH5_IF_BOARD_SDH_PERFORMANCE	RTN
-TECH5_T_SIAE_PM_ODU	RTN
-TECH5_T_SIAE_PM_ETH	RTN
-TECH5_RTN_IF_PORT_SDH_PERFORMANCE_DETAILS	RTN(Min)
-TECH5_IF_BOARD_SDH_PERFORMANCE_DETAILS	RTN(Min)
-TECH5_RTN_ODU_PRT_SDH_PRF_DETAILS	RTN(Min)
-TECH5_T_SIAE_PM_ETH_DETAILS	RTN(Min)
-TECH5_RTN_PTN_ETH_PRT_RMON_PRF_DETAILS	RTN(Min)
-TECH5_ODU_BOARD_SDH_PERFORMANCE_DETAILS	RTN(Min)
-TECH5_T_SIAE_PM_ODU_DETAILS	RTN(Min)
+'GGSN Basic session measurement by traffic class',
+'SGW Forwarding performance measurement',
+'Gy interface performance measurement',
+'GGSN Users number measurement',
+'FORWARDING PERFORMANCE MEASUREMENT',
+'BASIC SESSION PERFORMANCE MEASUREMENT',
+'L7 parser performance measurement',
+'Ga interface performance measurement',
+'Online performance measurement',
+'GGSN Transport performance measurement by traffic class',
+'Gx interface performance measurement',
+'AAA performance measurement',
+'Gb mode attach',
+'Gb mode radio resource',
+'GB MODE SM RESOURCE',
+'GTPU message processing',
+'IU MODE PDP CONTEXT ACTIVATION',
+'Gb mode security',
+'Iu mode about tunnel ',
+'SGSN NS ',
+'Gb mode Inter-SGSN RAU',
+'IU MODE DEATTACH',
+'SGSN SNDCP',
+'Iu mode paging',
+'MTP SIGNALLING LINK',
+'APN CORRECTION',
+'Gb mode detach',
+'GTPU Gp Interface',
+'Gb mode paging',
+'GB MODE PDP CONTEXT DEACTIVATION',
+'GTPU bearer',
+'Gb mode intra-SGSN RAU',
+'GB MODE SERVICE HANDOVER',
+'GTPU data packets transfer per QOS class',
+'IU MODE RADIO RESOURCE',
+'Iu mode RAB',
+'IU MODE SM RESOURCE',
+'S1 mode user resource',
+'SGSN FR',
+'IU MODE PDP CONTEXT DEACTIVATION',
+'SGSN LLC ',
+'IU MODE INTER SGSN RAU',
+'CAMEL',
+'GB MODE PDP CONTEXT MODIFICATION',
+'GTPU data packet transfer',
+'(SGW + PGW) Traffic',
+'WCDMA Assignment',
+'Call Answer',
+'Successful Mobile Terminated Calls',
+'Number of VLR Subscribers',
+'Short Message Service',
+'MSC Basic Services',
+'Subscribers Measurement Based on MME',
+'S1 mode paging',
+'S1 mode service request',
+'S1 mode bearer activation',
+'S1 mode intra-MME handover',
+'S1 mode intra-MME tracking area update'
