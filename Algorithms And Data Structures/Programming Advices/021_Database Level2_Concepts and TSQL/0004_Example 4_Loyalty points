@@ -1,0 +1,28 @@
+select * from Customers;
+select * from Purchases;
+----------------- My Solution ----------------
+
+-- Declare variables
+DECLARE @CustomerID INT;
+DECLARE @TotalSpent DECIMAL(10, 2);
+DECLARE @PointsEarned INT;
+DECLARE @CurrentYear INT = YEAR(GETDATE());
+
+-- Initialize CustomerID
+SET @CustomerID = 1; -- Example: Calculate points for CustomerID 1
+
+SELECT @TotalSpent = SUM(Amount)
+FROM Purchases
+WHERE CustomerID = @CustomerID AND YEAR(PurchaseDate) = @CurrentYear;
+
+SET @PointsEarned = CAST(@TotalSpent / 10 AS INT);
+
+update Customers set LoyaltyPoints = LoyaltyPoints+  @PointsEarned where CustomerID =@CustomerID;
+
+
+
+
+-- Print the results
+PRINT 'Loyalty Points Update for Customer ID: ' + CAST(@CustomerID AS VARCHAR);
+PRINT 'Total Amount Spent in ' + CAST(@CurrentYear AS VARCHAR) + ': $' + CAST(@TotalSpent AS VARCHAR);
+PRINT 'Loyalty Points Earned: ' + CAST(@PointsEarned AS VARCHAR);
