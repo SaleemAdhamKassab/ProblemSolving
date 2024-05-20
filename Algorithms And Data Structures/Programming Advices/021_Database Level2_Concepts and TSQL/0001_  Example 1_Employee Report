@@ -1,0 +1,26 @@
+select * from departments;
+select * from employees;
+
+------------- Solution
+
+
+-- Step 1: Declare variables
+DECLARE @DepartmentID INT; -- Variable for department ID
+DECLARE @StartDate DATE; -- Variable for start date
+DECLARE @EndDate DATE; -- Variable for end date
+DECLARE @TotalEmployees INT; -- Variable to hold the total number of employees
+DECLARE @DepartmentName VARCHAR(50); -- Variable for department name
+
+-- Step 2: Initialize variables
+SET @DepartmentID = 3; -- Assign a specific department ID
+SET @StartDate = '2023-01-01'; -- Set start date for the report
+SET @EndDate = '2023-12-31'; -- Set end date for the report
+
+select @DepartmentName = Name from departments where DepartmentID = @DepartmentID;
+select @TotalEmployees = count(*) from Employees where departmentid = @DepartmentID AND HireDate BETWEEN @StartDate AND @EndDate;
+
+-- Step 5: Print the report
+PRINT 'Department Report';
+PRINT 'Department Name: ' + @DepartmentName;
+PRINT 'Reporting Period: ' + CAST(@StartDate AS VARCHAR) + ' to ' + CAST(@EndDate AS VARCHAR);
+PRINT 'Total Employees Hired in ' + CAST(YEAR(@StartDate) AS VARCHAR) + ': ' + CAST(@TotalEmployees AS VARCHAR);
