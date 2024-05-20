@@ -1,0 +1,25 @@
+select * from Sales;
+---------------------
+
+-- Declare variables
+DECLARE @Year INT;
+DECLARE @Month INT;
+DECLARE @TotalSales DECIMAL(10, 2);
+DECLARE @TotalTransactions INT;
+DECLARE @AverageSale DECIMAL(10, 2);
+
+-- Initialize variables
+SET @Year = 2023; -- Set the year for the report
+SET @Month = 6; -- Set the month for the report
+select @TotalSales = sum(saleAmount) from sales WHERE YEAR(SaleDate) = @Year AND MONTH(SaleDate) = @Month;
+select @TotalTransactions = count(saleAmount) from sales WHERE YEAR(SaleDate) = @Year AND MONTH(SaleDate) = @Month;
+select @AverageSale = avg(saleAmount) from sales WHERE YEAR(SaleDate) = @Year AND MONTH(SaleDate) = @Month;
+
+
+-- Print the report
+PRINT 'Monthly Sales Summary Report';
+PRINT 'Year: ' + CAST(@Year AS VARCHAR) + ', Month: ' + CAST(@Month AS VARCHAR);
+PRINT 'Total Sales: ' + CAST(@TotalSales AS VARCHAR);
+PRINT 'Total Transactions: ' + CAST(@TotalTransactions AS VARCHAR);
+
+PRINT 'Average Sale Value: ' + CAST(@AverageSale AS VARCHAR);
