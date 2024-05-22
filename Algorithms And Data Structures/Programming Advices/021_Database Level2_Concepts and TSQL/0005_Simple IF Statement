@@ -1,0 +1,6 @@
+declare @a int =20, @b int = 10;
+
+if @a> @b
+begin
+print 'yes a greater than b';
+end;
