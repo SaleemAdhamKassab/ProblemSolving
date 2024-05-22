@@ -1,0 +1,11 @@
+select name, case (departmentid)
+					when 1 then 'HR'
+					when 2 then 'Marketing'
+					when 3 then 'Sales'
+					when 4 then 'IT'
+			   else  'Other'
+			   end
+			   As 'Department Name'
+
+
+from Employees;
