@@ -1,0 +1,12 @@
+select * from Employees;
+
+declare @errorValue int;
+
+insert into Employees (Name) values ('saleem Kassab');
+
+set @errorValue = @@ERROR;
+
+if(@errorValue <> 0)
+begin
+	print concat('Error number in insert statement is : ', @errorValue);
+end;
