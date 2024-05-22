@@ -1,0 +1,26 @@
+declare @age int;
+set @age	 = 18;
+
+if (@age >=18)
+	begin
+	 print 'Adult';
+	 end;
+else
+	begin
+		print 'Minor';
+	end;
+-----------------------
+declare @a int, @b int, @max int;
+set @a=10; 
+set @b = 20;
+
+if(@a >= @b)
+	begin
+	set @max = @a;
+	end;
+else
+	begin
+	set @max = @b;
+	end;
+
+print concat('The max number is: ' ,  @max);
