@@ -1,0 +1,11 @@
+declare @year int;
+set @year = 2000;
+
+if (@year > 2000)
+	begin
+	 print '21st century';
+	 end;
+else
+	begin
+		print '20st century or earlier';
+	end;
