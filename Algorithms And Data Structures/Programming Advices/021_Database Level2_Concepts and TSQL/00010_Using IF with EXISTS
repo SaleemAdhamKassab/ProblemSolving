@@ -1,0 +1,11 @@
+select * from Employees;
+-------------------
+
+if exists (select * from Employees where name = 'John Smith')
+	begin
+		print('yes, the employee John Smith is exists');
+	end
+else
+	begin
+		print('No, the employee John Smith is not exists');
+	end
