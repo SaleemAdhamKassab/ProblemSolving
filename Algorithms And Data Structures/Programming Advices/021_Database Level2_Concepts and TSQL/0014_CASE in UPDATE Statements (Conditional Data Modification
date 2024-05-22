@@ -1,0 +1,7 @@
+update Employees2
+	set salary  = 
+	case when PerformanceRating > 90 then salary * 1.15
+		 when PerformanceRating between 75 and 90 then salary * 1.10
+		 when PerformanceRating between 50 and 75 then salary * 1.05
+	else  salary
+end;
