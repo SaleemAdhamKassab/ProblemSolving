@@ -1,0 +1,34 @@
+------------------ Example 1 AND ------------------------------
+declare @age int = 18, @salary decimal(10,2) = 50000;
+
+if(@age >= 18 and @salary >= 50000)
+	begin
+		print 'elegible for the loan';
+	end;
+else
+	begin
+		print 'Not elegible for the loan';
+	end;
+------------------ Example 2 OR ------------------------------
+declare @grade char(1) = 'b', @attendancePercentage int = 75;
+
+if(@grade = 'a' Or @attendancePercentage >70)
+	begin
+		print 'qualified for extracurricular activities';
+	end;
+else
+	begin
+		print 'Not qualified for extracurricular activities';
+	end;
+
+------------------ Example 3 Not------------------------------
+declare @customerStatus nvarchar(10) = 'inactive';
+
+if Not (@customerStatus = 'active')
+	begin
+		print 'send re-engagement email';
+	end;
+else
+	begin
+		print 'customer is active';
+	end;
