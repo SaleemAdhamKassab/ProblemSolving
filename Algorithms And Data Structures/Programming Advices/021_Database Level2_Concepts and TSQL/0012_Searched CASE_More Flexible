@@ -1,0 +1,10 @@
+select *,
+	case 
+	when SaleAmount <=100 then 'week'
+	when SaleAmount between 101 and 200 then 'good'
+	when SaleAmount between 201 and 300 then 'very goog'
+	when SaleAmount > 300 then 'excelent'
+	end
+	As 'Sale Level'
+
+from Sales
