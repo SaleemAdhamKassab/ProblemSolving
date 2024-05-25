@@ -1,0 +1,24 @@
+select *, 
+Bounes = 
+case
+	when Department = 'Sales' then 
+		case
+			when PerformanceRating  > 90 then Salary * 0.15
+			when PerformanceRating  between  75 and 90  then Salary * 0.10
+			else Salary * 0.5 
+		end 
+	
+	when Department = 'HR' then 
+		case
+			when PerformanceRating  > 90 then Salary * 0.10
+			when PerformanceRating  between  75 and 90  then Salary * 0.8
+			else Salary * 0.4
+		end 
+else 
+		case
+			when PerformanceRating  > 90 then Salary * 0.8
+			when PerformanceRating  between  75 and 90  then Salary * 0.6
+			else Salary * 0.3
+		end 
+end
+from Employees2;
