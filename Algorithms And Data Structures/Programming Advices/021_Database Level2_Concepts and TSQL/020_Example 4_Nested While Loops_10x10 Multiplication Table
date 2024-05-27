@@ -1,0 +1,16 @@
+declare @i int = 1, @j int;
+
+while @i<=10 
+begin
+print concat ('-----',@i,'-----');
+	set @j=1;
+	while @j<=10 
+		begin
+		
+			PRINT CAST(@i AS VARCHAR) + ' x ' + CAST(@j AS VARCHAR) + ' = ' + CAST(@i * @j AS VARCHAR);
+			set @j = @j+1;
+		end;	
+	
+	set @i = @i+1;
+	
+end;
