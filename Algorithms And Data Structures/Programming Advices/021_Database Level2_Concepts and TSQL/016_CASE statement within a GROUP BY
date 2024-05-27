@@ -1,0 +1,10 @@
+select q1.PerformanceCategory 'Performance Category', count(*) 'Number of Employees', AVG(q1.Salary) 'Average Salary', sum(q1.Salary) 'Sum Salary'
+from(select *,
+		case 
+			when PerformanceRating between 80 and 100 then 'High'
+			when PerformanceRating between 60 and 79 then 'Medium'
+			else 'Low'
+
+		end  PerformanceCategory 
+		from Employees2) q1
+group by q1.PerformanceCategory;
