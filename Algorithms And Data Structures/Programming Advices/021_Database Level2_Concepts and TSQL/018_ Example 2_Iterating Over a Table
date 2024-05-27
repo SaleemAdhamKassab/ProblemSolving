@@ -1,0 +1,13 @@
+select * from Employees;
+
+declare @empId int, @rowsCount int, @empName varchar(50);
+
+select @rowsCount=  count(*) from employees;
+select @empId=  min(employeeId) from employees;
+
+while @empId <= @rowsCount
+begin
+	select @empName= name from employees where EmployeeId = @empId;
+	print @empName;
+	set @empId = @empId + 1;
+end;
