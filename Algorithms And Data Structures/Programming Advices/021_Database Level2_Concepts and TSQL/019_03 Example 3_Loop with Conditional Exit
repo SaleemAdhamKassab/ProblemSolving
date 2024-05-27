@@ -1,0 +1,10 @@
+declare @balance int = 1000, @withdraw int =100;
+
+while @balance >= @withdraw
+begin
+	set @balance = @balance - @withdraw;
+	if (@balance < @withdraw)
+		print ('insufficient fund for withdrawal');
+	else
+	 print concat('New Balance is: ', @balance);
+end;
