@@ -1,0 +1,17 @@
+declare @i int = 1, @j int, @rowString varchar(255);
+print ('    1     2   3   4   5   6   7   8   9   10') + char(9);
+print ('____________________________________________');
+while @i<=10 
+begin
+	set @j=1;
+	set @rowString='';
+	while @j<=10 
+		begin
+			--print CAST(@i AS VARCHAR) + ' x ' + CAST(@j AS VARCHAR) + ' = ' + CAST(@i * @j AS VARCHAR);
+			set @rowString = concat(@rowString,' ',@i*@j) + char(9); 
+			set @j = @j+1;
+		end;
+	print concat(@i,'  ',@rowString);	
+	set @i = @i+1;
+
+end;
