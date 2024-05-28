@@ -1,0 +1,10 @@
+declare @quantity int =0;
+
+begin try 
+	if(@quantity <=0)
+		throw 50001,'saleemCustomeError',1;
+end try
+
+begin catch
+ print concat ('error number: ',error_number(), ' ,errorMessage: ',error_message());	
+end catch
