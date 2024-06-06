@@ -1,277 +1,95 @@
 -- Create table
-create table TECH4_M67109450
+create table TECH2_DIM_DATE_TIME
 (
-  bsc_id    NUMBER not null,
-  c_date    NUMBER not null,
-  c67199465 NUMBER,
-  c67199466 NUMBER,
-  c67199467 NUMBER,
-  c67199468 NUMBER
+  date_time_key           NUMBER not null,
+  time_hour               VARCHAR2(2),
+  full_date_alternate_key DATE,
+  short_day_name          VARCHAR2(3),
+  day_name                VARCHAR2(10),
+  day_number_of_week      NUMBER,
+  day_number_of_month     NUMBER,
+  day_number_of_year      NUMBER,
+  previous_day            DATE,
+  next_day                DATE,
+  week_number_of_year     NUMBER,
+  week_number_of_month    NUMBER,
+  month_name              VARCHAR2(10),
+  month_number_of_year    NUMBER,
+  quarter_number_of_year  NUMBER,
+  calender_year           NUMBER not null,
+  calender_semester       VARCHAR2(10),
+  weenkend_flag           NUMBER,
+  holiday_flag            NUMBER,
+  current_day             DATE not null,
+  year_time_span          NUMBER,
+  quarter_time_span       NUMBER,
+  month_time_span         NUMBER,
+  day_time_span           NUMBER,
+  hour_time_span          NUMBER,
+  year_end_date           DATE,
+  quarter_end_date        DATE,
+  month_end_date          DATE,
+  day_end_date            DATE,
+  hour_end_date           DATE,
+  real_month              VARCHAR2(10) not null,
+  real_quarter            VARCHAR2(10) not null,
+  real_month_date         DATE,
+  real_quarter_date       DATE,
+  real_year_date          DATE,
+  char_day                CHAR(10)
 )
-partition by range (C_DATE)
-(
-  partition TECH4_M67109450_2022_12 values less than (2023010100)
-    tablespace TECH_DATA_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2023_01 values less than (2023020100)
-    tablespace TECH_DATA_2022_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2023_02 values less than (2023030100)
-    tablespace TECH_DATA_2022_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2023_03 values less than (2023040100)
-    tablespace TECH_DATA_2022_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2023_04 values less than (2023050100)
-    tablespace TECH_DATA_2022_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2023_05 values less than (2023060100)
-    tablespace TECH_DATA_2022_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2023_06 values less than (2023070100)
-    tablespace TECH_DATA_2022_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2023_07 values less than (2023080100)
-    tablespace TECH_DATA_2022_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2023_08 values less than (2023090100)
-    tablespace TECH_DATA_2022_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2023_09 values less than (2023100100)
-    tablespace TECH_DATA_2022_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2023_10 values less than (2023110100)
-    tablespace TECH_DATA_2022_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2023_11 values less than (2023120100)
-    tablespace TECH_DATA_2022_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2023_12 values less than (2024010100)
-    tablespace TECH_DATA_2022_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2024_01 values less than (2024020100)
-    tablespace TECH_DATA_2022_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2024_02 values less than (2024030100)
-    tablespace TECH_DATA_2024_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2024_03 values less than (2024040100)
-    tablespace TECH_DATA_2024_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2024_04 values less than (2024050100)
-    tablespace TECH_DATA_2024_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2024_05 values less than (2024060100)
-    tablespace TECH_DATA_2024_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2024_06 values less than (2024070100)
-    tablespace TECH_DATA_2024_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-    storage
-    (
-      initial 8M
-      next 1M
-      minextents 1
-      maxextents unlimited
-    ),
-  partition TECH4_M67109450_2024_07 values less than (2024080100)
-    tablespace TECH_DATA_2024_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255,
-  partition TECH4_M67109450_2024_08 values less than (2024090100)
-    tablespace TECH_DATA_2024_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255,
-  partition TECH4_M67109450_2024_09 values less than (2024100100)
-    tablespace TECH_DATA_2024_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255,
-  partition TECH4_M67109450_2024_10 values less than (2024110100)
-    tablespace TECH_DATA_2024_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255,
-  partition TECH4_M67109450_2024_11 values less than (2024120100)
-    tablespace TECH_DATA_2024_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255,
-  partition TECH4_M67109450_2024_12 values less than (2025010100)
-    tablespace TECH_DATA_2024_TS
-    pctfree 10
-    initrans 1
-    maxtrans 255
-);
+tablespace TECH_DATA_TS
+  pctfree 0
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+compress;
+-- Create/Recreate indexes 
+create bitmap index IDX_CURRENT_DAY on TECH2_DIM_DATE_TIME (CURRENT_DAY)
+  tablespace TECH_IDX_TS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create bitmap index INDX_MTH on TECH2_DIM_DATE_TIME (REAL_MONTH)
+  tablespace TECH_IDX_TS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create bitmap index INDX_YR on TECH2_DIM_DATE_TIME (CALENDER_YEAR)
+  tablespace TECH_IDX_TS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
 -- Create/Recreate primary, unique and foreign key constraints 
-alter table TECH4_M67109450
-  add constraint PK_TECH4_M67109450 primary key (BSC_ID, C_DATE)
+alter table TECH2_DIM_DATE_TIME
+  add constraint PK_TECH2_DIM_DATE_TIME primary key (DATE_TIME_KEY)
   using index 
   tablespace TECH_IDX_TS
   pctfree 10
@@ -284,6 +102,3 @@ alter table TECH4_M67109450
     minextents 1
     maxextents unlimited
   );
-alter table TECH4_M67109450
-  add constraint FK_TECH4_M67109450_TIME foreign key (C_DATE)
-  references TECH2_DIM_DATE_TIME (DATE_TIME_KEY);
