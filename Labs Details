@@ -1,58 +1,1098 @@
-'GGSN Basic session measurement by traffic class',
-'SGW Forwarding performance measurement',
-'Gy interface performance measurement',
-'GGSN Users number measurement',
-'FORWARDING PERFORMANCE MEASUREMENT',
-'BASIC SESSION PERFORMANCE MEASUREMENT',
-'L7 parser performance measurement',
-'Ga interface performance measurement',
-'Online performance measurement',
-'GGSN Transport performance measurement by traffic class',
-'Gx interface performance measurement',
-'AAA performance measurement',
-'Gb mode attach',
-'Gb mode radio resource',
-'GB MODE SM RESOURCE',
-'GTPU message processing',
-'IU MODE PDP CONTEXT ACTIVATION',
-'Gb mode security',
-'Iu mode about tunnel ',
-'SGSN NS ',
-'Gb mode Inter-SGSN RAU',
-'IU MODE DEATTACH',
-'SGSN SNDCP',
-'Iu mode paging',
-'MTP SIGNALLING LINK',
-'APN CORRECTION',
-'Gb mode detach',
-'GTPU Gp Interface',
-'Gb mode paging',
-'GB MODE PDP CONTEXT DEACTIVATION',
-'GTPU bearer',
-'Gb mode intra-SGSN RAU',
-'GB MODE SERVICE HANDOVER',
-'GTPU data packets transfer per QOS class',
-'IU MODE RADIO RESOURCE',
-'Iu mode RAB',
-'IU MODE SM RESOURCE',
-'S1 mode user resource',
-'SGSN FR',
-'IU MODE PDP CONTEXT DEACTIVATION',
-'SGSN LLC ',
-'IU MODE INTER SGSN RAU',
-'CAMEL',
-'GB MODE PDP CONTEXT MODIFICATION',
-'GTPU data packet transfer',
-'(SGW + PGW) Traffic',
-'WCDMA Assignment',
-'Call Answer',
-'Successful Mobile Terminated Calls',
-'Number of VLR Subscribers',
-'Short Message Service',
-'MSC Basic Services',
-'Subscribers Measurement Based on MME',
-'S1 mode paging',
-'S1 mode service request',
-'S1 mode bearer activation',
-'S1 mode intra-MME handover',
-'S1 mode intra-MME tracking area update'
+-- Create table
+create table TECH4_M67109391
+(
+  cell_id   NUMBER,
+  c_date    NUMBER,
+  c67180675 NUMBER,
+  c67180676 NUMBER,
+  c67180677 NUMBER,
+  c67180678 NUMBER,
+  c67181071 NUMBER,
+  c67181072 NUMBER,
+  c67181073 NUMBER,
+  c67181074 NUMBER,
+  c67181075 NUMBER,
+  c67181076 NUMBER,
+  c67181077 NUMBER,
+  c67181078 NUMBER,
+  c67181079 NUMBER,
+  c67181080 NUMBER,
+  c67184359 NUMBER,
+  c67189852 NUMBER,
+  c67189853 NUMBER,
+  c67189856 NUMBER,
+  c67189857 NUMBER,
+  c67189858 NUMBER,
+  c67189859 NUMBER,
+  c67190435 NUMBER,
+  c67190436 NUMBER,
+  c67190437 NUMBER,
+  c67190438 NUMBER,
+  c67190439 NUMBER,
+  c67190440 NUMBER,
+  c67190441 NUMBER,
+  c67190442 NUMBER,
+  c67190443 NUMBER,
+  c67190444 NUMBER,
+  c67190519 NUMBER,
+  c67190520 NUMBER,
+  c67190706 NUMBER,
+  c67190707 NUMBER,
+  c67190846 NUMBER,
+  c67190847 NUMBER,
+  c67191150 NUMBER,
+  c67191151 NUMBER,
+  c67191152 NUMBER,
+  c67191165 NUMBER,
+  c67191166 NUMBER,
+  c67191167 NUMBER,
+  c67191168 NUMBER,
+  c67191839 NUMBER,
+  c67191840 NUMBER,
+  c67191841 NUMBER,
+  c67191842 NUMBER,
+  c67191843 NUMBER,
+  c67191844 NUMBER,
+  c67192001 NUMBER,
+  c67192002 NUMBER,
+  c67192003 NUMBER,
+  c67192004 NUMBER,
+  c67192397 NUMBER,
+  c67192398 NUMBER,
+  c67192426 NUMBER,
+  c67192427 NUMBER,
+  c67192492 NUMBER,
+  c67192493 NUMBER,
+  c67192549 NUMBER,
+  c67192583 NUMBER,
+  c67192584 NUMBER,
+  c67192585 NUMBER,
+  c67192586 NUMBER,
+  c67192587 NUMBER,
+  c67192588 NUMBER,
+  c67192589 NUMBER,
+  c67192590 NUMBER,
+  c67192591 NUMBER,
+  c67192592 NUMBER,
+  c67192593 NUMBER,
+  c67192594 NUMBER,
+  c67192595 NUMBER,
+  c67192596 NUMBER,
+  c67192637 NUMBER,
+  c67192638 NUMBER,
+  c67192639 NUMBER,
+  c67192640 NUMBER,
+  c67192641 NUMBER,
+  c67192642 NUMBER,
+  c67192643 NUMBER,
+  c67192644 NUMBER,
+  c67192645 NUMBER,
+  c67192646 NUMBER,
+  c67192647 NUMBER,
+  c67192648 NUMBER,
+  c67192649 NUMBER,
+  c67192650 NUMBER,
+  c67192916 NUMBER,
+  c67192917 NUMBER,
+  c67192918 NUMBER,
+  c67192919 NUMBER,
+  c67192920 NUMBER,
+  c67192921 NUMBER,
+  c67192922 NUMBER,
+  c67192923 NUMBER,
+  c67192924 NUMBER,
+  c67192925 NUMBER,
+  c67192926 NUMBER,
+  c67192927 NUMBER,
+  c67192928 NUMBER,
+  c67192929 NUMBER,
+  c67192930 NUMBER,
+  c67192931 NUMBER,
+  c67192932 NUMBER,
+  c67192933 NUMBER,
+  c67192937 NUMBER,
+  c67192938 NUMBER,
+  c67192939 NUMBER,
+  c67192940 NUMBER,
+  c67192941 NUMBER,
+  c67192942 NUMBER,
+  c67192943 NUMBER,
+  c67192944 NUMBER,
+  c67192945 NUMBER,
+  c67192946 NUMBER,
+  c67193409 NUMBER,
+  c67193410 NUMBER,
+  c67194970 NUMBER,
+  c67194971 NUMBER,
+  c67195992 NUMBER,
+  c67196026 NUMBER,
+  c67196027 NUMBER,
+  c67196028 NUMBER,
+  c67196029 NUMBER,
+  c67196030 NUMBER,
+  c67196032 NUMBER,
+  c67196033 NUMBER,
+  c67196034 NUMBER,
+  c67196035 NUMBER,
+  c67199663 NUMBER,
+  c67199664 NUMBER,
+  c67199736 NUMBER,
+  c67202567 NUMBER,
+  c67202570 NUMBER,
+  c67202917 NUMBER,
+  c67202918 NUMBER,
+  c67202919 NUMBER,
+  c67202920 NUMBER,
+  c67203402 NUMBER,
+  c67203403 NUMBER,
+  c67203991 NUMBER,
+  c67203992 NUMBER,
+  c67203993 NUMBER,
+  c67203994 NUMBER,
+  c67203995 NUMBER,
+  c67203996 NUMBER,
+  c67203997 NUMBER,
+  c67204134 NUMBER,
+  c67204837 NUMBER,
+  c67204838 NUMBER,
+  c67204839 NUMBER,
+  c73393802 NUMBER,
+  c73393803 NUMBER,
+  c73393961 NUMBER,
+  c73393962 NUMBER,
+  c73393963 NUMBER,
+  c73393964 NUMBER,
+  c73393965 NUMBER,
+  c73403799 NUMBER,
+  c73403800 NUMBER,
+  c73403801 NUMBER,
+  c73403802 NUMBER,
+  c73403803 NUMBER,
+  c73421765 NUMBER,
+  c73421766 NUMBER,
+  c73421767 NUMBER,
+  c73421768 NUMBER,
+  c73421933 NUMBER,
+  c73421934 NUMBER,
+  c73421935 NUMBER,
+  c73421936 NUMBER,
+  c73422161 NUMBER,
+  c73422163 NUMBER,
+  c73439970 NUMBER,
+  c73439971 NUMBER,
+  c73427917 NUMBER,
+  c67202921 NUMBER,
+  c73422068 NUMBER,
+  c73422069 NUMBER,
+  c73423313 NUMBER,
+  c73441123 NUMBER,
+  c73422160 NUMBER,
+  c73422162 NUMBER,
+  c73422164 NUMBER,
+  c73422165 NUMBER,
+  c73423357 NUMBER,
+  c73423358 NUMBER,
+  c73411191 NUMBER,
+  c73424009 NUMBER
+)
+partition by range (C_DATE)
+(
+  partition TECH4_M67109391_2018_01 values less than (2018020100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2018_02 values less than (2018030100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2018_03 values less than (2018040100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2018_04 values less than (2018050100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2018_05 values less than (2018060100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2018_06 values less than (2018070100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2018_07 values less than (2018080100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2018_08 values less than (2018090100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2018_09 values less than (2018100100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2018_10 values less than (2018110100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2018_11 values less than (2018120100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2018_12 values less than (2019010100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2019_01 values less than (2019020100)
+    tablespace RD_DATA_2021_TS2
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2019_02 values less than (2019030100)
+    tablespace RD_DATA_2021_TS2
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2019_03 values less than (2019040100)
+    tablespace RD_DATA_2021_TS2
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2019_04 values less than (2019050100)
+    tablespace RD_DATA_2021_TS2
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2019_05 values less than (2019060100)
+    tablespace RD_DATA_2021_TS2
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2019_06 values less than (2019070100)
+    tablespace RD_DATA_2021_TS2
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2019_07 values less than (2019080100)
+    tablespace RD_DATA_2021_TS2
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2019_08 values less than (2019090100)
+    tablespace RD_DATA_2021_TS2
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2019_09 values less than (2019100100)
+    tablespace RD_DATA_2021_TS2
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2019_10 values less than (2019110100)
+    tablespace RD_DATA_2021_TS2
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2019_11 values less than (2019120100)
+    tablespace RD_DATA_2021_TS2
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2019_12 values less than (2020010100)
+    tablespace RD_DATA_2021_TS2
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2020_01 values less than (2020020100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2020_02 values less than (2020030100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2020_03 values less than (2020040100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2020_04 values less than (2020050100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2020_05 values less than (2020060100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2020_06 values less than (2020070100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2020_07 values less than (2020080100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2020_08 values less than (2020090100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2020_09 values less than (2020100100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2020_10 values less than (2020110100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2020_11 values less than (2020120100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2020_12 values less than (2021010100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2021_01 values less than (2021020100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2021_02 values less than (2021030100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2021_03 values less than (2021040100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2021_04 values less than (2021050100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2021_05 values less than (2021060100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2021_06 values less than (2021070100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2021_07 values less than (2021080100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2021_08 values less than (2021090100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2021_09 values less than (2021100100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2021_10 values less than (2021110100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2021_11 values less than (2021120100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2021_12 values less than (2022010100)
+    tablespace RD_DATA_2021_TS1
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2022_01 values less than (2022020100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2022_02 values less than (2022030100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2022_03 values less than (2022040100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2022_04 values less than (2022050100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2022_05 values less than (2022060100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2022_06 values less than (2022070100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2022_07 values less than (2022080100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2022_08 values less than (2022090100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2022_09 values less than (2022100100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2022_10 values less than (2022110100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2022_11 values less than (2022120100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2022_12 values less than (2023010100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2023_01 values less than (2023020100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2023_02 values less than (2023030100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2023_03 values less than (2023040100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2023_04 values less than (2023050100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2023_05 values less than (2023060100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2023_06 values less than (2023070100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2023_07 values less than (2023080100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2023_08 values less than (2023090100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2023_09 values less than (2023100100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2023_10 values less than (2023110100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2023_11 values less than (2023120100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2023_12 values less than (2024010100)
+    tablespace TECH_DATA_2022_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2024_01 values less than (2024020100)
+    tablespace TECH_DATA_2024_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2024_02 values less than (2024030100)
+    tablespace TECH_DATA_2024_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2024_03 values less than (2024040100)
+    tablespace TECH_DATA_2024_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2024_04 values less than (2024050100)
+    tablespace TECH_DATA_2024_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2024_05 values less than (2024060100)
+    tablespace TECH_DATA_2024_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2024_06 values less than (2024070100)
+    tablespace TECH_DATA_2024_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition TECH4_M67109391_2024_07 values less than (2024080100)
+    tablespace TECH_DATA_2024_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2024_08 values less than (2024090100)
+    tablespace TECH_DATA_2024_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2024_09 values less than (2024100100)
+    tablespace TECH_DATA_2024_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2024_10 values less than (2024110100)
+    tablespace TECH_DATA_2024_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2024_11 values less than (2024120100)
+    tablespace TECH_DATA_2024_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255,
+  partition TECH4_M67109391_2024_12 values less than (2025010100)
+    tablespace TECH_DATA_2024_TS
+    pctfree 10
+    initrans 1
+    maxtrans 255
+);
+-- Create/Recreate indexes 
+create bitmap index IDX_TECH4_M67109391_CELLS on TECH4_M67109391 (CELL_ID)
+  nologging  local;
+create bitmap index IDX_TECH4_M67109391_TIME on TECH4_M67109391 (C_DATE)
+  nologging  local;
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table TECH4_M67109391
+  add constraint PK_TECH4_M67109391 primary key (CELL_ID, C_DATE)
+  disable
+  novalidate;
+alter table TECH4_M67109391
+  add constraint FK_TECH4_M67109391_CELLS foreign key (CELL_ID)
+  references DIM_CELLS (ID);
+alter table TECH4_M67109391
+  add constraint FK_TECH4_M67109391_TIME foreign key (C_DATE)
+  references TECH2_DIM_DATE_TIME (DATE_TIME_KEY);
