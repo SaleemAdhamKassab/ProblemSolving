@@ -1,0 +1,5 @@
+create procedure spGetAllPeople
+as 
+begin
+select * from People;
+end;
