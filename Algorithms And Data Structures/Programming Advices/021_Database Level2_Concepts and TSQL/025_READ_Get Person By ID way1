@@ -1,0 +1,10 @@
+create procedure spGetPersonById
+@id int
+as 
+begin
+select * from People where id = @id
+end;
+
+---------
+
+exec spGetPersonById @id = 1
