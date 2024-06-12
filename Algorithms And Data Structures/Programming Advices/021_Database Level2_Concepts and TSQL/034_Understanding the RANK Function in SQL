@@ -1,0 +1,3 @@
+select *, Rank() over (order by t.Grade desc) as RowNumber
+from Students t
+order by t.Grade desc;
