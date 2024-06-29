@@ -1,0 +1,15 @@
+select * from Students;
+--------------------------
+create function getAvgGrades (@subject varchar(50))
+returns int
+as 
+begin
+declare @avgGrades int;
+
+select @avgGrades = avg(grade) from students where subject = @subject;
+
+return @avgGrades;
+
+end;
+---------------------------------
+select dbo.getAvgGrades('Math') as MathAvgGrades;
