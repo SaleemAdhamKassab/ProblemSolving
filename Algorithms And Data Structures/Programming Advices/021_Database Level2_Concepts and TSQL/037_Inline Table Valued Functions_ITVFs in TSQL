@@ -1,0 +1,9 @@
+create function getStudentsBySubject (@subject nvarchar(20))
+returns table
+as
+return
+select * from Students where Subject = @subject;
+
+-----------------------
+select * from dbo.getStudentsBySubject('Math');
+select avg(grade) from dbo.getStudentsBySubject('Math');
