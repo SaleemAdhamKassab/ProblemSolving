@@ -1,0 +1,20 @@
+select * from Students;
+select * from StudentInsertLog;
+
+create trigger trgAfterInsertStudent on Students
+after insert
+as 
+begin 
+insert into StudentInsertLog (studentId,name,subject,grade)
+select studentId,name,subject,grade from inserted;
+
+end;
+
+
+-- Inserting a new student
+INSERT INTO Students (StudentID, Name, Subject, Grade)
+VALUES (12, 'John Doe', 'Mathematics', 85);
+
+
+-- Checking the log table
+SELECT * FROM StudentInsertLog;
