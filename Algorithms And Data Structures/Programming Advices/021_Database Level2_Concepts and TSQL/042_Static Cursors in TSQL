@@ -1,0 +1,19 @@
+
+DECLARE static_cursor CURSOR STATIC FOR
+
+SELECT StudentID, Name, Grade FROM dbo.Students;
+
+OPEN static_cursor;
+
+DECLARE @StudentID int, @Name nvarchar(50), @Grade int;
+
+FETCH NEXT FROM static_cursor INTO @StudentID, @Name, @Grade;
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    PRINT 'Student Name: ' + @Name + ', Grade: ' + CAST(@Grade AS NVARCHAR(10));
+    FETCH NEXT FROM static_cursor INTO @StudentID, @Name, @Grade;
+END
+
+CLOSE static_cursor;
+DEALLOCATE static_cursor;
