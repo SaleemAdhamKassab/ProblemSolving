@@ -1,1 +1,42 @@
-"RemoteConnection": "Server=localhost;Database=TenorDb;User Id=TenorUser;Password=TtU@123456;Trusted_Connection=False;MultipleActiveResultSets=true;TrustServerCertificate=True",
+USE [TeleMarketDb]
+GO
+/****** Object:  Table [dbo].[CallStatuses]    Script Date: 7/15/2024 10:19:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CallStatuses](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_CallStatuses] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[CallStatuses] ON 
+
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (1, N'N/A')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (2, N'Initialize')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (3, N'Completed')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (4, N'InComplete')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (5, N'No Answer')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (6, N'Number is Not Exist')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (7, N'Out of Coverage')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (8, N'Quota (Out of Quota)')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (9, N'Refused to Cooperate')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (10, N'Canceled')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (11, N'F1')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (12, N'F2')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (13, N'F3')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (14, N'F4')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (15, N'Informed')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (16, N'Done')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (17, N'Subscribed')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (18, N'Don''t Have Alternative Number')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (19, N'Subscribed On Another Number')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (20, N'Service Out')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (21, N'Another User')
+INSERT [dbo].[CallStatuses] ([Id], [Name]) VALUES (22, N'Done - No modification')
+SET IDENTITY_INSERT [dbo].[CallStatuses] OFF
+GO
