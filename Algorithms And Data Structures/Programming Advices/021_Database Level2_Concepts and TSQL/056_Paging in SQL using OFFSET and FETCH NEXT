@@ -1,0 +1,9 @@
+DECLARE @PageNumber AS INT, @RowsPerPage AS INT;
+SET @PageNumber = 2;
+SET @RowsPerPage = 3;
+
+SELECT StudentID, Name, Subject, Grade
+FROM Students
+ORDER BY StudentID
+OFFSET (@PageNumber - 1) * @RowsPerPage ROWS
+FETCH NEXT @RowsPerPage ROWS ONLY;
