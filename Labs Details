@@ -1,13 +1,1 @@
-BEGIN TRANSACTION;
-GO
-
-ALTER TABLE [Employees] ADD [IsActive] bit NOT NULL DEFAULT CAST(0 AS bit);
-GO
-
-INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-VALUES (N'20240804101322_Test', N'8.0.2');
-GO
-
-COMMIT;
-GO
-
+"Server=192.168.5.139;Database=TelemarketDb;User Id=PCSUser;Password=PpU@123456;Trusted_Connection=False;MultipleActiveResultSets=true;TrustServerCertificate=True"
