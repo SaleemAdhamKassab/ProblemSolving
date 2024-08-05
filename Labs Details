@@ -1,1 +1,78 @@
-"Server=192.168.5.139;Database=TelemarketDb;User Id=PCSUser;Password=PpU@123456;Trusted_Connection=False;MultipleActiveResultSets=true;TrustServerCertificate=True"
+USE [TelemarketDb]
+GO
+SET IDENTITY_INSERT [dbo].[Devices] ON 
+
+INSERT [dbo].[Devices] ([Id], [Name], [Description], [IsDeleted], [SupplierId], [ParentId]) VALUES (1, N'Telemarketing', N'TeleDesc', 0, N'-1', NULL)
+SET IDENTITY_INSERT [dbo].[Devices] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tenants] ON 
+
+INSERT [dbo].[Tenants] ([Id], [Name]) VALUES (1, N'Telemarketing')
+SET IDENTITY_INSERT [dbo].[Tenants] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Roles] ON 
+
+INSERT [dbo].[Roles] ([Id], [Name]) VALUES (1, N'Admin')
+INSERT [dbo].[Roles] ([Id], [Name]) VALUES (2, N'Telemarketer')
+INSERT [dbo].[Roles] ([Id], [Name]) VALUES (3, N'Researcher')
+SET IDENTITY_INSERT [dbo].[Roles] OFF
+GO
+SET IDENTITY_INSERT [dbo].[UserTenantRoles] ON 
+
+INSERT [dbo].[UserTenantRoles] ([Id], [UserName], [TenantId], [RoleId]) VALUES (4, N'Syriatel\SaleemK', NULL, 1)
+INSERT [dbo].[UserTenantRoles] ([Id], [UserName], [TenantId], [RoleId]) VALUES (5, N'Syriatel\MHDISM', NULL, 1)
+INSERT [dbo].[UserTenantRoles] ([Id], [UserName], [TenantId], [RoleId]) VALUES (7, N'Syriatel\AmrD', NULL, 1)
+INSERT [dbo].[UserTenantRoles] ([Id], [UserName], [TenantId], [RoleId]) VALUES (8, N'Syriatel\NourE', 1, 1)
+INSERT [dbo].[UserTenantRoles] ([Id], [UserName], [TenantId], [RoleId]) VALUES (9, N'Syriatel\LoujainAs', 1, 1)
+INSERT [dbo].[UserTenantRoles] ([Id], [UserName], [TenantId], [RoleId]) VALUES (11, N'Syriatel\ANWARALLAHH', 1, 2)
+INSERT [dbo].[UserTenantRoles] ([Id], [UserName], [TenantId], [RoleId]) VALUES (12, N'Syriatel\BARAAHAL', 1, 2)
+INSERT [dbo].[UserTenantRoles] ([Id], [UserName], [TenantId], [RoleId]) VALUES (13, N'Syriatel\BatoulM', 1, 2)
+INSERT [dbo].[UserTenantRoles] ([Id], [UserName], [TenantId], [RoleId]) VALUES (14, N'Syriatel\NARINAB', 1, 2)
+INSERT [dbo].[UserTenantRoles] ([Id], [UserName], [TenantId], [RoleId]) VALUES (15, N'Syriatel\RANDAE', 1, 2)
+INSERT [dbo].[UserTenantRoles] ([Id], [UserName], [TenantId], [RoleId]) VALUES (16, N'Syriatel\RanimBad', 1, 2)
+INSERT [dbo].[UserTenantRoles] ([Id], [UserName], [TenantId], [RoleId]) VALUES (17, N'Syriatel\RAWANALIA', 1, 2)
+INSERT [dbo].[UserTenantRoles] ([Id], [UserName], [TenantId], [RoleId]) VALUES (18, N'Syriatel\SAMALRAAS', 1, 2)
+INSERT [dbo].[UserTenantRoles] ([Id], [UserName], [TenantId], [RoleId]) VALUES (19, N'Syriatel\WAEDS', 1, 2)
+SET IDENTITY_INSERT [dbo].[UserTenantRoles] OFF
+GO
+SET IDENTITY_INSERT [dbo].[CallStatuses] ON 
+
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (1, N'N/A', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (2, N'Initialize', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (3, N'Completed', 1)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (4, N'InComplete', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (5, N'No Answer', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (6, N'Number is Not Exist', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (7, N'Out of Coverage', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (8, N'Quota (Out of Quota)', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (9, N'Refused to Cooperate', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (10, N'Canceled', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (11, N'F1', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (12, N'F2', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (13, N'F3', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (14, N'F4', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (15, N'Informed', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (16, N'Done', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (17, N'Subscribed', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (18, N'Don''t Have Alternative Number', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (19, N'Subscribed On Another Number', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (20, N'Service Out', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (21, N'Another User', 0)
+INSERT [dbo].[CallStatuses] ([Id], [Name], [IsClosed]) VALUES (22, N'Done - No modification', 0)
+SET IDENTITY_INSERT [dbo].[CallStatuses] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Employees] ON 
+
+INSERT [dbo].[Employees] ([Id], [UserName], [CreatedBy], [AddedOn], [LastUpdatedBy], [LastUpdateDate], [IsDeleted], [SyriatelId], [Name], [IsActive]) VALUES (6, N'Syriatel\ANWARALLAHH', N'ODI', CAST(N'2024-01-01T00:00:00.0000000' AS DateTime2), N'ODI', CAST(N'2024-07-29T13:12:07.9430000' AS DateTime2), 0, 13831, N'Anwar Allah Ismail Halabi', 1)
+INSERT [dbo].[Employees] ([Id], [UserName], [CreatedBy], [AddedOn], [LastUpdatedBy], [LastUpdateDate], [IsDeleted], [SyriatelId], [Name], [IsActive]) VALUES (7, N'Syriatel\BARAAHAL', N'ODI', CAST(N'2024-01-01T00:00:00.0000000' AS DateTime2), N'ODI', CAST(N'2024-07-29T13:12:07.9430000' AS DateTime2), 0, 12896, N'Baraah Abdelmajid Khateeb', 1)
+INSERT [dbo].[Employees] ([Id], [UserName], [CreatedBy], [AddedOn], [LastUpdatedBy], [LastUpdateDate], [IsDeleted], [SyriatelId], [Name], [IsActive]) VALUES (9, N'Syriatel\NARINAB', N'ODI', CAST(N'2024-01-01T00:00:00.0000000' AS DateTime2), N'ODI', CAST(N'2024-07-29T13:12:07.9430000' AS DateTime2), 0, 13669, N'Narina Mhd Ali Beik', 1)
+INSERT [dbo].[Employees] ([Id], [UserName], [CreatedBy], [AddedOn], [LastUpdatedBy], [LastUpdateDate], [IsDeleted], [SyriatelId], [Name], [IsActive]) VALUES (10, N'Syriatel\RANDAE', N'ODI', CAST(N'2024-01-01T00:00:00.0000000' AS DateTime2), N'ODI', CAST(N'2024-07-29T13:12:07.9430000' AS DateTime2), 0, 6431, N'Randa Fouad Ebrahim', 1)
+INSERT [dbo].[Employees] ([Id], [UserName], [CreatedBy], [AddedOn], [LastUpdatedBy], [LastUpdateDate], [IsDeleted], [SyriatelId], [Name], [IsActive]) VALUES (11, N'Syriatel\RanimBad', N'ODI', CAST(N'2024-01-01T00:00:00.0000000' AS DateTime2), N'ODI', CAST(N'2024-07-29T13:12:07.9430000' AS DateTime2), 0, 12747, N'Ranim Mohsen Baddour', 1)
+INSERT [dbo].[Employees] ([Id], [UserName], [CreatedBy], [AddedOn], [LastUpdatedBy], [LastUpdateDate], [IsDeleted], [SyriatelId], [Name], [IsActive]) VALUES (12, N'Syriatel\RAWANALIA', N'ODI', CAST(N'2024-01-01T00:00:00.0000000' AS DateTime2), N'ODI', CAST(N'2024-07-29T13:12:07.9430000' AS DateTime2), 0, 96024, N'Rawan Ahmad Ali', 1)
+INSERT [dbo].[Employees] ([Id], [UserName], [CreatedBy], [AddedOn], [LastUpdatedBy], [LastUpdateDate], [IsDeleted], [SyriatelId], [Name], [IsActive]) VALUES (13, N'Syriatel\SAMALRAAS', N'ODI', CAST(N'2024-01-01T00:00:00.0000000' AS DateTime2), N'ODI', CAST(N'2024-07-29T13:12:07.9430000' AS DateTime2), 0, 13470, N'Sam Alraa Abdelmojib Soulaiman', 1)
+INSERT [dbo].[Employees] ([Id], [UserName], [CreatedBy], [AddedOn], [LastUpdatedBy], [LastUpdateDate], [IsDeleted], [SyriatelId], [Name], [IsActive]) VALUES (14, N'Syriatel\WAEDS', N'ODI', CAST(N'2024-01-01T00:00:00.0000000' AS DateTime2), N'ODI', CAST(N'2024-07-29T13:12:07.9430000' AS DateTime2), 0, 13681, N'Waed Ramez Salman', 1)
+INSERT [dbo].[Employees] ([Id], [UserName], [CreatedBy], [AddedOn], [LastUpdatedBy], [LastUpdateDate], [IsDeleted], [SyriatelId], [Name], [IsActive]) VALUES (36, N'Syriatel\ZEINSALE', N'ODI', CAST(N'2024-07-28T12:16:57.7033333' AS DateTime2), N'ODI', CAST(N'2024-07-29T13:12:07.9430000' AS DateTime2), 0, 10316, N'Zein Ahmad Salem', 1)
+INSERT [dbo].[Employees] ([Id], [UserName], [CreatedBy], [AddedOn], [LastUpdatedBy], [LastUpdateDate], [IsDeleted], [SyriatelId], [Name], [IsActive]) VALUES (37, N'Syriatel\BATOULKHALDOUNM', N'ODI', CAST(N'2024-07-28T12:16:57.7033333' AS DateTime2), N'ODI', CAST(N'2024-07-29T13:12:07.9430000' AS DateTime2), 0, 13360, N'Batoul Khaldoun Mhd', 1)
+INSERT [dbo].[Employees] ([Id], [UserName], [CreatedBy], [AddedOn], [LastUpdatedBy], [LastUpdateDate], [IsDeleted], [SyriatelId], [Name], [IsActive]) VALUES (38, N'Syriatel\MARAMAJ', N'ODI', CAST(N'2024-07-28T12:16:57.7033333' AS DateTime2), N'ODI', CAST(N'2024-07-29T13:12:07.9430000' AS DateTime2), 0, 96096, N'Maram Emad Ajjour', 1)
+SET IDENTITY_INSERT [dbo].[Employees] OFF
+GO
