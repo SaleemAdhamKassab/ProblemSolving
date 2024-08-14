@@ -1,20 +1,29 @@
-select pr.id,pr.Name,pr.DateFrom,pr.DateTo,  pd.GSM, c.Name, e.id userId, e.UserName, p.CallStartDate, p.DurationInSeconds
-from ProjectDetailCalls p
-join ProjectDetails pd
-on p.ProjectDetailId = pd.Id
+Dear Team,
 
-join Projects pr
-on pd.ProjectId = pr.Id
+We are excited to announce the launch of our new system Telemarketing Automation System designed to automate daily telemarketing tasks, streamlining project management, quota setting, and customer distribution among staff members. This system is packed with features that will significantly enhance Telemarketing team’s efficiency and effectiveness.
 
-join Employees e
-on pd.EmployeeId = e.Id
+We want to draw your attention that 2nd sprint is ready to be tested from your side.
 
-join CallStatuses c
-on pd.CallStatusId = c.Id
+Key Features:
+1.	Project Creation and Management
+a.	New Projects: Easily create new telemarketing projects with defined quotas and customer targets.
+b.	Quota Settings: Set specific quotas for each project to ensure clear goals and targets.
 
-where pd.IsDeleted = '0'
-and pr.IsDeleted = '0'
+2.	Customer Distribution:
+a.	Automated Distribution: Distribute customers efficiently among staff members based on predefined criteria.
+b.	Customizable Allocation: Adjust customer distribution to balance workloads and optimize performance.
 
-and pr.Id = 9
+Benefits:
+•	Increased Efficiency: Automating routine tasks reduces manual workload, allowing you to focus on higher-value activities.
+•	Improved Accuracy: Automated processes minimize errors in customer distribution and quota management.
+•	Enhanced Collaboration: Clear task assignments and editable task details improve communication and teamwork.
 
-order by 1,p.CallStartDate desc;
+We believe this new system will revolutionize our telemarketing operations, making our processes more efficient and our outcomes more successful. We encourage you to start exploring the system and take advantage of its powerful features.
+Thank you for your continued hard work and dedication. Let's make the most of this new tool to drive our success to new heights.
+
+
+
+====================
+Integration with Telemarketing workforce management system 
+Build Reporting & Analytics data 
+UAT
