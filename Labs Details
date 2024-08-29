@@ -1,1 +1,145 @@
-FLASHBACK TABLE your_table_name TO TIMESTAMP (SYSTIMESTAMP - INTERVAL '2' DAY);
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+CREATE TABLE [Categories] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Enable] bit NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_Categories] PRIMARY KEY ([Id])
+);
+GO
+
+CREATE TABLE [Extras] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Price] decimal(18,2) NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_Extras] PRIMARY KEY ([Id])
+);
+GO
+
+CREATE TABLE [Status] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [NextStatusId] int NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_Status] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Status_Status_NextStatusId] FOREIGN KEY ([NextStatusId]) REFERENCES [Status] ([Id])
+);
+GO
+
+CREATE TABLE [SystemStatus] (
+    [Id] int NOT NULL IDENTITY,
+    [SystemEnable] bit NOT NULL,
+    CONSTRAINT [PK_SystemStatus] PRIMARY KEY ([Id])
+);
+GO
+
+CREATE TABLE [Users] (
+    [UserName] nvarchar(450) NOT NULL,
+    [Phone] nvarchar(max) NOT NULL,
+    [Location] nvarchar(max) NOT NULL,
+    [Floor] int NOT NULL,
+    [Note] nvarchar(max) NOT NULL,
+    [CreateDate] datetime2 NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([UserName])
+);
+GO
+
+CREATE TABLE [Products] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [InitialPrice] decimal(18,2) NOT NULL,
+    [CategoryId] int NOT NULL,
+    [Enable] bit NOT NULL,
+    [AvailableProduact] int NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Products_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE CASCADE
+);
+GO
+
+CREATE TABLE [Orders] (
+    [Id] int NOT NULL IDENTITY,
+    [UserName] nvarchar(450) NOT NULL,
+    [CreateDate] datetime2 NOT NULL,
+    [StatusId] int NULL,
+    [Location] nvarchar(max) NOT NULL,
+    [Roof] int NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_Orders] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Orders_Status_StatusId] FOREIGN KEY ([StatusId]) REFERENCES [Status] ([Id]),
+    CONSTRAINT [FK_Orders_Users_UserName] FOREIGN KEY ([UserName]) REFERENCES [Users] ([UserName]) ON DELETE CASCADE
+);
+GO
+
+CREATE TABLE [Transactions] (
+    [Id] int NOT NULL IDENTITY,
+    [OrdertId] int NOT NULL,
+    [ProductId] int NOT NULL,
+    [Quantity] int NOT NULL,
+    [UnitPrice] decimal(18,2) NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_Transactions] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Transactions_Orders_OrdertId] FOREIGN KEY ([OrdertId]) REFERENCES [Orders] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Transactions_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE CASCADE
+);
+GO
+
+CREATE TABLE [ExtraTransaction] (
+    [ExtrasId] int NOT NULL,
+    [TransactionsId] int NOT NULL,
+    CONSTRAINT [PK_ExtraTransaction] PRIMARY KEY ([ExtrasId], [TransactionsId]),
+    CONSTRAINT [FK_ExtraTransaction_Extras_ExtrasId] FOREIGN KEY ([ExtrasId]) REFERENCES [Extras] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_ExtraTransaction_Transactions_TransactionsId] FOREIGN KEY ([TransactionsId]) REFERENCES [Transactions] ([Id]) ON DELETE CASCADE
+);
+GO
+
+CREATE UNIQUE INDEX [IX_Categories_Name] ON [Categories] ([Name]);
+GO
+
+CREATE INDEX [IX_ExtraTransaction_TransactionsId] ON [ExtraTransaction] ([TransactionsId]);
+GO
+
+CREATE INDEX [IX_Orders_StatusId] ON [Orders] ([StatusId]);
+GO
+
+CREATE INDEX [IX_Orders_UserName] ON [Orders] ([UserName]);
+GO
+
+CREATE INDEX [IX_Products_CategoryId] ON [Products] ([CategoryId]);
+GO
+
+CREATE UNIQUE INDEX [IX_Products_Name_CategoryId] ON [Products] ([Name], [CategoryId]);
+GO
+
+CREATE UNIQUE INDEX [IX_Status_Name] ON [Status] ([Name]);
+GO
+
+CREATE INDEX [IX_Status_NextStatusId] ON [Status] ([NextStatusId]);
+GO
+
+CREATE INDEX [IX_Transactions_OrdertId] ON [Transactions] ([OrdertId]);
+GO
+
+CREATE INDEX [IX_Transactions_ProductId] ON [Transactions] ([ProductId]);
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20240828072304_Init', N'8.0.8');
+GO
+
+COMMIT;
+GO
