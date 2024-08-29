@@ -1,18 +1,1 @@
-BEGIN TRANSACTION;
-GO
-
-CREATE TABLE [News] (
-    [Id] int NOT NULL IDENTITY,
-    [Title] nvarchar(max) NOT NULL,
-    [flag] bit NOT NULL,
-    CONSTRAINT [PK_News] PRIMARY KEY ([Id])
-);
-GO
-
-INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-VALUES (N'20240829085413_AddNews', N'8.0.8');
-GO
-
-COMMIT;
-GO
-
+https://drive.google.com/file/d/1meHvezt6wpAsHiRoQb33pyUNOl8n2WX9/view?usp=drive_link
