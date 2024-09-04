@@ -1,1 +1,31 @@
-https://drive.google.com/file/d/1meHvezt6wpAsHiRoQb33pyUNOl8n2WX9/view?usp=sharing
+Dear Team,
+I hope this email finds you well.
+
+As we move forward with our project, I would like to provide you with the details for Sprint 4 and seek your approval for the outlined requirements.
+
+Requirements:
+Below are the detailed requirements that we plan to address during this sprint:
+
+[Requirement 1]: done from sprint3.
+
+[Requirement 2]: Project End Date Estimation:
+This approach will allow us to calculate the total remaining days needed to achieve the project quota, based on the current rate of closure.
+Project End Date = (Project Quota - Total Closed) / Average Closed GMs per Day
+
+[Requirement 3]: Done Via WFM.
+
+[Requirement 4]: We will evaluate the closed projects using the following formula:
+Segment Evaluation: Total Closed GSM / Total Working Hours for each segment.
+Telemarketer Evaluation: Each telemarketer will then be assessed based on their performance in each segment using a predefined evaluation dictionary.
+This will help us measure the efficiency and productivity of the telemarketers across different segments.
+
+We believe that these requirements align with our overall objectives and will significantly contribute to the success of our project. However, your input is crucial to ensure that we are on the right track and that all necessary aspects are covered.
+
+Next Steps:
+Please review the above requirements and let us know if there are any adjustments or additional considerations we need to include. Your feedback will be invaluable in refining our approach and ensuring that we meet your expectations.
+
+We would appreciate it if you could provide your approval or any necessary revisions by [insert deadline date]. This will allow us to proceed with the sprint in a timely and efficient manner.
+
+Thank you for your attention to this matter. We look forward to your response and are eager to collaborate on the successful completion of Sprint 4.
+
+Best regards,
