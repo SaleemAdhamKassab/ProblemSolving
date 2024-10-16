@@ -1,24 +1,12 @@
-DECLARE @TableName NVARCHAR(MAX) = 'YourTableName'; -- Set your table name here
-DECLARE @Columns NVARCHAR(MAX) = '';
-DECLARE @SQL NVARCHAR(MAX) = '';
-
--- Get the list of columns for the table
-SELECT @Columns = STRING_AGG(COLUMN_NAME, ', ') WITHIN GROUP (ORDER BY ORDINAL_POSITION)
-FROM INFORMATION_SCHEMA.COLUMNS
-WHERE TABLE_NAME = @TableName;
-
--- Generate the INSERT INTO statements with proper data type handling
+-- Build the dynamic SQL to generate the INSERT statements
 SET @SQL = 'SELECT ''INSERT INTO ' + @TableName + ' (' + @Columns + ') VALUES ('' + 
-            STRING_AGG(
-                CASE 
-                    WHEN DATA_TYPE IN (''varchar'', ''nvarchar'', ''char'', ''nchar'', ''text'') THEN '''''' + REPLACE(CAST(' + COLUMN_NAME + ' AS NVARCHAR(MAX)), '''', '''''') + ''''''
-                    WHEN DATA_TYPE IN (''datetime'', ''date'', ''smalldatetime'', ''time'', ''datetime2'') THEN '''''' + CONVERT(NVARCHAR, ' + COLUMN_NAME + ', 120) + ''''''
-                    ELSE CAST(' + COLUMN_NAME + ' AS NVARCHAR(MAX))
-                END, 
-                '', '') + '');'' 
-            FROM ' + @TableName + '
-            WHERE created_at >= DATEADD(MONTH, -1, GETDATE()) 
-            AND created_at < GETDATE();';
+            STRING_AGG(' +
+            'CASE 
+                WHEN DATA_TYPE IN (''varchar'', ''nvarchar'', ''char'', ''nchar'', ''text'') THEN ''''''''' + REPLACE(CAST(' + COLUMN_NAME + ' AS NVARCHAR(MAX)), '''', '''''') + ''''''''''
+                WHEN DATA_TYPE IN (''datetime'', ''date'', ''smalldatetime'', ''time'', ''datetime2'') THEN ''''''''' + CONVERT(NVARCHAR, ' + COLUMN_NAME + ', 120) + ''''''''''
+                ELSE CAST(' + COLUMN_NAME + ' AS NVARCHAR(MAX)) 
+            END, '', '') + '');'' 
+            FROM ' + @TableName + ';';
 
 -- Execute the dynamic SQL to generate the script
 EXEC sp_executesql @SQL;
