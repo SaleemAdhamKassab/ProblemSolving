@@ -1,1 +1,18 @@
-test
+DECLARE @TableName NVARCHAR(MAX) = 'YourTableName'; -- Set your table name here
+DECLARE @Columns NVARCHAR(MAX) = '';
+DECLARE @SQL NVARCHAR(MAX) = '';
+
+-- Get the list of columns for the table
+SELECT @Columns = STRING_AGG(COLUMN_NAME, ', ') WITHIN GROUP (ORDER BY ORDINAL_POSITION)
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = @TableName;
+
+-- Generate the INSERT INTO statements for rows where created_at is within the last month
+SET @SQL = 'SELECT ''INSERT INTO ' + @TableName + ' (' + @Columns + ') VALUES ('' + 
+            STRING_AGG(CAST(' + @Columns + ' AS NVARCHAR(MAX)), '', '') + '');'' 
+            FROM ' + @TableName + '
+            WHERE created_at >= DATEADD(MONTH, -1, GETDATE()) 
+            AND created_at < GETDATE();';
+
+-- Execute the dynamic SQL to generate the script
+EXEC sp_executesql @SQL;
