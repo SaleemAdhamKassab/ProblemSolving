@@ -7,9 +7,15 @@ SELECT @Columns = STRING_AGG(COLUMN_NAME, ', ') WITHIN GROUP (ORDER BY ORDINAL_P
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = @TableName;
 
--- Generate the INSERT INTO statements for rows where created_at is within the last month
+-- Generate the INSERT INTO statements with proper data type handling
 SET @SQL = 'SELECT ''INSERT INTO ' + @TableName + ' (' + @Columns + ') VALUES ('' + 
-            STRING_AGG(CAST(' + @Columns + ' AS NVARCHAR(MAX)), '', '') + '');'' 
+            STRING_AGG(
+                CASE 
+                    WHEN DATA_TYPE IN (''varchar'', ''nvarchar'', ''char'', ''nchar'', ''text'') THEN '''''' + REPLACE(CAST(' + COLUMN_NAME + ' AS NVARCHAR(MAX)), '''', '''''') + ''''''
+                    WHEN DATA_TYPE IN (''datetime'', ''date'', ''smalldatetime'', ''time'', ''datetime2'') THEN '''''' + CONVERT(NVARCHAR, ' + COLUMN_NAME + ', 120) + ''''''
+                    ELSE CAST(' + COLUMN_NAME + ' AS NVARCHAR(MAX))
+                END, 
+                '', '') + '');'' 
             FROM ' + @TableName + '
             WHERE created_at >= DATEADD(MONTH, -1, GETDATE()) 
             AND created_at < GETDATE();';
