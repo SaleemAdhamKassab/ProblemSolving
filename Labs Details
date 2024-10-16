@@ -1,22 +1,82 @@
-DECLARE @TableName NVARCHAR(256) = 'YourTableName'; -- Specify your table name here
-DECLARE @Columns NVARCHAR(MAX) = '';
+DECLARE @TableName NVARCHAR(256) = 'YourTableName';  -- Replace with your table name
+DECLARE @ColumnList NVARCHAR(MAX) = '';
+DECLARE @InsertStatement NVARCHAR(MAX) = '';
 DECLARE @SQL NVARCHAR(MAX) = '';
+DECLARE @ColumnName NVARCHAR(256);
+DECLARE @DataType NVARCHAR(256);
+DECLARE @Value NVARCHAR(MAX);
 
--- Generate the list of columns for the table
-SELECT @Columns = STRING_AGG(COLUMN_NAME, ', ')
+-- Get list of columns
+SELECT @ColumnList = COALESCE(@ColumnList + ', ', '') + COLUMN_NAME
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = @TableName
-  AND TABLE_SCHEMA = 'dbo'; -- Adjust schema if necessary (default is dbo)
+ORDER BY ORDINAL_POSITION;
 
--- Build the dynamic SQL to generate the INSERT statements
-SET @SQL = 'SELECT ''INSERT INTO ' + @TableName + ' (' + @Columns + ') VALUES ('' + 
-            STRING_AGG(' +
-            'CASE 
-                WHEN DATA_TYPE IN (''varchar'', ''nvarchar'', ''char'', ''nchar'', ''text'') THEN ''''''''' + REPLACE(CAST(' + COLUMN_NAME + ' AS NVARCHAR(MAX)), '''', '''''') + ''''''''''
-                WHEN DATA_TYPE IN (''datetime'', ''date'', ''smalldatetime'', ''time'', ''datetime2'') THEN ''''''''' + CONVERT(NVARCHAR, ' + COLUMN_NAME + ', 120) + ''''''''''
-                ELSE CAST(' + COLUMN_NAME + ' AS NVARCHAR(MAX)) 
-            END, '', '') + '');'' 
-            FROM ' + @TableName + ';';
+-- Start constructing the INSERT INTO statement
+SET @InsertStatement = 'INSERT INTO ' + @TableName + ' (' + @ColumnList + ') VALUES (';
 
--- Execute the dynamic SQL to generate the script
-EXEC sp_executesql @SQL;
+-- Declare a cursor to loop through each row in the table
+DECLARE data_cursor CURSOR FOR 
+SELECT *
+FROM [dbo].[@TableName] -- Adjust schema if needed
+
+-- Open the cursor
+OPEN data_cursor;
+
+-- Declare variables to store the current row data
+DECLARE @InsertValues NVARCHAR(MAX);
+
+-- Fetch the first row
+FETCH NEXT FROM data_cursor INTO @Value;
+
+-- Loop through each row in the cursor
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    SET @InsertValues = '';
+    
+    -- Loop through each column in the row and construct values part of the INSERT statement
+    DECLARE column_cursor CURSOR FOR 
+    SELECT COLUMN_NAME, DATA_TYPE 
+    FROM INFORMATION_SCHEMA.COLUMNS 
+    WHERE TABLE_NAME = @TableName 
+    ORDER BY ORDINAL_POSITION;
+    
+    OPEN column_cursor;
+    
+    -- Loop through columns and build the values for the INSERT statement
+    FETCH NEXT FROM column_cursor INTO @ColumnName, @DataType;
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Handle different data types accordingly
+        IF @DataType IN ('varchar', 'nvarchar', 'char', 'nchar', 'text')
+        BEGIN
+            SET @InsertValues = @InsertValues + '''' + ISNULL(REPLACE(@Value, '''', ''''''), '') + ''', ';
+        END
+        ELSE IF @DataType IN ('datetime', 'date', 'smalldatetime', 'time', 'datetime2')
+        BEGIN
+            SET @InsertValues = @InsertValues + '''' + ISNULL(CONVERT(NVARCHAR, @Value, 120), '') + ''', ';
+        END
+        ELSE
+        BEGIN
+            SET @InsertValues = @InsertValues + ISNULL(CAST(@Value AS NVARCHAR(MAX)), 'NULL') + ', ';
+        END
+        
+        FETCH NEXT FROM column_cursor INTO @ColumnName, @DataType;
+    END
+    
+    CLOSE column_cursor;
+    DEALLOCATE column_cursor;
+
+    -- Remove trailing comma and space from the values list
+    SET @InsertValues = LEFT(@InsertValues, LEN(@InsertValues) - 2);
+    
+    -- Print the full INSERT statement for this row
+    PRINT @InsertStatement + @InsertValues + ');';
+    
+    -- Fetch the next row
+    FETCH NEXT FROM data_cursor INTO @Value;
+END;
+
+-- Close and deallocate the cursor
+CLOSE data_cursor;
+DEALLOCATE data_cursor;
