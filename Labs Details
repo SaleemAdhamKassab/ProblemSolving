@@ -1,3 +1,13 @@
+DECLARE @TableName NVARCHAR(256) = 'YourTableName'; -- Specify your table name here
+DECLARE @Columns NVARCHAR(MAX) = '';
+DECLARE @SQL NVARCHAR(MAX) = '';
+
+-- Generate the list of columns for the table
+SELECT @Columns = STRING_AGG(COLUMN_NAME, ', ')
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = @TableName
+  AND TABLE_SCHEMA = 'dbo'; -- Adjust schema if necessary (default is dbo)
+
 -- Build the dynamic SQL to generate the INSERT statements
 SET @SQL = 'SELECT ''INSERT INTO ' + @TableName + ' (' + @Columns + ') VALUES ('' + 
             STRING_AGG(' +
