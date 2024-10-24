@@ -1,14 +1,205 @@
-DECLARE @TableName NVARCHAR(256) = 'YourTableName';
-DECLARE @SQL NVARCHAR(MAX) = '';
+BEGIN TRANSACTION;
+GO
 
-SELECT @SQL = STRING_AGG('INSERT INTO ' + @TableName + ' (' + STRING_AGG(QUOTENAME(COLUMN_NAME), ', ') + ') VALUES (' + STRING_AGG('''' + CAST(VALUES AS NVARCHAR(MAX)) + '''', ', ') + ');', CHAR(10))
-FROM (
-    SELECT COLUMN_NAME, 
-           (SELECT 
-                STRING_AGG(CAST(COLUMN_NAME AS NVARCHAR(MAX)), ', ') 
-            FROM YourTableName) AS VALUES
-    FROM INFORMATION_SCHEMA.COLUMNS
-    WHERE TABLE_NAME = @TableName
-) AS T;
+CREATE TABLE [ProjectMistakeDictionaries] (
+    [Id] int NOT NULL IDENTITY,
+    [RangFrom] float NOT NULL,
+    [RangTo] float NOT NULL,
+    [Value] float NOT NULL,
+    [ProjectId] int NOT NULL,
+    [CreatedBy] nvarchar(max) NOT NULL,
+    [AddedOn] datetime2 NOT NULL,
+    [LastUpdatedBy] nvarchar(max) NULL,
+    [LastUpdateDate] datetime2 NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_ProjectMistakeDictionaries] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ProjectMistakeDictionaries_Projects_ProjectId] FOREIGN KEY ([ProjectId]) REFERENCES [Projects] ([Id]) ON DELETE CASCADE
+);
+GO
 
-PRINT @SQL;
+CREATE TABLE [TypeMistakeDictionaries] (
+    [Id] int NOT NULL IDENTITY,
+    [RangFrom] float NOT NULL,
+    [RangTo] float NOT NULL,
+    [Value] float NOT NULL,
+    [ProjectTypeId] int NOT NULL,
+    [CreatedBy] nvarchar(max) NOT NULL,
+    [AddedOn] datetime2 NOT NULL,
+    [LastUpdatedBy] nvarchar(max) NULL,
+    [LastUpdateDate] datetime2 NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_TypeMistakeDictionaries] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_TypeMistakeDictionaries_ProjectTypes_ProjectTypeId] FOREIGN KEY ([ProjectTypeId]) REFERENCES [ProjectTypes] ([Id]) ON DELETE CASCADE
+);
+GO
+
+CREATE INDEX [IX_ProjectMistakeDictionaries_ProjectId] ON [ProjectMistakeDictionaries] ([ProjectId]);
+GO
+
+CREATE INDEX [IX_TypeMistakeDictionaries_ProjectTypeId] ON [TypeMistakeDictionaries] ([ProjectTypeId]);
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20241001101707_AddMistakeReportTables', N'8.0.2');
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+DROP TABLE [TypeDictionaries];
+GO
+
+DROP TABLE [TypeMistakeDictionaries];
+GO
+
+CREATE TABLE [ProjectTypeDictionaries] (
+    [Id] int NOT NULL IDENTITY,
+    [RangFrom] float NOT NULL,
+    [RangTo] float NOT NULL,
+    [Value] float NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    [CreatedBy] nvarchar(max) NOT NULL,
+    [AddedOn] datetime2 NOT NULL,
+    [LastUpdatedBy] nvarchar(max) NULL,
+    [LastUpdatedDate] datetime2 NULL,
+    [ProjectTypeId] int NOT NULL,
+    CONSTRAINT [PK_ProjectTypeDictionaries] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ProjectTypeDictionaries_ProjectTypes_ProjectTypeId] FOREIGN KEY ([ProjectTypeId]) REFERENCES [ProjectTypes] ([Id]) ON DELETE CASCADE
+);
+GO
+
+CREATE TABLE [ProjectTypeMistakeDictionaries] (
+    [Id] int NOT NULL IDENTITY,
+    [RangFrom] float NOT NULL,
+    [RangTo] float NOT NULL,
+    [Value] float NOT NULL,
+    [ProjectTypeId] int NOT NULL,
+    [CreatedBy] nvarchar(max) NOT NULL,
+    [AddedOn] datetime2 NOT NULL,
+    [LastUpdatedBy] nvarchar(max) NULL,
+    [LastUpdateDate] datetime2 NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_ProjectTypeMistakeDictionaries] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ProjectTypeMistakeDictionaries_ProjectTypes_ProjectTypeId] FOREIGN KEY ([ProjectTypeId]) REFERENCES [ProjectTypes] ([Id]) ON DELETE CASCADE
+);
+GO
+
+CREATE INDEX [IX_ProjectTypeDictionaries_ProjectTypeId] ON [ProjectTypeDictionaries] ([ProjectTypeId]);
+GO
+
+CREATE INDEX [IX_ProjectTypeMistakeDictionaries_ProjectTypeId] ON [ProjectTypeMistakeDictionaries] ([ProjectTypeId]);
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20241002085943_UpdateMistakeTableNames', N'8.0.2');
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+EXEC sp_rename N'[ProjectTypeMistakeDictionaries].[LastUpdateDate]', N'LastUpdatedDate', N'COLUMN';
+GO
+
+EXEC sp_rename N'[Projects].[LastUpdateDate]', N'LastUpdatedDate', N'COLUMN';
+GO
+
+EXEC sp_rename N'[ProjectMistakeDictionaries].[LastUpdateDate]', N'LastUpdatedDate', N'COLUMN';
+GO
+
+EXEC sp_rename N'[ProjectDetails].[LastUpdateDate]', N'LastUpdatedDate', N'COLUMN';
+GO
+
+EXEC sp_rename N'[Employees].[LastUpdateDate]', N'LastUpdatedDate', N'COLUMN';
+GO
+
+ALTER TABLE [ProjectTypes] ADD [AddedOn] datetime2 NOT NULL DEFAULT '0001-01-01T00:00:00.0000000';
+GO
+
+ALTER TABLE [ProjectTypes] ADD [CreatedBy] nvarchar(max) NOT NULL DEFAULT N'';
+GO
+
+ALTER TABLE [ProjectTypes] ADD [IsDeleted] bit NOT NULL DEFAULT CAST(0 AS bit);
+GO
+
+ALTER TABLE [ProjectTypes] ADD [LastUpdatedBy] nvarchar(max) NULL;
+GO
+
+ALTER TABLE [ProjectTypes] ADD [LastUpdatedDate] datetime2 NULL;
+GO
+
+ALTER TABLE [CallStatuses] ADD [AddedOn] datetime2 NOT NULL DEFAULT '0001-01-01T00:00:00.0000000';
+GO
+
+ALTER TABLE [CallStatuses] ADD [CreatedBy] nvarchar(max) NOT NULL DEFAULT N'';
+GO
+
+ALTER TABLE [CallStatuses] ADD [IsDeleted] bit NOT NULL DEFAULT CAST(0 AS bit);
+GO
+
+ALTER TABLE [CallStatuses] ADD [LastUpdatedBy] nvarchar(max) NULL;
+GO
+
+ALTER TABLE [CallStatuses] ADD [LastUpdatedDate] datetime2 NULL;
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20241002120020_DomainModelsInheritFromBaseModel', N'8.0.2');
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+CREATE TABLE [MistakeTypes] (
+    [Name] nvarchar(450) NOT NULL,
+    [Weight] float NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_MistakeTypes] PRIMARY KEY ([Name])
+);
+GO
+
+CREATE TABLE [MistakeReports] (
+    [Id] int NOT NULL IDENTITY,
+    [GSM] nvarchar(max) NOT NULL,
+    [Serial] nvarchar(max) NOT NULL,
+    [QuestionNumber] nvarchar(max) NOT NULL,
+    [Segment] nvarchar(max) NOT NULL,
+    [Controller] nvarchar(max) NOT NULL,
+    [ProjectId] int NOT NULL,
+    [EmployeeId] int NOT NULL,
+    [MistakeTypeName] nvarchar(450) NULL,
+    [CreatedBy] nvarchar(max) NOT NULL,
+    [AddedOn] datetime2 NOT NULL,
+    [LastUpdatedBy] nvarchar(max) NULL,
+    [LastUpdatedDate] datetime2 NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_MistakeReports] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_MistakeReports_Employees_EmployeeId] FOREIGN KEY ([EmployeeId]) REFERENCES [Employees] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_MistakeReports_MistakeTypes_MistakeTypeName] FOREIGN KEY ([MistakeTypeName]) REFERENCES [MistakeTypes] ([Name]),
+    CONSTRAINT [FK_MistakeReports_Projects_ProjectId] FOREIGN KEY ([ProjectId]) REFERENCES [Projects] ([Id]) ON DELETE CASCADE
+);
+GO
+
+CREATE INDEX [IX_MistakeReports_EmployeeId] ON [MistakeReports] ([EmployeeId]);
+GO
+
+CREATE INDEX [IX_MistakeReports_MistakeTypeName] ON [MistakeReports] ([MistakeTypeName]);
+GO
+
+CREATE INDEX [IX_MistakeReports_ProjectId] ON [MistakeReports] ([ProjectId]);
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20241015103516_AddMistakeTypeTables', N'8.0.2');
+GO
+
+COMMIT;
+GO
