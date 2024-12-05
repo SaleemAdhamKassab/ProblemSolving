@@ -1,1 +1,71 @@
-test
+Technical Data Analysis Achievements and Vision
+Objectives
+• Empower the technical team with robust and comprehensive control over Syriatel's network performance, enabling more informed and effective decision-making.
+• Create a unified source of truth by integrating the behavior of all network elements into a centralized technical data warehouse.
+• Empower the technical department to seamlessly produce studies and automate daily reports, streamlining routine tasks and boosting efficiency.
+
+Achievements
+•	After integrating the primary technical sections into the technical data warehouse, core network elements were successfully incorporated, leveraging our automated ETL processes driven by predefined metadata
+•	As a result, the data warehouse now encompasses a total of 1,000 fact tables, empowering 175 technical users across three performance platforms—Radio, Transmission, and Core—to efficiently generate comprehensive reports
+Users count: 272
+Reports count: 386
+Shared Dashboards: 23
+Daily engagement:361
+
+
+
+
+
+
+
+
+Technical Performance Platform (65%)
+•	By implementing an integrated suite of solutions to resolve discrepancies within the technical department, we have successfully completed the majority of the technical performance platform
+•	The platform is now fully equipped to effectively analyze and identify the root causes of performance fluctuations within the Syriatel network
+•	Mult-Tenancy mapping
+•	3X faster
+•	Shared levels over elements
+•	ETL process is designed to ensure seamless, efficient, and reliable data integration from diverse sources into the Decision Support System (DSS). By focusing on high-quality data extraction, transformation, and loading, this process guarantees accurate insights for monitoring and analysis of fuel stations and tanks.
+
+Workforce – Administration (100%)
+•	Following the successful implementation of the workforce system for the call center and telemarketing departments, it was further enhanced to support the Administration department, expanding its functionality and scope.
+•	This enhancement has resulted in an 85% reduction in the time needed for daily operations and employee shift management, significantly improving efficiency.
+750 Total Users
+6200 Daily engagement
+
+Telemarketing Control System (100%)
+•	The Telemarketing Automation System is designed to automate daily telemarketing tasks, optimizing project management, quota setting, and the distribution of customers among staff members for improved efficiency
+Packed with features that will greatly enhance the Telemarketing team’s efficiency and effectiveness:
+•	Increased Efficiency: Automation of routine tasks reduces manual workload, enabling focus on higher-value activities.
+•	Improved Accuracy: Automated processes reduce errors in customer distribution and quota management, ensuring precision.
+•	Enhanced Collaboration: Clear task assignments and editable task details foster better communication and teamwork.
+
+Fuel Manage System (35%)
+•	The primary goal of this project is to design and implement an advanced Decision Support System (DSS) to monitor, analyze, and optimize the operational performance of Syriatel fuel stations and their associated tanks. The system will provide real-time, actionable insights into key performance indicators (KPIs) through a dynamic dashboard, enabling fuel station managers, regional operations teams, and executives to make data-driven decisions. This will enhance fuel distribution efficiency, improve demand forecasting, and ultimately contribute to operational optimization across the network of stations.
+Project Scope
+•	Development of a Robust DSS: A comprehensive DSS will be built to provide real-time monitoring and detailed analysis of fuel levels, filling processes, consumption trends, and tank statuses across all fuel stations.
+
+•	Customizable Dashboards: User-centric dashboards tailored to different roles (station managers, regional managers, and executives) to present relevant data and insights.
+
+•	Real-time Alerts & Thresholds: Notifications and alerts for critical fuel stock levels, station operational status, and other predefined thresholds.
+
+•	Role-based Access Control: Secure user authentication and role-based permissions to ensure that only authorized personnel can access sensitive system features.
+
+Challenges
+•	We encountered a significant challenge where the network restrictions limited our ability to download and install our development environment, hindering our development process,
+These network limitations slowed down our ability to quickly integrate necessary packages, which in turn impacted the speed of development and deployment.
+
+To address this, we implemented a workaround by locally installing our own framework, which allowed us to bypass the network restrictions and continue our development without delays.
+
+•	We were tasked with being the first team to implement the Agile methodology within the organization, a process that involved overcoming both organizational resistance and adapting existing workflows to Agile principles.
+
+To address this, we invested time in training and mentoring the team on Agile principles, conducted regular retrospectives to identify and resolve challenges, and collaborated closely with other teams to refine our approach. We also leveraged tools to streamline our workflow and tracking
+
+
+•	Due to a shortage of human resources, we were faced with the challenge of meeting sprint deadlines with a reduced team capacity.
+
+To address this, our team took the initiative to work overtime from home during weekends. This allowed us to maintain progress, complete tasks on time, and ensure that sprints were delivered as planned.
+
+
+•	Due to the disruption of internet connectivity on our web servers, the Google Maps integration within our system, which provides critical site location distribution data, was rendered non-functional.
+To address this issue, an alternative solution was swiftly developed in-house to replace Google Maps. This new solution is fully offline and operates seamlessly within the system, ensuring uninterrupted access to site location data without reliance on external services.
