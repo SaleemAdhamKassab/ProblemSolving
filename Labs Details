@@ -1,1 +1,18 @@
-test
+
+select t.start_time, t.end_time, t.driver_name, t.dispensed_amount,t.measured_amount, t.ordered_amount,
+		t.operation_type_id,o.type,
+		t.transaction_status_id,ts.trans_status,
+		t.pump_guid, t.requested_tank_guid, t.dispensed_tank_guid, t.tank_guid
+		
+from fuel_transactions t
+join operation_types o
+on t.operation_type_id = o.id
+
+join transaction_statuses ts
+on t.transaction_status_id = ts.id
+
+where t.start_time between '2022-06-05 00:00' and '2024-06-05 23:59:59'
+
+and t.operation_type_id = 1 -- filling
+and t.transaction_status_id = 1 -- finish
+order by 1;
