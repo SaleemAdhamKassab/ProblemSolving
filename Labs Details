@@ -1,9 +1,52 @@
-select ft.start_time, ft.end_time,ft.driver_name,ft.dispensed_amount, ft.station_guid
-from   fuel_transactions ft
-join transaction_details td
-on td.fuel_transaction_id = ft.id
+select q.driver_name,
+		count(q.driver_name) 'visited count',
+		SUM(dispensed_amount) 'dispensed amount'
 
-where ft.start_time  between '2022-06-01 00:00' and '2022-06-30 23:59:59'
-and ft.operation_type_id = 1 -- filling
-and transaction_status_id = 1 -- finish
-order by 1,ft.driver_name;
+from(
+SELECT 
+    driver_name,
+    station_guid,
+    MAX(start_time) AS start_time, 
+    MAX(end_time) AS end_time, 
+    MAX(dispensed_amount) AS dispensed_amount
+FROM (
+    SELECT 
+        driver_name,
+        station_guid,
+        start_time,
+        end_time,
+        dispensed_amount,
+        SUM(CASE WHEN diff_minutes IS NULL OR diff_minutes >= 60 THEN 1 ELSE 0 END) 
+        OVER (PARTITION BY driver_name ORDER BY start_time) AS session_id
+    FROM (
+        SELECT 
+            *,
+            DATEDIFF(MINUTE, 
+                     LAG(start_time) OVER (PARTITION BY driver_name ORDER BY start_time), 
+                     start_time) AS diff_minutes
+        FROM fuel_transactions
+        WHERE start_time BETWEEN '2022-06-01 00:00' AND '2022-06-30 23:59:59'
+          AND operation_type_id = 1 -- filling
+          AND transaction_status_id = 1 -- finish
+          AND requested_tank_guid NOT LIKE '9BB9DA19-3705-4C6C-88C3-119A5F7A9613' -- tartous
+    ) AS Differences
+) AS Filtered
+GROUP BY driver_name, station_guid, session_id
+) q
+
+group by q.driver_name
+
+union all
+
+select  t.driver_name,
+		count(t.driver_name) 'visited count',
+		SUM(t.dispensed_amount) 'dispensed amount'
+
+from fuel_transactions t 
+WHERE start_time BETWEEN '2000-01-01 00:00' AND '2025-06-30 23:59:59'
+          AND operation_type_id = 1 -- filling
+          AND transaction_status_id = 1 -- finish
+          AND requested_tank_guid  = '9BB9DA19-3705-4C6C-88C3-119A5F7A9613' -- tartous
+group by t.driver_name
+
+ORDER BY 1;
