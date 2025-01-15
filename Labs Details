@@ -1,1 +1,9 @@
-test
+select ft.start_time, ft.end_time,ft.driver_name,ft.dispensed_amount, ft.station_guid
+from   fuel_transactions ft
+join transaction_details td
+on td.fuel_transaction_id = ft.id
+
+where ft.start_time  between '2022-06-01 00:00' and '2022-06-30 23:59:59'
+and ft.operation_type_id = 1 -- filling
+and transaction_status_id = 1 -- finish
+order by 1,ft.driver_name;
