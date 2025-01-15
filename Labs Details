@@ -1,6 +1,6 @@
-select q.driver_name,
-		count(q.driver_name) 'visited count',
-		SUM(dispensed_amount) 'dispensed amount'
+select q.driver_name 'Supplier',
+		count(q.driver_name) 'Count Of Fillment Operations',
+		SUM(dispensed_amount) 'Totla Fillment Volume'
 
 from(
 SELECT 
@@ -25,10 +25,10 @@ FROM (
                      LAG(start_time) OVER (PARTITION BY driver_name ORDER BY start_time), 
                      start_time) AS diff_minutes
         FROM fuel_transactions
-        WHERE start_time BETWEEN '2022-06-01 00:00' AND '2022-06-30 23:59:59'
+        WHERE start_time BETWEEN '2000-01-01 00:00' AND '2025-06-30 23:59:59'
           AND operation_type_id = 1 -- filling
           AND transaction_status_id = 1 -- finish
-          AND requested_tank_guid NOT LIKE '9BB9DA19-3705-4C6C-88C3-119A5F7A9613' -- tartous
+          AND station_guid != '9BB9DA19-3705-4C6C-88C3-119A5F7A9613' -- tartous
     ) AS Differences
 ) AS Filtered
 GROUP BY driver_name, station_guid, session_id
@@ -38,15 +38,13 @@ group by q.driver_name
 
 union all
 
-select  t.driver_name,
-		count(t.driver_name) 'visited count',
-		SUM(t.dispensed_amount) 'dispensed amount'
+select  t.driver_name 'Supplier',
+		count(t.driver_name) 'Count Of Fillment Operations',
+		SUM(t.dispensed_amount) 'Totla Fillment Volume'
 
 from fuel_transactions t 
 WHERE start_time BETWEEN '2000-01-01 00:00' AND '2025-06-30 23:59:59'
-          AND operation_type_id = 1 -- filling
-          AND transaction_status_id = 1 -- finish
-          AND requested_tank_guid  = '9BB9DA19-3705-4C6C-88C3-119A5F7A9613' -- tartous
+          AND station_guid  = '9BB9DA19-3705-4C6C-88C3-119A5F7A9613' -- tartous
 group by t.driver_name
 
 ORDER BY 1;
