@@ -1,5 +1,28 @@
-select * from sites_daily_availability_yesterday;
-select * from overall_daily_availability_10days;
-select * from REGION_DAILY_AVAILABILITY_10DAYS;
-select * from region_hourly_availability_yesterday;
-select * from overall_availability_from_202409;
+-- Create table
+create table SITES_DAILY_AVAILABILITY_YESTERDAY
+(
+  region           NVARCHAR2(255),
+  city             NVARCHAR2(255),
+  zone             NVARCHAR2(255),
+  area             NVARCHAR2(255),
+  subarea          NVARCHAR2(255),
+  site_code        NVARCHAR2(9),
+  act_date         DATE,
+  availability_2g  NUMBER,
+  outage_hours_2g  NUMBER,
+  availability_3g  NUMBER,
+  outage_hours_3g  NUMBER,
+  availability_lte NUMBER,
+  outage_hours_lte NUMBER
+)
+tablespace TECH_DATA_TS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
