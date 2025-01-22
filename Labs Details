@@ -1,50 +1,5 @@
-select q.driver_name 'Supplier',
-		count(q.driver_name) 'Count Of Fillment Operations',
-		SUM(dispensed_amount) 'Totla Fillment Volume'
-
-from(
-SELECT 
-    driver_name,
-    station_guid,
-    MAX(start_time) AS start_time, 
-    MAX(end_time) AS end_time, 
-    MAX(dispensed_amount) AS dispensed_amount
-FROM (
-    SELECT 
-        driver_name,
-        station_guid,
-        start_time,
-        end_time,
-        dispensed_amount,
-        SUM(CASE WHEN diff_minutes IS NULL OR diff_minutes >= 60 THEN 1 ELSE 0 END) 
-        OVER (PARTITION BY driver_name ORDER BY start_time) AS session_id
-    FROM (
-        SELECT 
-            *,
-            DATEDIFF(MINUTE, 
-                     LAG(start_time) OVER (PARTITION BY driver_name ORDER BY start_time), 
-                     start_time) AS diff_minutes
-        FROM fuel_transactions
-        WHERE start_time BETWEEN '2000-01-01 00:00' AND '2025-06-30 23:59:59'
-          AND operation_type_id = 1 -- filling
-          AND transaction_status_id = 1 -- finish
-          AND station_guid != '9BB9DA19-3705-4C6C-88C3-119A5F7A9613' -- tartous
-    ) AS Differences
-) AS Filtered
-GROUP BY driver_name, station_guid, session_id
-) q
-
-group by q.driver_name
-
-union all
-
-select  t.driver_name 'Supplier',
-		count(t.driver_name) 'Count Of Fillment Operations',
-		SUM(t.dispensed_amount) 'Totla Fillment Volume'
-
-from fuel_transactions t 
-WHERE start_time BETWEEN '2000-01-01 00:00' AND '2025-06-30 23:59:59'
-          AND station_guid  = '9BB9DA19-3705-4C6C-88C3-119A5F7A9613' -- tartous
-group by t.driver_name
-
-ORDER BY 1;
+select * from sites_daily_availability_yesterday;
+select * from overall_daily_availability_10days;
+select * from REGION_DAILY_AVAILABILITY_10DAYS;
+select * from region_hourly_availability_yesterday;
+select * from overall_availability_from_202409;
