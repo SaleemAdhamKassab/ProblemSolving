@@ -1,6 +1,6 @@
--- Create table
-create table OVERALL_DAILY_AVAILABILITY_10DAYS
+create table REGION_DAILY_AVAILABILITY_10DAYS
 (
+  region           NVARCHAR2(255),
   act_date         DATE,
   availability_2g  NUMBER,
   outage_hours_2g  NUMBER,
