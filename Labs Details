@@ -1,1 +1,6 @@
-"DefaultConnection": "Server=192.168.5.139;Database=TelemarketDb;User Id=PCSUser;Password=PpU@123456;Trusted_Connection=False;MultipleActiveResultSets=true;TrustServerCertificate=True"
+Fuel Management System
+
+Sprint 1 : Core Dashboard and KPI Monitoring
+	-Develop and deliver the core dashboard interface.
+- Integrate basic data feed for fuel levels and station status.
+- Initial user testing and feedback.
