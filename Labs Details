@@ -5,115 +5,118 @@ using System.Data;
 
 var _httpClientHandler = new HttpClientHandler
 {
-	UseProxy = false
+    UseProxy = false
 };
 
 var _httpClient = new HttpClient(_httpClientHandler);
 OracleConnection oraCon = new()
 {
-	ConnectionString = "Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.2.115.23)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = TECH) ) );Persist Security Info=True;User ID= TECH;Password=TECH_123; Connection Lifetime=300; Pooling=true;Min Pool Size=10; Max Pool Size=5000;"
+    ConnectionString = "Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.2.115.23)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = TECH) ) );Persist Security Info=True;User ID= TECH;Password=TECH_123; Connection Lifetime=300; Pooling=true;Min Pool Size=10; Max Pool Size=5000;"
 };
 
 OracleCommand cmd = new()
 {
-	Connection = oraCon,
-	CommandType = CommandType.Text
+    Connection = oraCon,
+    CommandType = CommandType.Text
 };
 
 
 //1) SITE RESPONSIBILITIES
 try
 {
-	if (oraCon.State != ConnectionState.Open)
-		oraCon.Open();
+    if (oraCon.State != ConnectionState.Open)
+        oraCon.Open();
 
-	var response = await _httpClient.GetAsync("http://smis-novo/IntegrationLayer/IntLayer/api/TPP/TP22_p_224/SITERESPONSIBILITIES");
-	var responseString = await response.Content.ReadAsStringAsync();
-	var result = JsonConvert.DeserializeObject<List<SiteResponsibility>>(responseString);
+    var response = await _httpClient.GetAsync("http://smis-novo/IntegrationLayer/IntLayer/api/TPP/TP22_p_224/SITERESPONSIBILITIES");
+    var responseString = await response.Content.ReadAsStringAsync();
+    var result = JsonConvert.DeserializeObject<List<SiteResponsibility>>(responseString);
 
-	foreach (var row in result)
-	{
-		cmd.CommandText = $"INSERT INTO T_SMIS_SITE_RESPONSIBILITIES (ENGINEER, HOS, UNIT, SITECODE, NETOWRKSERVICEDESKENGINEER, NSD_REGION, BACKUP_ENGINEER, ADDED_ON) " +
-			$"values ('{row.ENGINEER}','{row.HOS}','{row.UNIT}','{row.SITECODE}','{row.NETOWRKSERVICEDESKENGINEER}','{row.NSD_REGION}','{row.BACKUP_ENGINEER}',sysdate)";
-		cmd.ExecuteNonQuery();
-	}
+    foreach (var row in result)
+    {
+        cmd.CommandText = $"INSERT INTO T_SMIS_SITE_RESPONSIBILITIES (ENGINEER, HOS, UNIT, SITECODE, NETOWRKSERVICEDESKENGINEER, NSD_REGION, BACKUP_ENGINEER, ADDED_ON) " +
+            $"values ('{row.ENGINEER}','{row.HOS}','{row.UNIT}','{row.SITECODE}','{row.NETOWRKSERVICEDESKENGINEER}','{row.NSD_REGION}','{row.BACKUP_ENGINEER}',sysdate)";
+        cmd.ExecuteNonQuery();
+    }
 }
 
 catch (Exception ex)
 {
-	cmd.CommandText = "delete from T_SMIS_SITE_RESPONSIBILITIES where trunc(added_on) >= trunc(sysdate)";
-	cmd.ExecuteNonQuery();
+    cmd.CommandText = "delete from T_SMIS_SITE_RESPONSIBILITIES where trunc(added_on) >= trunc(sysdate)";
+    cmd.ExecuteNonQuery();
 
-	cmd.CommandText = $"INSERT INTO T_SMIS_SITE_RESPONSIBILITIES_LOG (SQLERROR) values ('{ex.Message}')";
-	cmd.ExecuteNonQuery();
+    string escapedErrorMessage = ex.Message.Replace("'", "''");
+    cmd.CommandText = $"INSERT INTO T_SMIS_SITE_RESPONSIBILITIES_LOG (SQLERROR) values ('{escapedErrorMessage}')";
+    cmd.ExecuteNonQuery();
 }
 finally
 {
-	oraCon.Close();
+    oraCon.Close();
 }
 
 
 //2) MKTG_SITE_CURRENT
 try
 {
-	if (oraCon.State != ConnectionState.Open)
-		oraCon.Open();
+    if (oraCon.State != ConnectionState.Open)
+        oraCon.Open();
 
-	var response = await _httpClient.GetAsync("http://smis-novo/IntegrationLayer/IntLayer/api/TPP/TP22_p_224/MKTG_SITE_CURRENT");
-	var responseString = await response.Content.ReadAsStringAsync();
-	var result = JsonConvert.DeserializeObject<List<MKTG_SITE_CURRENT>>(responseString);
+    var response = await _httpClient.GetAsync("http://smis-novo/IntegrationLayer/IntLayer/api/TPP/TP22_p_224/MKTG_SITE_CURRENT");
+    var responseString = await response.Content.ReadAsStringAsync();
+    var result = JsonConvert.DeserializeObject<List<MKTG_SITE_CURRENT>>(responseString);
 
-	foreach (var row in result)
-	{
-		cmd.CommandText = $"INSERT INTO T_SMIS_MKTG_SITE_CURRENT (SITE_CODE, ARABIC_NAME, ENGLISH_NAME, AREA, ZONE_, SUB_AREA, STATUS,BAND,CREATION_DATE,STATUS_DATE,ADDRESS,SITE_SITUATION,SUB_STATUS,DELAY, ADDED_ON) " +
-			$"values ('{row.SITE_CODE}','{row.ARABIC_NAME}','{row.ENGLISH_NAME}','{row.AREA}','{row.ZONE}','{row.SUB_AREA}','{row.STATUS}','{row.BAND}','{row.CREATION_DATE}','{row.STATUS_DATE}','{row.ADDRESS}',{row.SITE_SITUATION},'{row.SUB_STATUS}', {row.DELAY ?? 0} ,sysdate)";
-		cmd.ExecuteNonQuery();
-	}
+    foreach (var row in result)
+    {
+        cmd.CommandText = $"INSERT INTO T_SMIS_MKTG_SITE_CURRENT (SITE_CODE, ARABIC_NAME, ENGLISH_NAME, AREA, ZONE_, SUB_AREA, STATUS,BAND,CREATION_DATE,STATUS_DATE,ADDRESS,SITE_SITUATION,SUB_STATUS,DELAY, ADDED_ON) " +
+            $"values ('{row.SITE_CODE}','{row.ARABIC_NAME}','{row.ENGLISH_NAME}','{row.AREA}','{row.ZONE}','{row.SUB_AREA}','{row.STATUS}','{row.BAND}','{row.CREATION_DATE}','{row.STATUS_DATE}','{row.ADDRESS}',{row.SITE_SITUATION},'{row.SUB_STATUS}', {row.DELAY ?? 0} ,sysdate)";
+        cmd.ExecuteNonQuery();
+    }
 }
 
 catch (Exception ex)
 {
-	cmd.CommandText = "delete from T_SMIS_MKTG_SITE_CURRENT where trunc(added_on) >= trunc(sysdate)";
-	cmd.ExecuteNonQuery();
+    cmd.CommandText = "delete from T_SMIS_MKTG_SITE_CURRENT where trunc(added_on) >= trunc(sysdate)";
+    cmd.ExecuteNonQuery();
 
-	cmd.CommandText = $"INSERT INTO T_SMIS_MKTG_SITE_CURRENT_LOG (SQLERROR) values ('{ex.Message}')";
-	cmd.ExecuteNonQuery();
+    string escapedErrorMessage = ex.Message.Replace("'", "''");
+    cmd.CommandText = $"INSERT INTO T_SMIS_MKTG_SITE_CURRENT_LOG (SQLERROR) values ('{escapedErrorMessage}')";
+    cmd.ExecuteNonQuery();
 }
 finally
 {
-	oraCon.Close();
+    oraCon.Close();
 }
 
 //3) MKTG_CELL_CURRENT
 try
 {
-	if (oraCon.State != ConnectionState.Open)
-		oraCon.Open();
+    if (oraCon.State != ConnectionState.Open)
+        oraCon.Open();
 
-	var response = await _httpClient.GetAsync("http://smis-novo/IntegrationLayer/IntLayer/api/TPP/TP22_p_224/MKTG_CELL_CURRENT");
-	var responseString = await response.Content.ReadAsStringAsync();
-	var result = JsonConvert.DeserializeObject<List<MKTG_CELL_CURRENT>>(responseString);
+    var response = await _httpClient.GetAsync("http://smis-novo/IntegrationLayer/IntLayer/api/TPP/TP22_p_224/MKTG_CELL_CURRENT");
+    var responseString = await response.Content.ReadAsStringAsync();
+    var result = JsonConvert.DeserializeObject<List<MKTG_CELL_CURRENT>>(responseString);
 
-	foreach (var row in result)
-	{
-		cmd.CommandText = $"INSERT INTO T_SMIS_MKTG_CELL_CURRENT (CGI, CREATE_DATE, CODE, SITE_ARABIC_NAME, SITE_ENGLISH_NAME, CELL_DISPLAY_NAME, CELL_NAME, AREA, ZONE_, SUBAREA ,CELL_STATUS, BAND , ADDED_ON) " +
-			$"values ('{row.CGI}','{row.CREATE_DATE}','{row.CODE}','{row.SITE_ARABIC_NAME}','{row.SITE_ENGLISH_NAME}','{row.CELL_DISPLAY_NAME}','{row.CELL_NAME}','{row.AREA}','{row.ZONE}','{row.SUBAREA}','{row.CELL_STATUS}','{row.BAND}' ,sysdate)";
-		cmd.ExecuteNonQuery();
-	}
+    foreach (var row in result)
+    {
+        cmd.CommandText = $"INSERT INTO T_SMIS_MKTG_CELL_CURRENT (CGI, CREATE_DATE, CODE, SITE_ARABIC_NAME, SITE_ENGLISH_NAME, CELL_DISPLAY_NAME, CELL_NAME, AREA, ZONE_, SUBAREA ,CELL_STATUS, BAND , ADDED_ON) " +
+            $"values ('{row.CGI}','{row.CREATE_DATE}','{row.CODE}','{row.SITE_ARABIC_NAME}','{row.SITE_ENGLISH_NAME}','{row.CELL_DISPLAY_NAME}','{row.CELL_NAME}','{row.AREA}','{row.ZONE}','{row.SUBAREA}','{row.CELL_STATUS}','{row.BAND}' ,sysdate)";
+        cmd.ExecuteNonQuery();
+    }
 }
 
 catch (Exception ex)
 {
-	//delete
-	cmd.CommandText = "delete from T_SMIS_MKTG_CELL_CURRENT where trunc(added_on) >= trunc(sysdate)";
-	cmd.ExecuteNonQuery();
+    //delete
+    cmd.CommandText = "delete from T_SMIS_MKTG_CELL_CURRENT where trunc(added_on) >= trunc(sysdate)";
+    cmd.ExecuteNonQuery();
 
-	cmd.CommandText = $"INSERT INTO T_SMIS_MKTG_CELL_CURRENT_LOG (SQLERROR) values ('{ex.Message}')";
-	cmd.ExecuteNonQuery();
+    string escapedErrorMessage = ex.Message.Replace("'", "''");
+    cmd.CommandText = $"INSERT INTO T_SMIS_MKTG_CELL_CURRENT_LOG (SQLERROR) values ('{escapedErrorMessage}')";
+    cmd.ExecuteNonQuery();
 }
 finally
 {
-	oraCon.Close();
+    oraCon.Close();
 }
 
 oraCon.Close();
