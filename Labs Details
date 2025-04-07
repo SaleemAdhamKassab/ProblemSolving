@@ -1,1 +1,29 @@
-test
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=localhost;Initial Catalog=CentralizedFMS_Clone;Integrated Security=True;Encrypt=True;Trust Server Certificate=True",
+    "AppConfigConnection": "Data Source=localhost;Initial Catalog=FMS_config;Integrated Security=True;Encrypt=True;Trust Server Certificate=True",
+  },
+  "AllowedOrigins": [
+    "http://localhost:4200",
+    "http://192.168.5.139:5002",
+    "https://192.168.5.139:5001",
+    "https://192.168.5.139:5002"
+  ],
+  "Domain": "Syriatel.com",
+  "JWT": {
+    "ValidAudience": "http://localhost:4200",
+    "ValidIssuer": "http://localhost:5000",
+    "Secret": "JWTRefreshTokenHIGHsecuredPasswordVVVp1OH7XzyrSALEEMPasswordVVVp1OH7Xzyr",
+    "TokenValidityInMinutes": 60,
+    "RefreshTokenValidityInHour": 1
+  },
+  "ProfileImg": "http://mysites/User%20Photos/Profile%20Pictures/VarXXX_SThumb.jpg?t=1709204573458",
+  "ThumbImg": "http://mysites/User%20Photos/Profile%20Pictures/VarXXX_SThumb.jpg?t=1709204573458"
+}
