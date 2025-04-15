@@ -1,12 +1,16 @@
 Dear Safaa,
-I would like to request your assistance in publishing the Telemarketing Project Control (FE-BE) to the appropriate environment.
+I hope this message finds you well.
 
-Please use the below path:
+I would like to kindly request your assistance in publishing the Telemarketing Project (FE-BE) to the appropriate environment. Please use the following path:
 \\awfs\mis\AWTelemarkt139
 
-Note:
-Please keep “appsetting.json” for PCS-BE and keep “web.config” for PCS-FE
+Important Notes:
 
+Retain the existing appsettings.json file for PCS-BE.
+
+Retain the existing web.config file for PCS-FE.
 
 Dear Nour,
-Please provide Ms. Safaa with suitable date to do this action, knowing that we need one hour by max.
+Could you please coordinate with Ms. Safaa to schedule a suitable time for this task? Kindly note that the expected duration should not exceed one hour.
+
+Thank you both for your support.
