@@ -1,20 +1,28 @@
-http://portal/departments/tc/nsd/ss/_layouts/15/start.aspx#/Google%20Earth%20General/Forms/AllItems.aspx
+using System.Net;
+using System.Net.Http.Headers;
 
-
-
+// Set the base site URL
 var siteUrl = "http://portal";
 var folderRelativeUrl = "departments/tc/nsd/ss/Google Earth General/2025";
 
-var client = new HttpClient();
-client.BaseAddress = new Uri(siteUrl);
+// Create a handler that uses default Windows credentials
+var handler = new HttpClientHandler
+{
+    UseDefaultCredentials = true, // This sends your current Windows user credentials
+};
 
-// If needed: Add Authorization header if your SharePoint requires it
-// client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "your_token");
+using var client = new HttpClient(handler)
+{
+    BaseAddress = new Uri(siteUrl)
+};
 
+// Set headers to accept JSON (SharePoint expects this)
 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json;odata=verbose"));
 
+// Build the endpoint URL
 var endpoint = $"/_api/web/GetFolderByServerRelativeUrl('{Uri.EscapeDataString(folderRelativeUrl)}')";
 
+// Call SharePoint
 var response = await client.GetAsync(endpoint);
 
 if (response.IsSuccessStatusCode)
