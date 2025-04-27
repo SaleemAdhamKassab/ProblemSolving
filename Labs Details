@@ -1,37 +1,10 @@
-using System.Net;
-using System.Net.Http.Headers;
-
-// Set the base site URL
-var siteUrl = "http://portal";
-var folderRelativeUrl = "departments/tc/nsd/ss/Google Earth General/2025";
-
-// Create a handler that uses default Windows credentials
-var handler = new HttpClientHandler
-{
-    UseDefaultCredentials = true, // This sends your current Windows user credentials
-};
-
-using var client = new HttpClient(handler)
-{
-    BaseAddress = new Uri(siteUrl)
-};
-
-// Set headers to accept JSON (SharePoint expects this)
 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json;odata=verbose"));
 
-// Build the endpoint URL
-var endpoint = $"/_api/web/GetFolderByServerRelativeUrl('{Uri.EscapeDataString(folderRelativeUrl)}')";
 
-// Call SharePoint
-var response = await client.GetAsync(endpoint);
+System.FormatException: 'The format of value 'application/json;odata=verbose' is invalid.'
 
-if (response.IsSuccessStatusCode)
-{
-    var content = await response.Content.ReadAsStringAsync();
-    Console.WriteLine("Folder accessed successfully!");
-    Console.WriteLine(content);
-}
-else
-{
-    Console.WriteLine($"Failed to access folder: {response.StatusCode}");
-}
+This exception was originally thrown at this call stack:
+    [External Code]
+    LoadPowersService.Services.SharePointLoadingFiles.SharePointLoadingFiles.LoadPowersService.Services.SharePointLoadingFiles.ISharePointLoadingFiles.x() 
+
+
