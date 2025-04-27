@@ -1,1 +1,29 @@
 http://portal/departments/tc/nsd/ss/_layouts/15/start.aspx#/Google%20Earth%20General/Forms/AllItems.aspx
+
+
+
+var siteUrl = "http://portal";
+var folderRelativeUrl = "departments/tc/nsd/ss/Google Earth General/2025";
+
+var client = new HttpClient();
+client.BaseAddress = new Uri(siteUrl);
+
+// If needed: Add Authorization header if your SharePoint requires it
+// client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "your_token");
+
+client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json;odata=verbose"));
+
+var endpoint = $"/_api/web/GetFolderByServerRelativeUrl('{Uri.EscapeDataString(folderRelativeUrl)}')";
+
+var response = await client.GetAsync(endpoint);
+
+if (response.IsSuccessStatusCode)
+{
+    var content = await response.Content.ReadAsStringAsync();
+    Console.WriteLine("Folder accessed successfully!");
+    Console.WriteLine(content);
+}
+else
+{
+    Console.WriteLine($"Failed to access folder: {response.StatusCode}");
+}
