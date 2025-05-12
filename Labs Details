@@ -1,20 +1,7 @@
-var siteUrl = "http://portal/sites/your-site"; // <-- Update if needed
+Business Need:
 
-// Create the context
-using (var context = new ClientContext(siteUrl))
-{
-    // Use default Windows credentials
-    context.Credentials = CredentialCache.DefaultNetworkCredentials;
+Include all required Feature that support concerned parties to measure and monitor the Performance of Syriatel network more accurately by enhancing technical Performance platform (Transmission , core , Radio ) .
 
-    // Build the folder path
-    string folderServerRelativeUrl = "/departments/tc/nsd/ss/Google Earth General/2025"; 
+Project Objective:
 
-    // Load the folder
-    var folder = context.Web.GetFolderByServerRelativeUrl(folderServerRelativeUrl);
-
-    // Load folder properties (name, etc.)
-    context.Load(folder);
-    context.ExecuteQuery();
-
-    Console.WriteLine($"Successfully accessed folder: {folder.Name}");
-}
+To upgrade Technical performance Platform by including all  additional Features .
