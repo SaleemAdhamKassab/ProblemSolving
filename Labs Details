@@ -1,17 +1,24 @@
-1.	Project Overview
-The purpose of this project is to design and develop a Decision Support System (DSS) for monitoring and analyzing the status of Syriatel fuel stations and tanks, with real-time dashboard insights into key performance indicators (KPIs). This system will help fuel station managers, regional operations teams, and executives to make informed decisions, optimize fuel distribution, and forecast demand more effectively.
-2.	Project Scope
-•	Developing a DSS to provide real-time insights and analysis of fuel levels, filling, consumption trends, and tank statuses for all fuel stations.
-•	Customizable dashboards for different user roles (station managers, regional managers, executives).
-•	Alerts and thresholds notifications for fuel stock and station alerts.
-•	User role-based access control for secure system access.
-3.	Project Objectives
-•	Create one source of truth to control fuel stations and reduce local stations’ operational DBs overload 
-•	Provide real-time monitoring of key fuel station and tank KPIs.
-•	Full control over filling and distribution operations and analyze volume discrepancy causes.
-•	Enable data-driven decision-making for operational efficiency.
-•	Reduce manual processes related to monitoring fuel levels and trends.
-•	Offer predictive analytics to help in proactive fuel stocking and demand forecasting.
-•	Improve reaction times through real-time alerts for critical alerts.
-•	Project Delivery Approach: Scrum Methodology
-This project will be delivered using the Scrum framework, focusing on iterative and incremental delivery of value. Scrum will allow us to adapt to changing requirements, deliver high-priority features early, and engage stakeholders frequently.
+Business Need:
+This project is initiated to build a software system for Telemarketing Section to reach tasks automation and manage complex tasks such as (distribute task, follow up), currently these tasks implemented manually which is very difficult and requires too many excel sheets, In addition there is possibility of having errors .. 
+Objective:
+ 
+The system allows creating projects of the following types (Research Surveys, Segmentation Studies, or Telemarketing Campaign). we can define start and end dates, set quotas, and distribute data equally among participating telemarketers.
+ 
+The project would allow and facilitate the following:
+ 
+•	Automatic distribution for GSM: Distribute the list of customer GSMs related to a Survey or a campaign.
+•	Statistical reports: The system should provide statistical report to get ( Count of calls per status/ Actual percentage for completed and non-completed calls/ Quota conditions), in addition the system integrates with workforce management software to calculate each telemarketer's actual working hours, project type, and segment. This data is used to determine daily productivity.
+•	Target: Calculate the target for each employee.
+•	Mistake report: the system should provide to calculate mistakes & report explaining the type of mistake for each employee.
+•	Evaluation: Calculate the evaluation for each employee after each project.
+ 
+Project scope :
+ 
+This project initiated to : 
+ 
+•	Servers preparations for hosting the system.
+•	System implementation and acceptance.
+•	Integration with Telemarketing workforce management system.
+•	UAT.
+•	Implement IS System security Compliance.
+•	Go production.
