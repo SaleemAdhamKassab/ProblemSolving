@@ -1,7 +1,17 @@
-Business Need:
-
-Include all required Feature that support concerned parties to measure and monitor the Performance of Syriatel network more accurately by enhancing technical Performance platform (Transmission , core , Radio ) .
-
-Project Objective:
-
-To upgrade Technical performance Platform by including all  additional Features .
+1.	Project Overview
+The purpose of this project is to design and develop a Decision Support System (DSS) for monitoring and analyzing the status of Syriatel fuel stations and tanks, with real-time dashboard insights into key performance indicators (KPIs). This system will help fuel station managers, regional operations teams, and executives to make informed decisions, optimize fuel distribution, and forecast demand more effectively.
+2.	Project Scope
+•	Developing a DSS to provide real-time insights and analysis of fuel levels, filling, consumption trends, and tank statuses for all fuel stations.
+•	Customizable dashboards for different user roles (station managers, regional managers, executives).
+•	Alerts and thresholds notifications for fuel stock and station alerts.
+•	User role-based access control for secure system access.
+3.	Project Objectives
+•	Create one source of truth to control fuel stations and reduce local stations’ operational DBs overload 
+•	Provide real-time monitoring of key fuel station and tank KPIs.
+•	Full control over filling and distribution operations and analyze volume discrepancy causes.
+•	Enable data-driven decision-making for operational efficiency.
+•	Reduce manual processes related to monitoring fuel levels and trends.
+•	Offer predictive analytics to help in proactive fuel stocking and demand forecasting.
+•	Improve reaction times through real-time alerts for critical alerts.
+•	Project Delivery Approach: Scrum Methodology
+This project will be delivered using the Scrum framework, focusing on iterative and incremental delivery of value. Scrum will allow us to adapt to changing requirements, deliver high-priority features early, and engage stakeholders frequently.
