@@ -2,3 +2,8 @@
     "DefaultConnection": "Server=192.168.3.230;Database=CentralizedFMS_Clone;User Id=TDA;Password=Password#1;Trusted_Connection=False;MultipleActiveResultSets=true;TrustServerCertificate=True",
     "AppConfigConnection": "Server=192.168.3.6;Database=FMS_Config;User Id=TDA_FMS_USER;Password=TDAFMS123@;Trusted_Connection=False;MultipleActiveResultSets=true;TrustServerCertificate=True"
   },
+
+
+
+
+Data Source=10.2.115.74:1524/MKTG;Persist Security Info=True;User ID= MKTG;Password=mktg_3698741; Connection Lifetime=300; Pooling=true;Min Pool Size=10; Max Pool Size=5000;
