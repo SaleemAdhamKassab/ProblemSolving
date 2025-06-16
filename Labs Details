@@ -1,3 +1,7 @@
-Main Stations Fuel Availability
-
-This e-mail/Message is to inform you that the fullness percentage of fuel strategic tanks in all cities has become 50% , for your kind information and action.
+(DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.2.115.23)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = TECH)
+    )
+  )
