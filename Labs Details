@@ -1,24 +1,3 @@
-Business Need:
-This project is initiated to build a software system for Telemarketing Section to reach tasks automation and manage complex tasks such as (distribute task, follow up), currently these tasks implemented manually which is very difficult and requires too many excel sheets, In addition there is possibility of having errors .. 
-Objective:
- 
-The system allows creating projects of the following types (Research Surveys, Segmentation Studies, or Telemarketing Campaign). we can define start and end dates, set quotas, and distribute data equally among participating telemarketers.
- 
-The project would allow and facilitate the following:
- 
-•	Automatic distribution for GSM: Distribute the list of customer GSMs related to a Survey or a campaign.
-•	Statistical reports: The system should provide statistical report to get ( Count of calls per status/ Actual percentage for completed and non-completed calls/ Quota conditions), in addition the system integrates with workforce management software to calculate each telemarketer's actual working hours, project type, and segment. This data is used to determine daily productivity.
-•	Target: Calculate the target for each employee.
-•	Mistake report: the system should provide to calculate mistakes & report explaining the type of mistake for each employee.
-•	Evaluation: Calculate the evaluation for each employee after each project.
- 
-Project scope :
- 
-This project initiated to : 
- 
-•	Servers preparations for hosting the system.
-•	System implementation and acceptance.
-•	Integration with Telemarketing workforce management system.
-•	UAT.
-•	Implement IS System security Compliance.
-•	Go production.
+Main Stations Fuel Availability
+
+This e-mail/Message is to inform you that the fullness percentage of fuel strategic tanks in all cities has become 50% , for your kind information and action.
