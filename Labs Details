@@ -1,20 +1,20 @@
 public void SendSms(string messageTitle, string phone, string messageBody)
 {
-	var connStr = _config.GetConnectionString("TechConnection");
+    var connStr = "Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.2.115.23)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = TECH) ) );Persist Security Info=True;User ID= TECH;Password=TECH_123; Connection Lifetime=300; Pooling=true;Min Pool Size=10; Max Pool Size=5000;";
 
-	using (OracleConnection conn = new OracleConnection(connStr))
-	{
-		conn.Open();
+    using (OracleConnection conn = new OracleConnection(connStr))
+    {
+        conn.Open();
 
-		using (OracleCommand cmd = new("P_SEND_SMS", conn))
-		{
-			cmd.CommandType = CommandType.StoredProcedure;
+        using (OracleCommand cmd = new("P_SEND_SMS", conn))
+        {
+            cmd.CommandType = CommandType.StoredProcedure;
 
-			cmd.Parameters.Add("messageTitle", OracleDbType.Varchar2).Value = messageTitle;
-			cmd.Parameters.Add("phone", OracleDbType.Varchar2).Value = phone;
-			cmd.Parameters.Add("messageTitle", OracleDbType.Varchar2).Value = messageBody;
+            cmd.Parameters.Add("messageTitle", OracleDbType.Varchar2).Value = messageTitle;
+            cmd.Parameters.Add("phone", OracleDbType.Varchar2).Value = phone;
+            cmd.Parameters.Add("messageTitle", OracleDbType.Varchar2).Value = messageBody;
 
-			cmd.ExecuteNonQuery();
-		}
-	}
+            cmd.ExecuteNonQuery();
+        }
+    }
 }
