@@ -1,5 +1,165 @@
-Small stations total balance = 20%
+BEGIN TRANSACTION;
+GO
 
-Small Stations Fuel Availability
+CREATE TABLE [NotifyTeamJobs] (
+    [Id] int NOT NULL IDENTITY,
+    [JobName] nvarchar(max) NOT NULL,
+    [LastRunning] datetime2 NOT NULL,
+    CONSTRAINT [PK_NotifyTeamJobs] PRIMARY KEY ([Id])
+);
+GO
 
-This e-mail/Message is to inform you that the fullness percentage of fuel small stations in all cities has become 20% , for your kind information and action.
+CREATE TABLE [JobSmsConfigs] (
+    [Id] int NOT NULL IDENTITY,
+    [MessageTitle] nvarchar(max) NOT NULL,
+    [MessageBody] nvarchar(max) NOT NULL,
+    [JobId] int NOT NULL,
+    CONSTRAINT [PK_JobSmsConfigs] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_JobSmsConfigs_NotifyTeamJobs_JobId] FOREIGN KEY ([JobId]) REFERENCES [NotifyTeamJobs] ([Id]) ON DELETE CASCADE
+);
+GO
+
+CREATE TABLE [JobSmsPhones] (
+    [Id] int NOT NULL IDENTITY,
+    [Phone] nvarchar(max) NOT NULL,
+    [SmsId] int NOT NULL,
+    CONSTRAINT [PK_JobSmsPhones] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_JobSmsPhones_JobSmsConfigs_SmsId] FOREIGN KEY ([SmsId]) REFERENCES [JobSmsConfigs] ([Id]) ON DELETE CASCADE
+);
+GO
+
+CREATE INDEX [IX_JobSmsConfigs_JobId] ON [JobSmsConfigs] ([JobId]);
+GO
+
+CREATE INDEX [IX_JobSmsPhones_SmsId] ON [JobSmsPhones] ([SmsId]);
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250618093611_AddJobSmsTables', N'8.0.10');
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[NotifyTeamJobs]') AND [c].[name] = N'LastRunning');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [NotifyTeamJobs] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [NotifyTeamJobs] DROP COLUMN [LastRunning];
+GO
+
+CREATE TABLE [JobEmailConfig] (
+    [Id] int NOT NULL IDENTITY,
+    [ToEmail] nvarchar(max) NOT NULL,
+    [Subject] nvarchar(max) NOT NULL,
+    [Body] nvarchar(max) NOT NULL,
+    [JobId] int NOT NULL,
+    CONSTRAINT [PK_JobEmailConfig] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_JobEmailConfig_NotifyTeamJobs_JobId] FOREIGN KEY ([JobId]) REFERENCES [NotifyTeamJobs] ([Id]) ON DELETE CASCADE
+);
+GO
+
+CREATE TABLE [JobEmail] (
+    [Id] int NOT NULL IDENTITY,
+    [Email] nvarchar(max) NOT NULL,
+    [EmailId] int NOT NULL,
+    CONSTRAINT [PK_JobEmail] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_JobEmail_JobEmailConfig_EmailId] FOREIGN KEY ([EmailId]) REFERENCES [JobEmailConfig] ([Id]) ON DELETE CASCADE
+);
+GO
+
+CREATE INDEX [IX_JobEmail_EmailId] ON [JobEmail] ([EmailId]);
+GO
+
+CREATE INDEX [IX_JobEmailConfig_JobId] ON [JobEmailConfig] ([JobId]);
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250619060209_AddJobEmailTables', N'8.0.10');
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+ALTER TABLE [JobEmail] DROP CONSTRAINT [FK_JobEmail_JobEmailConfig_EmailId];
+GO
+
+DECLARE @var1 sysname;
+SELECT @var1 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[JobEmailConfig]') AND [c].[name] = N'ToEmail');
+IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [JobEmailConfig] DROP CONSTRAINT [' + @var1 + '];');
+ALTER TABLE [JobEmailConfig] DROP COLUMN [ToEmail];
+GO
+
+EXEC sp_rename N'[JobEmail].[EmailId]', N'EmailConfigId', N'COLUMN';
+GO
+
+EXEC sp_rename N'[JobEmail].[IX_JobEmail_EmailId]', N'IX_JobEmail_EmailConfigId', N'INDEX';
+GO
+
+ALTER TABLE [JobEmail] ADD CONSTRAINT [FK_JobEmail_JobEmailConfig_EmailConfigId] FOREIGN KEY ([EmailConfigId]) REFERENCES [JobEmailConfig] ([Id]) ON DELETE CASCADE;
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250619060655_UpdateJobEmailTables', N'8.0.10');
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+ALTER TABLE [JobEmail] DROP CONSTRAINT [FK_JobEmail_JobEmailConfig_EmailConfigId];
+GO
+
+ALTER TABLE [JobEmailConfig] DROP CONSTRAINT [FK_JobEmailConfig_NotifyTeamJobs_JobId];
+GO
+
+ALTER TABLE [JobEmailConfig] DROP CONSTRAINT [PK_JobEmailConfig];
+GO
+
+ALTER TABLE [JobEmail] DROP CONSTRAINT [PK_JobEmail];
+GO
+
+EXEC sp_rename N'[JobEmailConfig]', N'JobEmailConfigs';
+GO
+
+EXEC sp_rename N'[JobEmail]', N'JobEmails';
+GO
+
+EXEC sp_rename N'[JobEmailConfigs].[IX_JobEmailConfig_JobId]', N'IX_JobEmailConfigs_JobId', N'INDEX';
+GO
+
+EXEC sp_rename N'[JobEmails].[IX_JobEmail_EmailConfigId]', N'IX_JobEmails_EmailConfigId', N'INDEX';
+GO
+
+ALTER TABLE [JobEmailConfigs] ADD CONSTRAINT [PK_JobEmailConfigs] PRIMARY KEY ([Id]);
+GO
+
+ALTER TABLE [JobEmails] ADD CONSTRAINT [PK_JobEmails] PRIMARY KEY ([Id]);
+GO
+
+ALTER TABLE [JobEmailConfigs] ADD CONSTRAINT [FK_JobEmailConfigs_NotifyTeamJobs_JobId] FOREIGN KEY ([JobId]) REFERENCES [NotifyTeamJobs] ([Id]) ON DELETE CASCADE;
+GO
+
+ALTER TABLE [JobEmails] ADD CONSTRAINT [FK_JobEmails_JobEmailConfigs_EmailConfigId] FOREIGN KEY ([EmailConfigId]) REFERENCES [JobEmailConfigs] ([Id]) ON DELETE CASCADE;
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250619062957_UpdateJobEmailTableNames', N'8.0.10');
+GO
+
+COMMIT;
+GO
+
