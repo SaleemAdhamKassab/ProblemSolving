@@ -1,1 +1,39 @@
-"Data Source=10.2.115.74:1524/MKTG;Persist Security Info=True;User ID= MKTG;Password=mktg_3698741; Connection Lifetime=300; Pooling=true;Min Pool Size=10; Max Pool Size=5000;"
+select * from NotifyTeamJobs;
+--insert into NotifyTeamJobs values ('RemainingDaysPerStationsLessThanOrEqualTo1.5');
+
+select * from JobEmailConfigs;
+/*insert into JobEmailConfigs values ('Days of Fuel Availability','Dear Team,
+
+This is to inform you that the remaining fuel in the strategic tanks of the following stations is less than or equal to 1.5 days.
+
+Kindly take the necessary action accordingly.
+
+Affected Stations:',1002);*/
+
+select * from JobEmails;
+
+--insert into JobEmails values ('Saleem.Kassab@syriatel.net',1002);
+--insert into JobEmails values ('Amr.Daoud@syriatel.net',1002);
+
+
+
+-----------------------------------
+select * from NotifyTeamJobs;
+
+select * from JobSmsConfigs;
+
+/*insert into JobSmsConfigs values ('S R-Days','Dear Team,
+
+This is to inform you that the remaining fuel in the strategic tanks of the following stations is less than or equal to 1.5 days.
+
+Kindly take the necessary action accordingly.
+
+Affected Stations:',1002);*/
+
+select * from JobSmsPhones;
+
+-- insert into JobSmsPhones values ('93998187',1002);
+-- insert into JobSmsPhones values ('93995176',1002);
+
+/*update JobSmsConfigs set MessageBody = 'Dears, This Message is to inform you that the fullness percentage of fuel small tanks in all cities has become less or equal than 20% , for your kind information and action.   MIS-Technical Data Analysis'
+where id =3;*/
