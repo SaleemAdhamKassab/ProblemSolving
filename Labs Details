@@ -1,3 +1,1 @@
-   "DefaultConnection": "Data Source=192.168.3.230;Initial Catalog=CentralizedFMS_Clone;User Id=TDA;Password=Password#1;Integrated Security=True;Encrypt=True;Trust ServerCertificate=True",
-   "AppConfigConnection": "Data Source=192.168.3.6;Initial Catalog=FMS_config;User Id=TDA_FMS_USER;Password=TDAFMS123@;Integrated Security=True;Encrypt=True;Trust Server Certificate=True",
-   "TechConnection": "Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.2.115.23)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = TECH) ) );Persist Security Info=True;User ID= TECH;Password=TECH_123; Connection Lifetime=300; Pooling=true;Min Pool Size=10; Max Pool Size=5000;",
+test
