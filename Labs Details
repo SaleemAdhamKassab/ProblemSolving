@@ -1,1 +1,4 @@
-test
+id	tank_guid	deviation	limit	leakage	old_id	created_at	updated_at	leakage_type
+
+
+Date and Time of leakaeg / Name of station / Tank number / Leakage Qty based on Prop
