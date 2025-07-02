@@ -1,1 +1,22 @@
-test
+// Add Hangfire services
+                builder.Services.AddHangfire(config =>
+                config.SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
+               .UseSimpleAssemblyNameTypeSerializer()
+               .UseRecommendedSerializerSettings()
+               .UseSqlServerStorage(builder.Configuration.GetConnectionString("DefaultConnection"))
+               .UseActivator(new HangfireActivator(builder.Services.BuildServiceProvider())));
+
+                builder.Services.AddHangfireServer();
+
+
+
+
+
+ // Use Hangfire dashboard
+                app.UseHangfireDashboard("/hangfire", new DashboardOptions
+                {
+                    Authorization = new[] { new HangfireAuthorizationFilter() }
+                }); // /hangfire
+
+
+
