@@ -389,3 +389,15 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
+
+
+
+
+
+
+System.InvalidOperationException: 'Current JobStorage instance has not been initialized yet. You must set it before using Hangfire Client or Server API. For .NET Core applications please call the `IServiceCollection.AddHangfire` extension method from Hangfire.NetCore or Hangfire.AspNetCore package depending on 
+
+
+
+RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
+
