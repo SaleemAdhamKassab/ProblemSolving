@@ -20,8 +20,8 @@ using FMSD_BE.Middleware;
 using Hangfire;
 using FMSD_BE.Services.EmailService;
 using FMSD_BE.Services.SMSService;
-using FMSD_BE.Services.NotifyTeamService;
 using FMSD_BE.Helper;
+using FMSD_BE.Services.NotifyTeamService;
 
 
 
@@ -107,239 +107,15 @@ builder.Services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
 
 // Add Hangfire services
 builder.Services.AddHangfire(config =>
-config.SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
-.UseSimpleAssemblyNameTypeSerializer()
-.UseRecommendedSerializerSettings()
-.UseSqlServerStorage(builder.Configuration.GetConnectionString("AppConfigConnection"))
+                            config.SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
+                                   .UseSimpleAssemblyNameTypeSerializer()
+                                   .UseRecommendedSerializerSettings()
+                                   .UseSqlServerStorage(builder.Configuration.GetConnectionString("AppConfigConnection"))
 //.UseActivator(new HangfireActivator(builder.Services.BuildServiceProvider()))
 );
 
 
-// Notify team recurring job
-
-//////////////////////////////////////// StrategicTanksTotalBalanceLessThanOrEqualTo50% //////////////////////////////////
-
-RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
-    "StrategicTanksTotalBalanceLessThanOrEqualTo50_8Am",
-    service => service.CheckTanksTotalBalanceAsync(50,
-                                                    "StrategicTanksTotalBalanceLessThanOrEqualTo50%",
-                                                    false,
-                                                    25),
-    "0 8 * * *", // <-- 08:00 AM
-    new RecurringJobOptions
-    {
-        TimeZone = TimeZoneInfo.Local
-    }
-);
-
-RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
-    "StrategicTanksTotalBalanceLessThanOrEqualTo50_2Pm",
-    service => service.CheckTanksTotalBalanceAsync(50,
-                                                    "StrategicTanksTotalBalanceLessThanOrEqualTo50%",
-                                                    false,
-                                                    25),
-    "0 14 * * *", // <-- 02:00 PM
-    new RecurringJobOptions
-    {
-        TimeZone = TimeZoneInfo.Local
-    }
-);
-
-RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
-    "StrategicTanksTotalBalanceLessThanOrEqualTo50_8Pm",
-    service => service.CheckTanksTotalBalanceAsync(50,
-                                                    "StrategicTanksTotalBalanceLessThanOrEqualTo50%",
-                                                    false,
-                                                    25),
-    "0 20 * * *", // <-- 08:00 PM
-    new RecurringJobOptions
-    {
-        TimeZone = TimeZoneInfo.Local
-    }
-);
-
-
-//////////////////////////////////////// StrategicTanksTotalBalanceLessThanOrEqualTo25% //////////////////////////////////
-
-RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
-    "StrategicTanksTotalBalanceLessThanOrEqualTo25_8Am",
-    service => service.CheckTanksTotalBalanceAsync(25,
-                                                    "StrategicTanksTotalBalanceLessThanOrEqualTo25%",
-                                                    false,
-                                                    0),
-    "0 8 * * *", // <-- 08:00 AM
-    new RecurringJobOptions
-    {
-        TimeZone = TimeZoneInfo.Local
-    }
-);
-
-
-RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
-    "StrategicTanksTotalBalanceLessThanOrEqualTo25_2Pm",
-    service => service.CheckTanksTotalBalanceAsync(25,
-                                                    "StrategicTanksTotalBalanceLessThanOrEqualTo25%",
-                                                    false,
-                                                    0),
-    "0 14 * * *", // <-- 02:00 PM
-    new RecurringJobOptions
-    {
-        TimeZone = TimeZoneInfo.Local
-    }
-);
-
-RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
-    "StrategicTanksTotalBalanceLessThanOrEqualTo25_8Pm",
-    service => service.CheckTanksTotalBalanceAsync(25,
-                                                    "StrategicTanksTotalBalanceLessThanOrEqualTo25%",
-                                                    false,
-                                                    0),
-    "0 20 * * *", // <-- 08:00 PM
-    new RecurringJobOptions
-    {
-        TimeZone = TimeZoneInfo.Local
-    }
-);
-
-//////////////////////////////////////// SmallStationTanksTotalBalanceLessThanOrEqualTo20% //////////////////////////////////
-
-RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
-    "SmallStationTanksTotalBalanceLessThanOrEqualTo20_8Am",
-    service => service.CheckTanksTotalBalanceAsync(20,
-                                                    "SmallStationTanksTotalBalanceLessThanOrEqualTo20%",
-                                                    true,
-                                                    0),
-    "0 8 * * *", // <-- 08:00 AM
-    new RecurringJobOptions
-    {
-        TimeZone = TimeZoneInfo.Local
-    }
-);
-
-
-RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
-    "SmallStationTanksTotalBalanceLessThanOrEqualTo20_2Pm",
-    service => service.CheckTanksTotalBalanceAsync(20,
-                                                    "SmallStationTanksTotalBalanceLessThanOrEqualTo20%",
-                                                    true,
-                                                    0),
-    "0 14 * * *", // <-- 02:00 PM
-    new RecurringJobOptions
-    {
-        TimeZone = TimeZoneInfo.Local
-    }
-);
-
-
-RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
-    "SmallStationTanksTotalBalanceLessThanOrEqualTo20_8Pm",
-    service => service.CheckTanksTotalBalanceAsync(20,
-                                                    "SmallStationTanksTotalBalanceLessThanOrEqualTo20%",
-                                                    true,
-                                                    0),
-    "0 20 * * *", // <-- 08:00 PM
-    new RecurringJobOptions
-    {
-        TimeZone = TimeZoneInfo.Local
-    }
-);
-
-//////////////////////////////////////// RemainingDaysPerStationsLessThanOrEqualTo1.5 //////////////////////////////////
-
-RecurringJob.AddOrUpdate<RemainingDaysPerStation>(
-    "RemainingDaysPerStationsLessThanOrEqualTo1.5_8Am",
-    service => service.CheckRemainingDaysPerStationAsync("RemainingDaysPerStationsLessThanOrEqualTo1.5", 1.5),
-    "0 8 * * *", // <-- 08:00 AM
-    new RecurringJobOptions
-    {
-        TimeZone = TimeZoneInfo.Local
-    }
-);
-
-RecurringJob.AddOrUpdate<RemainingDaysPerStation>(
-    "RemainingDaysPerStationsLessThanOrEqualTo1.5_2Pm",
-    service => service.CheckRemainingDaysPerStationAsync("RemainingDaysPerStationsLessThanOrEqualTo1.5", 1.5),
-    "0 14 * * *", // <-- 02:00 PM
-    new RecurringJobOptions
-    {
-        TimeZone = TimeZoneInfo.Local
-    }
-);
-
-
-RecurringJob.AddOrUpdate<RemainingDaysPerStation>(
-    "RemainingDaysPerStationsLessThanOrEqualTo1.5_8Pm",
-    service => service.CheckRemainingDaysPerStationAsync("RemainingDaysPerStationsLessThanOrEqualTo1.5", 1.5),
-    "0 20 * * *", // <-- 08:00 PM
-    new RecurringJobOptions
-    {
-        TimeZone = TimeZoneInfo.Local
-    }
-);
-
-
-////////////////////////////////////////// Leakage Monitor Job //////////////////////////////////
-
-// Get records created in the last 5 minutes and not processed
-DateTime recentThreshold = DateTime.UtcNow.AddMinutes(-5);
-
-
-RecurringJob.AddOrUpdate<LeakageMonitorJob>(
-    "LeakageMonitorJob",
-    job => job.CheckNewLeakagesAndNotify("LeakageMonitorJob", recentThreshold),
-    "*/5 * * * *" // every 5 minutes
-);
-
-////////////////////////////////////////// Fuel Filling Operation //////////////////////////////////
-
-RecurringJob.AddOrUpdate<FuelFillingOperation>(
-    "NewFuelFillingOperation",
-    job => job.CheckNewFuelFillingOperationAsync("NewFuelFillingOperation", recentThreshold),
-    "*/5 * * * *" // every 5 minutes
-);
-
-////////////////////////////////////////// Fuel Volume Discrepancy //////////////////////////////////
-
-////DateTime yesterday = DateTime.Now.Date.AddDays(-1);
-
-
-//DateTime yesterday = DateTime.Now.Date.AddDays(-1000);
-
-
-//RecurringJob.AddOrUpdate<FuelVolumeDiscrepancy>(
-//    "FuelVolumeDiscrepancy",
-//    service => service.CheckNewFuelVolumeDiscrepancyAsync("FuelVolumeDiscrepancy",
-//                                                            yesterday.AddSeconds(1),
-//                                                            //yesterday.AddHours(23).AddMinutes(59).AddSeconds(59)
-//                                                            DateTime.Now
-//                                                            ),
-//    "0 9 * * *", // <-- 09:00 AM
-//    new RecurringJobOptions
-//    {
-//        TimeZone = TimeZoneInfo.Local
-//    }
-//);
-
 builder.Services.AddHangfireServer();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -376,28 +152,226 @@ app.UseSwaggerUI();
 
 app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
-// Use Hangfire dashboard
-
 
 app.UseHangfireDashboard("/hangfire", new DashboardOptions
 {
     Authorization = [new HangfireDashboardAuthorizationFilter()]
 });
 
-
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-app.Run();
 
+app.UseHangfireServer();
 
+app.Lifetime.ApplicationStarted.Register(() =>
+{
 
+// Notify team recurring job
 
-
-
-System.InvalidOperationException: 'Current JobStorage instance has not been initialized yet. You must set it before using Hangfire Client or Server API. For .NET Core applications please call the `IServiceCollection.AddHangfire` extension method from Hangfire.NetCore or Hangfire.AspNetCore package depending on 
-
-
+//////////////////////////////////////// StrategicTanksTotalBalanceLessThanOrEqualTo50% //////////////////////////////////
 
 RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
+        "StrategicTanksTotalBalanceLessThanOrEqualTo50_8Am",
+        service => service.CheckTanksTotalBalanceAsync(50,
+                                                        "StrategicTanksTotalBalanceLessThanOrEqualTo50%",
+                                                        false,
+                                                        25),
+        "0 8 * * *", // <-- 08:00 AM
+        new RecurringJobOptions
+        {
+            TimeZone = TimeZoneInfo.Local
+        }
+    );
 
+    RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
+        "StrategicTanksTotalBalanceLessThanOrEqualTo50_2Pm",
+        service => service.CheckTanksTotalBalanceAsync(50,
+                                                        "StrategicTanksTotalBalanceLessThanOrEqualTo50%",
+                                                        false,
+                                                        25),
+        "0 14 * * *", // <-- 02:00 PM
+        new RecurringJobOptions
+        {
+            TimeZone = TimeZoneInfo.Local
+        }
+    );
+
+    RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
+        "StrategicTanksTotalBalanceLessThanOrEqualTo50_8Pm",
+        service => service.CheckTanksTotalBalanceAsync(50,
+                                                        "StrategicTanksTotalBalanceLessThanOrEqualTo50%",
+                                                        false,
+                                                        25),
+        "0 20 * * *", // <-- 08:00 PM
+        new RecurringJobOptions
+        {
+            TimeZone = TimeZoneInfo.Local
+        }
+    );
+
+
+    //////////////////////////////////////// StrategicTanksTotalBalanceLessThanOrEqualTo25% //////////////////////////////////
+
+    RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
+        "StrategicTanksTotalBalanceLessThanOrEqualTo25_8Am",
+        service => service.CheckTanksTotalBalanceAsync(25,
+                                                        "StrategicTanksTotalBalanceLessThanOrEqualTo25%",
+                                                        false,
+                                                        0),
+        "0 8 * * *", // <-- 08:00 AM
+        new RecurringJobOptions
+        {
+            TimeZone = TimeZoneInfo.Local
+        }
+    );
+
+
+    RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
+        "StrategicTanksTotalBalanceLessThanOrEqualTo25_2Pm",
+        service => service.CheckTanksTotalBalanceAsync(25,
+                                                        "StrategicTanksTotalBalanceLessThanOrEqualTo25%",
+                                                        false,
+                                                        0),
+        "0 14 * * *", // <-- 02:00 PM
+        new RecurringJobOptions
+        {
+            TimeZone = TimeZoneInfo.Local
+        }
+    );
+
+    RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
+        "StrategicTanksTotalBalanceLessThanOrEqualTo25_8Pm",
+        service => service.CheckTanksTotalBalanceAsync(25,
+                                                        "StrategicTanksTotalBalanceLessThanOrEqualTo25%",
+                                                        false,
+                                                        0),
+        "0 20 * * *", // <-- 08:00 PM
+        new RecurringJobOptions
+        {
+            TimeZone = TimeZoneInfo.Local
+        }
+    );
+
+    //////////////////////////////////////// SmallStationTanksTotalBalanceLessThanOrEqualTo20% //////////////////////////////////
+
+    RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
+        "SmallStationTanksTotalBalanceLessThanOrEqualTo20_8Am",
+        service => service.CheckTanksTotalBalanceAsync(20,
+                                                        "SmallStationTanksTotalBalanceLessThanOrEqualTo20%",
+                                                        true,
+                                                        0),
+        "0 8 * * *", // <-- 08:00 AM
+        new RecurringJobOptions
+        {
+            TimeZone = TimeZoneInfo.Local
+        }
+    );
+
+
+    RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
+        "SmallStationTanksTotalBalanceLessThanOrEqualTo20_2Pm",
+        service => service.CheckTanksTotalBalanceAsync(20,
+                                                        "SmallStationTanksTotalBalanceLessThanOrEqualTo20%",
+                                                        true,
+                                                        0),
+        "0 14 * * *", // <-- 02:00 PM
+        new RecurringJobOptions
+        {
+            TimeZone = TimeZoneInfo.Local
+        }
+    );
+
+
+    RecurringJob.AddOrUpdate<CheckTanksTotalBalance>(
+        "SmallStationTanksTotalBalanceLessThanOrEqualTo20_8Pm",
+        service => service.CheckTanksTotalBalanceAsync(20,
+                                                        "SmallStationTanksTotalBalanceLessThanOrEqualTo20%",
+                                                        true,
+                                                        0),
+        "0 20 * * *", // <-- 08:00 PM
+        new RecurringJobOptions
+        {
+            TimeZone = TimeZoneInfo.Local
+        }
+    );
+
+    //////////////////////////////////////// RemainingDaysPerStationsLessThanOrEqualTo1.5 //////////////////////////////////
+
+    RecurringJob.AddOrUpdate<RemainingDaysPerStation>(
+        "RemainingDaysPerStationsLessThanOrEqualTo1.5_8Am",
+        service => service.CheckRemainingDaysPerStationAsync("RemainingDaysPerStationsLessThanOrEqualTo1.5", 1.5),
+        "0 8 * * *", // <-- 08:00 AM
+        new RecurringJobOptions
+        {
+            TimeZone = TimeZoneInfo.Local
+        }
+    );
+
+    RecurringJob.AddOrUpdate<RemainingDaysPerStation>(
+        "RemainingDaysPerStationsLessThanOrEqualTo1.5_2Pm",
+        service => service.CheckRemainingDaysPerStationAsync("RemainingDaysPerStationsLessThanOrEqualTo1.5", 1.5),
+        "0 14 * * *", // <-- 02:00 PM
+        new RecurringJobOptions
+        {
+            TimeZone = TimeZoneInfo.Local
+        }
+    );
+
+
+    RecurringJob.AddOrUpdate<RemainingDaysPerStation>(
+        "RemainingDaysPerStationsLessThanOrEqualTo1.5_8Pm",
+        service => service.CheckRemainingDaysPerStationAsync("RemainingDaysPerStationsLessThanOrEqualTo1.5", 1.5),
+        "0 20 * * *", // <-- 08:00 PM
+        new RecurringJobOptions
+        {
+            TimeZone = TimeZoneInfo.Local
+        }
+    );
+
+
+    ////////////////////////////////////////// Leakage Monitor Job //////////////////////////////////
+
+    // Get records created in the last 5 minutes and not processed
+    DateTime recentThreshold = DateTime.UtcNow.AddMinutes(-5);
+
+
+    RecurringJob.AddOrUpdate<LeakageMonitorJob>(
+        "LeakageMonitorJob",
+        job => job.CheckNewLeakagesAndNotify("LeakageMonitorJob", recentThreshold),
+        "*/5 * * * *" // every 5 minutes
+    );
+
+    ////////////////////////////////////////// Fuel Filling Operation //////////////////////////////////
+
+    RecurringJob.AddOrUpdate<FuelFillingOperation>(
+        "NewFuelFillingOperation",
+        job => job.CheckNewFuelFillingOperationAsync("NewFuelFillingOperation", recentThreshold),
+        "*/5 * * * *" // every 5 minutes
+    );
+
+    ////////////////////////////////////////// Fuel Volume Discrepancy //////////////////////////////////
+
+    ////DateTime yesterday = DateTime.Now.Date.AddDays(-1);
+
+
+    //DateTime yesterday = DateTime.Now.Date.AddDays(-1000);
+
+
+    //RecurringJob.AddOrUpdate<FuelVolumeDiscrepancy>(
+    //    "FuelVolumeDiscrepancy",
+    //    service => service.CheckNewFuelVolumeDiscrepancyAsync("FuelVolumeDiscrepancy",
+    //                                                            yesterday.AddSeconds(1),
+    //                                                            //yesterday.AddHours(23).AddMinutes(59).AddSeconds(59)
+    //                                                            DateTime.Now
+    //                                                            ),
+    //    "0 9 * * *", // <-- 09:00 AM
+    //    new RecurringJobOptions
+    //    {
+    //        TimeZone = TimeZoneInfo.Local
+    //    }
+    //);
+});
+
+
+app.Run();
