@@ -1,235 +1,40 @@
-public class DailyDiscripencyPerStation(
-    CentralizedFmsCloneContext centralizedFmsCloneContext,
-    IEmailService emailService,
-    ISMSService smsService,
-    ApplicationConfigDbContext applicationConfigDbContext,
-    IConfiguration configuration)
+var app = builder.Build();
+
+app.UseHangfireDashboard();
+
+// Register Audit Middleware
+app.UseMiddleware<RequestAuditMiddleware>();
+
+app.Use(async (context, next) =>
 {
-    private readonly CentralizedFmsCloneContext _db = centralizedFmsCloneContext;
-    private readonly IEmailService _emailService = emailService;
-    private readonly ISMSService _smsService = smsService;
-    private readonly ApplicationConfigDbContext _configDb = applicationConfigDbContext;
-    private readonly IConfiguration _configuration = configuration;
+    //add anti-clickjacking header (security issues)
+    context.Response.Headers.Add("X-Frame-Options", "DENY");
+    context.Response.Headers.Add("Content-Security-Policy", "frame-ancestors 'none';");
+    context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+    // Add CSP Middleware
+    context.Response.Headers.Append("Content-Security-Policy",
+        "default-src 'self'; " +
+        "script-src 'self' 'unsafe-inline' https://trusted.cdn.com; " +
+        "style-src 'self' 'unsafe-inline'; " +
+        "img-src 'self' data: https://images.com; " +
+        "font-src 'self' https://fonts.googleapis.com;");
+
+    await next();
+});
+
+// Configure the HTTP request pipeline.
+//if (app.Environment.IsDevelopment())
+//{
+app.UseSwagger();
+app.UseSwaggerUI();
+//}
+
+app.UseCors("CorsPolicy");
+app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();
 
 
-
-    private ChartApiResponse getSuppliersDistributionPerformance(DateTime startDate, DateTime endDate, string stationGuid)
-    {
-        var result = new ChartApiResponse();
-        double totalOperations = 0, totalVolume = 0;
-        string query = DashboardQueries.getsuppliersDistributionQuery(startDate, endDate, stationGuid, Transfer);
-
-        using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
-        {
-            connection.Open();
-            var command = new SqlCommand(query, connection);
-            using (var reader = command.ExecuteReader())
-            {
-                var countOfDistributionOperations = new DataSetModel
-                {
-                    Label = "Count Of Distribution Operations",
-                    YAxisID = "y",
-                    Stack = "a"
-                };
-
-                var totalDistributionVolume = new DataSetModel
-                {
-                    Label = "Total Distribution Volume",
-                    YAxisID = "y1",
-                    Stack = "b"
-                };
-
-                string? tempValue = string.Empty;
-
-                while (reader.Read())
-                {
-                    //1) driver name
-                    result.Labels.Add(reader.GetString(0));
-
-                    //2) Count Of Distribution Operations
-                    tempValue = reader["CountOfDistributionOperations"].ToString();
-                    if (!string.IsNullOrEmpty(tempValue))
-                    {
-                        countOfDistributionOperations.Data.Add(double.Parse(tempValue));
-                        totalOperations += double.Parse(tempValue);
-                    }
-                    else
-                        countOfDistributionOperations.Data.Add(0);
-
-                    //3) Total Distribution Volume
-                    tempValue = reader["TotalDistributionVolume"].ToString();
-                    if (!string.IsNullOrEmpty(tempValue))
-                    {
-                        totalDistributionVolume.Data.Add(double.Parse(tempValue));
-                        totalVolume += double.Parse(tempValue);
-                    }
-                    else
-                        totalDistributionVolume.Data.Add(0);
-                }
-
-                result.Datasets.Add(countOfDistributionOperations);
-                result.Datasets.Add(totalDistributionVolume);
-            }
-
-            result.Values = [
-                new LookUpResponse
-                {
-                    Name = "Total Operations",
-                    Value =totalOperations.ToString()
-                },
-                new LookUpResponse
-                {
-                    Name = "Total Volume/L",
-                    Value = totalVolume.ToString("N0")
-                }];
-
-            return result;
-        }
-    }
-
-    private async Task<UnjustifiedDiscrepanciesInFuelVolumeResult> getStationDiscrepancy(string stationGUID, DateTime startDate, DateTime endDate)
-    {
-        if (startDate != null && endDate != null)
-        {
-            startDate = Utilites.convertDateToArabStandardDate(startDate);
-            endDate = Utilites.convertDateToArabStandardDate(endDate);
-        }
-
-        var stations = _db.Stations.Where(e => e.StationType.Trim().ToLower() == enStationType.Main.ToString().Trim().ToLower() &&
-                                               e.DeletedAt == null &&
-                                               !string.IsNullOrEmpty(e.StationType));
-
-
-        stations = stations.Where(e => e.Guid.ToString().Trim().ToLower() == stationGUID.Trim().ToLower());
-
-        //1) starting ending volume
-        var startingVolumeQuery = stations.Select(station => new
-        {
-            Station = station,
-            Tanks = station.Tanks
-                            .Where(tank => tank.TankStatusId == (int)enTankStatuses.online)
-                            .Select(tank => new
-                            {
-                                Tank = tank,
-                                LastMeasurement = tank.TankMeasurements
-                                                        .Where(e => e.TankGuid == tank.Guid &&
-                                                                    e.CreatedAt <= startDate)
-                                                        .OrderByDescending(tm => tm.Id)
-                                                        .FirstOrDefault()
-                            })
-        })
-        .OrderBy(e => e.Station.StationName);
-
-        var startingVolumeStationDetails = await startingVolumeQuery
-            .GroupBy(g => g.Station.StationName)
-            .Select(e => new
-            {
-                stationName = e.Key,
-                fuelVolume = e.SelectMany(t => t.Tanks.Select(l => l.LastMeasurement.FuelVolume)).Sum()
-            })
-            .OrderBy(e => e.stationName)
-            .ToListAsync();
-
-        var endingVolumeQuery = stations.Select(station => new
-        {
-            Station = station,
-            Tanks = station.Tanks
-                            .Where(tank => tank.TankStatusId == (int)enTankStatuses.online)
-                            .Select(tank => new
-                            {
-                                Tank = tank,
-                                LastMeasurement = tank.TankMeasurements
-                                                        .Where(e => e.TankGuid == tank.Guid &&
-                                                                    e.CreatedAt <= endDate)
-                                                        .OrderByDescending(tm => tm.Id)
-                                                        .FirstOrDefault()
-                            })
-        })
-        .OrderBy(e => e.Station.StationName);
-
-
-        var endingVolumeStationDetails = await endingVolumeQuery
-            .GroupBy(g => g.Station.StationName)
-            .Select(e => new
-            {
-                stationName = e.Key,
-                fuelVolume = e.SelectMany(t => t.Tanks.Select(l => l.LastMeasurement.FuelVolume)).Sum()
-            })
-            .OrderBy(e => e.stationName)
-            .ToListAsync();
-
-
-        double startingVolume = startingVolumeStationDetails.Select(e => e.fuelVolume).Sum();
-        double endingVolume = endingVolumeStationDetails.Select(e => e.fuelVolume).Sum();
-
-        //2) Total Fillment Dispensed Amount
-        var mainStationGuids = stations.Select(e => e.Guid);
-
-        var totalFillmentDispensedAmountQuery = _db.FuelTransactions
-                    .Where(e => e.OperationTypeId == (int)enOperationTypes.Filling &&
-                                //e.Tank.Station.StationType.Trim().ToLower() == enStationType.Main.ToString().Trim().ToLower() &&
-                                mainStationGuids.Contains(e.StationGuid) &&
-                                e.StartTime >= startDate && e.StartTime <= endDate);
-
-        if (!string.IsNullOrEmpty(stationGUID))
-            totalFillmentDispensedAmountQuery = totalFillmentDispensedAmountQuery.Where(e => e.StationGuid.ToString() == stationGUID);
-
-        var totalFillmentDispensedAmount = totalFillmentDispensedAmountQuery
-            .GroupBy(t => t.DriverLicense)
-            .Select(g => new
-            {
-                TotalDispensedAmount = g.Sum(t => t.DispensedAmount)
-            })
-            .Sum(e => e.TotalDispensedAmount);
-
-        //3) Total Distribution Dispensed Amount
-        double? totalDistributionDispensedAmount = double.Parse(getSuppliersDistributionPerformance(startDate, endDate, stationGUID).Values[1].Value);
-
-
-        //result
-        var result = new UnjustifiedDiscrepanciesInFuelVolumeResult
-        {
-            StartingVolume = startingVolume,
-            EndingVolume = endingVolume,
-            TotalFillmentDispensedAmount = totalFillmentDispensedAmount,
-            TotalDistributionDispensedAmount = totalDistributionDispensedAmount,
-            DiffrentFillmentDistributionDispensedAmount = totalFillmentDispensedAmount - totalDistributionDispensedAmount,
-            TotalDisrepancies = (endingVolume - startingVolume) - (totalFillmentDispensedAmount - totalDistributionDispensedAmount)
-        };
-
-        return result;
-    }
-
-    public async Task CheckDiscripencyPerStationAsync(string jobName, DateTime startDate, DateTime endDate)
-    {
-        var stations = _db.Stations.Where(e => e.StationType.Trim().ToLower() == enStationType.Main.ToString().Trim().ToLower() &&
-                                               e.DeletedAt == null &&
-                                               !string.IsNullOrEmpty(e.StationType));
-
-
-        var mainStationGuids = stations.Select(e => e.Guid);
-
-        var result = new List<UnjustifiedDiscrepanciesInFuelVolumeResult>();
-
-        foreach (var stationGuid in mainStationGuids)
-        {
-            result.Add(await getStationDiscrepancy(stationGuid.ToString(), startDate, endDate));
-        }
-
-        //if (fuelTransactions != result.EndingVolume && fuelTransactions / result.TotalDistributionDispensedAmount > 0.5)
-        //{
-        //	// sending emails
-        //	var emailConfigs = await _configDb.JobEmails
-        //						.Where(e => e.JobEmailConfig.NotifyTeamJob.JobName == jobName)
-        //						.Select(e => new
-        //						{
-        //							e.JobEmailConfig.Subject,
-        //							body,
-        //							e.Email
-        //						})
-        //						.ToListAsync();
-
-        //	foreach (var email in emailConfigs)
-        //		await _emailService.SendEmailAsync(email.Email, email.Subject, email.body);
-        //}
-    }
+app.Run();
