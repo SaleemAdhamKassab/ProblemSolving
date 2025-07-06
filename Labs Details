@@ -1,40 +1,21 @@
-var app = builder.Build();
+// ✅ REGISTER RECURRING JOBS **RIGHT HERE**
+RecurringJob.AddOrUpdate<INotificationAService>(
+    "NotificationA_8AM",
+    x => x.SendNotificationAsync(),
+    "0 8 * * *",
+    TimeZoneInfo.Local
+);
 
-app.UseHangfireDashboard();
+RecurringJob.AddOrUpdate<INotificationAService>(
+    "NotificationA_2PM",
+    x => x.SendNotificationAsync(),
+    "0 14 * * *",
+    TimeZoneInfo.Local
+);
 
-// Register Audit Middleware
-app.UseMiddleware<RequestAuditMiddleware>();
-
-app.Use(async (context, next) =>
-{
-    //add anti-clickjacking header (security issues)
-    context.Response.Headers.Add("X-Frame-Options", "DENY");
-    context.Response.Headers.Add("Content-Security-Policy", "frame-ancestors 'none';");
-    context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
-    // Add CSP Middleware
-    context.Response.Headers.Append("Content-Security-Policy",
-        "default-src 'self'; " +
-        "script-src 'self' 'unsafe-inline' https://trusted.cdn.com; " +
-        "style-src 'self' 'unsafe-inline'; " +
-        "img-src 'self' data: https://images.com; " +
-        "font-src 'self' https://fonts.googleapis.com;");
-
-    await next();
-});
-
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-app.UseSwagger();
-app.UseSwaggerUI();
-//}
-
-app.UseCors("CorsPolicy");
-app.UseHttpsRedirection();
-
-app.UseAuthentication();
-app.UseAuthorization();
-app.MapControllers();
-
-
-app.Run();
+RecurringJob.AddOrUpdate<INotificationAService>(
+    "NotificationA_8PM",
+    x => x.SendNotificationAsync(),
+    "0 20 * * *",
+    TimeZoneInfo.Local
+);
