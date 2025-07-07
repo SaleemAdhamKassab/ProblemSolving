@@ -1,35 +1,66 @@
-var query = _db.Stations
-    .Where(e => e.DeletedAt == null &&
-                !string.IsNullOrEmpty(e.StationType) &&
-                e.StationType.Trim().ToLower() == enStationType.Main.ToString().Trim().ToLower())
-    .Select(station => new
-    {
-        Station = station,
-        Tanks = station.Tanks
-                    .Where(tank => tank.TankStatusId == (int)enTankStatuses.online)
-                    .Select(tank => new
-                    {
-                        Tank = tank,
-                        LastMeasurement = tank.TankMeasurements
-                                                //.Where(e => e.CreatedAt <= request.endDate)
-                                                .OrderByDescending(tm => tm.Id)
-                                                .FirstOrDefault()
-                    })
-    })
-    .OrderBy(e => e.Station.StationName);
+var endDate = DateTime.UtcNow.Date;
+var startDate = endDate.AddDays(-30);
 
-var cityDetails = await query
-    .GroupBy(g => g.Station.City)
-    .Select(e => new CityTotalDistribution
+// STEP 1: Load all main stations with online tanks and their last measurements
+var stationsWithTanks = await _db.Stations
+    .Where(s =>
+        s.DeletedAt == null &&
+        s.StationType != null &&
+        s.StationType.Trim().ToLower() == enStationType.Main.ToString().Trim().ToLower())
+    .Select(s => new
     {
-        City = e.Key,
-        TotalVolume = e.SelectMany(t => t.Tanks.Select(l => l.LastMeasurement.FuelVolume)).Sum(),
-        Capacity = e.SelectMany(t => t.Tanks.Select(c => c.Tank.Capacity)).Sum(),
-        TotalDistributionVolume = 0
+        Station = s,
+        Tanks = s.Tanks
+            .Where(t => t.TankStatusId == (int)enTankStatuses.online)
+            .Select(t => new
+            {
+                Tank = t,
+                LastMeasurement = t.TankMeasurements
+                    .OrderByDescending(m => m.Id)
+                    .FirstOrDefault()
+            })
     })
-    .OrderBy(e => e.City)
     .ToListAsync();
 
+// STEP 2: Validate and prepare per station
+var stationResults = new List<StationDistributionInfo>();
 
+foreach (var stationEntry in stationsWithTanks)
+{
+    double totalVolume = 0;
+    double totalCapacity = 0;
 
-etSuppliersDistributionPerformance(DateTime startDate, DateTime endDate, string stationGuid)
+    foreach (var tankEntry in stationEntry.Tanks)
+    {
+        if (tankEntry.LastMeasurement != null)
+        {
+            totalVolume += tankEntry.LastMeasurement.FuelVolume;
+        }
+        totalCapacity += tankEntry.Tank.Capacity;
+    }
+
+    // Safely get the distribution volume for this station in the period
+    double totalDistributionVolume = await GetStationDistributionVolumeAsync(startDate, endDate, stationEntry.Station.StationGuid);
+
+    stationResults.Add(new StationDistributionInfo
+    {
+        City = stationEntry.Station.City,
+        StationGuid = stationEntry.Station.StationGuid,
+        TotalVolume = totalVolume,
+        Capacity = totalCapacity,
+        DistributionVolume = totalDistributionVolume
+    });
+}
+
+// STEP 3: Group by city
+var cityResults = stationResults
+    .GroupBy(r => r.City)
+    .Select(g => new CityTotalDistribution
+    {
+        City = g.Key,
+        TotalVolume = g.Sum(s => s.TotalVolume),
+        Capacity = g.Sum(s => s.Capacity),
+        TotalDistributionVolume = g.Sum(s => s.DistributionVolume)
+    })
+    .OrderBy(c => c.City)
+    .ToList();
