@@ -1,21 +1,35 @@
-// ✅ REGISTER RECURRING JOBS **RIGHT HERE**
-RecurringJob.AddOrUpdate<INotificationAService>(
-    "NotificationA_8AM",
-    x => x.SendNotificationAsync(),
-    "0 8 * * *",
-    TimeZoneInfo.Local
-);
+var query = _db.Stations
+    .Where(e => e.DeletedAt == null &&
+                !string.IsNullOrEmpty(e.StationType) &&
+                e.StationType.Trim().ToLower() == enStationType.Main.ToString().Trim().ToLower())
+    .Select(station => new
+    {
+        Station = station,
+        Tanks = station.Tanks
+                    .Where(tank => tank.TankStatusId == (int)enTankStatuses.online)
+                    .Select(tank => new
+                    {
+                        Tank = tank,
+                        LastMeasurement = tank.TankMeasurements
+                                                //.Where(e => e.CreatedAt <= request.endDate)
+                                                .OrderByDescending(tm => tm.Id)
+                                                .FirstOrDefault()
+                    })
+    })
+    .OrderBy(e => e.Station.StationName);
 
-RecurringJob.AddOrUpdate<INotificationAService>(
-    "NotificationA_2PM",
-    x => x.SendNotificationAsync(),
-    "0 14 * * *",
-    TimeZoneInfo.Local
-);
+var cityDetails = await query
+    .GroupBy(g => g.Station.City)
+    .Select(e => new CityTotalDistribution
+    {
+        City = e.Key,
+        TotalVolume = e.SelectMany(t => t.Tanks.Select(l => l.LastMeasurement.FuelVolume)).Sum(),
+        Capacity = e.SelectMany(t => t.Tanks.Select(c => c.Tank.Capacity)).Sum(),
+        TotalDistributionVolume = 0
+    })
+    .OrderBy(e => e.City)
+    .ToListAsync();
 
-RecurringJob.AddOrUpdate<INotificationAService>(
-    "NotificationA_8PM",
-    x => x.SendNotificationAsync(),
-    "0 20 * * *",
-    TimeZoneInfo.Local
-);
+
+
+etSuppliersDistributionPerformance(DateTime startDate, DateTime endDate, string stationGuid)
