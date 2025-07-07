@@ -64,3 +64,33 @@ var cityResults = stationResults
     })
     .OrderBy(c => c.City)
     .ToList();
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////
+public class StationDistributionInfo
+{
+    public string City { get; set; }
+    public string StationGuid { get; set; }
+    public double TotalVolume { get; set; }
+    public double Capacity { get; set; }
+    public double DistributionVolume { get; set; }
+}
+
+
+public class CityTotalDistribution
+{
+    public string City { get; set; }
+    public double TotalVolume { get; set; }
+    public double Capacity { get; set; }
+    public double TotalDistributionVolume { get; set; }
+}
