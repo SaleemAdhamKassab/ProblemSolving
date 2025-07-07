@@ -1,7 +1,7 @@
 var endDate = DateTime.UtcNow.Date;
 var startDate = endDate.AddDays(-30);
 
-// STEP 1: Load all main stations with online tanks and their last measurements
+// 1. Load stations with tanks and last measurements
 var stationsWithTanks = await _db.Stations
     .Where(s =>
         s.DeletedAt == null &&
@@ -22,7 +22,7 @@ var stationsWithTanks = await _db.Stations
     })
     .ToListAsync();
 
-// STEP 2: Validate and prepare per station
+// 2. Process per station
 var stationResults = new List<StationDistributionInfo>();
 
 foreach (var stationEntry in stationsWithTanks)
@@ -33,13 +33,12 @@ foreach (var stationEntry in stationsWithTanks)
     foreach (var tankEntry in stationEntry.Tanks)
     {
         if (tankEntry.LastMeasurement != null)
-        {
             totalVolume += tankEntry.LastMeasurement.FuelVolume;
-        }
+
         totalCapacity += tankEntry.Tank.Capacity;
     }
 
-    // Safely get the distribution volume for this station in the period
+    // Get distribution volume safely
     double totalDistributionVolume = await GetStationDistributionVolumeAsync(startDate, endDate, stationEntry.Station.StationGuid);
 
     stationResults.Add(new StationDistributionInfo
@@ -52,61 +51,43 @@ foreach (var stationEntry in stationsWithTanks)
     });
 }
 
-// STEP 3: Group by city
+// 3. Aggregate by city and compute final metrics
 var cityResults = stationResults
     .GroupBy(r => r.City)
-    .Select(g => new CityTotalDistribution
+    .Select(g =>
     {
-        City = g.Key,
-        TotalVolume = g.Sum(s => s.TotalVolume),
-        Capacity = g.Sum(s => s.Capacity),
-        TotalDistributionVolume = g.Sum(s => s.DistributionVolume)
+        double totalVolume = g.Sum(s => s.TotalVolume);
+        double totalCapacity = g.Sum(s => s.Capacity);
+        double totalDistributionVolume = g.Sum(s => s.DistributionVolume);
+
+        double averageDailyDistribution = totalDistributionVolume / 30.0;
+        double expectedDays = averageDailyDistribution > 0
+            ? totalVolume / averageDailyDistribution
+            : 0;
+
+        return new CitySupplyMetrics
+        {
+            City = g.Key,
+            CurrentVolumeLiters = totalVolume,
+            CapacityLiters = totalCapacity,
+            TotalDistributionLast30Days = totalDistributionVolume,
+            AverageDailyDistribution = averageDailyDistribution,
+            ExpectedDaysOfSupply = expectedDays
+        };
     })
     .OrderBy(c => c.City)
     .ToList();
 
 
 
+=======================
 
-
-
-
-
-
-
-
-
-////////////////////////////////////////////////////////
-public class StationDistributionInfo
+public class CitySupplyMetrics
 {
     public string City { get; set; }
-    public string StationGuid { get; set; }
-    public double TotalVolume { get; set; }
-    public double Capacity { get; set; }
-    public double DistributionVolume { get; set; }
-}
-
-
-public class CityTotalDistribution
-{
-    public string City { get; set; }
-    public double TotalVolume { get; set; }
-    public double Capacity { get; set; }
-    public double TotalDistributionVolume { get; set; }
-}
-
-
-
-
-
-
-////////////////////////////////////////////////////////
-private async Task<double> GetStationDistributionVolumeAsync(DateTime startDate, DateTime endDate, string stationGuid)
-{
-    var distributions = await etSuppliersDistributionPerformance(startDate, endDate, stationGuid);
-
-    if (distributions == null || !distributions.Any())
-        return 0;
-
-    return distributions.Sum(d => d.Volume);
+    public double CurrentVolumeLiters { get; set; }
+    public double CapacityLiters { get; set; }
+    public double TotalDistributionLast30Days { get; set; }
+    public double AverageDailyDistribution { get; set; }
+    public double ExpectedDaysOfSupply { get; set; }
 }
