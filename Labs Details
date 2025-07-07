@@ -76,7 +76,7 @@ var cityResults = stationResults
 
 
 
-////////////////////////////
+////////////////////////////////////////////////////////
 public class StationDistributionInfo
 {
     public string City { get; set; }
@@ -93,4 +93,20 @@ public class CityTotalDistribution
     public double TotalVolume { get; set; }
     public double Capacity { get; set; }
     public double TotalDistributionVolume { get; set; }
+}
+
+
+
+
+
+
+////////////////////////////////////////////////////////
+private async Task<double> GetStationDistributionVolumeAsync(DateTime startDate, DateTime endDate, string stationGuid)
+{
+    var distributions = await etSuppliersDistributionPerformance(startDate, endDate, stationGuid);
+
+    if (distributions == null || !distributions.Any())
+        return 0;
+
+    return distributions.Sum(d => d.Volume);
 }
