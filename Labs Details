@@ -1,93 +1,302 @@
-var endDate = DateTime.UtcNow.Date;
-var startDate = endDate.AddDays(-30);
+using FMSD_BE.Data;
+using FMSD_BE.Services.DashboardService;
+using FMSD_BE.Services.FilterService;
+using FMSD_BE.Services.ReportService.AlarmService;
+using FMSD_BE.Services.ReportService.CalibrationDetailService;
+using FMSD_BE.Services.ReportService.CalibrationService;
+using FMSD_BE.Services.ReportService.DistributionTransactionService;
+using FMSD_BE.Services.ReportService.LeakageSrvice;
+using FMSD_BE.Services.ReportService.TankService;
+using FMSD_BE.Services.ReportService.TransactionDetailService;
+using FMSD_BE.Services.SharedService;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using System.Text.Json.Serialization;
+using FMSD_BE.Services.Auth;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Server.IISIntegration;
+using FMSD_BE.Middleware;
+using Hangfire;
+using FMSD_BE.Services.EmailService;
+using FMSD_BE.Services.SMSService;
+using FMSD_BE.Services.NotifyTeamService.CheckTanksTotalBalanceService;
+using FMSD_BE.Services.NotifyTeamService.RemainingDaysPerStationService;
+using FMSD_BE.Services.NotifyTeamService.DailyDiscripencyPerStationService;
+using FMSD_BE.Services.NotifyTeamService.SuppliersPerformanceService;
+using FMSD_BE.Services.NotifyTeamService.LeakageMonitorService;
 
-// 1. Load stations with tanks and last measurements
-var stationsWithTanks = await _db.Stations
-    .Where(s =>
-        s.DeletedAt == null &&
-        s.StationType != null &&
-        s.StationType.Trim().ToLower() == enStationType.Main.ToString().Trim().ToLower())
-    .Select(s => new
-    {
-        Station = s,
-        Tanks = s.Tanks
-            .Where(t => t.TankStatusId == (int)enTankStatuses.online)
-            .Select(t => new
-            {
-                Tank = t,
-                LastMeasurement = t.TankMeasurements
-                    .OrderByDescending(m => m.Id)
-                    .FirstOrDefault()
-            })
-    })
-    .ToListAsync();
 
-// 2. Process per station
-var stationResults = new List<StationDistributionInfo>();
 
-foreach (var stationEntry in stationsWithTanks)
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Sql server Db Connections
+string appConfigConnectionString = builder.Configuration.GetConnectionString("AppConfigConnection")!;
+builder.Services.AddDbContext<CentralizedFmsCloneContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<ApplicationConfigDbContext>(options => options.UseSqlServer(appConfigConnectionString));
+
+builder.Services.AddScoped<IDashboardService, DashboardService>();
+builder.Services.AddScoped<IFilterService, FilterService>();
+builder.Services.AddScoped<IAlarmService, AlarmService>();
+builder.Services.AddScoped<ITankService, TankService>();
+builder.Services.AddScoped<ISharedService, SharedService>();
+builder.Services.AddScoped<IFuelTransactionService, FuelTransactionService>();
+builder.Services.AddScoped<ITransactionDetailService, TransactionDetailService>();
+builder.Services.AddScoped<ILeakageService, LeakageService>();
+builder.Services.AddScoped<ICalibrationService, CalibrationService>();
+builder.Services.AddScoped<ICalibrationDetailService, CalibrationDetailService>();
+
+builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IWindowsAuthService, WindowsAuthService>();
+builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
+builder.Services.AddTransient<IEmailService, EmailService>();
+builder.Services.AddTransient<ISMSService, SMSService>();
+
+// Hangfire services
+builder.Services.AddScoped<ICheckTanksTotalBalanceService, CheckTanksTotalBalanceService>();
+//builder.Services.AddScoped<IRemainingDaysPerStationService, RemainingDaysPerStationService>();
+builder.Services.AddScoped<IDailyDiscripencyPerStationService, DailyDiscripencyPerStationService>();
+builder.Services.AddScoped<ISuppliersPerformanceService, SuppliersPerformanceService>();
+builder.Services.AddScoped<ILeakageMonitorService, LeakageMonitorService>();
+
+builder.Services.AddHangfire(config =>
 {
-    double totalVolume = 0;
-    double totalCapacity = 0;
+    config.UseSqlServerStorage(builder.Configuration.GetConnectionString("AppConfigConnection"));
+});
+builder.Services.AddHangfireServer();
 
-    foreach (var tankEntry in stationEntry.Tanks)
+
+
+//Add Windows Auth
+builder.Services.AddSwaggerGen(setup =>
+{
+
+    // Include 'SecurityScheme' to use JWT Authentication
+    var jwtSecurityScheme = new OpenApiSecurityScheme
     {
-        if (tankEntry.LastMeasurement != null)
-            totalVolume += tankEntry.LastMeasurement.FuelVolume;
+        BearerFormat = "JWT",
+        Name = "JWT Authentication",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = JwtBearerDefaults.AuthenticationScheme,
+        Description = "Put **_ONLY_** your JWT Bearer token on textbox below!",
 
-        totalCapacity += tankEntry.Tank.Capacity;
-    }
-
-    // Get distribution volume safely
-    double totalDistributionVolume = await GetStationDistributionVolumeAsync(startDate, endDate, stationEntry.Station.StationGuid);
-
-    stationResults.Add(new StationDistributionInfo
-    {
-        City = stationEntry.Station.City,
-        StationGuid = stationEntry.Station.StationGuid,
-        TotalVolume = totalVolume,
-        Capacity = totalCapacity,
-        DistributionVolume = totalDistributionVolume
-    });
-}
-
-// 3. Aggregate by city and compute final metrics
-var cityResults = stationResults
-    .GroupBy(r => r.City)
-    .Select(g =>
-    {
-        double totalVolume = g.Sum(s => s.TotalVolume);
-        double totalCapacity = g.Sum(s => s.Capacity);
-        double totalDistributionVolume = g.Sum(s => s.DistributionVolume);
-
-        double averageDailyDistribution = totalDistributionVolume / 30.0;
-        double expectedDays = averageDailyDistribution > 0
-            ? totalVolume / averageDailyDistribution
-            : 0;
-
-        return new CitySupplyMetrics
+        Reference = new OpenApiReference
         {
-            City = g.Key,
-            CurrentVolumeLiters = totalVolume,
-            CapacityLiters = totalCapacity,
-            TotalDistributionLast30Days = totalDistributionVolume,
-            AverageDailyDistribution = averageDailyDistribution,
-            ExpectedDaysOfSupply = expectedDays
-        };
-    })
-    .OrderBy(c => c.City)
-    .ToList();
+            Id = JwtBearerDefaults.AuthenticationScheme,
+            Type = ReferenceType.SecurityScheme
+        }
+    };
 
+    setup.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
 
+    setup.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        { jwtSecurityScheme, Array.Empty<string>() }
+    });
 
-=======================
+    //setup.OperationFilter<SwaggerTenantParam>();
 
-public class CitySupplyMetrics
+});
+
+builder.Services.AddAuthentication(IISDefaults.AuthenticationScheme).AddNegotiate();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<ClaimsPrincipal>(s => s.GetService<IHttpContextAccessor>().HttpContext.User);
+
+var origins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>();
+
+builder.Services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
 {
-    public string City { get; set; }
-    public double CurrentVolumeLiters { get; set; }
-    public double CapacityLiters { get; set; }
-    public double TotalDistributionLast30Days { get; set; }
-    public double AverageDailyDistribution { get; set; }
-    public double ExpectedDaysOfSupply { get; set; }
-}
+    builder.AllowAnyMethod()
+            .AllowAnyHeader()
+            .WithExposedHeaders("X-Content-Type-Options")
+            .SetIsOriginAllowed(origin => origins.Contains("all") || origins
+            .Select(x => x.ToLower()).Contains(origin.ToLower())) // allow any origin you can change here to allow localhost:4200
+            .AllowCredentials();
+}));
+
+
+var app = builder.Build();
+
+app.UseHangfireDashboard();
+
+// Register Audit Middleware
+app.UseMiddleware<RequestAuditMiddleware>();
+
+app.Use(async (context, next) =>
+{
+    //add anti-clickjacking header (security issues)
+    context.Response.Headers.Add("X-Frame-Options", "DENY");
+    context.Response.Headers.Add("Content-Security-Policy", "frame-ancestors 'none';");
+    context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+    // Add CSP Middleware
+    context.Response.Headers.Append("Content-Security-Policy",
+        "default-src 'self'; " +
+        "script-src 'self' 'unsafe-inline' https://trusted.cdn.com; " +
+        "style-src 'self' 'unsafe-inline'; " +
+        "img-src 'self' data: https://images.com; " +
+        "font-src 'self' https://fonts.googleapis.com;");
+
+    await next();
+});
+
+// Configure the HTTP request pipeline.
+//if (app.Environment.IsDevelopment())
+//{
+app.UseSwagger();
+app.UseSwaggerUI();
+//}
+
+app.UseCors("CorsPolicy");
+app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();
+
+
+// REGISTER RECURRING JOBS **RIGHT HERE**
+
+
+
+/////////////////////// StrategicTanksTotalBalanceLessThanOrEqualTo 50%//////////////////////////
+
+RecurringJob.AddOrUpdate<ICheckTanksTotalBalanceService>(
+    "StrategicTanksTotalBalanceLessThanOrEqualTo50_8Am",
+    x => x.CheckTanksTotalBalanceAsync(50, "StrategicTanksTotalBalanceLessThanOrEqualTo50%", false, 25),
+    "0 8 * * *",
+    TimeZoneInfo.Local
+);
+
+RecurringJob.AddOrUpdate<ICheckTanksTotalBalanceService>(
+    "StrategicTanksTotalBalanceLessThanOrEqualTo50_2Pm",
+    x => x.CheckTanksTotalBalanceAsync(50, "StrategicTanksTotalBalanceLessThanOrEqualTo50%", false, 25),
+    "0 14 * * *",
+    TimeZoneInfo.Local
+);
+
+RecurringJob.AddOrUpdate<ICheckTanksTotalBalanceService>(
+    "StrategicTanksTotalBalanceLessThanOrEqualTo50_8Pm",
+    x => x.CheckTanksTotalBalanceAsync(50, "StrategicTanksTotalBalanceLessThanOrEqualTo50%", false, 25),
+    "0 20 * * *",
+    TimeZoneInfo.Local
+);
+
+
+/////////////////////// StrategicTanksTotalBalanceLessThanOrEqualTo 25%//////////////////////////
+
+RecurringJob.AddOrUpdate<ICheckTanksTotalBalanceService>(
+    "StrategicTanksTotalBalanceLessThanOrEqualTo25_8Am",
+    x => x.CheckTanksTotalBalanceAsync(25, "StrategicTanksTotalBalanceLessThanOrEqualTo25%", false, 0),
+    "5 8 * * *",
+    TimeZoneInfo.Local
+);
+
+RecurringJob.AddOrUpdate<ICheckTanksTotalBalanceService>(
+    "StrategicTanksTotalBalanceLessThanOrEqualTo25_2Pm",
+    x => x.CheckTanksTotalBalanceAsync(25, "StrategicTanksTotalBalanceLessThanOrEqualTo25%", false, 0),
+    "5 14 * * *",
+    TimeZoneInfo.Local
+);
+
+
+RecurringJob.AddOrUpdate<ICheckTanksTotalBalanceService>(
+    "StrategicTanksTotalBalanceLessThanOrEqualTo25_8Pm",
+    x => x.CheckTanksTotalBalanceAsync(25, "StrategicTanksTotalBalanceLessThanOrEqualTo25%", false, 0),
+    "5 20 * * *",
+    TimeZoneInfo.Local
+);
+
+
+//////////////////////////////////////// SmallStationTanksTotalBalanceLessThanOrEqualTo 20% //////////////////////////////////
+
+RecurringJob.AddOrUpdate<ICheckTanksTotalBalanceService>(
+    "SmallStationTanksTotalBalanceLessThanOrEqualTo20_8Am",
+    x => x.CheckTanksTotalBalanceAsync(20, "SmallStationTanksTotalBalanceLessThanOrEqualTo20%", true, 0),
+    "10 8 * * *",
+    TimeZoneInfo.Local
+);
+
+
+RecurringJob.AddOrUpdate<ICheckTanksTotalBalanceService>(
+    "SmallStationTanksTotalBalanceLessThanOrEqualTo20_2Pm",
+    x => x.CheckTanksTotalBalanceAsync(20, "SmallStationTanksTotalBalanceLessThanOrEqualTo20%", true, 0),
+    "10 14 * * *",
+    TimeZoneInfo.Local
+);
+
+
+RecurringJob.AddOrUpdate<ICheckTanksTotalBalanceService>(
+    "SmallStationTanksTotalBalanceLessThanOrEqualTo20_8Pm",
+    x => x.CheckTanksTotalBalanceAsync(20, "SmallStationTanksTotalBalanceLessThanOrEqualTo20%", true, 0),
+    "10 20 * * *",
+    TimeZoneInfo.Local
+);
+
+
+//////////////////////////////////////// RemainingDaysPerStationsLessThanOrEqualTo 1.5 //////////////////////////////////
+
+//RecurringJob.AddOrUpdate<IRemainingDaysPerStationService>(
+//    "RemainingDaysPerStationsLessThanOrEqualTo1.5_8Am",
+//    x => x.CheckRemainingDaysPerStationAsync("RemainingDaysPerStationsLessThanOrEqualTo1.5", 1.5),
+//    "15 8 * * *",
+//    TimeZoneInfo.Local
+//);
+
+
+//RecurringJob.AddOrUpdate<IRemainingDaysPerStationService>(
+//    "RemainingDaysPerStationsLessThanOrEqualTo1.5_2Pm",
+//    x => x.CheckRemainingDaysPerStationAsync("RemainingDaysPerStationsLessThanOrEqualTo1.5", 1.5),
+//    "15 14 * * *",
+//    TimeZoneInfo.Local
+//);
+
+
+//RecurringJob.AddOrUpdate<IRemainingDaysPerStationService>(
+//    "RemainingDaysPerStationsLessThanOrEqualTo1.5_8Pm",
+//    x => x.CheckRemainingDaysPerStationAsync("RemainingDaysPerStationsLessThanOrEqualTo1.5", 1.5),
+//    "15 20 * * *",
+//    TimeZoneInfo.Local
+//);
+
+
+////////////////////////////////////////// Fuel Volume Discrepancy //////////////////////////////////
+
+DateTime yesterday = DateTime.UtcNow.Date.AddDays(-1);
+
+RecurringJob.AddOrUpdate<IDailyDiscripencyPerStationService>(
+    "DailyDiscripencyPerStation",
+    x => x.CheckDiscripencyPerStationAsync("DailyDiscripencyPerStation", yesterday, yesterday.AddHours(23).AddMinutes(59).AddSeconds(59)),
+    "0 9 * * *",
+    TimeZoneInfo.Local
+);
+
+
+
+////////////////////////////////////////// Supplier Performance //////////////////////////////////
+
+RecurringJob.AddOrUpdate<ISuppliersPerformanceService>(
+    "SuppliersPerformance",
+    x => x.CheckSupplierPerformanceAsync("Suppliers Performance"),
+    "*/5 * * * *",
+    TimeZoneInfo.Local
+);
+
+////////////////////////////////////////// Leakage Monitor  //////////////////////////////////
+
+RecurringJob.AddOrUpdate<ILeakageMonitorService>(
+    "LeakageMonitor",
+    x => x.CheckNewLeakagesAsync("LeakageMonitorJob"),
+    "*/5 * * * *",
+    TimeZoneInfo.Local
+);
+
+app.Run();
