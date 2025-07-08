@@ -1,15 +1,9 @@
-public class AuthenticatedUsersOnlyAuthorizationFilter : IDashboardAuthorizationFilter
-{
-    public bool Authorize(DashboardContext context)
-    {
-        var httpContext = context.GetHttpContext();
-        return httpContext.User.Identity?.IsAuthenticated == true;
-    }
-}
+This e-mail/Message is to inform you that the fullness percentage of fuel strategic tanks in all cities has become 50% , for your kind information and action.
 
 
 
-app.UseHangfireDashboard("/hangfire", new DashboardOptions
-{
-    Authorization = new[] { new AuthenticatedUsersOnlyAuthorizationFilter() }
-});
+This e-mail/Message is to inform you that the fullness percentage of fuel strategic tanks in all cities has become 25% , for your kind information and action.
+
+
+
+This e-mail/Message is to inform you that the fullness percentage of fuel small stations in all cities has become 20% , for your kind information and action.
