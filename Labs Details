@@ -1,10 +1,1 @@
-{
-    public string StationName { get; set; } = string.Empty;
-    public string City { get; set; } = string.Empty;
-    public string StationGuid { get; set; } = string.Empty;
-    public double TotalVolume { get; set; }
-    public double Capacity { get; set; }
-    public double DistributionVolume { get; set; }
-    public double AverageDailyDistribution { get; set; }
-    public double ExpectedDaysOfSupply { get; set; }
-}
+string emailBody = $"Dear Team,\n\nStation '{station.StationName}' in {station.City} has only {station.ExpectedDaysOfSupply:F2} days of fuel remaining.\n\nPlease take the necessary action.";
