@@ -1,144 +1,145 @@
- public async Task CheckRemainingDaysPerStationAsync(string jobName)
- {
-     var endDate = DateTime.Now;
-     var startDate = endDate.AddDays(-30);
+public async Task CheckRemainingDaysPerStationAsync(string jobName)
+{
+    var endDate = DateTime.Now;
+    var startDate = endDate.AddDays(-30);
 
-     // 1. Load stations with tanks and last measurements
-     var stationsWithTanks = await _db.Stations
-         .Where(s =>
-             s.DeletedAt == null &&
-             s.StationType != null &&
-             s.StationType.Trim().ToLower() == enStationType.Main.ToString().Trim().ToLower())
-         .Select(s => new
-         {
-             Station = s,
-             Tanks = s.Tanks
-                 .Where(t => t.TankStatusId == (int)enTankStatuses.online)
-                 .Select(t => new
-                 {
-                     Tank = t,
-                     LastMeasurement = t.TankMeasurements
-                         .OrderByDescending(m => m.Id)
-                         .FirstOrDefault()
-                 })
-         })
-         .ToListAsync();
+    // 1. Load stations with tanks and last measurements
+    var stationsWithTanks = await _db.Stations
+        .Where(s =>
+            s.DeletedAt == null &&
+            s.StationType != null &&
+            s.StationType.Trim().ToLower() == enStationType.Main.ToString().Trim().ToLower())
+        .Select(s => new
+        {
+            Station = s,
+            Tanks = s.Tanks
+                .Where(t => t.TankStatusId == (int)enTankStatuses.online)
+                .Select(t => new
+                {
+                    Tank = t,
+                    LastMeasurement = t.TankMeasurements
+                        .OrderByDescending(m => m.Id)
+                        .FirstOrDefault()
+                })
+        })
+        .ToListAsync();
 
-     // 2. Process per station
-     var stationResults = new List<StationDistributionInfo>();
+    var stationResults = new List<StationDistributionInfo>();
 
-     foreach (var stationEntry in stationsWithTanks)
-     {
-         double totalVolume = 0;
-         double totalCapacity = 0;
+    foreach (var stationEntry in stationsWithTanks)
+    {
+        double totalVolume = 0;
+        double totalCapacity = 0;
 
-         foreach (var tankEntry in stationEntry.Tanks)
-         {
-             if (tankEntry.LastMeasurement != null)
-                 totalVolume += tankEntry.LastMeasurement.FuelVolume;
+        foreach (var tankEntry in stationEntry.Tanks)
+        {
+            if (tankEntry.LastMeasurement != null)
+                totalVolume += tankEntry.LastMeasurement.FuelVolume;
 
-             totalCapacity += tankEntry.Tank.Capacity;
-         }
+            totalCapacity += tankEntry.Tank.Capacity;
+        }
 
-         // Get distribution volume safely
-         double totalDistributionVolume = GetStationDistributionVolumeAsync(startDate, endDate, stationEntry.Station.Guid.ToString());
+        // Calculate distribution volume
+        double totalDistributionVolume = GetStationDistributionVolumeAsync(startDate, endDate, stationEntry.Station.Guid.ToString());
 
-         stationResults.Add(new StationDistributionInfo
-         {
-             City = stationEntry.Station.City.ToUpper(),
-             StationGuid = stationEntry.Station.Guid.ToString(),
-             TotalVolume = totalVolume,
-             Capacity = totalCapacity,
-             DistributionVolume = totalDistributionVolume
-         });
-     }
+        double averageDailyDistribution = totalDistributionVolume / 30.0;
+        double expectedDaysOfSupply = averageDailyDistribution > 0
+            ? totalVolume / averageDailyDistribution
+            : 0;
 
-     // 3. Aggregate by city and compute final metrics
-     var cityResults = stationResults
-         .GroupBy(r => r.City)
-         .Select(g => new CitySupplyMetrics
-         {
-             City = g.Key,
-             CurrentVolumeLiters = g.Sum(s => s.TotalVolume),
-             CapacityLiters = g.Sum(s => s.Capacity),
-             TotalDistributionLast30Days = g.Sum(s => s.DistributionVolume),
-             AverageDailyDistribution = g.Sum(s => s.DistributionVolume) / 30.0,
-             ExpectedDaysOfSupply = (g.Sum(s => s.DistributionVolume) / 30.0) > 0
-                                     ? (g.Sum(s => s.TotalVolume)) / (g.Sum(s => s.DistributionVolume) / 30.0)
-                                     : 0
-         })
-         .OrderBy(c => c.City)
-         .ToList();
+        stationResults.Add(new StationDistributionInfo
+        {
+            StationName = stationEntry.Station.Name,
+            City = stationEntry.Station.City,
+            StationGuid = stationEntry.Station.Guid.ToString(),
+            TotalVolume = totalVolume,
+            Capacity = totalCapacity,
+            DistributionVolume = totalDistributionVolume,
+            AverageDailyDistribution = averageDailyDistribution,
+            ExpectedDaysOfSupply = expectedDaysOfSupply
+        });
+    }
 
+    // 2. Group by Station Name (if needed, here just ensuring unique station entries)
+    var groupedStations = stationResults
+        .GroupBy(s => s.StationName)
+        .Select(g => g.First()) // If multiple entries, take the first
+        .OrderBy(s => s.StationName)
+        .ToList();
 
-     var result = cityResults
-         .Select(e => new CityExpectedToProvideFuelResult
-         {
-             Name = e.City,
-             CurrentAvailableVolume = e.CurrentVolumeLiters,
-             CurrentAvailablePercentage = (e.CurrentVolumeLiters / e.CapacityLiters) * 100,
-             DailyAverageConsuming = e.AverageDailyDistribution,
-             AvailableDays = e.ExpectedDaysOfSupply
-         })
-         .ToList();
+    // 3. Identify stations with low expected days
+    var stationsToNotify = groupedStations
+        .Where(s => s.ExpectedDaysOfSupply < 1.5)
+        .ToList();
 
+    if (stationsToNotify.Any())
+    {
+        // Load SMS configs
+        var smsConfigs = await _configDb.JobSmsPhones
+            .Where(e => e.JobSmsConfig.NotifyTeamJob.JobName == jobName)
+            .Select(e => new
+            {
+                e.JobSmsConfig.MessageTitle,
+                e.JobSmsConfig.MessageBody,
+                e.Phone
+            })
+            .ToListAsync();
 
-     //if (stations.Count > 0)
-     //{
-     //    var smsConfigs = await _configDb.JobSmsPhones
-     //        .Where(e => e.JobSmsConfig.NotifyTeamJob.JobName == jobName)
-     //        .Select(e => new
-     //        {
-     //            e.JobSmsConfig.MessageTitle,
-     //            e.JobSmsConfig.MessageBody,
-     //            e.Phone
-     //        })
-     //        .ToListAsync();
+        foreach (var station in stationsToNotify)
+        {
+            string smsMessage = $"{station.StationName} in {station.City} has only {station.ExpectedDaysOfSupply:F2} days of fuel remaining.";
 
-     //    try
-     //    {
-     //        foreach (var msg in smsConfigs)
-     //            _smsService.SendSms(msg.MessageTitle, msg.Phone, msg.MessageBody);
-     //    }
-     //    catch (Exception ex)
-     //    {
-     //        var error = new HangfireJobSMSLog
-     //        {
-     //            JobName = jobName,
-     //            AddedOn = DateTime.Now,
-     //            ErrorMessage = ex.Message
-     //        };
+            try
+            {
+                foreach (var sms in smsConfigs)
+                    _smsService.SendSms(sms.MessageTitle, sms.Phone, $"{sms.MessageBody}\n{smsMessage}");
+            }
+            catch (Exception ex)
+            {
+                var error = new HangfireJobSMSLog
+                {
+                    JobName = jobName,
+                    AddedOn = DateTime.Now,
+                    ErrorMessage = ex.Message
+                };
 
-     //        await _configDb.HangfireJobSMSLogs.AddAsync(error);
-     //        await _configDb.SaveChangesAsync();
-     //    }
+                await _configDb.HangfireJobSMSLogs.AddAsync(error);
+                await _configDb.SaveChangesAsync();
+            }
+        }
 
-     //    var emailConfigs = await _configDb.JobEmails
-     //        .Where(e => e.JobEmailConfig.NotifyTeamJob.JobName == jobName)
-     //        .Select(e => new
-     //        {
-     //            e.JobEmailConfig.Subject,
-     //            e.JobEmailConfig.Body,
-     //            e.Email
-     //        })
-     //        .ToListAsync();
+        // Load Email configs
+        var emailConfigs = await _configDb.JobEmails
+            .Where(e => e.JobEmailConfig.NotifyTeamJob.JobName == jobName)
+            .Select(e => new
+            {
+                e.JobEmailConfig.Subject,
+                e.JobEmailConfig.Body,
+                e.Email
+            })
+            .ToListAsync();
 
-     //    try
-     //    {
-     //        foreach (var email in emailConfigs)
-     //            await _emailService.SendEmailAsync(email.Email, email.Subject, email.Body);
-     //    }
-     //    catch (Exception ex)
-     //    {
-     //        var error = new HangfireJobEmailLog
-     //        {
-     //            JobName = jobName,
-     //            AddedOn = DateTime.Now,
-     //            ErrorMessage = ex.Message
-     //        };
+        foreach (var station in stationsToNotify)
+        {
+            string emailBody = $"Dear Team,\n\nStation '{station.StationName}' in {station.City} has only {station.ExpectedDaysOfSupply:F2} days of fuel remaining.\n\nPlease take the necessary action.";
 
-     //        await _configDb.HangfireJobEmailLogs.AddAsync(error);
-     //        await _configDb.SaveChangesAsync();
-     //    }
-     //}
- }
+            try
+            {
+                foreach (var email in emailConfigs)
+                    await _emailService.SendEmailAsync(email.Email, email.Subject, $"{email.Body}\n\n{emailBody}");
+            }
+            catch (Exception ex)
+            {
+                var error = new HangfireJobEmailLog
+                {
+                    JobName = jobName,
+                    AddedOn = DateTime.Now,
+                    ErrorMessage = ex.Message
+                };
+
+                await _configDb.HangfireJobEmailLogs.AddAsync(error);
+                await _configDb.SaveChangesAsync();
+            }
+        }
+    }
+}
