@@ -1,1 +1,30 @@
-string emailBody = $"Dear Team,\n\nStation '{station.StationName}' in {station.City} has only {station.ExpectedDaysOfSupply:F2} days of fuel remaining.\n\nPlease take the necessary action.";
+  public static class EmailBodyBuilder
+    {
+        public static string GenerateEmailBody(string template, Dictionary<string, string> templateModel)
+        {
+            var templatePath = $"{Directory.GetCurrentDirectory()}/Templates/{template}.html";
+            var streamReader = new StreamReader(templatePath);
+            var body = streamReader.ReadToEnd();
+            streamReader.Close();
+
+            foreach (var item in templateModel)
+                body = body.Replace(item.Key, item.Value);
+
+            return body;
+        }
+
+
+    }
+
+ var emailTemplateModel = new Dictionary<string, string>()
+ {
+     {
+         "{{name}}",user.UserName
+     },
+     {
+         "{{action_url}}",confirmUrl
+     }
+ };
+
+
+ var emailBody = EmailBodyBuilder.GenerateEmailBody("EmailConfirmation", emailTemplateModel);
