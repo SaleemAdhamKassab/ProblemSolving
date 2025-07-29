@@ -1,1 +1,94 @@
-test
+الزميل العزيز سليم,
+تحية طيبة وبعد,
+
+بالإشارة الى اجتماعنا الأخير بخصوص نظام “ Telemarketing control system “ أرجو الاطلاع على النقاط التالية والتي تلخص التعديلات المطلوبة لضمان توافق النظام مع طبيعة عملنا في قسم الدراسات التسويقية عبر الهاتف :
+
+• Projects / Projects List
+Custom Excel Headers
+نرجو إضافة إمكانية تخصيص ( Header ) في كل مشروع, بحيث تنعكس الأعمدة كما يتم تجهيزها في ملف الاكسل الخاص بالدراسة بدلاً من الهيكلية الثابتة حالياً.
+UnApplicable: (طلب جديد كليا لم يتم ذكره عند انشاء المشروع) بدو سيستم جديد لان هاد التغيير بغيرلنا هرمية العمل بشكل كامل
+This request introduces a new functionality not included in the original scope. It requires a separate system due to its impact on the existing structure.
+
+Editable Project Data
+نرجو تفعيل خاصية التعديل, الإضافة, او الحذف لبيانات المشروع بعد انشائه , دون الحاجة لإعادة إنشاء مشروع جديد.
+UnApplicable: (طلب جديد كليا لم يتم ذكره عند انشاء المشروع) بدو سيستم جديد لان هاد التغيير بغيرلنا هرمية العمل بشكل كامل
+This is also a new request that requires a structural change to the project logic and must be handled as a separate feature.
+
+Read-only Access for Departments
+نرجو منح أقسام Research – Segmentation صلاحية " قراءة فقط " لعرض بيانات المشاريع دون تعديل.
+Applicable
+This will be implemented as requested.
+
+Excel Download Permission for Telemarketing Team
+السماح لفريق Telemarketing بتحميل ملف الاكسل المرتبط بالمشروع عند الحاجة للمراجعة او المطابقة.
+Applicable
+Download permission will be enabled for the Telemarketing team.
+
+Column Sorting and Filtering ( A-Z )
+تفعيل خاصية الفرز والترتيب داخل الأعمدة لتسهيل تنظيم البيانات.
+Applicable
+Sorting and filtering will be activated to improve data usability.
+
+Reattempt Distribution Management
+إضافة خيار إمكانية إعادة توزيع الداتا التي تم التواصل معهم...
+Applicable: الرجاء تزويدنا في حالات ال GSM الجديدة النهائية التي سوف تدخل في خوارزمية التوزيع – الحالية (Initilaize)
+We will proceed with implementation. Please share the finalized GSM status list to be included in the re-distribution logic.
+
+Color Coding for informed Status
+تمييز حالة " informed " تلقائياً بلون محدد كما هو الحال مع " completed "...
+Applicable: الرجاء تزيدنا باللون المطلوب
+This will be applied. Kindly provide the preferred color code.
+
+Admin-Controlled Visibility by Department
+يرجى تفعيل صلاحية للأدمن لتحديد من يمكنه رؤية كل مشروع وفقاً لنوعه,
+UnApplicable: (طلب جديد كليا لم يتم ذكره عند انشاء المشروع) بدو سيستم جديد لان هاد التغيير بغيرلنا هرمية العمل بشكل كامل
+This feature is not part of the initial design and requires a new visibility control module.
+
+Auto-Date Entry with Admin Edit Rights
+تسجيل تاريخ الإدخال تلقائياً...
+Applicable
+Auto-entry will be added with editing limited to Admin only.
+
+Remove Inactive Users from Assignment List
+يرجى ازلة اسماء المستخدمين غير النشطين...
+Applicable
+The mentioned users will be removed from the distribution list.
+
+• Statistic / General Reports
+Segment-Level Quota Management
+حالياً النظام يتيح فقط ادخال الكوتا الإجمالية...
+UnApplicable: (طلب جديد كليا لم يتم ذكره عند انشاء المشروع) بدو سيستم جديد لان هاد التغيير بغيرلنا هرمية العمل بشكل كامل
+This request changes the current logic and would require a new quota management system.
+
+Filtering in Statistic Page
+نرجو إضافة قوائم منسدلة ( Drop-list )...
+Dropdown filters will be added, with multi-select capability where applicable.
+
+Remove Closed GSMs Definition
+Applicable
+Will be updated as requested.
+
+Revise Non-Closed Definition
+Applicable
+We will revise this definition to include only numbers with no contact attempts.
+
+Total Count Per Status
+اظهار المجموع الكلي لكل حالة...
+Applicable
+Total per status will be displayed in productivity reports.
+
+Exclude untouched Numbers from Checked Count
+استبعاد الأرقام التي لم يتم التواصل معها...
+Applicable
+We will ensure that only contacted numbers are reflected in the checked count.
+
+Clickable status for Detailed View
+نرجو عرض الأرقام المرتبطة بها بشكل مفصل...
+Applicable
+This will be implemented to enable detailed views on click.
+
+ملاحظة عامة:
+For all applicable changes, we estimate one month of development starting from August 15, 2025.
+
+مع فائق الاحترام،
+Saleem Kassab
