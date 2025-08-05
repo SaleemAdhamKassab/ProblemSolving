@@ -1,62 +1,23 @@
-Kindly, I would like to share with your kind side the report of “Telemarketing system” project
- 
-Business Need:
-This project is initiated to build a software system for Telemarketing Section to reach tasks automation and manage complex tasks such as (distribute task, follow up), currently these tasks implemented manually which is very difficult and requires too many excel sheets, In addition there is possibility of having errors .. 
-Objective:
- 
-The system allows creating projects of the following types (Research Surveys, Segmentation Studies, or Telemarketing Campaign). we can define start and end dates, set quotas, and distribute data equally among participating telemarketers.
- 
-The project would allow and facilitate the following:
- 
-•	Automatic distribution for GSM: Distribute the list of customer GSMs related to a Survey or a campaign.
-•	Statistical reports: The system should provide statistical report to get ( Count of calls per status/ Actual percentage for completed and non-completed calls/ Quota conditions), in addition the system integrates with workforce management software to calculate each telemarketer's actual working hours, project type, and segment. This data is used to determine daily productivity.
-•	Target: Calculate the target for each employee.
-•	Mistake report: the system should provide to calculate mistakes & report explaining the type of mistake for each employee.
-•	Evaluation: Calculate the evaluation for each employee after each project.
- 
-Completion VS Plan:
+Sprint 1	Requirement gathering and system analysis 
+	System modeling and build relation database 
+	 Server preparation
+	
+Sprint 2	Build hybrid Auth layer which combines between (windows and token) concept 
+	Build project operations (auto distribute and redistribute) 
+	Build real time notification 
+	UAT
 
-Plan	% Complete	Variance
-46%	45%	-1%
+Sprint 3	Integration with Telemarketing workforce management system 
+	Build Reporting & Analytics data 
+	UAT
+Sprint 4	Build “analyzing productivity” report 
+	Track telemarketers activity 
+	Build target evaluation 
+	UAT
+Sprint 5	Build Mistakes Report area 
+	Build telemarketer performance report 
+	UAT
+ 
+IS System security Compliance 
 
-Project scope :
- 
-This project initiated to : 
-•	Servers preparations for hosting the system.
-•	System implementation and acceptance.
-•	Integration with Telemarketing workforce management system.
-•	UAT.
-•	Implement IS System security Compliance.
-•	Go production.
- 
-Achieved millstones: 
-
-Stage	Planned Date	Actual Date	Note	
-Sprint 1	Requirement gathering and system analysis 	30-5-2024	30-5-2024	- 	
-	System modeling and build relation database 				
-	 Server preparation	30-6-2024	10-7-2024 	•	Server readiness on 27-6-2024
-•	Delay reason: 
-Till build and publish the application to be adhere the new policy of information security. Since developer not allowed be admin on IIS ( windows web server) and task should be done through IT side.	
-					
-Sprint 2	Build hybrid Auth layer which combines between (windows and token) concept 	8-7-2024	17-7-2024	Delay due to above milestone to insure readiness for the server to implement UAT	
-	Build project operations (auto distribute and redistribute) 				
-	Build real time notification 				
-	UAT				
-
- Upcoming millstones:
- 
-Stage	Plan Date	Update plan date	Remarks
-Sprint 3	Integration with Telemarketing workforce management system 	5-8-2024	14-8-2024	Re-planning due to the above shifting.
-	Build Reporting & Analytics data 			
-	UAT			
-Sprint 4	Build “analyzing productivity” report 	3-9-2024	12-9-2024	-
-	Track telemarketers activity 			
-	Build target evaluation 			
-	UAT			
-Sprint 5	Build Mistakes Report area 	2-10-2024	13-10-2024	-
-	Build telemarketer performance report 			
-	UAT			
- IS System security Compliance 	9-10-2024	20-10-2024	-
- Production phase	17-10-2024	28-10-2024	-
- 
-Thanks and best regards
+Production phase
