@@ -1,94 +1,62 @@
-الزميل العزيز سليم,
-تحية طيبة وبعد,
+Kindly, I would like to share with your kind side the report of “Telemarketing system” project
+ 
+Business Need:
+This project is initiated to build a software system for Telemarketing Section to reach tasks automation and manage complex tasks such as (distribute task, follow up), currently these tasks implemented manually which is very difficult and requires too many excel sheets, In addition there is possibility of having errors .. 
+Objective:
+ 
+The system allows creating projects of the following types (Research Surveys, Segmentation Studies, or Telemarketing Campaign). we can define start and end dates, set quotas, and distribute data equally among participating telemarketers.
+ 
+The project would allow and facilitate the following:
+ 
+•	Automatic distribution for GSM: Distribute the list of customer GSMs related to a Survey or a campaign.
+•	Statistical reports: The system should provide statistical report to get ( Count of calls per status/ Actual percentage for completed and non-completed calls/ Quota conditions), in addition the system integrates with workforce management software to calculate each telemarketer's actual working hours, project type, and segment. This data is used to determine daily productivity.
+•	Target: Calculate the target for each employee.
+•	Mistake report: the system should provide to calculate mistakes & report explaining the type of mistake for each employee.
+•	Evaluation: Calculate the evaluation for each employee after each project.
+ 
+Completion VS Plan:
 
-بالإشارة الى اجتماعنا الأخير بخصوص نظام “ Telemarketing control system “ أرجو الاطلاع على النقاط التالية والتي تلخص التعديلات المطلوبة لضمان توافق النظام مع طبيعة عملنا في قسم الدراسات التسويقية عبر الهاتف :
+Plan	% Complete	Variance
+46%	45%	-1%
 
-• Projects / Projects List
-Custom Excel Headers
-نرجو إضافة إمكانية تخصيص ( Header ) في كل مشروع, بحيث تنعكس الأعمدة كما يتم تجهيزها في ملف الاكسل الخاص بالدراسة بدلاً من الهيكلية الثابتة حالياً.
-UnApplicable: (طلب جديد كليا لم يتم ذكره عند انشاء المشروع) بدو سيستم جديد لان هاد التغيير بغيرلنا هرمية العمل بشكل كامل
-This request introduces a new functionality not included in the original scope. It requires a separate system due to its impact on the existing structure.
+Project scope :
+ 
+This project initiated to : 
+•	Servers preparations for hosting the system.
+•	System implementation and acceptance.
+•	Integration with Telemarketing workforce management system.
+•	UAT.
+•	Implement IS System security Compliance.
+•	Go production.
+ 
+Achieved millstones: 
 
-Editable Project Data
-نرجو تفعيل خاصية التعديل, الإضافة, او الحذف لبيانات المشروع بعد انشائه , دون الحاجة لإعادة إنشاء مشروع جديد.
-UnApplicable: (طلب جديد كليا لم يتم ذكره عند انشاء المشروع) بدو سيستم جديد لان هاد التغيير بغيرلنا هرمية العمل بشكل كامل
-This is also a new request that requires a structural change to the project logic and must be handled as a separate feature.
+Stage	Planned Date	Actual Date	Note	
+Sprint 1	Requirement gathering and system analysis 	30-5-2024	30-5-2024	- 	
+	System modeling and build relation database 				
+	 Server preparation	30-6-2024	10-7-2024 	•	Server readiness on 27-6-2024
+•	Delay reason: 
+Till build and publish the application to be adhere the new policy of information security. Since developer not allowed be admin on IIS ( windows web server) and task should be done through IT side.	
+					
+Sprint 2	Build hybrid Auth layer which combines between (windows and token) concept 	8-7-2024	17-7-2024	Delay due to above milestone to insure readiness for the server to implement UAT	
+	Build project operations (auto distribute and redistribute) 				
+	Build real time notification 				
+	UAT				
 
-Read-only Access for Departments
-نرجو منح أقسام Research – Segmentation صلاحية " قراءة فقط " لعرض بيانات المشاريع دون تعديل.
-Applicable
-This will be implemented as requested.
-
-Excel Download Permission for Telemarketing Team
-السماح لفريق Telemarketing بتحميل ملف الاكسل المرتبط بالمشروع عند الحاجة للمراجعة او المطابقة.
-Applicable
-Download permission will be enabled for the Telemarketing team.
-
-Column Sorting and Filtering ( A-Z )
-تفعيل خاصية الفرز والترتيب داخل الأعمدة لتسهيل تنظيم البيانات.
-Applicable
-Sorting and filtering will be activated to improve data usability.
-
-Reattempt Distribution Management
-إضافة خيار إمكانية إعادة توزيع الداتا التي تم التواصل معهم...
-Applicable: الرجاء تزويدنا في حالات ال GSM الجديدة النهائية التي سوف تدخل في خوارزمية التوزيع – الحالية (Initilaize)
-We will proceed with implementation. Please share the finalized GSM status list to be included in the re-distribution logic.
-
-Color Coding for informed Status
-تمييز حالة " informed " تلقائياً بلون محدد كما هو الحال مع " completed "...
-Applicable: الرجاء تزيدنا باللون المطلوب
-This will be applied. Kindly provide the preferred color code.
-
-Admin-Controlled Visibility by Department
-يرجى تفعيل صلاحية للأدمن لتحديد من يمكنه رؤية كل مشروع وفقاً لنوعه,
-UnApplicable: (طلب جديد كليا لم يتم ذكره عند انشاء المشروع) بدو سيستم جديد لان هاد التغيير بغيرلنا هرمية العمل بشكل كامل
-This feature is not part of the initial design and requires a new visibility control module.
-
-Auto-Date Entry with Admin Edit Rights
-تسجيل تاريخ الإدخال تلقائياً...
-Applicable
-Auto-entry will be added with editing limited to Admin only.
-
-Remove Inactive Users from Assignment List
-يرجى ازلة اسماء المستخدمين غير النشطين...
-Applicable
-The mentioned users will be removed from the distribution list.
-
-• Statistic / General Reports
-Segment-Level Quota Management
-حالياً النظام يتيح فقط ادخال الكوتا الإجمالية...
-UnApplicable: (طلب جديد كليا لم يتم ذكره عند انشاء المشروع) بدو سيستم جديد لان هاد التغيير بغيرلنا هرمية العمل بشكل كامل
-This request changes the current logic and would require a new quota management system.
-
-Filtering in Statistic Page
-نرجو إضافة قوائم منسدلة ( Drop-list )...
-Dropdown filters will be added, with multi-select capability where applicable.
-
-Remove Closed GSMs Definition
-Applicable
-Will be updated as requested.
-
-Revise Non-Closed Definition
-Applicable
-We will revise this definition to include only numbers with no contact attempts.
-
-Total Count Per Status
-اظهار المجموع الكلي لكل حالة...
-Applicable
-Total per status will be displayed in productivity reports.
-
-Exclude untouched Numbers from Checked Count
-استبعاد الأرقام التي لم يتم التواصل معها...
-Applicable
-We will ensure that only contacted numbers are reflected in the checked count.
-
-Clickable status for Detailed View
-نرجو عرض الأرقام المرتبطة بها بشكل مفصل...
-Applicable
-This will be implemented to enable detailed views on click.
-
-ملاحظة عامة:
-For all applicable changes, we estimate one month of development starting from August 15, 2025.
-
-مع فائق الاحترام،
-Saleem Kassab
+ Upcoming millstones:
+ 
+Stage	Plan Date	Update plan date	Remarks
+Sprint 3	Integration with Telemarketing workforce management system 	5-8-2024	14-8-2024	Re-planning due to the above shifting.
+	Build Reporting & Analytics data 			
+	UAT			
+Sprint 4	Build “analyzing productivity” report 	3-9-2024	12-9-2024	-
+	Track telemarketers activity 			
+	Build target evaluation 			
+	UAT			
+Sprint 5	Build Mistakes Report area 	2-10-2024	13-10-2024	-
+	Build telemarketer performance report 			
+	UAT			
+ IS System security Compliance 	9-10-2024	20-10-2024	-
+ Production phase	17-10-2024	28-10-2024	-
+ 
+Thanks and best regards
