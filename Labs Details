@@ -1,23 +1,7 @@
-Sprint 1	Requirement gathering and system analysis 
-	System modeling and build relation database 
-	 Server preparation
-	
-Sprint 2	Build hybrid Auth layer which combines between (windows and token) concept 
-	Build project operations (auto distribute and redistribute) 
-	Build real time notification 
-	UAT
-
-Sprint 3	Integration with Telemarketing workforce management system 
-	Build Reporting & Analytics data 
-	UAT
-Sprint 4	Build “analyzing productivity” report 
-	Track telemarketers activity 
-	Build target evaluation 
-	UAT
-Sprint 5	Build Mistakes Report area 
-	Build telemarketer performance report 
-	UAT
- 
-IS System security Compliance 
-
-Production phase
+Date of Request 	"Owner 
+(Dept.)"	"Requested
+ by "	Position	Approved By 	Position	"Subject/
+Project Name"	Impact/Added Value	Overall Duration 	ID 	Employee Name	Position	Dept.	Unit	City	Description of Employee Outstanding Contribution  	Employee Contribution is Part of Daily Tasks	Core/Support Contribution	"Weight of Contribution
+(From 1 to 5)"	"Duration of Contribution
+ (1 month, 10 days ….)"	Contribution Required Attendance After Working Hours/Weekends  (YES/NO)	"Overtime is Compensated
+(YES/NO)"	Proposed  Reward	Committee Notes	Committee Recommendations
