@@ -1,1 +1,10 @@
-{"Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding."}
+ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer(
+                "YourConnectionStringHere",
+                sqlOptions => sqlOptions.CommandTimeout(180) // 180 seconds
+            );
+        }
+    }
